@@ -19,8 +19,11 @@ uh = Unihandecoder(encoding="utf-8",lang="ch")
 print uh.decode(u"明天明天的风吹")
 uh = Unihandecoder(encoding="utf-8",lang="ja")
 print uh.decode(u"明日は明日の風が吹く")
+print uh.decode(u"不明")
+print uh.decode(u"日経新聞")
 uh = Unihandecoder(encoding="utf-8",lang="ch")
 print uh.decode(u"내일은 내일 바람이 분다")
+
 
 """
 result should be:
