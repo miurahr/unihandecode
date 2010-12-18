@@ -17,12 +17,12 @@ Unicode HAN code point dictionary.\n\
 Based on Unicode.org Unihan database.\n\
 \'\'\'\n\
 \n\
-CODEPOINTS = {\n\
 "
 
 def process_readings():
     oucode = 0
     olcode  = 0
+    firsttime = True
     for line in open(source,'r'):
         items = line[:-1].split('\t')
         try:
@@ -34,14 +34,18 @@ def process_readings():
                 pron = items[2].split(' ')[0].capitalize()
 
                 if oucode != ucode:
-                    print "],\nu'x%s':["%code[0],
+                    if firsttime:
+                        firsttime = False
+                        print "CODEPOINTS = { \nu'x%s':["%code[0],
+                    else:
+                        print "],\nu'x%s':["%code[0],
                     oucode = ucode
                     olcode = -1
                 if (lcode - olcode) > 1:
                     for i in range(lcode-olcode-1):
-                        print  '"[?]",',
+                        print  "'',",
                 olcode = lcode
-                print  '"'+pron+'",',
+                print  "'"+pron+"',",
         except:
             continue
 
