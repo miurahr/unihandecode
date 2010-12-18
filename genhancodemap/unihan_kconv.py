@@ -2,8 +2,12 @@
 import sys
 import re
 
+source = 'Unihan_Readings.txt'
+
 def print_header():
     print "\
+# -*- coding: utf-8 -*-\n\
+\n\
 __license__ = \'GPL 3\'\n\
 __copyright__ = \'2010 Hiroshi Miura <miurahr@linux.com>\'\n\
 __docformat__ = \'restructuredtext en\'\n\
@@ -19,7 +23,7 @@ CODEPOINTS = {\n\
 def process_readings():
     oucode = 0
     olcode  = 0
-    for line in open('Unihan_Readings.txt','r'):
+    for line in open(source,'r'):
         items = line[:-1].split('\t')
         try:
             r = re.match(r'kKorea', items[1])
