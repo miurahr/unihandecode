@@ -3,7 +3,7 @@
 
 from distutils.core import Command, setup
 from distutils.command.install import install as DistutilsInstall
-import genhancodemap
+import gencodemap
 import unittest
 import os
 
@@ -45,7 +45,7 @@ class GenMap(Command):
         pass
 
     def run(self):
-        unihan_source = os.path.join('genhancodemap','Unihan_Readings.txt')        
+        unihan_source = os.path.join('gencodemap','Unihan_Readings.txt')        
 
         dest = os.path.join('unihandecode','krcodepoints.py')
         genhancodemap.unihan_conv(unihan_source, dest, 'kr')
