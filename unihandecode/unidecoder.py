@@ -74,15 +74,14 @@ class Unidecoder(object):
         '''
         Tranliterate the string from unicode characters to ASCII in Chinese and others.
         example  convert:  "明天明天的风吹" and "明日は明日の風が吹く"
-		>>> u = Unidecoder()
-		>>> print u.decode(u"\u660e\u5929\u660e\u5929\u7684\u98ce\u5439")
-		Ming Tian Ming Tian De Feng Chui 
+        >>> u = Unidecoder()
+        >>> print u.decode(u"\u660e\u5929\u660e\u5929\u7684\u98ce\u5439")
+        Ming Tian Ming Tian De Feng Chui 
         >>> print u.decode(u'\u660e\u65e5\u306f\u660e\u65e5\u306e\u98a8\u304c\u5439\u304f')
         Ming Ri haMing Ri noFeng gaChui ku
         '''
         # Replace characters larger than 127 with their ASCII equivelent.
-        return re.sub('[^\x00-\x7f]', lambda x: self.replace_point(x.group()),
-            text)
+        return re.sub('[^\x00-\x7f]',lambda x: self.replace_point(x.group()), text)
 
     def replace_point(self, codepoint):
         '''
@@ -95,7 +94,7 @@ class Unidecoder(object):
             return self.codepoints[self.code_group(codepoint)][self.grouped_point(
                 codepoint)]
         except:
-            return '?'
+            return ''
 
     def code_group(self, character):
         '''

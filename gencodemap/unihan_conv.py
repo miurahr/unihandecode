@@ -1,10 +1,6 @@
 #!/usr/bin/env python
-import sys
-import re
-import getopt
-from unidecode import unidecode
-import codecs
-
+# -*- coding: utf-8 -*-
+import sys, re
 
 def unihan_conv(source='Unihan_Readings.txt', dest='../unihandecode/krcodepoints.py', lang='kr'):
     global parse_line
@@ -39,13 +35,13 @@ def c_parse_line(lcode, category, pron):
     # Vietnamese = 4
     global readings
     if category == 'kMandarin':
-        readings[lcode] = (re.sub(r'(\w+)[1-5]',r'\1',pron), 1)
+        readings[lcode] = (re.sub(r'(\w+)[1-5]',r'\1 ',pron), 1)
     elif category == 'kKorean'     and ((not readings.has_key(lcode)) or readings[lcode][1] > 2):
         readings[lcode] = (pron, 2)
     elif category == 'kJapaneseOn' and ((not readings.has_key(lcode)) or readings[lcode][1] > 3):
         readings[lcode] = (pron, 3)
     elif category == 'kVietnamese' and (not readings.has_key(lcode)):
-        readings[lcode] = (unidecode(unicode(pron,"utf-8")), 4)
+        readings[lcode] = (pron, 4)
 
 def k_parse_line(lcode, category, pron):
     # priority is 
@@ -57,11 +53,11 @@ def k_parse_line(lcode, category, pron):
     if category == 'kKorean':
         readings[lcode] = (pron, 1)
     elif category == 'kMandarin'   and ((not readings.has_key(lcode)) or readings[lcode][1] > 2):
-        readings[lcode] = (re.sub(r'(\w+)[1-5]',r'\1',pron), 2)
+        readings[lcode] = (re.sub(r'(\w+)[1-5]',r'\1 ',pron), 2)
     elif category == 'kJapaneseOn' and ((not readings.has_key(lcode)) or readings[lcode][1] > 3):
         readings[lcode] = (pron, 3)
     elif category == 'kVietnamese' and (not readings.has_key(lcode)):
-        readings[lcode] = (unidecode(unicode(pron,"utf-8")), 4)
+        readings[lcode] = (pron, 4)
 
 def j_parse_line(lcode, category, pron):
     # priority is 
@@ -76,11 +72,11 @@ def j_parse_line(lcode, category, pron):
     if category == 'kJapaneseKun' and ((not readings.has_key(lcode)) or readings[lcode][1] > 2):
         readings[lcode] = (pron, 2)
     elif category == 'kMandarin'  and ((not readings.has_key(lcode)) or readings[lcode][1] > 3):
-        readings[lcode] = (re.sub(r'(\w+)[1-5]',r'\1',pron), 3)
+        readings[lcode] = (re.sub(r'(\w+)[1-5]',r'\1 ',pron), 3)
     elif category == 'kKorean'    and ((not readings.has_key(lcode)) or readings[lcode][1] > 4):
         readings[lcode] = (pron, 4)
     elif category == 'kVietnamese' and (not readings.has_key(lcode)):
-        readings[lcode] = (unidecode(unicode(pron,"utf-8")), 5)
+        readings[lcode] = (pron, 5)
 
 def v_parse_line(lcode, category, pron):
     # priority is 
@@ -90,9 +86,9 @@ def v_parse_line(lcode, category, pron):
     # Vietnamese = 1
     global readings
     if category == 'kVietnamese':
-        readings[lcode] = (unidecode(unicode(pron,"utf-8")), 1)
+        readings[lcode] = (pron, 1)
     elif category == 'kMandarin'   and ((not readings.has_key(lcode)) or readings[lcode][1] > 2):
-        readings[lcode] = (re.sub(r'(\w+)[1-5]',r'\1',pron), 2)
+        readings[lcode] = (re.sub(r'(\w+)[1-5]',r'\1 ',pron), 2)
     elif category == 'kJapaneseOn' and ((not readings.has_key(lcode)) or readings[lcode][1] > 3):
         readings[lcode] = (pron, 3)
     elif category == 'kKorean'     and (not readings.has_key(lcode)):
@@ -130,7 +126,12 @@ def gen_map(ucode):
 
     for i in range(0, 256):
         if readings.has_key(i):
-            print "'"+readings[i][0]+"',",
+            reading = readings[i][0]
+            if is_ascii(reading):
+                print "'"+reading+"',",
+            else:
+                print "'"+reading.encode("utf-8")+"', #XXX\n        ",
+                # if ??codepoints.py file has XXX, you need fix pmap[x] 
         else:
             print  "'',",
         if (i % 16) == 15:
@@ -144,11 +145,15 @@ def process_readings(source):
     readings = {}
 
     for line in open(source, 'r'):
-        items = line[:-1].split('\t')
+        uline = unicode(line, "utf-8")
+        items = uline[:-1].split('\t')
         try:
             code = re.sub(r'U\+([0-9A-F]{2})([0-9A-F]{2}\b)',r'\1\t\2',items[0]).split('\t')
             category = items[1]
             pron = items[2].split(' ')[0].capitalize()
+
+            if not is_ascii(pron):
+                pron = conv_pron(pron) 
 
             if code is not None:
                 ucode = int(code[0],16)
@@ -162,6 +167,24 @@ def process_readings(source):
         except:
             continue
     gen_map(oucode) # output when eof
+
+def is_ascii(s):
+    return all(ord(c) < 128 for c in s)
+
+pmap = {
+        ord(u'â'):'a',ord(u'à'):'a',ord(u'ắ'):'a',ord(u'ă'):'a',ord(u'ấ'):'a',
+
+        ord(u'ü'):'u',ord(u'ụ'):'u',ord(u'ú'):'u',ord(u'ử'):'u',ord(u'ư'):'u',
+        ord(u'ù'):'u',
+
+        ord(u'é'):'e',
+
+        ord(u'ọ'):'o',ord(u'ố'):'o',ord(u'ộ'):'o',ord(u'ơ'):'o',ord(u'ớ'):'o',
+        ord(u'ớ'):'o',   
+}
+
+def conv_pron(s):
+    return re.sub('[^\x00-\x7f]',lambda x: pmap[ord(x)], s)
 
 
 if __name__ == "__main__":

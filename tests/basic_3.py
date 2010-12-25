@@ -73,7 +73,7 @@ class TestUnidecode(unittest.TestCase):
 				"vinedos"),
 				
 				("\u5317\u4EB0",
-				"Bei Jing "),
+				"BeiJing"),
 
 				("Efﬁcient",
 				"Efficient"),
