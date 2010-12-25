@@ -5,15 +5,19 @@ import getopt
 from unidecode import unidecode
 import codecs
 
-source = 'Unihan_Readings.txt'
 olcode  = 0
 firsttime = True
 readings={}
 
-def main(argv):
+def unihan_kconv(source='Unihan_Readings.txt',dest='../unihandecode/hancodepoints.py'):
+    saveout = sys.stdout
+    fout = open(dest,'w')
+    sys.stdout = fout
     print_header()
-    process_readings()
+    process_readings(source)
     print_footer()
+    sys.stdout = saveout
+    fout.close()
 
 
 def print_header():
@@ -69,7 +73,7 @@ def parse_line(lcode, category, pron):
     elif category == 'kVietnamese' and not (readings.has_key(lcode) and readings[lcode][1] > 4):
         readings[lcode] = (unidecode(unicode(pron,"utf-8")), 4)
 
-def process_readings():
+def process_readings(source):
     global readings
     oucode = 0
     for line in open(source, 'r'):
@@ -94,5 +98,5 @@ def process_readings():
 
 
 if __name__ == "__main__":
-    main(sys.argv[1:])
+    unihan_kconv()
 
