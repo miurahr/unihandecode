@@ -27,6 +27,8 @@ __copyright__ = \'2010 Hiroshi Miura <miurahr@linux.com>\'\n__docformat__ = \'re
         fout.write("]\n}\n")
         fout.close()
 
+    def check_r(self, n):
+        return (not self.readings.has_key(lcode)) or (self.readings[lcode][1] > n)
 
     def c_parse_line(self, lcode, category, pron):
         # priority is 
@@ -36,12 +38,16 @@ __copyright__ = \'2010 Hiroshi Miura <miurahr@linux.com>\'\n__docformat__ = \'re
         # Vietnamese = 4
         if category == 'kMandarin':
             self.readings[lcode] = (re.sub(r'(\w+)[1-5]',r'\1 ',pron), 1)
-        elif category == 'kKorean'     and ((not self.readings.has_key(lcode)) or self.readings[lcode][1] > 2):
+        elif category == 'kKorean'     and self.check_r(2):
             self.readings[lcode] = (pron, 2)
-        elif category == 'kJapaneseOn' and ((not self.readings.has_key(lcode)) or self.readings[lcode][1] > 3):
+        elif category == 'kJapaneseOn' and self.check_r(3):
             self.readings[lcode] = ("%s "%pron, 3)
-        elif category == 'kVietnamese' and (not self.readings.has_key(lcode)):
+        elif category == 'kVietnamese' and self.check_r(4):
             self.readings[lcode] = (pron, 4)
+        elif category == 'kCantonese' and self.check_r(5):
+            self.readings[lcode] = (pron,5)
+        elif category == 'kHanyuPinyin' and self.check_r(6):
+            self.readings[lcode] = (re.sub(r'\w+\.\w+:(\w+)',r'\1 ',pron), 6)
 
     def k_parse_line(self, lcode, category, pron):
         # priority is 
@@ -51,12 +57,14 @@ __copyright__ = \'2010 Hiroshi Miura <miurahr@linux.com>\'\n__docformat__ = \'re
         # Vietnamese = 4
         if category == 'kKorean':
             self.readings[lcode] = (pron, 1)
-        elif category == 'kMandarin'   and ((not self.readings.has_key(lcode)) or self.readings[lcode][1] > 2):
+        elif category == 'kMandarin'   and self.check_r(2):
             self.readings[lcode] = (re.sub(r'(\w+)[1-5]',r'\1 ',pron), 2)
-        elif category == 'kJapaneseOn' and ((not self.readings.has_key(lcode)) or self.readings[lcode][1] > 3):
+        elif category == 'kJapaneseOn' and self.check_r(3):
             self.readings[lcode] = ("%s "%pron, 3)
-        elif category == 'kVietnamese' and (not self.readings.has_key(lcode)):
+        elif category == 'kVietnamese' and self.check_r(4):
             self.readings[lcode] = (pron, 4)
+        elif category == 'kCantonese' and self.check_r(5):
+            self.readings[lcode] = (pron,5)
 
     def j_parse_line(self, lcode, category, pron):
         # priority is 
@@ -67,14 +75,16 @@ __copyright__ = \'2010 Hiroshi Miura <miurahr@linux.com>\'\n__docformat__ = \'re
         # Vietnamese = 5
         if category == 'kJapaneseOn':
             self.readings[lcode] = ("%s "%pron, 1)
-        elif category == 'kJapaneseKun' and ((not self.readings.has_key(lcode)) or self.readings[lcode][1] > 2):
+        elif category == 'kJapaneseKun' and self.check_r(2):
             self.readings[lcode] = ("%s "%pron, 2)
-        elif category == 'kMandarin'  and ((not self.readings.has_key(lcode)) or self.readings[lcode][1] > 3):
+        elif category == 'kMandarin'  and self.check_r(3):
             self.readings[lcode] = (re.sub(r'(\w+)[1-5]',r'\1 ',pron), 3)
-        elif category == 'kKorean'    and ((not self.readings.has_key(lcode)) or self.readings[lcode][1] > 4):
+        elif category == 'kKorean'    and self.check_r(4):
             self.readings[lcode] = (pron, 4)
-        elif category == 'kVietnamese' and (not self.readings.has_key(lcode)):
+        elif category == 'kVietnamese' and self.check_r(5):
             self.readings[lcode] = (pron, 5)
+        elif category == 'kCantonese' and self.check_r(6):
+            self.readings[lcode] = (pron,6)
 
     def v_parse_line(self, lcode, category, pron):
         # priority is 
@@ -84,12 +94,14 @@ __copyright__ = \'2010 Hiroshi Miura <miurahr@linux.com>\'\n__docformat__ = \'re
         # Vietnamese = 1
         if category == 'kVietnamese':
             self.readings[lcode] = (pron, 1)
-        elif category == 'kMandarin'   and ((not self.readings.has_key(lcode)) or self.readings[lcode][1] > 2):
+        elif category == 'kMandarin'   and self.check_r(2):
             self.readings[lcode] = (re.sub(r'(\w+)[1-5]',r'\1 ',pron), 2)
-        elif category == 'kJapaneseOn' and ((not self.readings.has_key(lcode)) or self.readings[lcode][1] > 3):
+        elif category == 'kJapaneseOn' and self.check_r(3):
             self.readings[lcode] = ("%s "%pron, 3)
-        elif category == 'kKorean'     and (not self.readings.has_key(lcode)):
+        elif category == 'kKorean'     and self.check_r(4):
             self.readings[lcode] = (pron, 4)
+        elif category == 'kCantonese' and self.check_r(5):
+            self.readings[lcode] = (pron,5)
 
 
     def gen_map(self,fout, ucode):
