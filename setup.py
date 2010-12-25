@@ -3,9 +3,11 @@
 
 from distutils.core import Command, setup
 from distutils.command.install import install as DistutilsInstall
-import gencodemap
+
 import unittest
-import os
+import os,threading
+
+import gencodemap
 
 UNITTESTS = [
         "tests", 
@@ -44,19 +46,31 @@ class GenMap(Command):
         pass
 
     def run(self):
+        k= genmap_t('kr')
+        j= genmap_t('ja')
+        c= genmap_t('zh')
+        v= genmap_t('vn')
+        k.start()
+        j.start()
+        c.start()
+        v.start()
+        k.join()
+        j.join()
+        c.join()
+        v.join()
+
+class genmap_t(threading.Thread):
+    l = None
+    def __init__(self, lang):
+        threading.Thread.__init__(self)
+        self.l = lang
+
+    def run(self):
         unihan_source = os.path.join('gencodemap','Unihan_Readings.txt')        
+        dest = os.path.join('unihandecode',self.l+'codepoints.py')
+        u = gencodemap.UnihanConv(self.l)
+        u.run(source = unihan_source, dest=dest)
 
-        dest = os.path.join('unihandecode','krcodepoints.py')
-        gencodemap.unihan_conv(unihan_source, dest, 'kr')
-
-        dest = os.path.join('unihandecode','jacodepoints.py')
-        gencodemap.unihan_conv(unihan_source, dest, 'ja')
-
-        dest = os.path.join('unihandecode','vncodepoints.py')
-        gencodemap.unihan_conv(unihan_source, dest, 'vn')
-
-        dest = os.path.join('unihandecode','zhcodepoints.py')
-        gencodemap.unihan_conv(unihan_source, dest, 'zh')
 
 setup(name='Unihandecode',
       version='0.01',
