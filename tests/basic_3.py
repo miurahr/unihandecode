@@ -97,3 +97,31 @@ class TestUnidecode(unittest.TestCase):
 		u = Unihandecoder()
 		for instr, output in TESTS:
 			self.failUnlessEqual(u.decode(instr), output)
+
+	def test_ja(self):
+		JATESTS = [
+			(u'\u660e\u65e5\u306f\u660e\u65e5\u306e\u98a8\u304c\u5439\u304f',
+			'Ashita ha Ashita no Kaze ga Fuku'),
+
+			]
+		u = Unihandecoder(lang="ja")
+		for instr, output in JATESTS:
+			self.failUnlessEqual(u.decode(instr), output)
+
+	def test_kr(self):
+		KRTESTS = [
+			(u'\ub0b4\uc77c\uc740 \ub0b4\uc77c \ubc14\ub78c\uc774 \ubd84\ub2e4',
+        		'naeileun naeil barami bunda')
+			]
+		u = Unihandecoder(lang="kr")
+		for instr, output in KRTESTS:
+			self.failUnlessEqual(u.decode(instr), output)
+
+	def test_zh(self):
+		ZHTESTS = [
+			(u"\u660e\u5929\u660e\u5929\u7684\u98ce\u5439",
+			 'Ming Tian Ming Tian De Feng Chui ')
+			]
+		u = Unihandecoder(lang="zh")
+		for instr, output in ZHTESTS:
+			self.failUnlessEqual(u.decode(instr), output)
