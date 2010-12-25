@@ -2,6 +2,8 @@
 import sys
 import re
 import getopt
+from unidecode import unidecode
+import codecs
 
 source = 'Unihan_Readings.txt'
 olcode  = 0
@@ -45,24 +47,32 @@ def gen_map(ucode):
 
     for i in range(0, 255):
         if readings.has_key(i):
-            print "'"+readings[i]+"',",
+            print "'"+readings[i][0]+"',",
         else:
             print  "'',",
         if (i % 16) == 15:
             print "\n"+" "*12,  
 
 def parse_line(lcode, category, pron):
+    # priority is 
+    # Korean     = 1
+    # Mandarin   = 2
+    # JapaneseOn = 3
+    # Vietnamese = 4
     global readings
-    if category == 'kKorea':
-        readings[lcode] = pron
-    elif category == 'kMandarin' and (not readings.has_key(lcode)):
-        readings[lcode] = re.sub(r'(\w+)[1-5]',r'\1',pron)
-
+    if category == 'kKorean':
+        readings[lcode] = (pron, 1)
+    elif category == 'kMandarin' and not (readings.has_key(lcode) and readings[lcode][1] > 2):
+        readings[lcode] = (re.sub(r'(\w+)[1-5]',r'\1',pron), 2)
+    elif category == 'kJapaneseOn' and not (readings.has_key(lcode) and readings[lcode][1] > 3):
+        readings[lcode] = (pron, 3)
+    elif category == 'kVietnamese' and not (readings.has_key(lcode) and readings[lcode][1] > 4):
+        readings[lcode] = (unidecode(unicode(pron,"utf-8")), 4)
 
 def process_readings():
     global readings
     oucode = 0
-    for line in open(source,'r'):
+    for line in open(source, 'r'):
         items = line[:-1].split('\t')
         try:
             code = re.sub(r'U\+([0-9A-F]{2})([0-9A-F]{2}\b)',r'\1\t\2',items[0]).split('\t')
