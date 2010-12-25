@@ -40,11 +40,11 @@ def c_parse_line(lcode, category, pron):
     global readings
     if category == 'kMandarin':
         readings[lcode] = (re.sub(r'(\w+)[1-5]',r'\1',pron), 1)
-    elif category == 'kKorean' and not (readings.has_key(lcode) and readings[lcode][1] > 2):
+    elif category == 'kKorean'     and (not readings.has_key(lcode)) and readings[lcode][1] > 2:
         readings[lcode] = (pron, 2)
-    elif category == 'kJapaneseOn' and not (readings.has_key(lcode) and readings[lcode][1] > 3):
+    elif category == 'kJapaneseOn' and (not readings.has_key(lcode)) and readings[lcode][1] > 3:
         readings[lcode] = (pron, 3)
-    elif category == 'kVietnamese' and not (readings.has_key(lcode) and readings[lcode][1] > 4):
+    elif category == 'kVietnamese' and (not readings.has_key(lcode)):
         readings[lcode] = (unidecode(unicode(pron,"utf-8")), 4)
 
 def k_parse_line(lcode, category, pron):
@@ -56,11 +56,11 @@ def k_parse_line(lcode, category, pron):
     global readings
     if category == 'kKorean':
         readings[lcode] = (pron, 1)
-    elif category == 'kMandarin' and not (readings.has_key(lcode) and readings[lcode][1] > 2):
+    elif category == 'kMandarin'   and (not readings.has_key(lcode)) and readings[lcode][1] > 2:
         readings[lcode] = (re.sub(r'(\w+)[1-5]',r'\1',pron), 2)
-    elif category == 'kJapaneseOn' and not (readings.has_key(lcode) and readings[lcode][1] > 3):
+    elif category == 'kJapaneseOn' and (not readings.has_key(lcode)) and readings[lcode][1] > 3:
         readings[lcode] = (pron, 3)
-    elif category == 'kVietnamese' and not (readings.has_key(lcode) and readings[lcode][1] > 4):
+    elif category == 'kVietnamese' and (not readings.has_key(lcode)) and readings[lcode][1] > 4:
         readings[lcode] = (unidecode(unicode(pron,"utf-8")), 4)
 
 def j_parse_line(lcode, category, pron):
@@ -73,13 +73,13 @@ def j_parse_line(lcode, category, pron):
     global readings
     if category == 'kJapaneseOn':
         readings[lcode] = (pron, 1)
-    if category == 'kJapaneseKun' and not (readings.has_key(lcode) and readings[lcode][1] > 2):
+    if category == 'kJapaneseKun' and (not readings.has_key(lcode)) and readings[lcode][1] > 2:
         readings[lcode] = (pron, 2)
-    elif category == 'kMandarin' and not (readings.has_key(lcode) and readings[lcode][1] > 3):
+    elif category == 'kMandarin'  and (not readings.has_key(lcode)) and readings[lcode][1] > 3:
         readings[lcode] = (re.sub(r'(\w+)[1-5]',r'\1',pron), 3)
-    elif category == 'kKorean' and not (readings.has_key(lcode) and readings[lcode][1] > 4):
+    elif category == 'kKorean'    and (not readings.has_key(lcode)) and readings[lcode][1] > 4:
         readings[lcode] = (pron, 4)
-    elif category == 'kVietnamese' and not (readings.has_key(lcode) and readings[lcode][1] > 5):
+    elif category == 'kVietnamese' and (not readings.has_key(lcode)):
         readings[lcode] = (unidecode(unicode(pron,"utf-8")), 5)
 
 def v_parse_line(lcode, category, pron):
@@ -91,11 +91,11 @@ def v_parse_line(lcode, category, pron):
     global readings
     if category == 'kVietnamese':
         readings[lcode] = (unidecode(unicode(pron,"utf-8")), 1)
-    elif category == 'kMandarin' and not (readings.has_key(lcode) and readings[lcode][1] > 2):
+    elif category == 'kMandarin'   and (not readings.has_key(lcode)) and readings[lcode][1] > 2:
         readings[lcode] = (re.sub(r'(\w+)[1-5]',r'\1',pron), 2)
-    elif category == 'kJapaneseOn' and not (readings.has_key(lcode) and readings[lcode][1] > 3):
+    elif category == 'kJapaneseOn' and (not readings.has_key(lcode)) and readings[lcode][1] > 3:
         readings[lcode] = (pron, 3)
-    elif category == 'kKorean' and not (readings.has_key(lcode) and readings[lcode][1] > 4):
+    elif category == 'kKorean'     and (not readings.has_key(lcode)):
         readings[lcode] = (pron, 4)
 
 
@@ -124,17 +124,17 @@ def gen_map(ucode):
 
     if firsttime:
         firsttime = False
-        print "CODEPOINTS = { \n      u'x%x':["%ucode,
+        print "CODEPOINTS = { \n    u'x%x':[\n        "%ucode,
     else:
-        print "\n      ],\n      u'x%x':["%ucode,
+        print "],\n    u'x%x':[\n        "%ucode,
 
-    for i in range(0, 255):
+    for i in range(0, 256):
         if readings.has_key(i):
             print "'"+readings[i][0]+"',",
         else:
             print  "'',",
         if (i % 16) == 15:
-            print "\n"+" "*12,  
+            print "\n"+" "*8,
 
 def process_readings(source):
     global readings,firsttime, parse_line

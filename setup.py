@@ -32,7 +32,6 @@ class TestCommand(Command):
 class Installer(DistutilsInstall):
 
     def run(self):
-        GenMap.run()
         DistutilsInstall.run(self)
 
 class GenMap(Command):
@@ -48,16 +47,16 @@ class GenMap(Command):
         unihan_source = os.path.join('gencodemap','Unihan_Readings.txt')        
 
         dest = os.path.join('unihandecode','krcodepoints.py')
-        genhancodemap.unihan_conv(unihan_source, dest, 'kr')
+        gencodemap.unihan_conv(unihan_source, dest, 'kr')
 
         dest = os.path.join('unihandecode','jacodepoints.py')
-        genhancodemap.unihan_conv(unihan_source, dest, 'ja')
+        gencodemap.unihan_conv(unihan_source, dest, 'ja')
 
         dest = os.path.join('unihandecode','vncodepoints.py')
-        genhancodemap.unihan_conv(unihan_source, dest, 'vn')
+        gencodemap.unihan_conv(unihan_source, dest, 'vn')
 
         dest = os.path.join('unihandecode','zhcodepoints.py')
-        genhancodemap.unihan_conv(unihan_source, dest, 'zh')
+        gencodemap.unihan_conv(unihan_source, dest, 'zh')
 
 setup(name='Unihandecode',
       version='0.01',
