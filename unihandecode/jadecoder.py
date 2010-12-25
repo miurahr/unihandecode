@@ -52,7 +52,7 @@ class Jadecoder(Unidecoder):
         >>> print k.decode(u'\u660e\u65e5\u306f\u660e\u65e5\u306e\u98a8\u304c\u5439\u304f')
         Ashita ha Ashita no Kaze ga Fuku
         >>> print k.decode(u'\u660e\u5929\u660e\u5929\u7684\u98ce\u5439')
-        Ming Tian Ming Tian De Feng Chui 
+        MeiTenMeiTenTekiSui
         '''        
 
         # if there is not kakasi library, we fall down to use unidecode

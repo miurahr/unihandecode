@@ -30,7 +30,7 @@ class Krdecoder(Unidecoder):
         >>> print h.decode(u"내일은 내일 바람이 분다")
         naeileun naeil barami bunda
         >>> print h.decode(u'\u660e\u65e5\u306f\u660e\u65e5\u306e\u98a8\u304c\u5439\u304f')
-        
+        MyengIlhaMyengIlnoPhwunggaChwiku
         '''
         # Replace characters larger than 127 with their ASCII equivelent.
         return re.sub('[^\x00-\x7f]', lambda x: self.replace_point(x.group()),
