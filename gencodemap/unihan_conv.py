@@ -8,18 +8,6 @@ class UnihanConv():
     readings = {}
     firsttime = True
 
-    pmap = {
-        ord(u'â'):'a',ord(u'à'):'a',ord(u'ắ'):'a',ord(u'ă'):'a',ord(u'ấ'):'a',
-
-        ord(u'ü'):'u',ord(u'ụ'):'u',ord(u'ú'):'u',ord(u'ử'):'u',ord(u'ư'):'u',
-        ord(u'ù'):'u',
-
-        ord(u'é'):'e',
-
-        ord(u'ọ'):'o',ord(u'ố'):'o',ord(u'ộ'):'o',ord(u'ơ'):'o',ord(u'ớ'):'o',
-        ord(u'ớ'):'o',   
-    }
-
     def __init__(self, lang):
         if lang is 'kr':
             self.parse_line = self.k_parse_line
@@ -129,23 +117,33 @@ __copyright__ = \'2010 Hiroshi Miura <miurahr@linux.com>\'\n__docformat__ = \'re
 
     def process_readings(self, source, fout):
         oucode = 0
-   
+        pmap = {
+            ord(u'â'):'a',ord(u'à'):'a',ord(u'ắ'):'a',ord(u'ă'):'a',ord(u'ấ'):'a',
+
+            ord(u'ü'):'u',ord(u'ụ'):'u',ord(u'ú'):'u',ord(u'ử'):'u',ord(u'ư'):'u',
+            ord(u'ù'):'u',
+
+            ord(u'é'):'e',
+
+            ord(u'ọ'):'o',ord(u'ố'):'o',ord(u'ộ'):'o',ord(u'ơ'):'o',ord(u'ớ'):'o',
+            ord(u'ớ'):'o',   
+         }
+
+        r1 = re.compile(r'U\+([0-9A-F]{2})([0-9A-F]{2}\b)')
         for line in open(source, 'r'):
             uline = unicode(line, "utf-8")
             items = uline[:-1].split('\t')
             try:
-                code = re.sub(r'U\+([0-9A-F]{2})([0-9A-F]{2}\b)',r'\1\t\2',items[0]).split('\t')
+                code = r1.sub(r'\1\t\2',items[0]).split('\t')
                 category = items[1]
-                pron = items[2].split(' ')[0].capitalize()
-    
-                if not all(ord(c) < 128 for c in pron):
-                    pron = re.sub('[^\x00-\x7f]',lambda x: self.pmap[ord(x)], pron) 
-    
+                ptmp = items[2].split(' ')[0].capitalize()
+                pron = re.sub('[^\00-\x7f]', lambda x: pmap[ord(x.group())], ptmp) 
+
                 if code is not None:
                     ucode = int(code[0],16)
                     lcode = int(code[1],16)
                     if (oucode != ucode):
-                        self.gen_map(fout, oucode) 
+                        self.gen_map(fout, oucode)
                         oucode = ucode 
                         self.readings={}
                     self.parse_line(lcode, category, pron)
