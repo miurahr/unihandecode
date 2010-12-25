@@ -39,7 +39,7 @@ def c_parse_line(lcode, category, pron):
     elif category == 'kKorean'     and ((not readings.has_key(lcode)) or readings[lcode][1] > 2):
         readings[lcode] = (pron, 2)
     elif category == 'kJapaneseOn' and ((not readings.has_key(lcode)) or readings[lcode][1] > 3):
-        readings[lcode] = (pron, 3)
+        readings[lcode] = ("%s "%pron, 3)
     elif category == 'kVietnamese' and (not readings.has_key(lcode)):
         readings[lcode] = (pron, 4)
 
@@ -55,7 +55,7 @@ def k_parse_line(lcode, category, pron):
     elif category == 'kMandarin'   and ((not readings.has_key(lcode)) or readings[lcode][1] > 2):
         readings[lcode] = (re.sub(r'(\w+)[1-5]',r'\1 ',pron), 2)
     elif category == 'kJapaneseOn' and ((not readings.has_key(lcode)) or readings[lcode][1] > 3):
-        readings[lcode] = (pron, 3)
+        readings[lcode] = ("%s "%pron, 3)
     elif category == 'kVietnamese' and (not readings.has_key(lcode)):
         readings[lcode] = (pron, 4)
 
@@ -68,9 +68,9 @@ def j_parse_line(lcode, category, pron):
     # Vietnamese = 5
     global readings
     if category == 'kJapaneseOn':
-        readings[lcode] = (pron, 1)
+        readings[lcode] = ("%s "%pron, 1)
     if category == 'kJapaneseKun' and ((not readings.has_key(lcode)) or readings[lcode][1] > 2):
-        readings[lcode] = (pron, 2)
+        readings[lcode] = ("%s "%pron, 2)
     elif category == 'kMandarin'  and ((not readings.has_key(lcode)) or readings[lcode][1] > 3):
         readings[lcode] = (re.sub(r'(\w+)[1-5]',r'\1 ',pron), 3)
     elif category == 'kKorean'    and ((not readings.has_key(lcode)) or readings[lcode][1] > 4):
@@ -90,7 +90,7 @@ def v_parse_line(lcode, category, pron):
     elif category == 'kMandarin'   and ((not readings.has_key(lcode)) or readings[lcode][1] > 2):
         readings[lcode] = (re.sub(r'(\w+)[1-5]',r'\1 ',pron), 2)
     elif category == 'kJapaneseOn' and ((not readings.has_key(lcode)) or readings[lcode][1] > 3):
-        readings[lcode] = (pron, 3)
+        readings[lcode] = ("%s "%pron, 3)
     elif category == 'kKorean'     and (not readings.has_key(lcode)):
         readings[lcode] = (pron, 4)
 
