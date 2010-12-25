@@ -5,6 +5,7 @@ from distutils.core import Command, setup
 from distutils.command.install import install as DistutilsInstall
 import genhancodemap
 import unittest
+import os
 
 UNITTESTS = [
         "tests", 
@@ -29,23 +30,40 @@ class TestCommand(Command):
         result = unittest.TextTestRunner(verbosity=2).run(suite)
 
 class Installer(DistutilsInstall):
+
     def run(self):
-        #do_pre_install_staff()
+        GenMap.run()
         DistutilsInstall.run(self)
-        #do_post_install_staff()
 
-class GenMap(Object):
-    def run(self,lang='korean'):
-        if lang=='korean':
-            genhancodemap.unihan_kconv('genhancodemap/Unihan_Readings.txt')
+class GenMap(Command):
+    user_options = [ ]
 
+    def initialize_options(self):
+        pass
 
+    def finalize_options(self):
+        pass
+
+    def run(self):
+        unihan_source = os.path.join('genhancodemap','Unihan_Readings.txt')        
+
+        dest = os.path.join('unihandecode','krcodepoints.py')
+        genhancodemap.unihan_conv(unihan_source, dest, 'kr')
+
+        dest = os.path.join('unihandecode','jacodepoints.py')
+        genhancodemap.unihan_conv(unihan_source, dest, 'ja')
+
+        dest = os.path.join('unihandecode','vncodepoints.py')
+        genhancodemap.unihan_conv(unihan_source, dest, 'vn')
+
+        dest = os.path.join('unihandecode','zhcodepoints.py')
+        genhancodemap.unihan_conv(unihan_source, dest, 'zh')
 
 setup(name='Unihandecode',
       version='0.01',
       description='US-ASCII transliterations of Unicode text',
       url='http://launchpad.net/unihandecode/',
-      license='GPLv3',
+      license='GPLv3/Perl',
       long_description="""
 It often happens that you have non-Roman text data in Unicode, but
 you can't display it -- usually because you're trying to show it
@@ -73,4 +91,5 @@ For example 'decode(u"\u5317\u4EB0")' returns 'Bei Jing'.
       provides = [ 'unihandecode' ],
 
       cmdclass = { 'test': TestCommand, 'install':Installer, 'genmap':GenMap }
+
 )

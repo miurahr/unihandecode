@@ -1,1 +1,2 @@
-from .unihan_kconv import unihan_kconv
+from .unihan_conv import unihan_conv
+
