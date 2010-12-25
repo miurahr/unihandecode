@@ -58,7 +58,6 @@ INSTALLATION
     You install Unidecode, as you would install any Python module,
     by running these commands:
 
-	python setup.py genmap
 	python setup.py install
 	python setup.py test
 
