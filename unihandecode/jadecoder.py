@@ -20,18 +20,25 @@ Copyright (c) 2010 Hiroshi Miura
 from ctypes import *
 import os, re
 from unidecoder import Unidecoder
+from unicodepoints import CODEPOINTS
+from jacodepoints import CODEPOINTS as JACODES
 
-class Jadecoder(object):
+class Jadecoder(Unidecoder):
 
     #kakasi instance
     kakasi = None
 
+    codepoints = {}
+
     def __init__(self):
+        self.codepoints = CODEPOINTS
+        self.codepoints.update(JACODES)
+
         try:
             if os.name is "nt":
                 self.kakasi = CDLL("libkakasi")
             elif os.name is "posix":
-                self. kakasi = CDLL("libkakasi.so.2")
+                self.kakasi = CDLL("libkakasi.so")
             else:
                 self.kakasi = None
         except:
@@ -41,17 +48,16 @@ class Jadecoder(object):
         '''
         Translate the string from unicode characters to ASCII in Japanese.
         example convert "明日は明日の風が吹く", and "明天明天的风吹"
-        >>> k=Jadecoder()
+        >>> k = Jadecoder()
         >>> print k.decode(u'\u660e\u65e5\u306f\u660e\u65e5\u306e\u98a8\u304c\u5439\u304f')
         Ashita ha Ashita no Kaze ga Fuku
-  		>>> print k.decode(u'\u660e\u5929\u660e\u5929\u7684\u98ce\u5439')
-		Ming Tian Ming Tian De Feng Chui 
-       '''        
+        >>> print k.decode(u'\u660e\u5929\u660e\u5929\u7684\u98ce\u5439')
+        Ming Tian Ming Tian De Feng Chui 
+        '''        
 
         # if there is not kakasi library, we fall down to use unidecode
         if self.kakasi is None:
-            unidecoder = Unidecoder()
-            return unidecoder.decode(text)
+            return re.sub('[^\x00-\x7f]', lambda x: self.replace_point(x.group()),text)
 
         numopt = 9
         argArray = c_char_p * numopt
@@ -68,8 +74,7 @@ class Jadecoder(object):
             cstr = c_char_p(text.encode("eucjp"))
             return kakasi_do(cstr).decode("eucjp")
         except:
-            unidecoder = Unidecoder()
-            return unidecoder.decode(text)
+            return re.sub('[^\x00-\x7f]', lambda x: self.replace_point(x.group()),text)
 
 def _test():
 	import doctest

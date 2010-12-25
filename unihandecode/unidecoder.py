@@ -60,8 +60,15 @@ it under the same terms as Perl itself.
 
 import re
 from unicodepoints import CODEPOINTS
+from zhcodepoints import CODEPOINTS as HANCODES
 
 class Unidecoder(object):
+
+    codepoints = {}
+
+    def __init__(self):
+        self.codepoints = CODEPOINTS
+        self.codepoints.update(HANCODES)
 
     def decode(self, text):
         '''
@@ -85,7 +92,7 @@ class Unidecoder(object):
             # Split the unicode character xABCD into parts 0xAB and 0xCD.
             # 0xAB represents the group within CODEPOINTS to query and 0xCD
             # represents the position in the list of characters for the group.
-            return CODEPOINTS[self.code_group(codepoint)][self.grouped_point(
+            return self.codepoints[self.code_group(codepoint)][self.grouped_point(
                 codepoint)]
         except:
             return '?'
