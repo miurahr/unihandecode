@@ -129,7 +129,7 @@ __copyright__ = \'2010 Hiroshi Miura <miurahr@linux.com>\'\n__docformat__ = \'re
             ord(u'ớ'):'o',   
          }
 
-        r1 = re.compile(r'U\+([0-9A-F]{2})([0-9A-F]{2}\b)')
+        r1 = re.compile(r'U\+([0-9A-F]{2,3})([0-9A-F]{2}\b)')
         for line in open(source, 'r'):
             uline = unicode(line, "utf-8")
             items = uline[:-1].split('\t')
