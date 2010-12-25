@@ -17,8 +17,8 @@ Tranliterate the string from unicode characters to ASCII in Chinese and others.
 '''
 
 from unidecoder import Unidecoder
-from kandecoder import Kandecoder
-from handecoder import Handecoder
+from jadecoder import Jadecoder
+from krdecoder import Krdecoder
 
 class Unihandecoder(object):
     preferred_encoding = None
@@ -54,10 +54,10 @@ class Unihandecoder(object):
                     text = text.decode('utf-8', 'replace')
 
         if self.lang is "ja":
-            d = Kandecoder()
+            d = Jadecoder()
             return d.decode(text)
         elif self.lang is "kr":
-            d = Handecoder()
+            d = Krdecoder()
             return d.decode(text)
         else:
             d = Unidecoder()

@@ -21,7 +21,7 @@ from ctypes import *
 import os, re
 from unidecoder import Unidecoder
 
-class Kandecoder(object):
+class Jadecoder(object):
 
     #kakasi instance
     kakasi = None
@@ -41,7 +41,7 @@ class Kandecoder(object):
         '''
         Translate the string from unicode characters to ASCII in Japanese.
         example convert "明日は明日の風が吹く", and "明天明天的风吹"
-        >>> k=Kandecoder()
+        >>> k=Jadecoder()
         >>> print k.decode(u'\u660e\u65e5\u306f\u660e\u65e5\u306e\u98a8\u304c\u5439\u304f')
         Ashita ha Ashita no Kaze ga Fuku
   		>>> print k.decode(u'\u660e\u5929\u660e\u5929\u7684\u98ce\u5439')

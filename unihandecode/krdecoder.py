@@ -15,17 +15,18 @@ from unidecoder import Unidecoder
 from hancodepoints import CODEPOINTS as HANCODES
 from unicodepoints import CODEPOINTS
 
-class Handecoder(Unidecoder):
+class Krdecoder(Unidecoder):
 
     codepoints = {}
 
     def __init__(self):
-        self.codepoints = CODEPOINTS.update(HANCODES)
+        self.codepoints = CODEPOINTS
+        self.codepoints.update(HANCODES)
 
     def decode(self, text):
         '''
         example  convert 
-        >>> h = Handecoder()
+        >>> h = Krdecoder()
         >>> print h.decode(u"내일은 내일 바람이 분다")
         naeileun naeil barami bunda
         >>> print h.decode(u'\u660e\u65e5\u306f\u660e\u65e5\u306e\u98a8\u304c\u5439\u304f')
