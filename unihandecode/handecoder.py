@@ -12,7 +12,7 @@ Based on unidecoder.
 
 import re
 from unidecoder import Unidecoder
-from hancodepoints import HANCODES
+from hancodepoints import CODEPOINTS as HANCODES
 from unicodepoints import CODEPOINTS
 
 class Handecoder(Unidecoder):

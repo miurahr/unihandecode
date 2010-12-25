@@ -14,12 +14,6 @@ Copyright(c) 2009, John Schember
 
 Tranliterate the string from unicode characters to ASCII in Chinese and others.
 
-example  convert:  "明天明天的风吹", "明日は明日の風が吹く" and "내일은 내일 바람이 분다"
->>> d = Unihandecoder("utf-8")
->>> print d.decode(u"\u660e\u5929\u660e\u5929\u7684\u98ce\u5439", lang="ch")
-Ming Tian Ming Tian De Feng Chui 
->>> print d.decode(u'\u660e\u65e5\u306f\u660e\u65e5\u306e\u98a8\u304c\u5439\u304f', lang="ja")
-Ashita ha Ashita no Kaze ga Fuku
 '''
 
 from unidecoder import Unidecoder
@@ -30,11 +24,25 @@ class Unihandecoder(object):
     preferred_encoding = None
     lang = None
 
-    def __init__(self, encoding='utf-8', lang="ch"):
+    def __init__(self, lang="zh", encoding='utf-8'):
         self.preferred_encoding = encoding
         self.lang = lang
 
     def decode(self, text):
+        '''
+        example  convert:  "明天明天的风吹", "明日は明日の風が吹く" 
+          and "내일은 내일 바람이 분다"
+        >>> d = Unihandecoder(lang="zh")
+        >>> print d.decode(u"\u660e\u5929\u660e\u5929\u7684\u98ce\u5439")
+        Ming Tian Ming Tian De Feng Chui 
+        >>> d = Unihandecoder(lang="ja")
+        >>> print d.decode(u'\u660e\u65e5\u306f\u660e\u65e5\u306e\u98a8\u304c\u5439\u304f')
+        Ashita ha Ashita no Kaze ga Fuku
+        >>> d = Unihandecoder(lang="kr")
+        >>> print d.decode(u'\ub0b4\uc77c\uc740 \ub0b4\uc77c \ubc14\ub78c\uc774 \ubd84\ub2e4')
+        naeileun naeil barami bunda
+
+        '''
 
         if not isinstance(text, unicode):
             try:
