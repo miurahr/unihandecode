@@ -19,6 +19,7 @@ Tranliterate the string from unicode characters to ASCII in Chinese and others.
 from unidecoder import Unidecoder
 from jadecoder import Jadecoder
 from krdecoder import Krdecoder
+from vndecoder import Vndecoder
 
 class Unihandecoder(object):
     preferred_encoding = None
@@ -59,7 +60,10 @@ class Unihandecoder(object):
         elif self.lang is "kr":
             d = Krdecoder()
             return d.decode(text)
-        else:
+        elif self.lang is "vn":
+            d = Vndecoder()
+            return d.decode(text)
+        else: #zh and others
             d = Unidecoder()
             return d.decode(text)
 
