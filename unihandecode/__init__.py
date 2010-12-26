@@ -16,10 +16,19 @@ Tranliterate the string from unicode characters to ASCII in Chinese and others.
 
 '''
 
-from unidecoder import Unidecoder
-from jadecoder import Jadecoder
-from krdecoder import Krdecoder
-from vndecoder import Vndecoder
+from unihandecode.unidecoder import Unidecoder
+from unihandecode.jadecoder import Jadecoder
+from unihandecode.krdecoder import Krdecoder
+from unihandecode.vndecoder import Vndecoder
+
+#python 2,3 compatibility
+try:
+    unicode # python2
+    def u(str): return str.decode("utf-8")
+    pass
+except: #python 3
+    def u(str): return str
+    pass
 
 class Unihandecoder(object):
     preferred_encoding = None
@@ -45,14 +54,18 @@ class Unihandecoder(object):
 
         '''
 
-        if not isinstance(text, unicode):
-            try:
-                text = unicode(text)
-            except:
+        try:
+            unicode # python2
+            if not isinstance(text, unicode):
                 try:
-                    text = text.decode(self.preferred_encoding)
+                    text = unicode(text)
                 except:
-                    text = text.decode('utf-8', 'replace')
+                    try:
+                        text = text.decode(self.preferred_encoding)
+                    except:
+                        text = text.decode('utf-8', 'replace')
+        except: # python3, str is unicode
+            pass
 
         if self.lang is "ja":
             d = Jadecoder()
@@ -66,11 +79,4 @@ class Unihandecoder(object):
         else: #zh and others
             d = Unidecoder()
             return d.decode(text)
-
-def _test():
-	import doctest
-	doctest.testmod()
-
-if __name__ == "__main__":
-	_test()
 

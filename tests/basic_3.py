@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 import unittest
-from unihandecoder import Unihandecoder
+from unihandecode import Unihandecoder
 
 class TestUnidecode(unittest.TestCase):
 	def test_ascii(self):
@@ -38,7 +38,7 @@ class TestUnidecode(unittest.TestCase):
 				
 	def test_mathematical_digits(self):
 		# 5 consecutive sequences of 0-9
-		u = Unidecoder()
+		u = Unihandecoder()
 		for n in range(0x1d7ce, 0x1d800):
 			a = chr(ord('0') + (n-0x1d7ce) % 10)
 			b = u.decode(chr(n))
@@ -100,7 +100,7 @@ class TestUnidecode(unittest.TestCase):
 
 	def test_ja(self):
 		JATESTS = [
-			(u'\u660e\u65e5\u306f\u660e\u65e5\u306e\u98a8\u304c\u5439\u304f',
+			('\u660e\u65e5\u306f\u660e\u65e5\u306e\u98a8\u304c\u5439\u304f',
 			'Ashita ha Ashita no Kaze ga Fuku'),
 
 			]
@@ -110,7 +110,7 @@ class TestUnidecode(unittest.TestCase):
 
 	def test_kr(self):
 		KRTESTS = [
-			(u'\ub0b4\uc77c\uc740 \ub0b4\uc77c \ubc14\ub78c\uc774 \ubd84\ub2e4',
+			('\ub0b4\uc77c\uc740 \ub0b4\uc77c \ubc14\ub78c\uc774 \ubd84\ub2e4',
         		'naeileun naeil barami bunda')
 			]
 		u = Unihandecoder(lang="kr")
@@ -119,7 +119,7 @@ class TestUnidecode(unittest.TestCase):
 
 	def test_zh(self):
 		ZHTESTS = [
-			(u"\u660e\u5929\u660e\u5929\u7684\u98ce\u5439",
+			('\u660e\u5929\u660e\u5929\u7684\u98ce\u5439',
 			 'Ming Tian Ming Tian De Feng Chui ')
 			]
 		u = Unihandecoder(lang="zh")

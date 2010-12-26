@@ -2,6 +2,15 @@
 # -*- coding: utf-8 -*-
 import sys, re
 
+#python 2,3 compatibility
+try:
+    unicode # python2
+    def u(str): return str.decode("utf-8")
+    pass
+except: #python 3
+    def u(str): return str
+    pass
+
 class UnihanConv():
 
     parse_line = None
@@ -110,12 +119,12 @@ __copyright__ = \'2010 Hiroshi Miura <miurahr@linux.com>\'\n__docformat__ = \'re
 
         if self.firsttime:
             self.firsttime = False
-            fout.write("CODEPOINTS = { \n    u'x%x':[\n        "%ucode)
+            fout.write("CODEPOINTS = { \n    'x%x':[\n        "%ucode)
         else:
-            fout.write("],\n    u'x%x':[\n        "%ucode)
+            fout.write("],\n    'x%x':[\n        "%ucode)
 
         for i in range(0, 256):
-            if self.readings.has_key(i):
+            if i in self.readings:
                 reading = self.readings[i][0]
                 if all(ord(c) < 128 for c in reading):
                     fout.write("'"+reading+"',")
@@ -130,21 +139,27 @@ __copyright__ = \'2010 Hiroshi Miura <miurahr@linux.com>\'\n__docformat__ = \'re
     def process_readings(self, source, fout):
         oucode = 0
         pmap = {
-            ord(u'â'):'a',ord(u'à'):'a',ord(u'ắ'):'a',ord(u'ă'):'a',ord(u'ấ'):'a',
+            ord(u('â')):'a',ord(u('à')):'a',ord(u('ắ')):'a',ord(u('ă')):'a',ord(u('ấ')):'a',
 
-            ord(u'ü'):'u',ord(u'ụ'):'u',ord(u'ú'):'u',ord(u'ử'):'u',ord(u'ư'):'u',
-            ord(u'ù'):'u',
+            ord(u('ü')):'u',ord(u('ụ')):'u',ord(u('ú')):'u',ord(u('ử')):'u',ord(u('ư')):'u',
+            ord(u('ù')):'u',
 
-            ord(u'é'):'e',
+            ord(u('é')):'e',
 
-            ord(u'ọ'):'o',ord(u'ố'):'o',ord(u'ộ'):'o',ord(u'ơ'):'o',ord(u'ớ'):'o',
-            ord(u'ớ'):'o',   
+            ord(u('ọ')):'o',ord(u('ố')):'o',ord(u('ộ')):'o',ord(u('ơ')):'o',ord(u('ớ')):'o',
+            ord(u('ớ')):'o',   
          }
 
         r1 = re.compile(r'U\+([0-9A-F]{2,3})([0-9A-F]{2}\b)')
         for line in open(source, 'r'):
-            uline = unicode(line, "utf-8")
-            items = uline[:-1].split('\t')
+            try:
+                uline = unicode(line, "utf-8")
+                items = uline[:-1].split('\t')
+                pass
+            except:
+                items = line[:-1].split('\t')
+                pass
+            
             try:
                 code = r1.sub(r'\1\t\2',items[0]).split('\t')
                 category = items[1]

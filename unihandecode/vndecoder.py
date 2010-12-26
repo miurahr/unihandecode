@@ -10,9 +10,9 @@ Decode unicode text to an ASCII representation of the text in Vietnamese.
 '''
 
 import re
-from unidecoder import Unidecoder
-from vncodepoints import CODEPOINTS as HANCODES
-from unicodepoints import CODEPOINTS
+from unihandecode.unidecoder import Unidecoder
+from unihandecode.vncodepoints import CODEPOINTS as HANCODES
+from unihandecode.unicodepoints import CODEPOINTS
 
 class Vndecoder(Unidecoder):
     '''
@@ -25,11 +25,4 @@ class Vndecoder(Unidecoder):
     def __init__(self):
         self.codepoints = CODEPOINTS
         self.codepoints.update(HANCODES)
-
-def _test():
-	import doctest
-	doctest.testmod()
-
-if __name__ == "__main__":
-	_test()
 

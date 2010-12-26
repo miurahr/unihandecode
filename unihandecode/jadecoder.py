@@ -19,9 +19,9 @@ Copyright (c) 2010 Hiroshi Miura
 
 from ctypes import *
 import os, re
-from unidecoder import Unidecoder
-from unicodepoints import CODEPOINTS
-from jacodepoints import CODEPOINTS as JACODES
+from unihandecode.unidecoder import Unidecoder
+from unihandecode.unicodepoints import CODEPOINTS
+from unihandecode.jacodepoints import CODEPOINTS as JACODES
 
 class Jadecoder(Unidecoder):
 
@@ -49,10 +49,10 @@ class Jadecoder(Unidecoder):
         Translate the string from unicode characters to ASCII in Japanese.
         example convert "明日は明日の風が吹く", and "明天明天的风吹"
         >>> k = Jadecoder()
-        >>> print k.decode(u'\u660e\u65e5\u306f\u660e\u65e5\u306e\u98a8\u304c\u5439\u304f')
+        >>> print k.decode(u('\u660e\u65e5\u306f\u660e\u65e5\u306e\u98a8\u304c\u5439\u304f'))
         Ashita ha Ashita no Kaze ga Fuku
-        >>> print k.decode(u'\u660e\u5929\u660e\u5929\u7684\u98ce\u5439')
-        MeiTenMeiTenTekiSui
+        >>> print k.decode(u('\u660e\u5929\u660e\u5929\u7684\u98ce\u5439'))
+        Mei Ten Mei Ten Teki Sui 
         '''        
 
         # if there is not kakasi library, we fall down to use unidecode
@@ -75,10 +75,3 @@ class Jadecoder(Unidecoder):
             return kakasi_do(cstr).decode("eucjp")
         except:
             return re.sub('[^\x00-\x7f]', lambda x: self.replace_point(x.group()),text)
-
-def _test():
-	import doctest
-	doctest.testmod()
-
-if __name__ == "__main__":
-	_test()

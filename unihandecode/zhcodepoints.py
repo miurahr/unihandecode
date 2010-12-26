@@ -10,7 +10,7 @@ Based on Unicode.org Unihan database.
 '''
 
 CODEPOINTS = { 
-    u'x34':[
+    'x34':[
         'Qiu ','Tian ','','','Kua ','Wu ','Yin ','','','','','','Si ','','','',
         '','','','','','','Ye ','','','','','','Chou ','','','',
         '','Nuo ','','','Qiu ','','','','Xu ','Xing ','','Xiong ','Liu ','Lin ','Xiang ','Yong ',
@@ -28,7 +28,7 @@ CODEPOINTS = {
         'Dian ','Fu ','Luo ','Qia ','Jie ','','','Yan ','Ci ','','Lang ','','','He ','','Li ',
         'Hua ','Tou ','Pian ','','Jun ','E ','Qie ','Yi ','Jue ','Rui ','Jian ','','Chi ','Chong ','Chi ','',
         ],
-    u'x35':[
+    'x35':[
         'Lue ','','Lin ','Jue ','Su ','Xiao ','Chan ','','','Zhu ','Dan ','Jian ','Zhou ','Duo ','Xie ','Li ',
         '','Chi ','Xi ','Jian ','','Ji ','','Fei ','Chu ','Bang ','Kou ','','Ba ','Liang ','Kuai ','',
         'He ','','Jue ','Lei ','Shen ','Pi ','Yang ','Lu ','Bei ','E ','Lu ','','','Che ','Nuo ','Suan ',
@@ -46,7 +46,7 @@ CODEPOINTS = {
         '','','Dong ','Ti ','Cu ','Kuo ','Lao ','Zhi ','Ai ','Xi ','','Qie ','','','','',
         'Chu ','Ji ','Huo ','Ta ','Yan ','Xu ','','Sai ','','','','','Ye ','Xiang ','','Xia ',
         ],
-    u'x36':[
+    'x36':[
         'Zuo ','Yi ','Ci ','','','Xian ','Tai ','Rong ','Yi ','Zhi ','Yi ','Xian ','Ju ','Ji ','Han ','',
         'Pao ','Li ','','Lan ','Can ','Han ','Yan ','','','Yan ','Han ','','Chi ','Nian ','Huo ','',
         'Bi ','Xia ','Weng ','Xuan ','','You ','Qin ','Xu ','Nei ','Bi ','Hao ','Jing ','Ao ','Ao ','','',
@@ -64,7 +64,7 @@ CODEPOINTS = {
         '','','','','','Ta ','Lan ','Man ','Qiang ','Zhou ','Yan ','','Lu ','','Sao ','Mian ',
         '','Rui ','Fa ','Cha ','Nao ','','Chou ','','Shu ','Pian ','','Kui ','Sha ','','Xian ','Zhi ',
         ],
-    u'x37':[
+    'x37':[
         '','','','Lian ','Xun ','Xu ','Mi ','Hui ','Mu ','','Pang ','Yi ','Gou ','Tang ','Qi ','Yun ',
         'Shu ','Fu ','Yi ','Da ','','Lian ','Cao ','Can ','Ju ','Lu ','Su ','Nen ','Ao ','An ','Qian ','',
         '','','','Ran ','Shen ','Mai ','Han ','Yue ','Er ','Ao ','Xian ','Ma ','','','Lan ','',
@@ -82,7 +82,7 @@ CODEPOINTS = {
         'Gang ','','Qi ','','Lu ','','Yun ','E ','Quan ','Min ','Wei ','Quan ','Shu ','Min ','','',
         'Ming ','Yao ','Jue ','Li ','Kuai ','Gang ','Yuan ','Da ','','Lao ','Lou ','Qian ','Ao ','Biao ','','Mang ',
         ],
-    u'x38':[
+    'x38':[
         'Dao ','','Ao ','','Xi ','Fu ','','Jiu ','Run ','Tong ','Qu ','E ','','Ji ','Ji ','Hua ',
         'Jiao ','Zui ','Biao ','Meng ','Bai ','Wei ','Ji ','Ao ','Yu ','Hao ','Dui ','Wo ','Ni ','Cuan ','','Li ',
         'Lu ','Niao ','Hua ','Lai ','','Lu ','','Mi ','Yu ','','Ju ','','','Zhan ','','Yi ',
@@ -100,7 +100,7 @@ CODEPOINTS = {
         'Tong ','','Ti ','Shan ','Jian ','Zhi ','','Yin ','','','Huan ','Zhong ','Qi ','','','Xie ',
         'Xie ','Ze ','Wei ','','','Ta ','Zhan ','Ning ','','','','Yi ','Ren ','Shu ','Cha ','Zhuo ',
         ],
-    u'x39':[
+    'x39':[
         '','Mian ','Ji ','Fang ','Pei ','Ai ','Fan ','Ao ','Qin ','Qia ','Xiao ','','','Qiao ','','Tong ',
         '','You ','','Ben ','Fu ','Chu ','Zhu ','','Chu ','','Hang ','Nin ','Jue ','','Cha ','Kong ',
         'Lie ','Li ','Xu ','','Yu ','Hai ','Li ','Hou ','Gong ','Ke ','Yuan ','De ','Hui ','','Kuang ','Jiong ',
@@ -118,7 +118,7 @@ CODEPOINTS = {
         '','Hai ','','Zhu ','Chong ','Xian ','Xuan ','','Qiu ','Pei ','Gui ','Er ','Gong ','Qiong ','','Lao ',
         'Li ','Chen ','San ','Bo ','Wo ','Pou ','','Duo ','','Te ','Ta ','Zhi ','Biao ','Gu ','','',
         ],
-    u'x3a':[
+    'x3a':[
         'Bing ','Zhi ','Dong ','Cheng ','Zhao ','Nei ','Lin ','Po ','Ji ','Min ','Wei ','Che ','Gou ','','Ru ','',
         'Bu ','','Kui ','Lao ','Han ','Ying ','Zhi ','Jie ','Xing ','Xie ','Xun ','Shan ','Qian ','Xie ','Su ','Hai ',
         'Mi ','Hun ','','','Hui ','Na ','Song ','Ben ','Liu ','Jie ','Huang ','Lan ','','Hu ','Dou ','Huo ',
@@ -136,7 +136,7 @@ CODEPOINTS = {
         '','','Qu ','','Chang ','Ming ','','Bao ','','','','Xian ','','','','Mao ',
         'Lang ','Nan ','Pei ','Chen ','','','Cou ','','Qie ','Dai ','','Kun ','Die ','Lu ','','',
         ],
-    u'x3b':[
+    'x3b':[
         '','','Yu ','Tai ','Chan ','Man ','Mian ','Huan ','','Nuan ','Huan ','Hou ','Jing ','Bo ','Xian ','Li ',
         'Jin ','','Mang ','Piao ','Hao ','Yang ','','Xian ','Su ','Wei ','Che ','','Jin ','Ceng ','He ','',
         'Shai ','Ling ','','Dui ','','Pu ','Yue ','Bo ','','Hui ','Die ','Yan ','Ju ','Jiao ','Kuai ','Lie ',
@@ -154,7 +154,7 @@ CODEPOINTS = {
         'Qian ','Pao ','Zhen ','','Li ','Cao ','Qi ','','','Ti ','Ling ','Qu ','Lian ','Lu ','Shu ','Gong ',
         'Zhe ','Biao ','Jin ','Qing ','','','Zong ','Pu ','Jin ','Biao ','Jian ','Gun ','','','','Lie ',
         ],
-    u'x3c':[
+    'x3c':[
         'Li ','Luo ','Shen ','Mian ','Jian ','Di ','Bei ','','Lian ','','Xun ','Pin ','Que ','Long ','Zui ','',
         'Jue ','','She ','','Xie ','','Lan ','Cu ','Yi ','Nuo ','Li ','Yue ','','Yi ','','Ji ',
         'Kang ','Xie ','','Zi ','Ke ','Hui ','Qu ','','','','Wa ','','Xun ','','Shen ','Kou ',
@@ -172,7 +172,7 @@ CODEPOINTS = {
         'Ta ','','','','','Ju ','Xie ','Xi ','Jian ','','Pan ','Ta ','Xuan ','Xian ','Niao ','',
         '','','','','Mi ','Ji ','Gou ','Wen ','','Wang ','You ','Ze ','Bi ','Mi ','','Xie ',
         ],
-    u'x3d':[
+    'x3d':[
         'Fan ','Yi ','','Lei ','Ying ','','Jin ','She ','Yin ','Ji ','','Su ','','','','Wang ',
         'Mian ','Su ','Yi ','Zai ','Se ','Ji ','Luo ','','Mao ','Zha ','Sui ','Zhi ','Bian ','Li ','','',
         '','','','','','Qiao ','Guan ','','Zhen ','','Nie ','Jun ','Xie ','Yao ','Xie ','',
@@ -190,7 +190,7 @@ CODEPOINTS = {
         'Lin ','Jiong ','Zha ','','He ','','Xu ','','','','Cui ','Qing ','Mo ','','','Beng ',
         'Li ','','','Yan ','Ge ','Mo ','Bei ','Juan ','Die ','Shao ','','Wu ','Yan ','','Jue ','',
         ],
-    u'x3e':[
+    'x3e':[
         'Tai ','Han ','','Dian ','Ji ','Jie ','','','','Xie ','La ','Fan ','Huo ','Xi ','Nie ','Mi ',
         'Ran ','Cuan ','Yin ','Mi ','','Jue ','','Tong ','Wan ','','Li ','Shao ','Kong ','Kan ','Ban ','',
         'Tiao ','','Bei ','Ye ','Pian ','Chan ','Hu ','Ken ','','An ','Chun ','Qian ','Bei ','','Fen ','',
@@ -208,7 +208,7 @@ CODEPOINTS = {
         'Tu ','Die ','','','','','','Duo ','','','Sui ','Bi ','Tu ','Se ','Can ','Tu ',
         'Mian ','','Lu ','','','Zhan ','Bi ','Ji ','Cen ','','Li ','','','Sui ','','Shu ',
         ],
-    u'x3f':[
+    'x3f':[
         '','','E ','','','','','Qiong ','Luo ','Yin ','Tun ','Gu ','Yu ','Lei ','Bei ','Nei ',
         'Pian ','Lian ','Qiu ','Lian ','','','Li ','Ding ','Wa ','Zhou ','','Xing ','Ang ','Fan ','Peng ','Bai ',
         'Tuo ','','E ','Bai ','Qi ','Chu ','Gong ','Tong ','Han ','Cheng ','Jia ','Huan ','Xing ','Dian ','Mai ','Dong ',
@@ -226,7 +226,7 @@ CODEPOINTS = {
         '','','Yao ','He ','Chun ','Hu ','Ning ','Chou ','Li ','Tang ','Huan ','Bi ','','Che ','Yang ','Da ',
         'Ao ','Xue ','','','','Ran ','','Zao ','Wan ','Ta ','Bao ','','Yan ','','Zhu ','Ya ',
         ],
-    u'x40':[
+    'x40':[
         'Fan ','You ','','Tui ','Meng ','She ','Jin ','Gu ','Qi ','Qiao ','Jiao ','Yan ','','Kan ','Mian ','Xian ',
         'San ','Na ','','Huan ','Niu ','Cheng ','','Jue ','Xi ','Qi ','Ang ','Mei ','Gu ','','','Fan ',
         'Qu ','Chan ','Shun ','Bi ','Mao ','Shuo ','Gu ','Hong ','Huan ','Luo ','Hang ','Jia ','Quan ','','Mang ','Bu ',
@@ -244,7 +244,7 @@ CODEPOINTS = {
         '','Cen ','','Hui ','Su ','Chuang ','','Long ','','Nao ','Tan ','Dan ','Wei ','Gan ','Da ','Li ',
         '','Xian ','Pan ','La ','','Niao ','Huai ','Ying ','Xian ','Lan ','Mo ','Ba ','','Fu ','Bi ','',
         ],
-    u'x41':[
+    'x41':[
         'Huo ','Yi ','Liu ','','','Juan ','Huo ','Cheng ','Dou ','E ','','Yan ','Zhui ','Du ','Qi ','Yu ',
         'Quan ','Huo ','Nie ','Heng ','Ju ','She ','','','Peng ','Ming ','Cao ','Lou ','Li ','Chun ','','Cui ',
         'Shan ','','Qi ','','Lai ','Ling ','Liao ','Reng ','Yu ','Nao ','Chuo ','Qi ','Yi ','Nian ','','Jian ',
@@ -262,7 +262,7 @@ CODEPOINTS = {
         'Zhou ','Zhu ','Ku ','Na ','Dui ','Ze ','Yang ','Zhu ','Gong ','Yi ','','','Chuang ','Lao ','Ren ','Rong ',
         '','Na ','Ce ','','','Yi ','Jue ','Bi ','Cheng ','Jun ','Chou ','Hui ','Chi ','Zhi ','Yan ','',
         ],
-    u'x42':[
+    'x42':[
         '','Lun ','Bing ','Zhao ','Han ','Yu ','Dai ','Zhao ','Fei ','Sha ','Ling ','Ta ','','Mang ','Ye ','Bao ',
         'Kui ','Gua ','Nan ','Ge ','','Chi ','','Suo ','Ci ','Zhou ','Tai ','Kuai ','Qin ','','Du ','Ce ',
         'Huan ','','Sai ','Zheng ','Qian ','','','Wei ','','','Xi ','Na ','Pu ','Huai ','Ju ','',
@@ -280,7 +280,7 @@ CODEPOINTS = {
         'Bu ','','Bie ','Fan ','Yao ','Li ','Fan ','Qu ','Fu ','Er ','','','','Huo ','Jin ','Qi ',
         'Ju ','Lai ','Che ','Bei ','Niu ','Yi ','Xu ','Liu ','Xun ','Fu ','','Nin ','Ting ','Beng ','Zha ','',
         ],
-    u'x43':[
+    'x43':[
         '','','Ou ','Shuo ','Geng ','Tang ','Gui ','Hui ','Ta ','','Yao ','','Qi ','Han ','Lue ','Mi ',
         'Mi ','','Lu ','Fan ','Ou ','Mi ','Jie ','Fu ','Mi ','Huang ','Su ','Yao ','Nie ','Jin ','Lian ','Bi ',
         'Qing ','Ti ','Ling ','Zuan ','Zhi ','Yin ','Dao ','Chou ','Cai ','Mi ','Yan ','Lan ','Chong ','','','Guan ',
@@ -298,7 +298,7 @@ CODEPOINTS = {
         'Qi ','Shi ','Bi ','Jue ','Si ','','Hua ','Na ','Hui ','','Er ','','Mou ','','Xi ','Zhi ',
         'Ren ','Ju ','Die ','Zhe ','Shao ','Meng ','Bi ','Han ','Yu ','Xian ','','Neng ','Can ','Bu ','','Qi ',
         ],
-    u'x44':[
+    'x44':[
         'Ji ','Niao ','Lu ','Jiong ','Han ','Yi ','Cai ','Chun ','Zhi ','Zi ','Da ','','Tian ','Zhou ','','Chun ',
         '','Zhe ','','Rou ','Bin ','Ji ','Yi ','Du ','Jue ','Ge ','Ji ','','','Suo ','Ruo ','Xiang ',
         'Huang ','Qi ','Zhu ','Cuo ','Chi ','Weng ','','Kao ','Gu ','Kai ','Fan ','','Cao ','Zhi ','Chan ','Lei ',
@@ -316,7 +316,7 @@ CODEPOINTS = {
         'Ta ','','Gu ','Liang ','','La ','Dian ','Ci ','','','','Ji ','','Cha ','Mao ','Du ',
         '','Chai ','Rui ','Hen ','Ruan ','','Lai ','Xing ','','Yi ','Mei ','','He ','Ji ','','Han ',
         ],
-    u'x45':[
+    'x45':[
         '','Li ','Zi ','Zu ','Yao ','','Li ','Qi ','Gan ','Li ','','','','','Su ','Chou ',
         '','Xie ','Bei ','Xu ','Jing ','Pu ','Ling ','Xiang ','Zuo ','Diao ','Chun ','Qing ','Nan ','','Lu ','Chi ',
         'Shao ','Yu ','Hua ','Li ','','','','Li ','','','Dui ','','Yi ','Ning ','','Hu ',
@@ -334,7 +334,7 @@ CODEPOINTS = {
         'Xuan ','Yan ','Suo ','Gao ','Yong ','','','','Yu ','','Zhe ','Ma ','','','Shuang ','Jin ',
         'Guan ','Pu ','Lin ','','Ting ','','La ','Yi ','','Ci ','Yan ','Jie ','','Wei ','Xian ','Ning ',
         ],
-    u'x46':[
+    'x46':[
         'Fu ','Ge ','','Mo ','Fu ','Nai ','Xian ','Wen ','Li ','Can ','Mie ','','Ni ','Chai ','','Xu ',
         'Nu ','Mai ','','Kan ','','Hang ','','','Yu ','Wei ','Zhu ','','','Yi ','','',
         'Fu ','Bi ','Zhu ','Zi ','Shu ','Xia ','Ni ','','Jiao ','Xuan ','','Nou ','Rong ','Die ','Sa ','',
@@ -352,7 +352,7 @@ CODEPOINTS = {
         'Dou ','Hua ','','','Cu ','Xi ','Song ','Mi ','Xin ','Wu ','Qiong ','Zheng ','Chou ','Xing ','Jiu ','Ju ',
         'Hun ','Ti ','Man ','Jian ','Qi ','Shou ','Lei ','Wan ','Che ','Can ','Jie ','You ','Hui ','Zha ','Su ','Ge ',
         ],
-    u'x47':[
+    'x47':[
         'Nao ','Xi ','','','Chi ','Wei ','Mo ','Gun ','','','Zao ','Hui ','Luan ','Liao ','Lao ','',
         '','Qia ','Ao ','Nie ','Sui ','Mai ','Tan ','Xin ','Jing ','An ','Ta ','Chan ','Wei ','Tuan ','Ji ','Chen ',
         'Che ','Xu ','Xian ','Xin ','','','','Nao ','','Yan ','Qiu ','Hong ','Song ','Jun ','Liao ','Ju ',
@@ -370,7 +370,7 @@ CODEPOINTS = {
         'Yue ','Di ','Chen ','Chu ','Bi ','Mang ','Ba ','Tian ','Min ','Lie ','Feng ','','Qiu ','Tiao ','Fu ','Kuo ',
         'Jian ','','','','Zhen ','Qiu ','Cuo ','Chi ','Kui ','Lie ','Bang ','Du ','Wu ','','Jue ','Lu ',
         ],
-    u'x48':[
+    'x48':[
         'Chang ','','Chu ','Liang ','Tian ','Kun ','Chang ','Jue ','Tu ','Hua ','Fei ','Bi ','','Qia ','Wo ','Ji ',
         'Qu ','Kui ','Hu ','Cu ','Sui ','','','Qiu ','Pi ','Bei ','Wa ','Jiao ','Rong ','','Cu ','Die ',
         'Chi ','Cuo ','Meng ','Xuan ','Duo ','Bie ','Zhe ','Chu ','Chan ','Gui ','Duan ','Zou ','Deng ','Lai ','Teng ','Yue ',
@@ -388,7 +388,7 @@ CODEPOINTS = {
         'Jie ','Ti ','Ji ','Dang ','Jiao ','Bi ','Lei ','Yi ','Chun ','Chun ','Po ','Li ','Zai ','Tai ','Po ','Tian ',
         'Ju ','Xu ','Fan ','','Xu ','Er ','Huo ','','Ran ','Fa ','','','Liang ','Ti ','Mi ','',
         ],
-    u'x49':[
+    'x49':[
         '','Cen ','Mei ','Yin ','Mian ','Tu ','Kui ','','','Mi ','Rong ','Guo ','','Mi ','Ju ','Pi ',
         'Jin ','Wang ','Ji ','Meng ','Jian ','Xue ','Bao ','Gan ','Chan ','Li ','Li ','Qiu ','Dun ','Ying ','Yun ','Chen ',
         'Ji ','Ran ','','Lue ','','Gui ','Yue ','Hui ','Pi ','Cha ','Duo ','Chan ','','Kuan ','She ','Xing ',
@@ -406,7 +406,7 @@ CODEPOINTS = {
         'Shuan ','','','','Pu ','Hui ','Wei ','Yi ','Ye ','','Che ','Hao ','','','Xian ','Chan ',
         'Hun ','','Han ','Ci ','','Qi ','Kui ','Rou ','','','Xiong ','','Hu ','Cui ','','Que ',
         ],
-    u'x4a':[
+    'x4a':[
         'Di ','Che ','','','Yan ','Liao ','Bi ','','','','','Nue ','Bao ','Ying ','Hong ','Ci ',
         'Qia ','Ti ','Yu ','Lei ','Bao ','','Ji ','Fu ','Xian ','Cen ','','Se ','','','Yu ','',
         'Ai ','Han ','Dan ','Ge ','Di ','Hu ','Pang ','','','Ling ','Mai ','Mai ','Lian ','','Xue ','Zhen ',
@@ -424,7 +424,7 @@ CODEPOINTS = {
         'Pei ','Qian ','','Xi ','Ming ','Kui ','Ge ','','Ao ','San ','Shuang ','Lou ','Zhen ','Hui ','Can ','',
         'Lin ','Na ','Han ','Du ','Jin ','Mian ','Fan ','E ','Nao ','Hong ','Hong ','Xue ','Xue ','','Bi ','',
         ],
-    u'x4b':[
+    'x4b':[
         'You ','Yi ','Xue ','Sa ','Yu ','Li ','Li ','Yuan ','Dui ','Hao ','Qie ','Leng ','','','Guo ','Bu ',
         'Wei ','Wei ','','An ','Xu ','Shang ','Heng ','Yang ','','Yao ','','Bi ','','Heng ','Tao ','Liu ',
         '','Zhu ','','Qi ','Chao ','Yi ','Dou ','Yuan ','Cu ','','Bo ','Can ','Yang ','','Yi ','Nian ',
@@ -442,7 +442,7 @@ CODEPOINTS = {
         'Ao ','Jian ','Mo ','Gui ','Kuai ','An ','Ma ','Qing ','Fen ','','Kao ','Hao ','Duo ','','Nai ','',
         'Jie ','Fu ','Pa ','','Chang ','Nie ','Man ','','Ci ','','Kuo ','','Di ','Fu ','Tiao ','Zu ',
         ],
-    u'x4c':[
+    'x4c':[
         'Wo ','Fei ','Cai ','Peng ','Shi ','','Rou ','Qi ','Cha ','Pan ','Bo ','Man ','Zong ','Ci ','Gui ','Ji ',
         'Lan ','','Meng ','Mian ','Pan ','Lu ','Cuan ','','Liu ','Yi ','Wen ','Li ','Li ','Zeng ','Zhu ','Hun ',
         'Shen ','Chi ','Xing ','Wang ','','Huo ','Pi ','','Mei ','Che ','Mei ','Chao ','Ju ','Nou ','','Ni ',
@@ -460,7 +460,7 @@ CODEPOINTS = {
         'Chui ','','Qi ','Yuan ','','','','Hou ','Huang ','','Juan ','Kui ','E ','Ji ','Mo ','Chong ',
         'Bao ','Wu ','Zhen ','Xu ','Da ','Chi ','','Cong ','Ma ','Kou ','Yan ','Can ','','He ','','Lan ',
         ],
-    u'x4d':[
+    'x4d':[
         'Tong ','Yu ','Hang ','Nao ','Li ','Fen ','Pu ','Ling ','Ao ','Xuan ','Yi ','Xuan ','Meng ','','Lei ','Yan ',
         'Bao ','Die ','Ling ','Shi ','Jiao ','Lie ','Jing ','Ju ','Ti ','Pi ','Gang ','Jiao ','Huai ','Bu ','Di ','Huan ',
         'Yao ','Li ','Mi ','','','','Ren ','','','Piao ','Lu ','Ling ','Yi ','Cai ','Shan ','',
@@ -478,7 +478,7 @@ CODEPOINTS = {
         '','','','','','','','','','','','','','','','',
         '','','','','','','','','','','','','','','','',
         ],
-    u'x4e':[
+    'x4e':[
         'Yi ','Ding ','Kao ','Qi ','Shang ','Xia ','','Wan ','Zhang ','San ','Shang ','Xia ','Ji ','Bu ','Yu ','Mian ',
         'Gai ','Chou ','Chou ','Zhuan ','Qie ','Pi ','Shi ','Shi ','Qiu ','Bing ','Ye ','Cong ','Dong ','Si ','Cheng ','Diu ',
         'Qiu ','Liang ','Diu ','You ','Liang ','Yan ','Bing ','Sang ','Gun ','Jiu ','Ge ','Ya ','Qiang ','Zhong ','Ji ','Jie ',
@@ -496,7 +496,7 @@ CODEPOINTS = {
         'Gan ','Yi ','Di ','Dai ','Ling ','Yi ','Chao ','Chang ','Sa ','','Yi ','Mu ','Men ','Ren ','Jia ','Chao ',
         'Yang ','Qian ','Zhong ','Pi ','Wan ','Wu ','Jian ','Jia ','Yao ','Feng ','Cang ','Ren ','Wang ','Fen ','Di ','Fang ',
         ],
-    u'x4f':[
+    'x4f':[
         'Zhong ','Qi ','Pei ','Yu ','Diao ','Dun ','Wen ','Yi ','Xin ','Kang ','Yi ','Ji ','Ai ','Wu ','Ji ','Fu ',
         'Fa ','Xiu ','Jin ','Bei ','Dan ','Fu ','Tang ','Zhong ','You ','Huo ','Hui ','Yu ','Cui ','Chuan ','San ','Wei ',
         'Chuan ','Che ','Ya ','Xian ','Shang ','Chang ','Lun ','Cang ','Xun ','Xin ','Wei ','Zhu ','','Xuan ','Nu ','Bo ',
@@ -514,7 +514,7 @@ CODEPOINTS = {
         'Xia ','Xin ','Xiu ','Yu ','Ti ','Che ','Chou ','','Yan ','Lia ','Li ','Lai ','','Jian ','Xiu ','Fu ',
         'He ','Ju ','Xiao ','Pai ','Jian ','Biao ','Chu ','Fei ','Feng ','Ya ','An ','Bei ','Yu ','Xin ','Bi ','Jian ',
         ],
-    u'x50':[
+    'x50':[
         'Chang ','Chi ','Bing ','Zan ','Yao ','Cui ','Lia ','Wan ','Lai ','Cang ','Zong ','Ge ','Guan ','Bei ','Tian ','Shu ',
         'Shu ','Men ','Dao ','Tan ','Jue ','Chui ','Xing ','Peng ','Tang ','Hou ','Yi ','Qi ','Ti ','Gan ','Jing ','Jie ',
         'Sui ','Chang ','Jie ','Fang ','Zhi ','Kong ','Juan ','Zong ','Ju ','Qian ','Ni ','Lun ','Zhuo ','Wei ','Luo ','Song ',
@@ -532,7 +532,7 @@ CODEPOINTS = {
         'Fan ','Hui ','Chuan ','Jian ','Dan ','Jiao ','Jiu ','Seng ','Fen ','Xian ','Jue ','E ','Jiao ','Jian ','Tong ','Lin ',
         'Bo ','Gu ','','Su ','Xian ','Jiang ','Min ','Ye ','Jin ','Jia ','Qiao ','Pi ','Feng ','Zhou ','Ai ','Sai ',
         ],
-    u'x51':[
+    'x51':[
         'Yi ','Jun ','Nong ','Chan ','Yi ','Dang ','Jing ','Xuan ','Kuai ','Jian ','Chu ','Dan ','Jiao ','Sha ','Zai ','',
         'Bin ','An ','Ru ','Tai ','Chou ','Chai ','Lan ','Ni ','Jin ','Qian ','Meng ','Wu ','Ning ','Qiong ','Ni ','Chang ',
         'Lie ','Lei ','Lu ','Kuang ','Bao ','Du ','Biao ','Zan ','Zhi ','Si ','You ','Hao ','Chen ','Chen ','Li ','Teng ',
@@ -550,7 +550,7 @@ CODEPOINTS = {
         'Ji ','Fan ','Fan ','Fan ','Feng ','Ju ','Chu ','','Feng ','','','Fu ','Feng ','Ping ','Feng ','Kai ',
         'Huang ','Kai ','Gan ','Deng ','Ping ','Qu ','Xiong ','Kuai ','Tu ','Ao ','Chu ','Ji ','Dang ','Han ','Han ','Zao ',
         ],
-    u'x52':[
+    'x52':[
         'Dao ','Diao ','Dao ','Ren ','Ren ','Chuang ','Fen ','Qie ','Yi ','Ji ','Kan ','Qian ','Cun ','Chu ','Wen ','Ji ',
         'Dan ','Xing ','Hua ','Wan ','Jue ','Li ','Yue ','Lie ','Liu ','Ze ','Gang ','Chuang ','Fu ','Chu ','Qu ','Ju ',
         'Shan ','Min ','Ling ','Zhong ','Pan ','Bie ','Jie ','Jie ','Bao ','Li ','Shan ','Bie ','Chan ','Jing ','Gua ','Gen ',
@@ -568,7 +568,7 @@ CODEPOINTS = {
         'Lu ','Piao ','Shi ','Ji ','Qin ','Qiang ','Jiao ','Quan ','Yang ','Yi ','Jue ','Fan ','Juan ','Tong ','Ju ','Dan ',
         'Xie ','Mai ','Xun ','Xun ','Lu ','Li ','Che ','Rang ','Quan ','Bao ','Shao ','Yun ','Jiu ','Bao ','Gou ','Wu ',
         ],
-    u'x53':[
+    'x53':[
         'Yun ','','','Gai ','Gai ','Bao ','Cong ','','Xiong ','Peng ','Ju ','Tao ','Ge ','Pu ','An ','Pao ',
         'Fu ','Gong ','Da ','Jiu ','Qiong ','Bi ','Hua ','Bei ','Nao ','Chi ','Fang ','Jiu ','Yi ','Za ','Jiang ','Kang ',
         'Jiang ','Kuang ','Hu ','Xia ','Qu ','Bian ','Gui ','Qie ','Zang ','Kuang ','Fei ','Hu ','Tou ','Gui ','Gui ','Hui ',
@@ -586,7 +586,7 @@ CODEPOINTS = {
         'Die ','Rui ','Cong ','Kou ','Gu ','Ju ','Ling ','Gua ','Tao ','Kou ','Zhi ','Jiao ','Zhao ','Ba ','Ding ','Ke ',
         'Tai ','Chi ','Shi ','You ','Qiu ','Po ','Xie ','Hao ','Si ','Tan ','Chi ','Le ','Diao ','Ji ','','Hong ',
         ],
-    u'x54':[
+    'x54':[
         'Mie ','Xu ','Mang ','Chi ','Ge ','Xuan ','Yao ','Zi ','He ','Ji ','Diao ','Cun ','Tong ','Ming ','Hou ','Li ',
         'Tu ','Xiang ','Zha ','Xia ','Ye ','Lu ','A ','Ma ','Ou ','Xue ','Yi ','Jun ','Chou ','Lin ','Tun ','Yin ',
         'Fei ','Bi ','Qin ','Qin ','Jie ','Bu ','Fou ','Ba ','Dun ','Fen ','E ','Han ','Ting ','Hang ','Shun ','Qi ',
@@ -604,7 +604,7 @@ CODEPOINTS = {
         'Hao ','Yuan ','Long ','Pou ','Mang ','Ge ','E ','Chi ','Shao ','Li ','Na ','Zu ','He ','Ku ','Xiao ','Xian ',
         'Lao ','Bo ','Zhe ','Zha ','Liang ','Ba ','Mie ','Le ','Sui ','Fou ','Bu ','Han ','Heng ','Geng ','Shuo ','Ge ',
         ],
-    u'x55':[
+    'x55':[
         'You ','Yan ','Gu ','Gu ','Bai ','Han ','Suo ','Chun ','Yi ','Ai ','Jia ','Tu ','Xian ','Huan ','Li ','Xi ',
         'Tang ','Zuo ','Qiu ','Che ','Wu ','Zao ','Ya ','Dou ','Qi ','Di ','Qin ','Ma ','','Hong ','Dou ','',
         'Lao ','Liang ','Suo ','Zao ','Huan ','','Sha ','Ji ','Zuo ','Wo ','Feng ','Yin ','Hu ','Qi ','Shou ','Wei ',
@@ -622,7 +622,7 @@ CODEPOINTS = {
         'Luo ','Weng ','Wa ','Si ','Chi ','Hao ','Suo ','','Hai ','Suo ','Qin ','Nie ','He ','','Sai ','',
         'Ge ','Na ','Dia ','Ai ','','Tong ','Bi ','Ao ','Ao ','Lian ','Cui ','Zhe ','Mo ','Sou ','Sou ','Tan ',
         ],
-    u'x56':[
+    'x56':[
         'Di ','Qi ','Jiao ','Chong ','Jiao ','Kai ','Tan ','San ','Cao ','Jia ','Ai ','Xiao ','Piao ','Lou ','Ga ','Gu ',
         'Xiao ','Hu ','Hui ','Guo ','Ou ','Xian ','Ze ','Chang ','Xu ','Po ','De ','Ma ','Ma ','Hu ','Lei ','Du ',
         'Ga ','Tang ','Ye ','Beng ','Ying ','','Jiao ','Mi ','Xiao ','Hua ','Mai ','Ran ','Zuo ','Peng ','Lao ','Xiao ',
@@ -640,7 +640,7 @@ CODEPOINTS = {
         'Yin ','Nan ','Tuan ','Tuan ','Dun ','Kang ','Yuan ','Jiong ','Pian ','Yun ','Cong ','Hu ','Hui ','Yuan ','E ','Guo ',
         'Kun ','Cong ','Wei ','Tu ','Wei ','Lun ','Guo ','Qun ','Ri ','Ling ','Gu ','Guo ','Tai ','Guo ','Tu ','You ',
         ],
-    u'x57':[
+    'x57':[
         'Guo ','Yin ','Hun ','Pu ','Yu ','Han ','Yuan ','Lun ','Quan ','Yu ','Qing ','Guo ','Chuan ','Wei ','Yuan ','Quan ',
         'Ku ','Fu ','Yuan ','Yuan ','E ','','Tu ','Tu ','Tuan ','Lue ','Hui ','Yi ','Yuan ','Luan ','Luan ','Tu ',
         'Ya ','Tu ','Ting ','Sheng ','Pu ','Lu ','','Ya ','Zai ','Wei ','Ge ','Yu ','Wu ','Gui ','Pi ','Yi ',
@@ -658,7 +658,7 @@ CODEPOINTS = {
         'Bu ','Ya ','Juan ','Sui ','Pi ','Cheng ','Wan ','Ju ','Lun ','Zheng ','Kong ','Chong ','Dong ','Dai ','Tan ','An ',
         'Cai ','Shu ','Beng ','Kan ','Zhi ','Duo ','Yi ','Zhi ','Yi ','Pei ','Ji ','Zhun ','Qi ','Sao ','Ju ','Ni ',
         ],
-    u'x58':[
+    'x58':[
         'Ku ','Ke ','Tang ','Kun ','Ni ','Jian ','Dui ','Jin ','Gang ','Yu ','E ','Peng ','Gu ','Tu ','Leng ','',
         'Ya ','Qian ','','An ','','Duo ','Nao ','Tu ','Cheng ','Yin ','Hun ','Bi ','Lian ','Guo ','Die ','Zhuan ',
         'Hou ','Bao ','Bao ','Yu ','Di ','Mao ','Jie ','Ruan ','E ','Geng ','Kan ','Zong ','Yu ','Huang ','E ','Yao ',
@@ -676,7 +676,7 @@ CODEPOINTS = {
         'Long ','Rui ','Li ','Lin ','Rang ','','Xun ','Yan ','Lei ','Ba ','','Shi ','Ren ','','Zhuang ','Zhuang ',
         'Sheng ','Yi ','Mai ','Ke ','Zhu ','Zhuang ','Hu ','Hu ','Kun ','Yi ','Hu ','Xu ','Kun ','Shou ','Mang ','Zun ',
         ],
-    u'x59':[
+    'x59':[
         'Shou ','Yi ','Zhi ','Gu ','Chu ','Jiang ','Feng ','Bei ','','Bian ','Sui ','Qun ','Ling ','Fu ','Zuo ','Xia ',
         'Xiong ','','Nao ','Xia ','Kui ','Xi ','Wai ','Yuan ','Mao ','Su ','Duo ','Duo ','Ye ','Qing ','','Gou ',
         'Gou ','Qi ','Meng ','Meng ','Yin ','Huo ','Chen ','Da ','Ze ','Tian ','Tai ','Fu ','Guai ','Yao ','Yang ','Hang ',
@@ -694,7 +694,7 @@ CODEPOINTS = {
         'Shang ','Kuo ','Juan ','Jiao ','Gou ','Mu ','Jian ','Jian ','Yi ','Nian ','Zhi ','Ji ','Ji ','Xian ','Heng ','Guang ',
         'Jun ','Kua ','Yan ','Ming ','Lie ','Pei ','Yan ','You ','Yan ','Cha ','Shen ','Yin ','Chi ','Gui ','Quan ','Zi ',
         ],
-    u'x5a':[
+    'x5a':[
         'Song ','Wei ','Hong ','Wa ','Lou ','Ya ','Rao ','Jiao ','Luan ','Ping ','Xian ','Shao ','Li ','Cheng ','Xiao ','Mang ',
         '','Suo ','Wu ','Wei ','Ke ','Lai ','Chuo ','Ding ','Niang ','Xing ','Nan ','Yu ','Nuo ','Pei ','Nei ','Juan ',
         'Shen ','Zhi ','Han ','Di ','Zhuang ','E ','Pin ','Tui ','Han ','Mian ','Wu ','Yan ','Wu ','Xi ','Yan ','Yu ',
@@ -712,7 +712,7 @@ CODEPOINTS = {
         'Li ','Di ','Gui ','Yan ','Jin ','Zhuan ','Chang ','Ce ','Han ','Nen ','Lao ','Mo ','Zhe ','Hu ','Hu ','Ao ',
         'Nen ','Qiang ','','Pie ','Gu ','Wu ','Jiao ','Tuo ','Zhan ','Mao ','Xian ','Xian ','Mo ','Liao ','Lian ','Hua ',
         ],
-    u'x5b':[
+    'x5b':[
         'Gui ','Deng ','Zhi ','Xu ','','Hua ','Xi ','Hui ','Rao ','Xi ','Yan ','Chan ','Jiao ','Mei ','Fan ','Fan ',
         'Xian ','Yi ','Wei ','Jiao ','Fu ','Shi ','Bi ','Shan ','Sui ','Qiang ','Lian ','Huan ','','Niao ','Dong ','Yi ',
         'Can ','Ai ','Niang ','Neng ','Ma ','Tiao ','Chou ','Jin ','Ci ','Yu ','Pin ','','Xu ','Nai ','Yan ','Tai ',
@@ -730,7 +730,7 @@ CODEPOINTS = {
         'Ju ','Gua ','Qin ','Hu ','Wu ','Liao ','Shi ','Ning ','Zhai ','Shen ','Wei ','Xie ','Kuan ','Hui ','Liao ','Jun ',
         'Huan ','Yi ','Yi ','Bao ','Qin ','Chong ','Bao ','Feng ','Cun ','Dui ','Si ','Xun ','Dao ','Lu ','Dui ','Shou ',
         ],
-    u'x5c':[
+    'x5c':[
         'Po ','Feng ','Zhuan ','Fu ','She ','Ke ','Jiang ','Jiang ','Zhuan ','Wei ','Zun ','Xun ','Shu ','Dui ','Dao ','Xiao ',
         'Ji ','Shao ','Er ','Er ','Er ','Ga ','Jian ','Shu ','Chen ','Shang ','Shang ','','Ga ','Chang ','Liao ','Xian ',
         'Xian ','','Wang ','Wang ','You ','Liao ','Liao ','Yao ','Mang ','Wang ','Wang ','Wang ','Ga ','Yao ','Duo ','Kui ',
@@ -748,7 +748,7 @@ CODEPOINTS = {
         '','Xia ','Li ','Yao ','Jiao ','Zheng ','Luan ','Jiao ','E ','E ','Yu ','Ye ','Bu ','Qiao ','Qun ','Feng ',
         'Feng ','Nao ','Li ','You ','Xian ','Hong ','Dao ','Shen ','Cheng ','Tu ','Geng ','Jun ','Hao ','Xia ','Yin ','Yu ',
         ],
-    u'x5d':[
+    'x5d':[
         'Lang ','Kan ','Lao ','Lai ','Xian ','Que ','Kong ','Chong ','Chong ','Ta ','','Hua ','Ju ','Lai ','Qi ','Min ',
         'Kun ','Kun ','Zu ','Gu ','Cui ','Ya ','Ya ','Gang ','Lun ','Lun ','Leng ','Jue ','Duo ','Zheng ','Guo ','Yin ',
         'Dong ','Han ','Zheng ','Wei ','Yao ','Pi ','Yan ','Song ','Jie ','Beng ','Zu ','Jue ','Dong ','Zhan ','Gu ','Yin ',
@@ -766,7 +766,7 @@ CODEPOINTS = {
         'Jing ','Xun ','Chao ','Chao ','Lie ','Gong ','Zuo ','Qiao ','Ju ','Gong ','','Wu ','','','Cha ','Qiu ',
         'Qiu ','Ji ','Yi ','Si ','Ba ','Zhi ','Zhao ','Xiang ','Yi ','Jin ','Xun ','Juan ','','Xun ','Jin ','Fu ',
         ],
-    u'x5e':[
+    'x5e':[
         'Za ','Bi ','Shi ','Bu ','Ding ','Shuai ','Fan ','Nie ','Shi ','Fen ','Pa ','Zhi ','Xi ','Hu ','Dan ','Wei ',
         'Zhang ','Tang ','Dai ','Ma ','Pei ','Pa ','Tie ','Fu ','Lian ','Zhi ','Zhou ','Bo ','Zhi ','Di ','Mo ','Yi ',
         'Yi ','Ping ','Qia ','Juan ','Ru ','Shuai ','Dai ','Zheng ','Shui ','Qiao ','Zhen ','Shi ','Qun ','Xi ','Bang ','Dai ',
@@ -784,7 +784,7 @@ CODEPOINTS = {
         'Chang ','Wu ','Fei ','Guang ','','Kuai ','Bi ','Qiang ','Xie ','Lin ','Lin ','Liao ','Lu ','','Ying ','Xian ',
         'Ting ','Yong ','Li ','Ting ','Yin ','Xun ','Yan ','Ting ','Di ','Po ','Jian ','Hui ','Nai ','Hui ','Gong ','Nian ',
         ],
-    u'x5f':[
+    'x5f':[
         'Kai ','Bian ','Yi ','Qi ','Nong ','Fen ','Ju ','Yan ','Yi ','Zang ','Bi ','Yi ','Yi ','Er ','San ','Shi ',
         'Er ','Shi ','Shi ','Gong ','Diao ','Yin ','Hu ','Fu ','Hong ','Wu ','Tui ','Chi ','Jiang ','Ba ','Shen ','Di ',
         'Zhang ','Jue ','Tao ','Fu ','Di ','Mi ','Xian ','Hu ','Chao ','Nu ','Jing ','Zhen ','Yi ','Mi ','Quan ','Wan ',
@@ -802,7 +802,7 @@ CODEPOINTS = {
         'Zhong ','Chong ','Wu ','Ji ','Wu ','Xi ','Ye ','You ','Wan ','Cong ','Zhong ','Kuai ','Yu ','Bian ','Zhi ','Qi ',
         'Cui ','Chen ','Tai ','Tun ','Qian ','Nian ','Hun ','Xiong ','Niu ','Wang ','Xian ','Xin ','Kang ','Hu ','Kai ','Fen ',
         ],
-    u'x60':[
+    'x60':[
         'Huai ','Tai ','Song ','Wu ','Ou ','Chang ','Chuang ','Ju ','Yi ','Bao ','Chao ','Min ','Pei ','Zuo ','Zen ','Yang ',
         'Kou ','Ban ','Nu ','Nao ','Zheng ','Pa ','Bu ','Tie ','Gu ','Hu ','Ju ','Da ','Lian ','Si ','Chou ','Di ',
         'Dai ','Yi ','Tu ','You ','Fu ','Ji ','Peng ','Xing ','Yuan ','Ni ','Guai ','Fu ','Xi ','Bi ','You ','Qie ',
@@ -820,7 +820,7 @@ CODEPOINTS = {
         'Hui ','E ','Rui ','Zong ','Jian ','Yong ','Dian ','Ju ','Can ','Cheng ','De ','Bei ','Qie ','Can ','Dan ','Guan ',
         'Duo ','Nao ','Yun ','Xiang ','Zhui ','Die ','Huang ','Chun ','Qiong ','Re ','Xing ','Ce ','Bian ','Hun ','Zong ','Ti ',
         ],
-    u'x61':[
+    'x61':[
         'Qiao ','Chou ','Bei ','Xuan ','Wei ','Ge ','Qian ','Wei ','Yu ','Yu ','Bi ','Xuan ','Huan ','Min ','Bi ','Yi ',
         'Mian ','Yong ','Kai ','Dang ','Yin ','E ','Chen ','Mou ','Ke ','Ke ','Yu ','Ai ','Qie ','Yan ','Nuo ','Gan ',
         'Yun ','Zong ','Sai ','Leng ','Fen ','','Kui ','Kui ','Que ','Gong ','Yun ','Su ','Su ','Qi ','Yao ','Song ',
@@ -838,7 +838,7 @@ CODEPOINTS = {
         'Qi ','Mo ','Lan ','Men ','Chou ','Zhi ','Nuo ','Nuo ','Yan ','Yang ','Bo ','Zhi ','Kuang ','Kuang ','You ','Fu ',
         'Liu ','Mie ','Cheng ','','Chan ','Meng ','Lan ','Huai ','Xuan ','Rang ','Chan ','Ji ','Ju ','Huan ','She ','Yi ',
         ],
-    u'x62':[
+    'x62':[
         'Lian ','Nan ','Mi ','Tang ','Jue ','Gang ','Gang ','Gang ','Ge ','Yue ','Wu ','Jian ','Xu ','Shu ','Rong ','Xi ',
         'Cheng ','Wo ','Jie ','Ge ','Jian ','Qiang ','Huo ','Qiang ','Zhan ','Dong ','Qi ','Jia ','Die ','Zei ','Jia ','Ji ',
         'Shi ','Kan ','Ji ','Kui ','Gai ','Deng ','Zhan ','Chuang ','Ge ','Jian ','Jie ','Yu ','Jian ','Yan ','Lu ','Xi ',
@@ -856,7 +856,7 @@ CODEPOINTS = {
         'Ju ','Kuo ','Long ','Jian ','','Yong ','Lan ','Ning ','Bo ','Ze ','Qian ','Hen ','Kuo ','Shi ','Jie ','Zheng ',
         'Nin ','Gong ','Gong ','Quan ','Shuan ','Cun ','Zan ','Kao ','Chi ','Xie ','Ce ','Hui ','Pin ','Ye ','Shi ','Na ',
         ],
-    u'x63':[
+    'x63':[
         'Bo ','Chi ','Gua ','Zhi ','Kuo ','Duo ','Duo ','Zhi ','Qie ','An ','Nong ','Zhen ','Ge ','Jiao ','Ku ','Dong ',
         'Ru ','Tiao ','Lie ','Zha ','Lu ','Die ','Wa ','Jue ','','Ju ','Zhi ','Luan ','Ya ','Zhua ','Ta ','Xie ',
         'Nao ','Dang ','Jiao ','Zheng ','Ji ','Hui ','Xun ','','Ai ','Tuo ','Nuo ','Cuo ','Bo ','Geng ','Ti ','Zhen ',
@@ -874,7 +874,7 @@ CODEPOINTS = {
         'Ya ','Wo ','Ke ','Chuai ','Ji ','Ti ','La ','La ','Cheng ','Kai ','Jiu ','Jiu ','Tu ','Jie ','Hui ','Geng ',
         'Chong ','Shuo ','She ','Xie ','Yuan ','Qian ','Ye ','Cha ','Zha ','Bei ','Yao ','','','Lan ','Wen ','Qin ',
         ],
-    u'x64':[
+    'x64':[
         'Chan ','Ge ','Lou ','Zong ','Geng ','Jiao ','Gou ','Qin ','Yong ','Que ','Chou ','Chi ','Zhan ','Sun ','Sun ','Bo ',
         'Chu ','Rong ','Beng ','Cuo ','Sao ','Ke ','Yao ','Dao ','Zhi ','Nu ','Xie ','Jian ','Sou ','Qiu ','Gao ','Xian ',
         'Shuo ','Sang ','Jin ','Mie ','E ','Chui ','Nuo ','Shan ','Ta ','Jie ','Tang ','Pan ','Ban ','Da ','Li ','Tao ',
@@ -892,7 +892,7 @@ CODEPOINTS = {
         'Ji ','Tai ','Zhuo ','Dao ','Xing ','Lan ','Ca ','Ju ','Ye ','Ru ','Ye ','Ye ','Ni ','Wo ','Ji ','Bin ',
         'Ning ','Ge ','Zhi ','Jie ','Kuo ','Mo ','Jian ','Xie ','Lie ','Tan ','Bai ','Sou ','Lu ','Lue ','Rao ','Zhi ',
         ],
-    u'x65':[
+    'x65':[
         'Pan ','Yang ','Lei ','Sa ','Shu ','Zan ','Nian ','Xian ','Jun ','Huo ','Li ','La ','Han ','Ying ','Lu ','Long ',
         'Qian ','Qian ','Zan ','Qian ','Lan ','San ','Ying ','Mei ','Rang ','Chan ','','Cuan ','Xie ','She ','Luo ','Jun ',
         'Mi ','Li ','Zan ','Luan ','Tan ','Zuan ','Li ','Dian ','Wa ','Dang ','Jiao ','Jue ','Lan ','Li ','Nang ','Zhi ',
@@ -910,7 +910,7 @@ CODEPOINTS = {
         'Wu ','Ji ','Ji ','Ji ','Huo ','Ri ','Dan ','Jiu ','Zhi ','Zao ','Xie ','Tiao ','Xun ','Xu ','Xu ','Xu ',
         'Gan ','Han ','Tai ','Di ','Xu ','Chan ','Shi ','Kuang ','Yang ','Shi ','Wang ','Min ','Min ','Tun ','Chun ','Wu ',
         ],
-    u'x66':[
+    'x66':[
         'Yun ','Bei ','Ang ','Ze ','Ban ','Jie ','Kun ','Sheng ','Hu ','Fang ','Hao ','Gui ','Chang ','Xuan ','Ming ','Hun ',
         'Fen ','Qin ','Hu ','Yi ','Xi ','Xin ','Yan ','Ze ','Fang ','Tan ','Shen ','Ju ','Yang ','Zan ','Bing ','Xing ',
         'Ying ','Xuan ','Pei ','Zhen ','Ling ','Chun ','Hao ','Mei ','Zuo ','Mo ','Bian ','Xu ','Hun ','Zhao ','Zong ','Shi ',
@@ -928,7 +928,7 @@ CODEPOINTS = {
         'Kuang ','Die ','','Yan ','Huo ','Lu ','Xi ','Rong ','Long ','Nang ','Luo ','Luan ','Shai ','Tang ','Yan ','Chu ',
         'Yue ','Yue ','Qu ','Ye ','Geng ','Ye ','Hu ','He ','Shu ','Cao ','Cao ','','Man ','Ceng ','Ceng ','Ti ',
         ],
-    u'x67':[
+    'x67':[
         'Zui ','Can ','Xu ','Hui ','Yin ','Qie ','Fen ','Pi ','Yue ','You ','Ruan ','Peng ','Ban ','Fu ','Ling ','Fei ',
         'Qu ','','Nu ','Tiao ','Shuo ','Zhen ','Lang ','Lang ','Juan ','Ming ','Huang ','Wang ','Tun ','Zhao ','Ji ','Qi ',
         'Ying ','Zong ','Wang ','Tong ','Lang ','','Meng ','Long ','Mu ','Deng ','Wei ','Mo ','Ben ','Zha ','Shu ','Zhu ',
@@ -946,7 +946,7 @@ CODEPOINTS = {
         'Ning ','Yong ','Di ','Zhi ','Zha ','Cha ','Dan ','Gu ','','Jiu ','Ao ','Fu ','Jian ','Bo ','Duo ','Ke ',
         'Nai ','Zhu ','Bi ','Liu ','Chai ','Zha ','Si ','Zhu ','Pei ','Shi ','Guai ','Cha ','Yao ','Jue ','Jiu ','Shi ',
         ],
-    u'x68':[
+    'x68':[
         'Zhi ','Liu ','Mei ','','Rong ','Zha ','','Biao ','Zhan ','Jie ','Long ','Dong ','Lu ','','Li ','Lan ',
         'Yong ','Shu ','Xun ','Shuan ','Qi ','Zhen ','Qi ','Li ','Yi ','Xiang ','Zhen ','Li ','Su ','Gua ','Kan ','Bing ',
         'Ren ','Xiao ','Bo ','Ren ','Bing ','Zi ','Chou ','Yi ','Jie ','Xu ','Zhu ','Jian ','Zui ','Er ','Er ','You ',
@@ -964,7 +964,7 @@ CODEPOINTS = {
         'Tang ','Gang ','Wang ','Di ','Xi ','Fan ','Cheng ','Zhan ','Qi ','Yuan ','Yan ','Yu ','Quan ','Yi ','Sen ','Ren ',
         'Chui ','Leng ','Qi ','Zhuo ','Fu ','Ke ','Lai ','Zou ','Zou ','Zhuo ','Guan ','Fen ','Fen ','Chen ','Qiong ','Nie ',
         ],
-    u'x69':[
+    'x69':[
         'Wan ','Guo ','Lu ','Hao ','Jie ','Yi ','Chou ','Ju ','Ju ','Cheng ','Zuo ','Liang ','Qiang ','Zhi ','Zhui ','Ya ',
         'Ju ','Bei ','Jiao ','Zhuo ','Zi ','Bin ','Peng ','Ding ','Chu ','','','','Jian ','Gui ','Xi ','Du ',
         'Qian ','','','','Luo ','Zhi ','','','','','Peng ','Zhan ','','Tuo ','Sen ','Duo ',
@@ -982,7 +982,7 @@ CODEPOINTS = {
         'Zhu ','','Xi ','Qi ','Lian ','Hui ','Yong ','Qian ','Guo ','Gai ','Gai ','Tuan ','Hua ','Cu ','Sen ','Cui ',
         'Beng ','You ','Hu ','Jiang ','Hu ','Huan ','Kui ','Yi ','Nie ','Gao ','Kang ','Gui ','Gui ','Cao ','Man ','Jin ',
         ],
-    u'x6a':[
+    'x6a':[
         'Di ','Zhuang ','Le ','Lang ','Chen ','Cong ','Li ','Xiu ','Qing ','Shuang ','Fan ','Tong ','Guan ','Ji ','Suo ','Lei ',
         'Lu ','Liang ','Mi ','Lou ','Chao ','Su ','Ke ','Chu ','Tang ','Biao ','Lu ','Jiu ','Shu ','Zha ','Shu ','Zhang ',
         'Men ','Mo ','Niao ','Yang ','Tiao ','Peng ','Zhu ','Sha ','Xi ','Quan ','Heng ','Jian ','Cong ','','','Qiang ',
@@ -1000,7 +1000,7 @@ CODEPOINTS = {
         'Fei ','Zhuo ','Sou ','Lian ','','Chu ','','Zhu ','Lu ','Yan ','Li ','Zhu ','Chen ','Jie ','E ','Su ',
         'Huai ','Nie ','Yu ','Long ','Lai ','','Xian ','','Ju ','Xiao ','Ling ','Ying ','Jian ','Yin ','You ','Ying ',
         ],
-    u'x6b':[
+    'x6b':[
         'Xiang ','Nong ','Bo ','Chan ','Lan ','Ju ','Shuang ','She ','Wei ','Cong ','Quan ','Qu ','','','Yu ','Luo ',
         'Li ','Zan ','Luan ','Dang ','Jue ','','Lan ','Lan ','Zhu ','Lei ','Li ','Ba ','Nang ','Yu ','Ling ','',
         'Qian ','Ci ','Huan ','Xin ','Yu ','Yu ','Qian ','Ou ','Xu ','Chao ','Chu ','Chi ','Kai ','Yi ','Jue ','Xi ',
@@ -1018,7 +1018,7 @@ CODEPOINTS = {
         'Jia ','Zhan ','Sai ','Mu ','Tuo ','Xun ','Er ','Rong ','Xian ','Ju ','Mu ','Hao ','Qiu ','Dou ','','Tan ',
         'Pei ','Ju ','Duo ','Cui ','Bi ','San ','','Mao ','Sui ','Shu ','Yu ','Tuo ','He ','Jian ','Ta ','San ',
         ],
-    u'x6c':[
+    'x6c':[
         'Lu ','Mu ','Mao ','Tong ','Rong ','Chang ','Pu ','Luo ','Zhan ','Sao ','Zhan ','Meng ','Luo ','Qu ','Die ','Shi ',
         'Di ','Min ','Jue ','Mang ','Qi ','Pie ','Nai ','Qi ','Dao ','Xian ','Chuan ','Fen ','Ri ','Nei ','','Fu ',
         'Shen ','Dong ','Qing ','Qi ','Yin ','Xi ','Hai ','Yang ','An ','Ya ','Ke ','Qing ','Ya ','Dong ','Dan ','Lu ',
@@ -1036,7 +1036,7 @@ CODEPOINTS = {
         'Ling ','Pao ','Bo ','Qi ','Si ','Ni ','Ju ','Yue ','Zhu ','Sheng ','Lei ','Xuan ','Xue ','Fu ','Pan ','Min ',
         'Tai ','Yang ','Ji ','Yong ','Guan ','Beng ','Xue ','Long ','Lu ','','Bo ','Xie ','Po ','Ze ','Jing ','Yin ',
         ],
-    u'x6d':[
+    'x6d':[
         'Zhou ','Ji ','Yi ','Hui ','Hui ','Zui ','Cheng ','Yin ','Wei ','Hou ','Jian ','Yang ','Lie ','Si ','Ji ','Er ',
         'Xing ','Fu ','Sa ','Suo ','Zhi ','Yin ','Wu ','Xi ','Kao ','Zhu ','Jiang ','Luo ','','An ','Dong ','Yi ',
         'Mou ','Lei ','Yi ','Mi ','Quan ','Jin ','Mo ','Wei ','Xiao ','Xie ','Hong ','Xu ','Shuo ','Kuang ','Tao ','Qie ',
@@ -1054,7 +1054,7 @@ CODEPOINTS = {
         'Pi ','Dan ','Yu ','Ni ','Yu ','Lu ','Gan ','Mi ','Jing ','Ling ','Lun ','Yin ','Cui ','Qu ','Huai ','Yu ',
         'Nian ','Shen ','Piao ','Chun ','Wa ','Yuan ','Lai ','Hun ','Qing ','Yan ','Qian ','Tian ','Miao ','Zhi ','Yin ','Mi ',
         ],
-    u'x6e':[
+    'x6e':[
         'Ben ','Yuan ','Wen ','Re ','Fei ','Qing ','Yuan ','Ke ','Ji ','She ','Yuan ','','Lu ','Zi ','Du ','',
         'Jian ','Min ','Pi ','','Yu ','Yuan ','Shen ','Shen ','Rou ','Huan ','Zhu ','Jian ','Nuan ','Yu ','Qiu ','Ting ',
         'Qu ','Du ','Feng ','Zha ','Bo ','Wo ','Wo ','Di ','Wei ','Wen ','Ru ','Xie ','Ce ','Wei ','Ge ','Gang ',
@@ -1072,7 +1072,7 @@ CODEPOINTS = {
         'She ','Man ','Ying ','Chun ','Lu ','Lan ','Luan ','','Bin ','Tan ','Yu ','Sou ','Hu ','Bi ','Biao ','Zhi ',
         'Jiang ','Kou ','Shen ','Shang ','Di ','Mi ','Ao ','Lu ','Hu ','Hu ','You ','Chan ','Fan ','Yong ','Gun ','Man ',
         ],
-    u'x6f':[
+    'x6f':[
         'Qing ','Yu ','Piao ','Ji ','Ya ','Jiao ','Qi ','Xi ','Ji ','Lu ','Lu ','Long ','Jin ','Guo ','Cong ','Lou ',
         'Zhi ','Gai ','Qiang ','Li ','Yan ','Cao ','Jiao ','Cong ','Chun ','Tuan ','Ou ','Teng ','Ye ','Xi ','Mi ','Tang ',
         'Mo ','Shang ','Han ','Lian ','Lan ','Wa ','Li ','Qian ','Feng ','Xuan ','Yi ','Man ','Zi ','Mang ','Kang ','Ta ',
@@ -1090,7 +1090,7 @@ CODEPOINTS = {
         'Hao ','Ru ','Zui ','Wo ','Tao ','Yin ','Yin ','Dui ','Ci ','Huo ','Jing ','Lan ','Jun ','Ai ','Pu ','Zhuo ',
         'Wei ','Bin ','Gu ','Qian ','Xing ','','Kuo ','Fei ','','','Jian ','Wei ','Luo ','Zan ','Lu ','Li ',
         ],
-    u'x70':[
+    'x70':[
         'You ','Yang ','Lu ','Si ','Jie ','Ying ','Du ','Wang ','Hui ','Xie ','Pan ','Shen ','Biao ','Chan ','Mo ','Liu ',
         'Jian ','Pu ','Se ','Cheng ','Gu ','Bin ','Huo ','Xian ','Lu ','Qin ','Han ','Ying ','Yong ','Li ','Jing ','Xiao ',
         'Ying ','Sui ','Wei ','Xie ','Huai ','Hao ','Zhu ','Long ','Lai ','Dui ','Fan ','Hu ','Lai ','','','Ying ',
@@ -1108,7 +1108,7 @@ CODEPOINTS = {
         'Hui ','Guang ','Zhe ','Hui ','Kao ','','Fan ','Shao ','Ye ','Hui ','','Tang ','Jin ','Re ','','Xi ',
         'Fu ','Jiong ','Che ','Pu ','Jing ','Zhuo ','Ting ','Wan ','Hai ','Peng ','Lang ','Shan ','Hu ','Feng ','Chi ','Rong ',
         ],
-    u'x71':[
+    'x71':[
         'Hu ','','Shu ','He ','Xun ','Ku ','Jue ','Xiao ','Xi ','Yan ','Han ','Zhuang ','Jun ','Di ','Xie ','Ji ',
         'Wu ','','','Han ','Yan ','Huan ','Men ','Ju ','Chou ','Bei ','Fen ','Lin ','Kun ','Hun ','Tun ','Xi ',
         'Cui ','Wu ','Hong ','Ju ','Fu ','Wo ','Jiao ','Cong ','Feng ','Ping ','Qiong ','Ruo ','Xi ','Qiong ','Xin ','Zhuo ',
@@ -1126,7 +1126,7 @@ CODEPOINTS = {
         'Yu ','Yi ','Xue ','Lan ','Tai ','Zao ','Can ','Sui ','Xi ','Que ','Cong ','Lian ','Hui ','Zhu ','Xie ','Ling ',
         'Wei ','Yi ','Xie ','Zhao ','Hui ','','','Lan ','Ru ','Xian ','Kao ','Xun ','Jin ','Chou ','Dao ','Yao ',
         ],
-    u'x72':[
+    'x72':[
         'He ','Lan ','Biao ','Rong ','Li ','Mo ','Bao ','Ruo ','Lu ','La ','Ao ','Xun ','Kuang ','Shuo ','','Li ',
         'Lu ','Jue ','Liao ','Yan ','Xi ','Xie ','Long ','Ye ','','Rang ','Yue ','Lan ','Cong ','Jue ','Tong ','Guan ',
         '','Che ','Mi ','Tang ','Lan ','Zhu ','','Ling ','Cuan ','Yu ','Zhua ','','Pa ','Zheng ','Pao ','Cheng ',
@@ -1144,7 +1144,7 @@ CODEPOINTS = {
         'Hen ','Jiao ','He ','Zhao ','Ji ','Xun ','Shan ','Ta ','Rong ','Shou ','Tong ','Lao ','Du ','Xia ','Shi ','Hua ',
         'Zheng ','Yu ','Sun ','Yu ','Bi ','Mang ','Xi ','Juan ','Li ','Xia ','Yin ','Suan ','Lang ','Bei ','Zhi ','Yan ',
         ],
-    u'x73':[
+    'x73':[
         'Sha ','Li ','Han ','Xian ','Jing ','Pai ','Fei ','Yao ','Ba ','Qi ','Ni ','Biao ','Yin ','Lai ','Xi ','Jian ',
         'Qiang ','Kun ','Yan ','Guo ','Zong ','Mi ','Chang ','Yi ','Zhi ','Zheng ','Ya ','Meng ','Cai ','Cu ','She ','',
         '','Luo ','Hu ','Zong ','Ji ','Wei ','Feng ','Wo ','Yuan ','Xing ','Zhu ','Mao ','Wei ','Yuan ','Xian ','Tuan ',
@@ -1162,7 +1162,7 @@ CODEPOINTS = {
         'Zhu ','Qin ','Ken ','Xun ','Bao ','Er ','Xiang ','Yao ','Xia ','Heng ','Gui ','Chong ','Xu ','Ban ','Pei ','',
         'Dang ','','Hun ','Wen ','E ','Cheng ','Di ','Wu ','Wu ','Cheng ','Jun ','Mei ','Bei ','Ting ','Xian ','Chuo ',
         ],
-    u'x74':[
+    'x74':[
         'Han ','Xuan ','Yan ','Qiu ','Quan ','Lang ','Li ','Xiu ','Fu ','Liu ','Ye ','Xi ','Ling ','Li ','Jin ','Lian ',
         'Suo ','','','Wan ','Dian ','Pin ','Zhan ','Cui ','Min ','Yu ','Ju ','Chen ','Lai ','Wen ','Sheng ','Wei ',
         'Dian ','Chu ','Zhuo ','Pei ','Cheng ','Hu ','Qi ','E ','Kun ','Chang ','Qi ','Beng ','Wan ','Lu ','Cong ','Guan ',
@@ -1180,7 +1180,7 @@ CODEPOINTS = {
         'Hu ','Zhi ','Piao ','Ban ','Rang ','Li ','Wa ','','Jiang ','','Fan ','Pen ','Fang ','Dan ','Weng ','Ou ',
         '','','','Hu ','Ling ','Yi ','Ping ','Ci ','','Juan ','Chang ','Chi ','','Dang ','Meng ','Pou ',
         ],
-    u'x75':[
+    'x75':[
         'Zhui ','Ping ','Bian ','Zhou ','Zhen ','','Ci ','Ying ','Qi ','Xian ','Lou ','Di ','Ou ','Meng ','Zhuan ','Peng ',
         'Lin ','Zeng ','Wu ','Pi ','Dan ','Weng ','Ying ','Yan ','Gan ','Dai ','Shen ','Tian ','Tian ','Han ','Chang ','Sheng ',
         'Qing ','Shen ','Chan ','Chan ','Rui ','Sheng ','Su ','Sen ','Yong ','Shuai ','Lu ','Fu ','Yong ','Beng ','Feng ','Ning ',
@@ -1198,7 +1198,7 @@ CODEPOINTS = {
         'Suan ','Pu ','Li ','Zhi ','Cuo ','Duo ','Wu ','Sha ','Lao ','Shou ','Huan ','Xian ','Yi ','Peng ','Zhang ','Guan ',
         'Tan ','Fei ','Ma ','Lin ','Chi ','Ji ','Dian ','An ','Chi ','Bi ','Bi ','Min ','Gu ','Dui ','E ','Wei ',
         ],
-    u'x76':[
+    'x76':[
         'Yu ','Cui ','Ya ','Zhu ','Cu ','Dan ','Shen ','Zhong ','Ji ','Yu ','Hou ','Feng ','La ','Yang ','Shen ','Tu ',
         'Yu ','Gua ','Wen ','Huan ','Ku ','Jia ','Yin ','Yi ','Lu ','Sao ','Jue ','Chi ','Xi ','Guan ','Yi ','Wen ',
         'Ji ','Chuang ','Ban ','Lei ','Liu ','Chai ','Shou ','Nue ','Dian ','Da ','Pie ','Tan ','Zhang ','Biao ','Shen ','Cu ',
@@ -1216,7 +1216,7 @@ CODEPOINTS = {
         'Li ','Jin ','Xu ','Jian ','Pan ','Guan ','An ','Lu ','Shu ','Zhou ','Dang ','An ','Gu ','Li ','Mu ','Ding ',
         'Gan ','Xu ','Mang ','Mang ','Zhi ','Qi ','Ruan ','Tian ','Xiang ','Dun ','Xin ','Xi ','Pan ','Feng ','Dun ','Min ',
         ],
-    u'x77':[
+    'x77':[
         'Ming ','Sheng ','Shi ','Yun ','Mian ','Pan ','Fang ','Miao ','Dan ','Mei ','Mao ','Kan ','Xian ','Ou ','Shi ','Yang ',
         'Zheng ','Yao ','Shen ','Huo ','Da ','Zhen ','Kuang ','Ju ','Shen ','Chi ','Sheng ','Mei ','Mo ','Zhu ','Zhen ','Zhen ',
         'Mian ','Di ','Yuan ','Die ','Yi ','Zi ','Zi ','Chao ','Zha ','Xuan ','Bing ','Mi ','Long ','Sui ','Dong ','Mi ',
@@ -1234,7 +1234,7 @@ CODEPOINTS = {
         'Ce ','Jue ','Shi ','Yi ','Shen ','Zhi ','Hou ','Shen ','Ying ','Ju ','Zhou ','Jiao ','Cuo ','Duan ','Ai ','Jiao ',
         'Zeng ','Huo ','Bai ','Shi ','Ding ','Qi ','Ji ','Zi ','Gan ','Wu ','Tuo ','Ku ','Qiang ','Xi ','Fan ','Kuang ',
         ],
-    u'x78':[
+    'x78':[
         'Dang ','Ma ','Sha ','Dan ','Jue ','Li ','Fu ','Min ','Nuo ','Huo ','Kang ','Zhi ','Qi ','Kan ','Jie ','Fen ',
         'E ','Ya ','Pi ','Zhe ','Yan ','Sui ','Zhuan ','Che ','Dun ','Pan ','Yan ','','Feng ','Fa ','Mo ','Zha ',
         'Qu ','Yu ','Luo ','Tuo ','Tuo ','Di ','Zhai ','Zhen ','Ai ','Fei ','Mu ','Zhu ','Li ','Bian ','Nu ','Ping ',
@@ -1252,7 +1252,7 @@ CODEPOINTS = {
         'Lu ','Kan ','Qiang ','Chen ','Yin ','Lei ','Biao ','Qi ','Mo ','Qi ','Cui ','Zong ','Qing ','Chuo ','','Ji ',
         'Shan ','Lao ','Qu ','Zeng ','Deng ','Jian ','Xi ','Lin ','Ding ','Dian ','Huang ','Pan ','Za ','Qiao ','Di ','Li ',
         ],
-    u'x79':[
+    'x79':[
         '','Jiao ','','Zhang ','Qiao ','Dun ','Xian ','Yu ','Zhui ','He ','Huo ','Zhai ','Lei ','Ke ','Chu ','Ji ',
         'Que ','Dang ','Yi ','Jiang ','Pi ','Pi ','Yu ','Pin ','Qi ','Ai ','Kai ','Jian ','Yu ','Ruan ','Meng ','Pao ',
         'Ci ','Bo ','','Mie ','Ca ','Xian ','Kuang ','Lei ','Lei ','Zhi ','Li ','Li ','Fan ','Que ','Pao ','Ying ',
@@ -1270,7 +1270,7 @@ CODEPOINTS = {
         'Pi ','Ba ','Ling ','Mo ','Cheng ','Nian ','Qin ','Yang ','Zuo ','Zhi ','Zhi ','Shu ','Ju ','Zi ','Huo ','Ji ',
         'Cheng ','Tong ','Zhi ','Huo ','He ','Yin ','Zi ','Zhi ','Jie ','Ren ','Du ','Yi ','Zhu ','Hui ','Nong ','Fu ',
         ],
-    u'x7a':[
+    'x7a':[
         'Xi ','Kao ','Lang ','Fu ','Ze ','Shui ','Lu ','Kun ','Gan ','Geng ','Ti ','Cheng ','Tu ','Shao ','Shui ','Ya ',
         'Lun ','Lu ','Gu ','Zuo ','Ren ','Zhun ','Bang ','Bai ','Ji ','Zhi ','Zhi ','Kun ','Leng ','Peng ','Ke ','Bing ',
         'Chou ','Zu ','Yu ','Su ','Lue ','','Yi ','Xi ','Bian ','Ji ','Fu ','Bi ','Nuo ','Jie ','Zhong ','Zong ',
@@ -1288,7 +1288,7 @@ CODEPOINTS = {
         'Zhang ','','Si ','Jun ','Hong ','Tong ','Song ','Jing ','Diao ','Yi ','Shu ','Jing ','Qu ','Jie ','Ping ','Duan ',
         'Shao ','Zhuan ','Ceng ','Deng ','Cui ','Huai ','Jing ','Kan ','Jing ','Zhu ','Zhu ','Le ','Peng ','Yu ','Chi ','Gan ',
         ],
-    u'x7b':[
+    'x7b':[
         'Mang ','Zhu ','','Du ','Ji ','Xiao ','Ba ','Suan ','Ji ','Zhen ','Zhao ','Sun ','Ya ','Zhui ','Yuan ','Hu ',
         'Gang ','Xiao ','Cen ','Pi ','Bi ','Jian ','Yi ','Dong ','Shan ','Sheng ','Xia ','Di ','Zhu ','Na ','Chi ','Gu ',
         'Li ','Qie ','Min ','Bao ','Tiao ','Si ','Fu ','Ce ','Ben ','Pei ','Da ','Zi ','Di ','Ling ','Ze ','Nu ',
@@ -1306,7 +1306,7 @@ CODEPOINTS = {
         'Xiao ','Cuan ','Gong ','Pang ','Du ','Li ','Bi ','Zhuo ','Chu ','Shai ','Chi ','Zhu ','Qiang ','Long ','Lan ','Jian ',
         'Bu ','Li ','Hui ','Bi ','Di ','Cong ','Yan ','Peng ','Sen ','Zhuan ','Pai ','Piao ','Dou ','Yu ','Mie ','Zhuan ',
         ],
-    u'x7c':[
+    'x7c':[
         'Ze ','Xi ','Guo ','Yi ','Hu ','Chan ','Kou ','Cu ','Ping ','Chou ','Ji ','Gui ','Su ','Lou ','Zha ','Lu ',
         'Nian ','Suo ','Cuan ','','Suo ','Le ','Duan ','','Xiao ','Bo ','Mi ','Si ','Dang ','Liao ','Dan ','Dian ',
         'Fu ','Jian ','Min ','Kui ','Dai ','Jiao ','Deng ','Huang ','Sun ','Lao ','Zan ','Xiao ','Lu ','Shi ','Zan ','',
@@ -1324,7 +1324,7 @@ CODEPOINTS = {
         'Kang ','Jiang ','Mo ','San ','San ','Nuo ','Xi ','Liang ','Jiang ','Kuai ','Bo ','Huan ','','Zong ','Xian ','Nuo ',
         'Tuan ','Nie ','Li ','Zuo ','Di ','Nie ','Tiao ','Lan ','Mi ','Si ','Jiu ','Xi ','Gong ','Zheng ','Jiu ','You ',
         ],
-    u'x7d':[
+    'x7d':[
         'Ji ','Cha ','Zhou ','Xun ','Yue ','Hong ','Yu ','He ','Wan ','Ren ','Wen ','Wen ','Qiu ','Na ','Zi ','Tou ',
         'Niu ','Fou ','Jie ','Shu ','Chun ','Pi ','Yin ','Sha ','Hong ','Zhi ','Ji ','Fen ','Yun ','Ren ','Dan ','Jin ',
         'Su ','Fang ','Suo ','Cui ','Jiu ','Zha ','','Jin ','Fu ','Zhi ','Ci ','Zi ','Chou ','Hong ','Za ','Lei ',
@@ -1342,7 +1342,7 @@ CODEPOINTS = {
         'Di ','Min ','Miao ','Yuan ','Xie ','Bao ','Si ','Qiu ','Bian ','Huan ','Geng ','Cong ','Mian ','Wei ','Fu ','Wei ',
         'Yu ','Gou ','Miao ','Xie ','Lian ','Zong ','Bian ','Yun ','Yin ','Ti ','Gua ','Zhi ','Yun ','Cheng ','Chan ','Dai ',
         ],
-    u'x7e':[
+    'x7e':[
         'Xia ','Yuan ','Zong ','Xu ','','','Geng ','','Ying ','Jin ','Yi ','Zhui ','Ni ','Bang ','Gu ','Pan ',
         'Zhou ','Jian ','Cuo ','Quan ','Shuang ','Yun ','Xia ','Cui ','Xi ','Rong ','Tao ','Fu ','Yun ','Chen ','Gao ','Ru ',
         'Hu ','Zai ','Teng ','Xian ','Su ','Zhen ','Zong ','Tao ','','Cai ','Bi ','Feng ','Cu ','Li ','Suo ','Yin ',
@@ -1360,7 +1360,7 @@ CODEPOINTS = {
         'Geng ','Xiao ','Juan ','Xiu ','Xi ','Sui ','Tao ','Ji ','Ti ','Ji ','Xu ','Ling ','Ying ','Xu ','Qi ','Fei ',
         'Chuo ','Zhang ','Gun ','Sheng ','Wei ','Mian ','Shou ','Beng ','Chou ','Tao ','Liu ','Quan ','Zong ','Zhan ','Wan ','Lu ',
         ],
-    u'x7f':[
+    'x7f':[
         'Zhui ','Zi ','Ke ','Xiang ','Jian ','Mian ','Lan ','Ti ','Miao ','Qi ','Yun ','Hui ','Si ','Duo ','Duan ','Bian ',
         'Xian ','Gou ','Zhui ','Huan ','Di ','Lu ','Bian ','Min ','Yuan ','Jin ','Fu ','Ru ','Zhen ','Feng ','Shuai ','Gao ',
         'Chan ','Li ','Yi ','Jian ','Bin ','Piao ','Man ','Lei ','Ying ','Suo ','Mou ','Sao ','Xie ','Liao ','Shan ','Zeng ',
@@ -1378,7 +1378,7 @@ CODEPOINTS = {
         'Cui ','Fei ','Tao ','Sha ','Chi ','Zhu ','Jian ','Xuan ','Shi ','Pian ','Zong ','Wan ','Hui ','Hou ','He ','He ',
         'Han ','Ao ','Piao ','Yi ','Lian ','Qu ','','Lin ','Pen ','Qiao ','Ao ','Fan ','Yi ','Hui ','Xuan ','Dao ',
         ],
-    u'x80':[
+    'x80':[
         'Yao ','Lao ','','Kao ','Mao ','Zhe ','Qi ','Gou ','Gou ','Gou ','Die ','Die ','Er ','Shua ','Ruan ','Er ',
         'Nai ','Zhuan ','Lei ','Ting ','Zi ','Geng ','Chao ','Hao ','Yun ','Ba ','Pi ','Chi ','Si ','Chu ','Jia ','Ju ',
         'He ','Chu ','Lao ','Lun ','Ji ','Tang ','Ou ','Lou ','Nou ','Jiang ','Pang ','Ze ','Lou ','Ji ','Lao ','Huo ',
@@ -1396,7 +1396,7 @@ CODEPOINTS = {
         'Qu ','Hu ','Ke ','Yi ','Yin ','Xu ','Yang ','Long ','Dong ','Ka ','Lu ','Jing ','Nu ','Yan ','Pang ','Kua ',
         'Yi ','Guang ','Hai ','Ge ','Dong ','Zhi ','Xiao ','Xiong ','Xiong ','Er ','E ','Xing ','Pian ','Neng ','Zi ','',
         ],
-    u'x81':[
+    'x81':[
         'Cheng ','Tiao ','Zhi ','Cui ','Mei ','Xie ','Cui ','Xie ','Mai ','Mai ','Ji ','','','Kuai ','Sa ','Zang ',
         'Qi ','Nao ','Mi ','Nong ','Luan ','Wan ','Bo ','Wen ','Guan ','Qiu ','Jiao ','Jing ','Rou ','Heng ','Cuo ','Lie ',
         'Shan ','Ting ','Mei ','Chun ','Shen ','Qian ','Te ','Zui ','Cu ','Xiu ','Xin ','Tuo ','Pao ','Cheng ','Nei ','Fu ',
@@ -1414,7 +1414,7 @@ CODEPOINTS = {
         'Luan ','Ni ','Zang ','Chen ','Qian ','Wo ','Guang ','Zang ','Lin ','Guang ','Zi ','Jiao ','Nie ','Chou ','Ji ','Gao ',
         'Chou ','Mian ','Nie ','Zhi ','Zhi ','Ge ','Jian ','Die ','Zhi ','Xiu ','Tai ','Zhen ','Jiu ','Xian ','Yu ','Cha ',
         ],
-    u'x82':[
+    'x82':[
         'Yao ','Yu ','Chong ','Xi ','Xi ','Jiu ','Yu ','Yu ','Xing ','Ju ','Jiu ','Xin ','She ','She ','','Jiu ',
         'Shi ','Tan ','Shu ','Shi ','Tian ','Dan ','Pu ','Pu ','Guan ','Hua ','Tan ','Chuan ','Shun ','Xia ','Wu ','Zhou ',
         'Dao ','Gang ','Shan ','Yi ','','Pa ','Tai ','Fan ','Ban ','Chuan ','Hang ','Fang ','Ban ','Que ','','Zhong ',
@@ -1432,7 +1432,7 @@ CODEPOINTS = {
         'Min ','Yi ','Yi ','Ju ','Pi ','Ruo ','Ku ','Zhu ','Ni ','Bo ','Bing ','Shan ','Qiu ','Yao ','Xian ','Ben ',
         'Hong ','Ying ','Zha ','Dong ','Ju ','Die ','Nie ','Gan ','Hu ','Ping ','Mei ','Fu ','Sheng ','Gu ','Bi ','Wei ',
         ],
-    u'x83':[
+    'x83':[
         'Fu ','Zhuo ','Mao ','Fan ','Qie ','Mao ','Mao ','Ba ','Zi ','Mo ','Zi ','Di ','Chi ','Ji ','Jing ','Long ',
         '','Niao ','','Xue ','Ying ','Qiong ','Ge ','Ming ','Li ','Rong ','Yin ','Gen ','Qian ','Chai ','Chen ','Yu ',
         'Xiu ','Zi ','Lie ','Wu ','Ji ','Gui ','Ce ','Chong ','Ci ','Gou ','Guang ','Mang ','Chi ','Jiao ','Jiao ','Fu ',
@@ -1450,7 +1450,7 @@ CODEPOINTS = {
         'Bo ','Han ','Bao ','Qin ','Juan ','Xi ','Qin ','Di ','Jie ','Pu ','Dang ','Jin ','Zhao ','Tai ','Geng ','Hua ',
         'Gu ','Ling ','Fei ','Jin ','An ','Wang ','Beng ','Zhou ','Yan ','Ju ','Jian ','Lin ','Tan ','Shu ','Tian ','Dao ',
         ],
-    u'x84':[
+    'x84':[
         'Hu ','Qi ','He ','Cui ','Tao ','Chun ','Pi ','Chang ','Huan ','Fei ','Lai ','Qi ','Meng ','Ping ','Wei ','Dan ',
         'Sha ','Huan ','Yan ','Yi ','Tiao ','Qi ','Wan ','Ce ','Nai ','','Tuo ','Jiu ','Tie ','Luo ','','',
         'Meng ','','','','Ying ','Ying ','Ying ','Xiao ','Sa ','Qiu ','Ke ','Xiang ','Wan ','Yu ','Yu ','Fu ',
@@ -1468,7 +1468,7 @@ CODEPOINTS = {
         'Li ','Can ','Lang ','Yu ','','Ying ','Mo ','Diao ','Tiao ','Mao ','Tong ','Zhu ','Peng ','An ','Lian ','Cong ',
         'Xi ','Ping ','Qiu ','Jin ','Chun ','Jie ','Wei ','Tui ','Cao ','Yu ','Yi ','Ji ','Liao ','Bi ','Lu ','Su ',
         ],
-    u'x85':[
+    'x85':[
         'Bu ','Zhang ','Luo ','Jiang ','Man ','Yan ','Ling ','Ji ','Piao ','Gun ','Han ','Di ','Su ','Lu ','She ','Shang ',
         'Di ','Mie ','Xun ','Man ','Bo ','Di ','Cuo ','Zhe ','Sen ','Xuan ','Wei ','Hu ','Ao ','Mi ','Lou ','Cu ',
         'Zhong ','Cai ','Po ','Jiang ','Mi ','Cong ','Niao ','Hui ','Jun ','Yin ','Jian ','Yan ','Shu ','Yin ','Kui ','Chen ',
@@ -1486,7 +1486,7 @@ CODEPOINTS = {
         'Xiao ','Di ','Zhi ','Bei ','Teng ','Yao ','Mo ','Huan ','Biao ','Fan ','Sou ','Tan ','Tui ','Qiong ','Qiao ','Wei ',
         'Liu ','Hui ','','Gao ','Yun ','','Li ','Shu ','Chu ','Ai ','Lin ','Zao ','Xuan ','Chen ','Lai ','Huo ',
         ],
-    u'x86':[
+    'x86':[
         'Tuo ','Wu ','Rui ','Rui ','Qi ','Heng ','Lu ','Su ','Tui ','Mang ','Yun ','Pin ','Yu ','Xun ','Ji ','Jiong ',
         'Xian ','Mo ','','Su ','Jiong ','','Nie ','Bo ','Rang ','Yi ','Xian ','Yu ','Ju ','Lian ','Lian ','Yin ',
         'Qiang ','Ying ','Long ','Tong ','Wei ','Yue ','Ling ','Qu ','Yao ','Fan ','Mi ','Lan ','Kui ','Lan ','Ji ','Dang ',
@@ -1504,7 +1504,7 @@ CODEPOINTS = {
         'Li ','Yi ','Ping ','Jie ','Ha ','She ','Yi ','Wang ','Mo ','Qiong ','Qie ','Gui ','Gong ','Zhi ','Man ','',
         'Zhi ','Jia ','Rao ','Si ','Qi ','Xing ','Lie ','Qiu ','Shao ','Yong ','Jia ','Tui ','Che ','Bai ','E ','Han ',
         ],
-    u'x87':[
+    'x87':[
         'Shu ','Xuan ','Feng ','Shen ','Zhen ','Fu ','Xian ','Zhe ','Wu ','Fu ','Li ','Lang ','Bi ','Chu ','Yuan ','You ',
         'Jie ','Dan ','Yan ','Ting ','Dian ','Shui ','Hui ','Gua ','Zhi ','Song ','Fei ','Ju ','Mi ','Qi ','Qi ','Yu ',
         'Jun ','La ','Meng ','Qiang ','Si ','Xi ','Lun ','Li ','Die ','Tiao ','Tao ','Kun ','Gan ','Han ','Yu ','Bang ',
@@ -1522,7 +1522,7 @@ CODEPOINTS = {
         'Pan ','Gui ','Xi ','Ji ','Zhuan ','Huang ','Fei ','Lao ','Jue ','Jue ','Hui ','Yin ','Chan ','Jiao ','Shan ','Rao ',
         'Xiao ','Mou ','Chong ','Xun ','Si ','','Cheng ','Dang ','Li ','Xie ','Shan ','Yi ','Jing ','Da ','Chan ','Qi ',
         ],
-    u'x88':[
+    'x88':[
         'Ci ','Xiang ','She ','Luo ','Qin ','Ying ','Chai ','Li ','Ze ','Xuan ','Lian ','Zhu ','Ze ','Xie ','Mang ','Xie ',
         'Qi ','Rong ','Jian ','Meng ','Hao ','Ru ','Huo ','Zhuo ','Jie ','Bin ','He ','Mie ','Fan ','Lei ','Jie ','La ',
         'Mi ','Li ','Chun ','Li ','Qiu ','Nie ','Lu ','Du ','Xiao ','Zhu ','Long ','Li ','Long ','Feng ','Ye ','Beng ',
@@ -1540,7 +1540,7 @@ CODEPOINTS = {
         'Qun ','Li ','Lian ','Lian ','Ku ','Jian ','Fou ','Chan ','Bi ','Gun ','Tao ','Yuan ','Ling ','Chi ','Chang ','Chou ',
         'Duo ','Biao ','Liang ','Chang ','Pei ','Pei ','Fei ','Yuan ','Luo ','Guo ','Yan ','Du ','Xi ','Zhi ','Ju ','Qi ',
         ],
-    u'x89':[
+    'x89':[
         'Ji ','Zhi ','Gua ','Ken ','','Ti ','Ti ','Fu ','Chong ','Xie ','Bian ','Die ','Kun ','Duan ','Xiu ','Xiu ',
         'He ','Yuan ','Bao ','Bao ','Fu ','Yu ','Tuan ','Yan ','Hui ','Bei ','Chu ','Lu ','','','Yun ','Da ',
         'Gou ','Da ','Huai ','Rong ','Yuan ','Ru ','Nai ','Jiong ','Suo ','Ban ','Tun ','Chi ','Sang ','Niao ','Ying ','Jie ',
@@ -1558,7 +1558,7 @@ CODEPOINTS = {
         'Quan ','Ge ','Chi ','Jie ','Gui ','Gong ','Chu ','Jie ','Hun ','Qiu ','Xing ','Su ','Ni ','Ji ','Lu ','Zhi ',
         'Zha ','Bi ','Xing ','Hu ','Shang ','Gong ','Zhi ','Xue ','Chu ','Xi ','Yi ','Lu ','Jue ','Xi ','Yan ','Xi ',
         ],
-    u'x8a':[
+    'x8a':[
         'Yan ','','Ding ','Fu ','Qiu ','Qiu ','Jiao ','Hong ','Ji ','Fan ','Xun ','Diao ','Hong ','Cha ','Tao ','Xu ',
         'Jie ','Yi ','Ren ','Xun ','Yin ','Shan ','Qi ','Tuo ','Ji ','Xun ','Yin ','E ','Fen ','Ya ','Yao ','Song ',
         'Shen ','Yin ','Xin ','Jue ','Xiao ','Ne ','Chen ','You ','Zhi ','Xiong ','Fang ','Xin ','Chao ','She ','Xian ','Sha ',
@@ -1576,7 +1576,7 @@ CODEPOINTS = {
         'Xuan ','Shi ','Hun ','Hua ','E ','Zhong ','Di ','Xie ','Fu ','Pu ','Ting ','Jian ','Qi ','Yu ','Zi ','Chuan ',
         'Xi ','Hui ','Yin ','An ','Xian ','Nan ','Chen ','Feng ','Zhu ','Yang ','Yan ','Heng ','Xuan ','Ge ','Nuo ','Qi ',
         ],
-    u'x8b':[
+    'x8b':[
         'Mou ','Ye ','Wei ','','Teng ','Zou ','Shan ','Jian ','Bo ','','Huang ','Huo ','Ge ','Ying ','Mi ','Xiao ',
         'Mi ','Xi ','Qiang ','Chen ','Nue ','Ti ','Su ','Bang ','Chi ','Qian ','Shi ','Jiang ','Yuan ','Xie ','Xue ','Tao ',
         'Yao ','Yao ','','Yu ','Biao ','Cong ','Qing ','Li ','Mo ','Mo ','Shang ','Zhe ','Miu ','Jian ','Ze ','Jie ',
@@ -1594,7 +1594,7 @@ CODEPOINTS = {
         'Quan ','Gui ','Xun ','Yi ','Zheng ','Gai ','Xiang ','Cha ','Hun ','Xu ','Zhou ','Jie ','Wu ','Yu ','Qiao ','Wu ',
         'Gao ','You ','Hui ','Kuang ','Shuo ','Song ','Ai ','Qing ','Zhu ','Zou ','Nuo ','Du ','Zhuo ','Fei ','Ke ','Wei ',
         ],
-    u'x8c':[
+    'x8c':[
         'Yu ','Shui ','Shen ','Diao ','Chan ','Liang ','Zhun ','Sui ','Tan ','Shen ','Yi ','Mou ','Chen ','Die ','Huang ','Jian ',
         'Xie ','Nue ','Ye ','Wei ','E ','Yu ','Xuan ','Chan ','Zi ','An ','Yan ','Di ','Mi ','Pian ','Xu ','Mo ',
         'Dang ','Su ','Xie ','Yao ','Bang ','Shi ','Qian ','Mi ','Jin ','Man ','Zhe ','Jian ','Miu ','Tan ','Zen ','Qiao ',
@@ -1612,7 +1612,7 @@ CODEPOINTS = {
         'Pei ','Geng ','Xian ','Mai ','Jian ','Sui ','Fu ','Tan ','Cong ','Cong ','Zhi ','Ji ','Zhang ','Du ','Jin ','Xiong ',
         'Shun ','Yun ','Bao ','Zai ','Lai ','Feng ','Cang ','Ji ','Sheng ','Ai ','Zhuan ','Fu ','Gou ','Sai ','Ze ','Liao ',
         ],
-    u'x8d':[
+    'x8d':[
         'Wei ','Bai ','Chen ','Zhuan ','Zhi ','Zhui ','Biao ','Yun ','Zeng ','Tan ','Zan ','Yan ','','Shan ','Wan ','Ying ',
         'Jin ','Gan ','Xian ','Zang ','Bi ','Du ','Shu ','Yan ','','Xuan ','Long ','Gan ','Zang ','Bei ','Zhen ','Fu ',
         'Yuan ','Gong ','Cai ','Ze ','Xian ','Bai ','Zhang ','Huo ','Zhi ','Fan ','Tan ','Pin ','Bian ','Gou ','Zhu ','Guan ',
@@ -1630,7 +1630,7 @@ CODEPOINTS = {
         'Yi ','Ji ','Dai ','Xian ','Jiao ','Duo ','Zhu ','Quan ','Kua ','Zhuai ','Gui ','Qiong ','Kui ','Xiang ','Chi ','Lu ',
         'Beng ','Zhi ','Jia ','Tiao ','Cai ','Jian ','Ta ','Qiao ','Bi ','Xian ','Duo ','Ji ','Ju ','Ji ','Shu ','Tu ',
         ],
-    u'x8e':[
+    'x8e':[
         'Chu ','Jing ','Nie ','Xiao ','Bo ','Chi ','Qun ','Mou ','Shu ','Lang ','Yong ','Jiao ','Chou ','Qiao ','','Ta ',
         'Jian ','Qi ','Wo ','Wei ','Zhuo ','Jie ','Ji ','Nie ','Ju ','Ju ','Lun ','Lu ','Leng ','Huai ','Ju ','Chi ',
         'Wan ','Quan ','Ti ','Bo ','Zu ','Qie ','Ji ','Cu ','Zong ','Cai ','Zong ','Peng ','Zhi ','Zheng ','Dian ','Zhi ',
@@ -1648,7 +1648,7 @@ CODEPOINTS = {
         'Ren ','Fan ','Zhuan ','Hong ','Hu ','Qu ','Huang ','Di ','Ling ','Dai ','Ao ','Zhen ','Fan ','Kuang ','Ang ','Peng ',
         'Bei ','Gu ','Gu ','Pao ','Zhu ','Rong ','E ','Ba ','Zhou ','Zhi ','Yao ','Ke ','Yi ','Qing ','Shi ','Ping ',
         ],
-    u'x8f':[
+    'x8f':[
         'Er ','Qiong ','Ju ','Jiao ','Guang ','Lu ','Kai ','Quan ','Zhou ','Zai ','Zhi ','She ','Liang ','Yu ','Shao ','You ',
         'Huan ','Yun ','Zhe ','Wan ','Fu ','Qing ','Zhou ','Ni ','Ling ','Zhe ','Zhan ','Liang ','Zi ','Hui ','Wang ','Chuo ',
         'Guo ','Kan ','Yi ','Peng ','Qian ','Gun ','Nian ','Pian ','Guan ','Bei ','Lun ','Pai ','Liang ','Ruan ','Rou ','Ji ',
@@ -1666,7 +1666,7 @@ CODEPOINTS = {
         'Che ','Ni ','Tiao ','Zhi ','Yi ','Jiong ','Jia ','Chen ','Dai ','Er ','Di ','Po ','Wang ','Die ','Ze ','Tao ',
         'Shu ','Tuo ','','Jing ','Hui ','Tong ','You ','Mi ','Beng ','Ji ','Nai ','Yi ','Jie ','Zhui ','Lie ','Xun ',
         ],
-    u'x90':[
+    'x90':[
         'Tui ','Song ','Shi ','Tao ','Pang ','Hou ','Ni ','Dun ','Jiong ','Xuan ','Xun ','Bu ','You ','Xiao ','Qiu ','Tou ',
         'Zhu ','Qiu ','Di ','Di ','Tu ','Jing ','Ti ','Dou ','Yi ','Zhe ','Tong ','Guang ','Wu ','Shi ','Cheng ','Su ',
         'Zao ','Qun ','Feng ','Lian ','Suo ','Hui ','Li ','','Lai ','Ben ','Cuo ','Jue ','Beng ','Huan ','Dai ','Lu ',
@@ -1684,7 +1684,7 @@ CODEPOINTS = {
         'Geng ','Jun ','Ying ','Bo ','Xi ','Bei ','Li ','Yun ','Bu ','Xiao ','Qi ','Pi ','Qing ','Guo ','','Tan ',
         'Zou ','Ping ','Lai ','Ni ','Chen ','You ','Bu ','Xiang ','Dan ','Ju ','Yong ','Qiao ','Yi ','Du ','Yan ','Mei ',
         ],
-    u'x91':[
+    'x91':[
         'Ruo ','Bei ','E ','Yu ','Juan ','Yu ','Yun ','Hou ','Kui ','Xiang ','Xiang ','Sou ','Tang ','Ming ','Xi ','Ru ',
         'Chu ','Zi ','Zou ','Ju ','Wu ','Xiang ','Yun ','Hao ','Yong ','Bi ','Mo ','Chao ','Fu ','Liao ','Yin ','Zhuan ',
         'Hu ','Qiao ','Yan ','Zhang ','Man ','Qiao ','Xu ','Deng ','Bi ','Xin ','Bi ','Ceng ','Wei ','Zheng ','Mao ','Shan ',
@@ -1702,7 +1702,7 @@ CODEPOINTS = {
         'Luan ','Fu ','Nai ','Diao ','Shan ','Qiao ','Kou ','Chuan ','Zi ','Fan ','Yu ','Hua ','Han ','Gang ','Qi ','Mang ',
         'Ri ','Di ','Si ','Xi ','Yi ','Chai ','Shi ','Tu ','Xi ','Nu ','Qian ','','Jian ','Pi ','Ye ','Yin ',
         ],
-    u'x92':[
+    'x92':[
         'Ba ','Fang ','Chen ','Xing ','Dou ','Yue ','Yan ','Fu ','Pi ','Na ','Xin ','E ','Jue ','Dun ','Gou ','Yin ',
         'Qian ','Ban ','Ji ','Ren ','Chao ','Niu ','Fen ','Yun ','Ji ','Qin ','Pi ','Guo ','Hong ','Yin ','Jun ','Shi ',
         'Yi ','Zhong ','Nie ','Gai ','Ri ','Huo ','Tai ','Kang ','','','','','Duo ','Zi ','Ni ','Tu ',
@@ -1720,7 +1720,7 @@ CODEPOINTS = {
         'Shen ','Han ','Lue ','Xie ','Chu ','Zheng ','Ju ','Xian ','Tie ','Mang ','Pu ','Li ','Pan ','Rui ','Cheng ','Gao ',
         'Li ','Te ','','Zhu ','','Tu ','Liu ','Zui ','Ju ','Chang ','Yuan ','Jian ','Gang ','Diao ','Tao ','Chang ',
         ],
-    u'x93':[
+    'x93':[
         'Lun ','Guo ','Ling ','Bei ','Lu ','Li ','Qiang ','Pou ','Juan ','Min ','Zui ','Peng ','An ','Pi ','Xian ','Ya ',
         'Zhui ','Lei ','A ','Kong ','Ta ','Kun ','Du ','Wei ','Chui ','Zi ','Zheng ','Ben ','Nie ','Cong ','Dui ','Tan ',
         'Ding ','Qi ','Qian ','Zhuo ','Qi ','Yu ','Jin ','Guan ','Mao ','Chang ','Tian ','Xi ','Lian ','Tao ','Gu ','Cuo ',
@@ -1738,7 +1738,7 @@ CODEPOINTS = {
         'Feng ','Jing ','Biao ','Shu ','Lou ','Xiu ','Cong ','Long ','Zan ','Jian ','Cao ','Li ','Xia ','Xi ','Kang ','',
         'Beng ','','','Zheng ','Lu ','Hua ','Ji ','Pu ','Hui ','Qiang ','Po ','Lin ','Suo ','Xiu ','San ','Cheng ',
         ],
-    u'x94':[
+    'x94':[
         'Kui ','Si ','Liu ','Nao ','Heng ','Pie ','Sui ','Fan ','Qiao ','Quan ','Yang ','Tang ','Xiang ','Jue ','Jiao ','Zun ',
         'Liao ','Jie ','Lao ','Dui ','Tan ','Zan ','Ji ','Jian ','Zhong ','Deng ','Ya ','Ying ','Dui ','Jue ','Nou ','Ti ',
         'Pu ','Tie ','','','Ding ','Shan ','Kai ','Jian ','Fei ','Sui ','Lu ','Juan ','Hui ','Yu ','Lian ','Zhuo ',
@@ -1756,7 +1756,7 @@ CODEPOINTS = {
         'Kai ','Zha ','Zhu ','Xian ','Ting ','Diu ','Xian ','Hua ','Quan ','Sha ','Jia ','Yao ','Ge ','Ming ','Zheng ','Se ',
         'Jiao ','Yi ','Chan ','Chong ','Tang ','An ','Yin ','Ru ','Zhu ','Lao ','Pu ','Wu ','Lai ','Te ','Lian ','Keng ',
         ],
-    u'x95':[
+    'x95':[
         'Xiao ','Suo ','Li ','Zheng ','Chu ','Guo ','Gao ','Tie ','Xiu ','Cuo ','Lue ','Feng ','Xin ','Liu ','Kai ','Jian ',
         'Rui ','Ti ','Lang ','Qian ','Ju ','A ','Qiang ','Duo ','Tian ','Cuo ','Mao ','Ben ','Qi ','De ','Kua ','Kun ',
         'Chang ','Xi ','Gu ','Luo ','Chui ','Zhui ','Jin ','Zhi ','Xian ','Juan ','Huo ','Pou ','Tan ','Ding ','Jian ','Ju ',
@@ -1774,7 +1774,7 @@ CODEPOINTS = {
         'Hui ','Chan ','Pi ','Dang ','Huan ','Ta ','Wen ','','Men ','Shuan ','Shan ','Yan ','Han ','Bi ','Wen ','Chuang ',
         'Run ','Wei ','Xian ','Hong ','Jian ','Min ','Kang ','Men ','Zha ','Nao ','Gui ','Wen ','Ta ','Min ','Lu ','Kai ',
         ],
-    u'x96':[
+    'x96':[
         'Fa ','Ge ','He ','Kun ','Jiu ','Yue ','Lang ','Du ','Yu ','Yan ','Chang ','Xi ','Wen ','Hun ','Yan ','E ',
         'Chan ','Lan ','Qu ','Hui ','Kuo ','Que ','Ge ','Tian ','Ta ','Que ','Kan ','Huan ','Fu ','Fu ','Le ','Dui ',
         'Xin ','Qian ','Wu ','Yi ','Tuo ','Yin ','Yang ','Dou ','E ','Sheng ','Ban ','Pei ','Keng ','Yun ','Ruan ','Zhi ',
@@ -1792,7 +1792,7 @@ CODEPOINTS = {
         'Chou ','Liu ','Li ','Nan ','Xue ','Za ','Ji ','Ji ','Yu ','Yu ','Xue ','Na ','Fou ','Se ','Mu ','Wen ',
         'Fen ','Pang ','Yun ','Li ','Li ','Ang ','Ling ','Lei ','An ','Bao ','Meng ','Dian ','Dang ','Xing ','Wu ','Zhao ',
         ],
-    u'x97':[
+    'x97':[
         'Xu ','Ji ','Mu ','Chen ','Xiao ','Zha ','Ting ','Zhen ','Pei ','Mei ','Ling ','Qi ','Chou ','Huo ','Sha ','Fei ',
         'Weng ','Zhan ','Yin ','Ni ','Zhu ','Tun ','Lin ','','Dong ','Ying ','Wu ','Ling ','Shuang ','Ling ','Xia ','Hong ',
         'Yin ','Mo ','Mai ','Yun ','Liu ','Meng ','Bin ','Wu ','Wei ','Huo ','Yin ','Xi ','Yi ','Ai ','Dan ','Deng ',
@@ -1810,7 +1810,7 @@ CODEPOINTS = {
         'Bi ','Wei ','Hui ','Du ','Wa ','Du ','Wei ','Ren ','Fu ','Han ','Wei ','Yun ','Tao ','Jiu ','Jiu ','Xian ',
         'Xie ','Xian ','Ji ','Yin ','Za ','Yun ','Shao ','Le ','Peng ','Heng ','Ying ','Yun ','Peng ','Yin ','Yin ','Xiang ',
         ],
-    u'x98':[
+    'x98':[
         'Hu ','Ye ','Ding ','Qing ','Kui ','Xiang ','Shun ','Han ','Xu ','Yi ','Xu ','Gu ','Song ','Kui ','Qi ','Hang ',
         'Yu ','Wan ','Ban ','Dun ','Di ','Dan ','Pan ','Po ','Ling ','Ce ','Jing ','Lei ','He ','Qiao ','E ','E ',
         'Wei ','Jie ','Gua ','Shen ','Yi ','Shen ','Hai ','Dui ','Pian ','Ping ','Lei ','Fu ','Jia ','Tou ','Hui ','Kui ',
@@ -1828,7 +1828,7 @@ CODEPOINTS = {
         'Shi ','Can ','Ji ','Ding ','Si ','Tuo ','Zhan ','Sun ','Xiang ','Tun ','Ren ','Yu ','Juan ','Chi ','Yin ','Fan ',
         'Fan ','Sun ','Yin ','Zhu ','Yi ','Zhai ','Bi ','Jie ','Tao ','Liu ','Ci ','Tie ','Si ','Bao ','Shi ','Duo ',
         ],
-    u'x99':[
+    'x99':[
         'Hai ','Ren ','Tian ','Jiao ','Jia ','Bing ','Yao ','Tong ','Ci ','Xiang ','Yang ','Yang ','Er ','Yan ','Le ','Yi ',
         'Can ','Bo ','Nei ','E ','Bu ','Jun ','Dou ','Su ','Yu ','Shi ','Yao ','Hun ','Guo ','Shi ','Jian ','Zhui ',
         'Bing ','Xian ','Bu ','Ye ','Tan ','Fei ','Zhang ','Wei ','Guan ','E ','Nuan ','Hun ','Hu ','Huang ','Tie ','Hui ',
@@ -1846,7 +1846,7 @@ CODEPOINTS = {
         'Liu ','Ma ','Pian ','Tao ','Zhi ','Rong ','Teng ','Dong ','Xun ','Quan ','Shen ','Jiong ','Er ','Hai ','Bo ','',
         'Yin ','Luo ','','Dan ','Xie ','Liu ','Ju ','Song ','Qin ','Mang ','Liang ','Han ','Tu ','Xuan ','Tui ','Jun ',
         ],
-    u'x9a':[
+    'x9a':[
         'E ','Cheng ','Xing ','Ai ','Lu ','Zhui ','Zhou ','She ','Pian ','Kun ','Tao ','Lai ','Zong ','Ke ','Qi ','Qi ',
         'Yan ','Fei ','Sao ','Yan ','Jie ','Yao ','Wu ','Pian ','Cong ','Pian ','Qian ','Fei ','Huang ','Jian ','Huo ','Yu ',
         'Ti ','Quan ','Xia ','Zong ','Kui ','Rou ','Si ','Gua ','Tuo ','Kui ','Sou ','Qian ','Cheng ','Zhi ','Liu ','Pang ',
@@ -1864,7 +1864,7 @@ CODEPOINTS = {
         'Kun ','Kun ','Ti ','Fang ','Xiu ','Ran ','Mao ','Dan ','Kun ','Bin ','Fa ','Tiao ','Pi ','Zi ','Fa ','Ran ',
         'Ti ','Pao ','Pi ','Mao ','Fu ','Er ','Rong ','Qu ','','Xiu ','Gua ','Ji ','Peng ','Zhua ','Shao ','Sha ',
         ],
-    u'x9b':[
+    'x9b':[
         'Ti ','Li ','Bin ','Zong ','Ti ','Peng ','Song ','Zheng ','Quan ','Zong ','Shun ','Jian ','Duo ','Hu ','La ','Jiu ',
         'Qi ','Lian ','Zhen ','Bin ','Peng ','Mo ','San ','Man ','Man ','Seng ','Xu ','Lie ','Qian ','Qian ','Nong ','Huan ',
         'Kuai ','Ning ','Bin ','Lie ','Rang ','Dou ','Dou ','Nao ','Hong ','Xi ','Dou ','Han ','Dou ','Dou ','Jiu ','Chang ',
@@ -1882,7 +1882,7 @@ CODEPOINTS = {
         'Lai ','Fei ','Ni ','Yi ','Kun ','Lu ','Jiu ','Chang ','Jing ','Lun ','Ling ','Zou ','Li ','Meng ','Zong ','Zhi ',
         'Nian ','','','','Shi ','Shen ','Hun ','Shi ','Hou ','Xing ','Zhu ','La ','Zong ','Ji ','Bian ','Bian ',
         ],
-    u'x9c':[
+    'x9c':[
         'Huan ','Quan ','Ze ','Wei ','Wei ','Yu ','Qun ','Rou ','Die ','Huang ','Lian ','Yan ','Qiu ','Qiu ','Jian ','Bi ',
         'E ','Yang ','Fu ','Sai ','Jian ','Xia ','Tuo ','Hu ','','Ruo ','','Wen ','Jian ','Hao ','Wu ','Fang ',
         'Sao ','Liu ','Ma ','Shi ','Shi ','Guan ','','Teng ','Ta ','Yao ','Ge ','Rong ','Qian ','Qi ','Wen ','Ruo ',
@@ -1900,7 +1900,7 @@ CODEPOINTS = {
         'Huo ','Gan ','Li ','Zhan ','Guan ','Niao ','Yi ','Fu ','Li ','Jiu ','Bu ','Yan ','Fu ','Diao ','Ji ','Feng ',
         '','Gan ','Shi ','Feng ','Ming ','Bao ','Yuan ','Zhi ','Hu ','Qin ','Fu ','Fen ','Wen ','Jian ','Shi ','Yu ',
         ],
-    u'x9d':[
+    'x9d':[
         'Fou ','Yao ','Jue ','Jue ','Pi ','Huan ','Zhen ','Bao ','Yan ','Ya ','Zheng ','Fang ','Feng ','Wen ','Ou ','Te ',
         'Jia ','Nu ','Ling ','Mie ','Fu ','Tuo ','Wen ','Li ','Bian ','Zhi ','Ge ','Yuan ','Zi ','Qu ','Xiao ','Chi ',
         'Dan ','Ju ','You ','Gu ','Zhong ','Yu ','Yang ','Rong ','Ya ','Tie ','Yu ','','Ying ','Zhui ','Wu ','Er ',
@@ -1918,7 +1918,7 @@ CODEPOINTS = {
         'Yu ','Wu ','Jue ','Yin ','Quan ','Si ','Jiao ','Yi ','Hua ','Bi ','Ying ','Su ','Huang ','Fan ','Jiao ','Liao ',
         'Yan ','Kao ','Jiu ','Xian ','Xian ','Tu ','Mai ','Zun ','Yu ','Ying ','Lu ','Tuan ','Xian ','Xue ','Yi ','Pi ',
         ],
-    u'x9e':[
+    'x9e':[
         'Shu ','Luo ','Qi ','Yi ','Ji ','Zhe ','Yu ','Zhan ','Ye ','Yang ','Pi ','Ning ','Huo ','Mi ','Ying ','Meng ',
         'Di ','Yue ','Yu ','Lei ','Bao ','Lu ','He ','Long ','Shuang ','Yue ','Ying ','Guan ','Qu ','Li ','Luan ','Niao ',
         'Jiu ','Ji ','Yuan ','Ming ','Shi ','Ou ','Ya ','Cang ','Bao ','Zhen ','Gu ','Dong ','Lu ','Ya ','Xiao ','Yang ',
@@ -1936,7 +1936,7 @@ CODEPOINTS = {
         'Xia ','Yan ','Qu ','Mei ','Yan ','Qing ','Yu ','Li ','Dang ','Du ','Can ','Yin ','An ','Yan ','Tan ','An ',
         'Zhen ','Dai ','Can ','Yi ','Mei ','Dan ','Yan ','Du ','Lu ','Zhi ','Fen ','Fu ','Fu ','Min ','Min ','Yuan ',
         ],
-    u'x9f':[
+    'x9f':[
         'Cu ','Qu ','Chao ','Wa ','Zhu ','Zhi ','Mang ','Ao ','Bie ','Tuo ','Bi ','Yuan ','Chao ','Tuo ','Ding ','Mi ',
         'Nai ','Ding ','Zi ','Gu ','Gu ','Dong ','Fen ','Tao ','Yuan ','Pi ','Chang ','Gao ','Qi ','Yuan ','Tang ','Teng ',
         'Shu ','Shu ','Fen ','Fei ','Wen ','Ba ','Diao ','Tuo ','Tong ','Qu ','Sheng ','Shi ','You ','Shi ','Ting ','Wu ',
@@ -1954,7 +1954,7 @@ CODEPOINTS = {
         '','','','','','','','','','','','','','','','',
         '','','','','','','','','','','','','','','','',
         ],
-    u'xf9':[
+    'xf9':[
         '','','','','','','','','','','','','','','La ','',
         '','','','','','','','','','','','','','','','',
         '','','','','','','','','','','','','','','','',
@@ -1972,7 +1972,7 @@ CODEPOINTS = {
         '','','','','','','','','','','','','','','','',
         '','','','','','','','','','','','','','','','',
         ],
-    u'xfa':[
+    'xfa':[
         '','','','','','','','','','','','','Wu ','Huo ','','',
         'Zhong ','','Qing ','','','Xi ','Zhu ','Yi ','Li ','Shen ','Xiang ','Fu ','Jing ','Jing ','Yu ','',
         '','','Zhu ','','','Yi ','Du ','','','','Fan ','Si ','Guan ','He ','','',
@@ -1990,7 +1990,7 @@ CODEPOINTS = {
         '','','','','','','','','','','','','','','','',
         '','','','','','','','','','','','','','','','',
         ],
-    u'x200':[
+    'x200':[
         'Ha ','Qi ','','','','Hai ','','','','Qiu ','','','','Shi ','','',
         '','','','','','','','','','','','','','','','',
         '','','','','','','','','','','','','','','','',
@@ -2008,7 +2008,7 @@ CODEPOINTS = {
         '','','','','','','','','','','','','','','','',
         '','','','','','','','','','','','','','','','',
         ],
-    u'x201':[
+    'x201':[
         '','','','','','','','','','','','','','','','',
         '','','','','','','','','','','','','','','','',
         '','','','','','','','','','','','','','','','',
@@ -2026,7 +2026,7 @@ CODEPOINTS = {
         '','','','','','','','','','','','','','','','',
         '','','','','','','','','','','','','','','','',
         ],
-    u'x202':[
+    'x202':[
         '','','','','','','','','','','','','','','','',
         '','','','','','','','','','','','','','','','',
         '','','','','','','','','','','','','','','','',
@@ -2044,7 +2044,7 @@ CODEPOINTS = {
         '','','','','','','','','','','','','','','','',
         '','','','','','','','','','','','','','','','',
         ],
-    u'x203':[
+    'x203':[
         '','','','','','','','','','','','','','','','',
         '','','','','','','','','','','','','','','','',
         '','','','','','','','','','','','','','','','',
@@ -2062,7 +2062,7 @@ CODEPOINTS = {
         '','','','','','','','','','','','','','','','',
         '','','','','','','','','','','','','','','','',
         ],
-    u'x204':[
+    'x204':[
         '','','','','','','','','','','','','','','','',
         '','','','','','','','','','','','','','','','',
         '','','','','','','','','','','','','','','','',
@@ -2080,7 +2080,7 @@ CODEPOINTS = {
         '','','','','','','','','','','','','','','','',
         '','','','','','','','','','','','','','','','',
         ],
-    u'x205':[
+    'x205':[
         '','','','Xi ','','','','','','Juan ','','','','','','',
         '','','','','','','','','','','','','','','','',
         '','','','','','','','','','','','','','','','',
@@ -2098,7 +2098,7 @@ CODEPOINTS = {
         '','','','','','','Ping ','','','','','','','','','',
         '','','','','','','','','','','','','','','','',
         ],
-    u'x206':[
+    'x206':[
         '','','','','','','','','','','','','','','','',
         '','','','','','','','','','','','','','','','',
         '','','','','','','','','','','','','','','','',
@@ -2116,7 +2116,7 @@ CODEPOINTS = {
         '','','','','','','','','','','','','','','','',
         '','','','','','','','','','','','','','','','',
         ],
-    u'x207':[
+    'x207':[
         '','','','','','','','','','','','','','','Xian ','',
         '','','','','','','','','','','','','','','','',
         '','','','','','','','','','','','','','','','',
@@ -2134,7 +2134,7 @@ CODEPOINTS = {
         '','','','','','','','','','','','','','','','',
         '','','','','','','','','','','','','','','','',
         ],
-    u'x208':[
+    'x208':[
         '','','','','','','','','','','','','','','','',
         '','','','','','','','','','','','','','','','',
         '','','','','','','','','','','','','','','','',
@@ -2152,7 +2152,7 @@ CODEPOINTS = {
         '','','','','','','','','','','','','','','','',
         '','','','','','','','','','','','','','','','',
         ],
-    u'x209':[
+    'x209':[
         '','','','','','','','','','','','','','','','Bao ',
         '','','','','','','','','','','','','','','','',
         '','','','','','','','','','','','','','','','',
@@ -2170,7 +2170,7 @@ CODEPOINTS = {
         '','','','','','','','','','Hui ','','','','','','',
         '','','','','','','','','','','','','','','','',
         ],
-    u'x20a':[
+    'x20a':[
         '','','','','','','','','','','','','','','','',
         '','','','','','','','','','','','','','','','',
         '','','','','','','','','','','','','','','','',
@@ -2188,7 +2188,7 @@ CODEPOINTS = {
         '','','','','','','','','','','','','','','','',
         '','','','','','','','','','','','','','','','',
         ],
-    u'x20b':[
+    'x20b':[
         '','','','','','','','','','','','','','','','',
         '','','','','','','','','','','','Mo ','','','','',
         '','','','','','','','','','','','','','','','',
@@ -2206,7 +2206,7 @@ CODEPOINTS = {
         '','','','','','','','','','','','','','','','',
         '','','','','','','','','','','','','','','','',
         ],
-    u'x20c':[
+    'x20c':[
         '','','','','','','','','','','','','','','','',
         '','','','','','','','','','','','','','','','',
         '','','','','','','','','','','','','','','','',
@@ -2224,7 +2224,7 @@ CODEPOINTS = {
         '','','','','','','','','','','','','','','','',
         '','','','','','','Tu ','','','','','','','','','',
         ],
-    u'x20d':[
+    'x20d':[
         '','','','','','','','','','','','','','','','',
         '','','','','','','','','','','','','','','','',
         '','','','','','','','','','','','','','','','',
@@ -2242,7 +2242,7 @@ CODEPOINTS = {
         '','','','','','','','','','','','','','','','',
         '','','','','','','','','','','','','','','','',
         ],
-    u'x20e':[
+    'x20e':[
         '','','','','','','','','','','','','','','','',
         '','','','','','','','','','','','','','','','',
         '','','','','','','','','','','','','','','','',
@@ -2260,7 +2260,7 @@ CODEPOINTS = {
         '','','','','','','','','','','','','','','','',
         '','','','','','','','','','','','','','','','',
         ],
-    u'x20f':[
+    'x20f':[
         '','','','','','','','','','','','','','','','',
         '','','','','','','','','','','','','','','','',
         '','','','','','','','','','','','','','','','',
@@ -2278,7 +2278,7 @@ CODEPOINTS = {
         '','','','','','','','','','','','','','','','',
         '','','','','','','','','','','','','','','','',
         ],
-    u'x210':[
+    'x210':[
         '','','','','','','','','','','','','','','','',
         '','','','','Lu ','','','','','','','','','','','',
         '','','','','','','','','','','','','','','','',
@@ -2296,7 +2296,7 @@ CODEPOINTS = {
         '','','','','','','','','','','','','','','','',
         '','','','','','','','','','','','','','','','',
         ],
-    u'x211':[
+    'x211':[
         '','','','','','','','','','','','','','','','',
         '','','','','','','','','','','','','','','','',
         '','','','','','','','','','','','','','','','',
@@ -2314,7 +2314,7 @@ CODEPOINTS = {
         '','','','','','','','','','','','','','','','',
         '','','','','','','','','','','','','','','','',
         ],
-    u'x212':[
+    'x212':[
         '','','','','','','','','','','','','','','','',
         '','','','','','','','','','You ','','','','','','',
         '','','','','','','','','','','','','','','','',
@@ -2332,7 +2332,7 @@ CODEPOINTS = {
         '','','','','','','','','','','','','','','','',
         '','','','','','','','','','','','','','','','',
         ],
-    u'x213':[
+    'x213':[
         '','','','','','','','','','','','','','','','',
         '','','','','','','','','','','','','','','','',
         '','','','','','','','','','','','','','','','',
@@ -2350,7 +2350,7 @@ CODEPOINTS = {
         '','','','','','','','','','','','','','','','',
         '','','','','','','','','','','','','','','','',
         ],
-    u'x214':[
+    'x214':[
         '','','','','','','','','','','','','','','','',
         '','','','','','','','','','','','','','','','',
         '','','','','','','','','','','','','','','','',
@@ -2368,7 +2368,7 @@ CODEPOINTS = {
         '','','','','','','','','','','','','','','','',
         '','','','','','','','','','','','','','','','',
         ],
-    u'x215':[
+    'x215':[
         '','','','','','','','','','','','','','','','',
         '','','','','','','','','','','','','','','','',
         '','','','','','','','','','','','','','','','',
@@ -2386,7 +2386,7 @@ CODEPOINTS = {
         '','','','','','','','','','','','','','','','',
         '','','','','','','','','','','','','','','','',
         ],
-    u'x216':[
+    'x216':[
         '','','','','','','','','','','','','','','','',
         '','','','','','','','','','','','','','','','',
         '','','','','','','','','','','','','','','','',
@@ -2404,7 +2404,7 @@ CODEPOINTS = {
         '','','','','','','','','','','','','','','','',
         '','','','','','','','','','','','','','','','',
         ],
-    u'x217':[
+    'x217':[
         '','','','','','','','','','','','','','','','',
         '','','','','','','','','','','','','','','','',
         '','','','','','','','','','','','','','','','',
@@ -2422,7 +2422,7 @@ CODEPOINTS = {
         '','','','','','','','','','','','','','','','',
         '','','','','','','','','','','','','','','','',
         ],
-    u'x218':[
+    'x218':[
         '','','','','','','','','','','','','','','','',
         '','','','','','','','','','','','','','','','',
         '','','','','','','','','','','','','','','','',
@@ -2440,7 +2440,7 @@ CODEPOINTS = {
         '','','','','','','','','','','','','','','','',
         '','','','','','','','','','','','','','','','',
         ],
-    u'x219':[
+    'x219':[
         '','','','','','','','','','','','','','','','',
         '','','','','','','','','','','','','','','','',
         '','','','','','','','','','','','','','','','',
@@ -2458,7 +2458,7 @@ CODEPOINTS = {
         '','','','','','','','','','','','','','','','',
         '','','','','','','','','','','','','','','','',
         ],
-    u'x21a':[
+    'x21a':[
         '','','','','Xia ','','','','','','','','','','','',
         '','','','','','','','','','','','','','','','',
         '','','','','','','','','','','','','','','','',
@@ -2476,7 +2476,7 @@ CODEPOINTS = {
         '','','','','','','','','','','','','','','','',
         '','','','','','','','','','','','','','','','',
         ],
-    u'x21b':[
+    'x21b':[
         '','','','','','','','','','','','','','','','',
         '','','','','','','','','','','','','','','','',
         '','','','','','','','','','','','','','','','',
@@ -2494,7 +2494,7 @@ CODEPOINTS = {
         '','','','','','','','','','','','','','','','',
         '','','','','','','','','','','','','','','','',
         ],
-    u'x21c':[
+    'x21c':[
         '','','','','','','','','','','','','','','','',
         '','','','','','','','','','','','','','','','',
         '','','','','','','','','','','','','','','','',
@@ -2512,7 +2512,7 @@ CODEPOINTS = {
         '','','','','','','','','','','','','','','','',
         '','','','','','','','','','','','','','','','',
         ],
-    u'x21d':[
+    'x21d':[
         '','','','','','','','','','','','','','','','',
         '','','','','','','','','','','','','','','','',
         '','','','','','','','','','','','','','','','',
@@ -2530,7 +2530,7 @@ CODEPOINTS = {
         '','','','','','','','','','','','','','','','',
         '','','','','','','','','','','','','','','','',
         ],
-    u'x21e':[
+    'x21e':[
         '','','','','','','','','','','','','','','','',
         '','','','','','','','','','','','','','','','',
         '','','','','','','','','','','','','','','','',
@@ -2548,7 +2548,7 @@ CODEPOINTS = {
         '','','','','','','','','','','','','','','','',
         '','','','','','','','','','','','','','','','',
         ],
-    u'x21f':[
+    'x21f':[
         '','','','','','','','','','','','','','','','',
         '','','','','','','','','','','','','','','','',
         '','','','','','','','','','','','','','','','',
@@ -2566,7 +2566,7 @@ CODEPOINTS = {
         '','','','','','','','','','','','','','','','',
         '','','','','','','','','','','Nao ','','','','','',
         ],
-    u'x220':[
+    'x220':[
         '','','','','','','','','','','','','','','','',
         '','','','','','','','','','','','','','','','',
         '','','','','','','','','','','','','','','','',
@@ -2584,7 +2584,7 @@ CODEPOINTS = {
         '','','','','','','','','','','','','','','','',
         '','','','','','','','','','','','','','','','',
         ],
-    u'x221':[
+    'x221':[
         '','','','','','','','','','','','','','','','',
         '','','','','','','','','','','','','','','','',
         '','','','','','','','','','','','','','','','',
@@ -2602,7 +2602,7 @@ CODEPOINTS = {
         '','','','','','','','','','','','','','','','',
         '','','','','','','','','','','','','','','','',
         ],
-    u'x222':[
+    'x222':[
         '','','','','','','','','','','','','','','','',
         '','','','','','','','','','','','','','','','',
         '','','','','','','','','','','','','','','','',
@@ -2620,7 +2620,7 @@ CODEPOINTS = {
         '','','','','','','','','','','','','','','','',
         '','','','','','','','','','','','','','','','',
         ],
-    u'x223':[
+    'x223':[
         '','','','','','','','','','','','','','','','',
         '','','','','','','','','','','','','','','','',
         '','','','','','','','','','','','','','','','',
@@ -2638,7 +2638,7 @@ CODEPOINTS = {
         '','','','','','','','','','','','','','','','',
         '','','','Beng ','','','','','','','','','','','','',
         ],
-    u'x224':[
+    'x224':[
         '','','','','','','','','','','','','','','','',
         '','','','','','','','','','','','','','','','',
         '','','','','','','','','','','','','','','','',
@@ -2656,7 +2656,7 @@ CODEPOINTS = {
         '','','','','','','','','','','','','','','','',
         '','','','','','','','','','','','','','','','',
         ],
-    u'x225':[
+    'x225':[
         '','','','','','','','','','','','','','','','',
         '','','','','','','','','','','','','','','','',
         '','','','','','','','','','','','','','','','',
@@ -2674,7 +2674,7 @@ CODEPOINTS = {
         '','','','','','','','','','','','','','','','',
         '','','','','','','','','','','','','','','','',
         ],
-    u'x226':[
+    'x226':[
         '','','','','','','','','','','','','','','','',
         '','','','','','','','','','','','','','','','',
         '','','','','','','','','','','','','','','','',
@@ -2692,7 +2692,7 @@ CODEPOINTS = {
         '','','','','','','','','','','','','','','','',
         '','','','','','','','','','','','','','','','',
         ],
-    u'x227':[
+    'x227':[
         '','','','','','','','','','','','','','','','',
         '','','','','','','','','','','','','','','','',
         '','','','','','','','','','','','Xing ','Duo ','','','',
@@ -2710,7 +2710,7 @@ CODEPOINTS = {
         '','','','','','','','','','','','','','','','',
         '','','','','','','','','','','','','','','','',
         ],
-    u'x228':[
+    'x228':[
         '','','','','','','','','','','','','','','','',
         '','','','','','','','','','','','','','','','',
         '','','','','','','','','','','','','','','','',
@@ -2728,7 +2728,7 @@ CODEPOINTS = {
         '','','','','','','','','','','','','','','','',
         '','','','','','','','','','','','','','','','',
         ],
-    u'x229':[
+    'x229':[
         '','','','','','','','','','','','','','','','',
         '','','','','','','','','','','','','','','','',
         '','','','','','','','','','','','','','','','',
@@ -2746,7 +2746,7 @@ CODEPOINTS = {
         '','','','','','','','','','','','','','','','',
         '','','','','','','','','','','','','','','','',
         ],
-    u'x22a':[
+    'x22a':[
         '','','','','','','','','','','','','','','','',
         '','','','','','','','','','','','','','','','',
         '','','','','','','','','','','','','','','','',
@@ -2764,7 +2764,7 @@ CODEPOINTS = {
         '','','','','','','','','','','','','','','','',
         '','','','','','','','','','','','','','','','',
         ],
-    u'x22b':[
+    'x22b':[
         '','','','','','','','','','','','','','','','',
         '','','','','','','','','','','','','','','','',
         '','','','','','','','','','','','','','','','',
@@ -2782,7 +2782,7 @@ CODEPOINTS = {
         '','','','','','','','','','','','','','','','',
         '','','','','','','','','','','','','','','','',
         ],
-    u'x22c':[
+    'x22c':[
         '','','','','','','','','','','','','','','','',
         '','','','','','','','','','','','','','','','',
         '','','','','','','','','','','','','','','','',
@@ -2800,7 +2800,7 @@ CODEPOINTS = {
         '','','','','','','','','','','','','','','','',
         '','','','','','','','','','','','','','','','',
         ],
-    u'x22d':[
+    'x22d':[
         '','','','','','','','','','','','','','','','',
         '','','','','','','','','','','','','','','','',
         '','','','','','','','','','','','','','','','',
@@ -2818,7 +2818,7 @@ CODEPOINTS = {
         '','','','','','','','','','','','','','','','',
         '','','','','','','','','','','','','','','','',
         ],
-    u'x22e':[
+    'x22e':[
         '','','','','','','','','','','','','','','','',
         '','','','','','','','','','','','','','','','',
         '','','','Niao ','','','','','','','','','','','','',
@@ -2836,7 +2836,7 @@ CODEPOINTS = {
         '','','','','','','','','','','','','','','','',
         '','','','','','','','','','','','','','','','',
         ],
-    u'x22f':[
+    'x22f':[
         '','','','','','','','','','','','','','','','',
         '','','','','','','','','','','','','','','','',
         '','','','','','','','','','','','','','','','',
@@ -2854,7 +2854,7 @@ CODEPOINTS = {
         '','','','','','','','','','','','','','','','',
         '','','','','','','','','','','','','','','','',
         ],
-    u'x230':[
+    'x230':[
         '','','','','','','','','','','','','','','','',
         '','','Chong ','','','','','','','','','','','','','',
         '','','','','','','','','','','','','','','','',
@@ -2872,7 +2872,7 @@ CODEPOINTS = {
         '','','','','','','','','','','','','','','','',
         '','','','','','','','','','','','','','','','',
         ],
-    u'x231':[
+    'x231':[
         '','','','','','','','','','','','','','','','',
         '','','','','','','','','','Huang ','','','','','','',
         '','','','','','','','','','','','','','','','',
@@ -2890,7 +2890,7 @@ CODEPOINTS = {
         '','','Bie ','','','','','','','','','','','','','',
         '','','','','','','','','','','','','','','','',
         ],
-    u'x232':[
+    'x232':[
         '','','','','','','','','','','','','','','','',
         '','','','','','','','','','','','','','','','',
         '','','','','','','','','','','','','','','','',
@@ -2908,7 +2908,7 @@ CODEPOINTS = {
         '','','','','','','','','','','','','','','','',
         '','','','','','','','','','','','','','','','',
         ],
-    u'x233':[
+    'x233':[
         '','','','','','','','','','','','','','','','',
         '','','','','','','','','','','','','','','','',
         '','','','','','','','','','','','','','','','',
@@ -2926,7 +2926,7 @@ CODEPOINTS = {
         '','','','','','','','','','','','','','','','',
         '','','','','','','','','','','','','','','','',
         ],
-    u'x234':[
+    'x234':[
         '','','','','','','','','','','','','','','','',
         '','','','','','','','','','','','','','','','',
         '','','','','','','','','','','','','','','','',
@@ -2944,7 +2944,7 @@ CODEPOINTS = {
         '','','','','','','','','','','','','','','','',
         '','','','','','','','','','','','','','','','',
         ],
-    u'x235':[
+    'x235':[
         '','','','','','','','','','','','','','','','',
         '','','','','','','','','','','','','','','','',
         '','','','','','','','','','','','','','','','',
@@ -2962,7 +2962,7 @@ CODEPOINTS = {
         '','','','','','','','','','','','','','','','',
         '','','','','','','','','','','','','','','','',
         ],
-    u'x236':[
+    'x236':[
         '','','','','','','','','','','','','','','','',
         '','','','','','','','','','','','','','','','',
         '','','','','','','Yi ','','','','','','','','','',
@@ -2980,7 +2980,7 @@ CODEPOINTS = {
         '','','','','','','','','','','','','','','','',
         '','','','','','','','','','','','','','','','',
         ],
-    u'x237':[
+    'x237':[
         '','','','','','','','','','','','','','','','',
         '','','','','','','','','','','','','','','','',
         '','','','','','','','','','','','','','','','',
@@ -2998,7 +2998,7 @@ CODEPOINTS = {
         '','','','','','','','','','','','','','','','',
         '','','','','','','','','','','','','','','','',
         ],
-    u'x238':[
+    'x238':[
         '','','','','','','','','','','','','','','','',
         '','','','','','','','','','','','','','','','',
         '','','','','','','','','','','','','','','','',
@@ -3016,7 +3016,7 @@ CODEPOINTS = {
         '','','','','','','','','','','','','','','','',
         '','','','','','','','','','','','','','','','',
         ],
-    u'x239':[
+    'x239':[
         '','','','','','','','','','','','','','','','',
         '','','','','','','','','','','','','','','','',
         '','','','','','','','','','','','','','','','',
@@ -3034,7 +3034,7 @@ CODEPOINTS = {
         '','','','','','','','','','','','','','','','',
         '','','','','','','','','','','','','','','','',
         ],
-    u'x23a':[
+    'x23a':[
         '','','','','','','','','','','','','','','','',
         '','','','','','','','','','','','','','','','',
         '','','','','','','','','','','','','','','','',
@@ -3052,7 +3052,7 @@ CODEPOINTS = {
         '','','','','','','','','','','','','','','','',
         '','','','','','','','','','','','','','','','',
         ],
-    u'x23b':[
+    'x23b':[
         '','','','','','','','','','','','','','','','',
         '','','','','','','','','','','','','','','','',
         '','','','','','','','','','','','','','','','',
@@ -3070,7 +3070,7 @@ CODEPOINTS = {
         '','','','','','','','','','','','','','','','',
         '','','','','','','','','','','','','','','','',
         ],
-    u'x23c':[
+    'x23c':[
         '','','','','','','','','','','','','','','','',
         '','','','','','','','','','','','','','','','',
         '','','','','','','','','','','','','','','','',
@@ -3088,7 +3088,7 @@ CODEPOINTS = {
         '','','','','','','','','','','','','','','','',
         '','','','','','','','','','','','','','','','',
         ],
-    u'x23d':[
+    'x23d':[
         '','','','','','','','','','','','','','','','',
         '','','','','','','','','','','','','','','','',
         '','','','','','','','','','','','','','','','',
@@ -3106,7 +3106,7 @@ CODEPOINTS = {
         '','','','','','','','','','','','','','','','',
         '','','','','','','','','','','','','','','','',
         ],
-    u'x23e':[
+    'x23e':[
         '','','','','','','','','','','','','','','','',
         '','','','','','','','','','','','','','','','',
         '','','','','','','','','','','','','','','','',
@@ -3124,7 +3124,7 @@ CODEPOINTS = {
         '','','','','','','','','','','','','','','','',
         '','','','','','','','','','','','','','','','',
         ],
-    u'x23f':[
+    'x23f':[
         '','','','','','','','','','','','','','','','',
         '','','','','','','','','','','','','','','','',
         '','','','','','','','','','','','','','','','',
@@ -3142,7 +3142,7 @@ CODEPOINTS = {
         '','','','','','','','','','','','','','','','',
         '','','','','','','','','','','','','','','','',
         ],
-    u'x240':[
+    'x240':[
         '','','','','','','','','','','','','','','','',
         '','','','','','','','','','','','','','','','',
         '','','','','','','','','','','','','','','','',
@@ -3160,7 +3160,7 @@ CODEPOINTS = {
         '','','','','','','','','','','','','','','','',
         '','','','','','','Deng ','','','','','','','','','',
         ],
-    u'x241':[
+    'x241':[
         '','','','','','','','','','','','','','','','',
         '','','','','','','','','','','','','','','','',
         '','','','','','','','','','','','','','','','',
@@ -3178,7 +3178,7 @@ CODEPOINTS = {
         '','','','','','','','','','','','','','','','',
         '','','','','','','','','','','','','','','Ying ','',
         ],
-    u'x242':[
+    'x242':[
         '','','','','','','','','','','','','','','','',
         '','','','','','','','','','','','','','','','',
         '','','','','','','','','','','','','','','','',
@@ -3196,7 +3196,7 @@ CODEPOINTS = {
         '','','','','','','','','','','','','','','','',
         '','','','','','','','','','','','','','','','',
         ],
-    u'x243':[
+    'x243':[
         '','','','','','','','','','','','','','','','',
         '','','','','','','','','','','','','','','','',
         '','','','','','','','','','','','','','','','',
@@ -3214,7 +3214,7 @@ CODEPOINTS = {
         '','','','','','','','','','','','','','','','',
         '','','Zhou ','','','','','','','','','','','','','',
         ],
-    u'x244':[
+    'x244':[
         '','','','','','','','','','','','','','','','',
         '','','','','','','','','','','','','','','','',
         '','','','','','','','','','','','','','','','',
@@ -3232,7 +3232,7 @@ CODEPOINTS = {
         '','','','','','','','','','','','','','','','',
         '','','','','','','','','','','','','','','','',
         ],
-    u'x245':[
+    'x245':[
         '','','','','','','','','','','','','','','','',
         '','','','','','','','','','','','','','','','',
         '','','','','','','','','','','','','','','','',
@@ -3250,7 +3250,7 @@ CODEPOINTS = {
         '','','','','','','','','','','','','','','','',
         '','','','','','','','','','','','','','','','',
         ],
-    u'x246':[
+    'x246':[
         '','','','','','','','','','','','','','','','',
         '','','','','','','','','','','','','','','','',
         '','','','','','','','','','','','','','','','',
@@ -3268,7 +3268,7 @@ CODEPOINTS = {
         '','','','','','','','','','','','','','','','',
         '','','','','','','','','','','','','','','','',
         ],
-    u'x247':[
+    'x247':[
         '','','','','','','','','','','','','','','','',
         '','','','','','','','','','','','','','','','',
         '','','','','','','','','','','','','','','','',
@@ -3286,7 +3286,7 @@ CODEPOINTS = {
         '','','','','','','','','','','','','','','','',
         '','','','','','','','','','','','','','','','',
         ],
-    u'x248':[
+    'x248':[
         '','','','','','','','','','','','','','','','',
         '','','','','','','','','','','','','','','','',
         '','','','','','','','','','','','','','','','',
@@ -3304,7 +3304,7 @@ CODEPOINTS = {
         '','','','','','','','','','','','','','','','',
         '','','','','','','','','','','','','','','','',
         ],
-    u'x249':[
+    'x249':[
         '','','','','','','','','','','','','','','','',
         '','','','','','','','','','','','','','','','',
         '','','','','','','','','','','','','','','','',
@@ -3322,7 +3322,7 @@ CODEPOINTS = {
         '','','','','','','','','','','','','','','','',
         '','','','','','','','','','','','','','','','',
         ],
-    u'x24a':[
+    'x24a':[
         '','','','','','','','','','','','','','','','',
         '','','','','','','','','','','','','','','','',
         '','','','','','','','','','','','','','','','',
@@ -3340,7 +3340,7 @@ CODEPOINTS = {
         '','','','','','','','','','','','','','','','',
         '','','','','','','','','','','','','','','','',
         ],
-    u'x24b':[
+    'x24b':[
         '','','','','','','','','','','','','','','','',
         '','','','','','','','','','','','Lu ','','','','',
         '','','','','','','','','','','','','','','','',
@@ -3358,7 +3358,7 @@ CODEPOINTS = {
         '','','','','','','','','','','','','','','','',
         '','','','','','','','','','','','','','','','',
         ],
-    u'x24c':[
+    'x24c':[
         '','','','','','','','','','','','','','','','',
         '','','','','','','','','','','','','','','','',
         '','','','','','','','','','','','','','','','',
@@ -3376,7 +3376,7 @@ CODEPOINTS = {
         '','','','','','','','','','','','','','','','',
         '','','','','','','','','','','','','','','','',
         ],
-    u'x24d':[
+    'x24d':[
         '','','','','','','','','','','','','','','','',
         '','','','','','','','','','','','','','','','',
         '','','','','','','','','','','','','','','','',
@@ -3394,7 +3394,7 @@ CODEPOINTS = {
         '','','','','','','','','','','','','','','','',
         '','','','','','','','','','','','','','','','',
         ],
-    u'x24e':[
+    'x24e':[
         '','','','','','','','','','','','','','','','',
         '','','','','','','','','','','','','','','','',
         '','','','','','','','','','','','','','','','',
@@ -3412,7 +3412,7 @@ CODEPOINTS = {
         '','','','','','','','','','','','','','','','',
         '','','','','','','','','','','','','','','','',
         ],
-    u'x24f':[
+    'x24f':[
         '','','','','','','','','','','','','','','','',
         '','','','','','','','','','','','','','','','',
         '','','','','','','','','','','','','','','','',
@@ -3430,7 +3430,7 @@ CODEPOINTS = {
         '','','','','','','','','','','','','','','','',
         '','','','','','','','','','','','','','','','',
         ],
-    u'x250':[
+    'x250':[
         '','','','','','','','','','','','','','','','',
         '','','','','','','','','','','','','','','','',
         '','','','','','','','','','','','','','','','',
@@ -3448,7 +3448,7 @@ CODEPOINTS = {
         '','','','','','','','','','','','','','','','',
         '','','','','','','','','','','','','','','','',
         ],
-    u'x251':[
+    'x251':[
         '','','','','','','','','','','','','','','','',
         '','','','','','','','','','','','','','','','',
         '','','','','','','','','','','','','','','','',
@@ -3466,7 +3466,7 @@ CODEPOINTS = {
         '','','','','','','','','','','','','','','','',
         '','','','','','','','','','','','','','','','',
         ],
-    u'x252':[
+    'x252':[
         '','','','','','','','','','','','','','','','',
         '','','','','','','','','','','','','','','','Sou ',
         '','','','','','','','','','','','','','','','',
@@ -3484,7 +3484,7 @@ CODEPOINTS = {
         '','','','','','','','','','','','','','','','',
         '','','','','','','','','','','','','','','','',
         ],
-    u'x253':[
+    'x253':[
         '','','','','','','','','','','','','','','','',
         '','','','','','','','','','','','','','','','',
         '','','','','','','','','','','','','','','','',
@@ -3502,7 +3502,7 @@ CODEPOINTS = {
         '','','','','','','','','','','','','','','','',
         '','','','','','','','','','','','','','','','',
         ],
-    u'x254':[
+    'x254':[
         '','','','','','','','','','','','','','','','',
         '','','','','','','','','Shi ','','','','','','','',
         '','','','','','','','','','','','','','','','',
@@ -3520,7 +3520,7 @@ CODEPOINTS = {
         '','','','','','','','','','','','','','','','',
         '','','','','','','','','','','','','','','','Tuo ',
         ],
-    u'x255':[
+    'x255':[
         '','','','','','','','','','','','','','','','',
         '','','','','','','','','','','','','','','','',
         '','','','','','','','','','','','','','','','',
@@ -3538,7 +3538,7 @@ CODEPOINTS = {
         '','','','','','','','','','','','','','','','',
         '','','','','','','','','','','','','','','','',
         ],
-    u'x256':[
+    'x256':[
         '','','','','','','','','','','','','','','','',
         '','','','','','','','','','','','','','','','',
         '','','','','','','','','','','','','','','','',
@@ -3556,7 +3556,7 @@ CODEPOINTS = {
         '','','','','','','','','','','','','','','','',
         '','','','','','','','','','','','','','','','',
         ],
-    u'x257':[
+    'x257':[
         '','','','','','','','','','','','','Ao ','','','',
         '','','Yan ','','','','','','','','','','','','','',
         '','','','','','Yi ','','','','','','','','','','',
@@ -3574,7 +3574,7 @@ CODEPOINTS = {
         '','','','','','','','','','','','','','','','',
         '','','','','','','','','','','','','','','','',
         ],
-    u'x258':[
+    'x258':[
         '','','','','','','','','','','','','','','','',
         '','','','','','','','','','','','','','','','',
         '','','','','','','','','','','','','','','','',
@@ -3592,7 +3592,7 @@ CODEPOINTS = {
         '','','','','','','','','','','','','','','','',
         '','','','','','','','','','','','','','','','',
         ],
-    u'x259':[
+    'x259':[
         '','','','','','','','','','','','','','','','',
         '','','','','','','','','','','','','','','','',
         '','','','','','','','','','','','','','','','',
@@ -3610,7 +3610,7 @@ CODEPOINTS = {
         '','','','','','','','','','','','','','','','',
         '','','','','','','','','','','','','','','','',
         ],
-    u'x25a':[
+    'x25a':[
         '','','','','','','','','','','','','','','','',
         '','','','','','','','','','','','','','','','',
         '','','','','','','','','','','','','','','','',
@@ -3628,7 +3628,7 @@ CODEPOINTS = {
         '','','','','','','','','','','','','','','','',
         '','','','','','','','','','','','','','','','',
         ],
-    u'x25b':[
+    'x25b':[
         '','','','','','','','','','','','','','','','',
         '','','','','','','','','','','','','','','','',
         '','','','','','','','','','','','','','','','Kao ',
@@ -3646,7 +3646,7 @@ CODEPOINTS = {
         '','','','','','','','','','','','','','','','',
         '','','','','','','','','','','','','','','','',
         ],
-    u'x25c':[
+    'x25c':[
         '','','','','','','','','','','','','','','','',
         '','','','','','','','','','','','','','','','',
         '','','','','','','','','','','','','','','','',
@@ -3664,7 +3664,7 @@ CODEPOINTS = {
         '','','','','','','','','','','','','','','','',
         '','','','','','','','','','','','','','','','',
         ],
-    u'x25d':[
+    'x25d':[
         '','','','','','','','','','','','','','','','',
         '','','','','','','','','','','','','','','','',
         '','','','','','','','','','','','','','','','',
@@ -3682,7 +3682,7 @@ CODEPOINTS = {
         '','','','','','','','','','','','','','','','',
         '','','','','','','','','','','','','','','','',
         ],
-    u'x25e':[
+    'x25e':[
         '','','','','','','','','','','','','','','','',
         '','','','','','','','','','','','','','','','',
         '','','','','','','','','','','','','','','','',
@@ -3700,7 +3700,7 @@ CODEPOINTS = {
         '','','','','','','','','','','','','','','','',
         '','','','','','','','','','','','','','','','',
         ],
-    u'x25f':[
+    'x25f':[
         '','','','','','','','','','','','','','','','',
         '','','','','','','','','','','','','','','','',
         '','','','','','','','','','','','','','','','',
@@ -3718,7 +3718,7 @@ CODEPOINTS = {
         '','','','','','','','','','','','','','','','',
         '','','','','','','','','','','','','','','','',
         ],
-    u'x260':[
+    'x260':[
         '','','','','','','','Jing ','','','','','','','','',
         '','','','','','','','','','','','','','','','',
         '','','','','','','','','','','','','','','','',
@@ -3736,7 +3736,7 @@ CODEPOINTS = {
         '','','','','','','','','','','','','','','','',
         '','','','','','','','','','','','','','','','',
         ],
-    u'x261':[
+    'x261':[
         '','','Dai ','','','','','','','','','','','','','',
         '','','','','','','','','','','','','','','','',
         '','','','','','','','','','','','','','','','',
@@ -3754,7 +3754,7 @@ CODEPOINTS = {
         '','','','','','','','','','','','','','','','',
         '','','','','','','','','','','','','','','','',
         ],
-    u'x262':[
+    'x262':[
         '','','','','','','','','','','','','','','','',
         '','','','','','','','','','','','','','','','',
         '','','','','','','','','','','','','','','','',
@@ -3772,7 +3772,7 @@ CODEPOINTS = {
         '','','','','','','','','','','','','','','','',
         '','','','','','','','','','','','','','','','',
         ],
-    u'x263':[
+    'x263':[
         '','','','','','','','','','','','','','','','',
         '','','','','','','','','','','','','','','','',
         '','','','','','','','','','','','','','','','',
@@ -3790,7 +3790,7 @@ CODEPOINTS = {
         '','','','','','','','','','','','','','','','',
         '','','','','','','','','','','','','','','','',
         ],
-    u'x264':[
+    'x264':[
         '','','','','','','','','Fen ','','','','','','','',
         '','','','','','','','','','','','','','','','',
         '','','','','','','','','','','','','','','','',
@@ -3808,7 +3808,7 @@ CODEPOINTS = {
         '','','','','','','','','','','','','','','','',
         '','','','','','','','','','','','','','','','',
         ],
-    u'x265':[
+    'x265':[
         '','','','','','','','','','','','','','','','',
         '','','','','','','','','','','','','','','','',
         '','','','','','','','','','','','','','','','',
@@ -3826,7 +3826,7 @@ CODEPOINTS = {
         '','','','','','','','','','','','','','','','',
         '','','','','','','','','','','','','','','','',
         ],
-    u'x266':[
+    'x266':[
         '','','','','','','','','','','','','','','','',
         '','','','','','','','','','','','','','','','',
         '','','','','','','','','','','','','','','','',
@@ -3844,7 +3844,7 @@ CODEPOINTS = {
         '','','','','','','','','','','','','','','','',
         '','','','','','','','','','','','','','','','',
         ],
-    u'x267':[
+    'x267':[
         '','','','','','','','','','','','','','','','',
         '','','','','','','','','','','','','','','','',
         '','','','','','','','','','','','','','','','',
@@ -3862,7 +3862,7 @@ CODEPOINTS = {
         '','','','','Xiu ','','','','','','','','','','','',
         '','','','','','','','','','','','','','','','',
         ],
-    u'x268':[
+    'x268':[
         '','','','','','','','','','','','','','','','',
         '','','','','','','','','','','','','','','','',
         '','','','','','','','','','','','','','','','',
@@ -3880,7 +3880,7 @@ CODEPOINTS = {
         '','','','','','','','','','','','','','','','',
         '','','','','','','','','','','','','','','','',
         ],
-    u'x269':[
+    'x269':[
         '','','','','','','','','','','','','','','Gao ','',
         '','','','','','','','','','','','','','','','',
         '','','','','','','','','','','','','','','','',
@@ -3898,7 +3898,7 @@ CODEPOINTS = {
         '','','','','','','','','','','','','','','','',
         '','','','','','','','','','','','','','','','',
         ],
-    u'x26a':[
+    'x26a':[
         '','','','','','','','','','','','','','','','',
         '','','','','','','','','','','','','','','','',
         '','','','','','','','','','','','','','','','',
@@ -3916,7 +3916,7 @@ CODEPOINTS = {
         '','','','','','','','','','','','','','','','',
         '','','','','','','','','','','','','','','','',
         ],
-    u'x26b':[
+    'x26b':[
         '','','','','','','','','','','','','','','','',
         '','','','','','','','','','','','','','','','',
         '','','','','','','','','','','','','','','','',
@@ -3934,7 +3934,7 @@ CODEPOINTS = {
         '','','','','','','','','','','','','','','','',
         '','','','','','','','','','','','','','','','',
         ],
-    u'x26c':[
+    'x26c':[
         '','','','','','','','','','','','','','','','',
         '','','','','','','','','','','','','','','','',
         '','','','','','','','','','','','','','','','',
@@ -3952,7 +3952,7 @@ CODEPOINTS = {
         '','','','','','','','','','','','','','','','',
         '','','','','','','','','','','','','','','','',
         ],
-    u'x26d':[
+    'x26d':[
         '','','','','','','','','','','','','','','','',
         '','','','','','','','','','','','','','','','',
         '','','','','','','','','','','','','','','','',
@@ -3970,7 +3970,7 @@ CODEPOINTS = {
         '','','','','','','','','','','','','','','','',
         '','','','','','','','','','','','','','','','',
         ],
-    u'x26e':[
+    'x26e':[
         '','','','','','','','','','','','','','','','',
         '','','','','','','','','','','','','','','','',
         '','','','','','','','','','','','','','','','',
@@ -3988,7 +3988,7 @@ CODEPOINTS = {
         '','','','','','','','','','','','','','','','',
         '','','','','','','','','','','','','','','','',
         ],
-    u'x26f':[
+    'x26f':[
         '','','','','','','','','','','','','','','','',
         '','','','','','','','','','','','','','','','',
         '','','','','','','','','','','','','','','','',
@@ -4006,7 +4006,7 @@ CODEPOINTS = {
         '','','','','','','','','','','','','','','','',
         '','','','','','','','','','','','','','','','',
         ],
-    u'x270':[
+    'x270':[
         '','','','','','','','','','','','','','','','',
         '','','','','','','','','','','','','','','','',
         '','','','','','','','','','','','','','','','',
@@ -4024,7 +4024,7 @@ CODEPOINTS = {
         '','','','','','','','','','','','','','','','',
         '','','','','','','','','','','','','','','','',
         ],
-    u'x271':[
+    'x271':[
         '','','','','','','','','','','','','','','','',
         '','','','','','','','','','','','','','','','',
         '','','','','','','','','','','','','','','','',
@@ -4042,7 +4042,7 @@ CODEPOINTS = {
         '','','','','','','','','','','','','','','','',
         '','','','','','','','','','','','','','','','',
         ],
-    u'x272':[
+    'x272':[
         '','','','','','','','','','','','','','','','',
         '','','','','','','','','','','','','','','','',
         '','','','','','','','','','','','','','','','',
@@ -4060,7 +4060,7 @@ CODEPOINTS = {
         '','','','','','','','','','','','','','','','',
         '','','','','','','','','','','','','','','','',
         ],
-    u'x273':[
+    'x273':[
         '','','','','','','','','','','','','','','','',
         '','','','Fu ','','','','','','','','','','','','',
         '','','','','','','','','','','','','','','','',
@@ -4078,7 +4078,7 @@ CODEPOINTS = {
         '','','','','','','','','','','','','','','','',
         '','','','','','','','','','','','','','','','',
         ],
-    u'x274':[
+    'x274':[
         '','','','','','','','','','','','','','','','',
         '','','','','','','','','','','','','','','','',
         '','','','','','','','','','','','','','','','',
@@ -4096,7 +4096,7 @@ CODEPOINTS = {
         '','','','','','','','','','','','','','','','',
         '','','','','','','','','','','','','','','','',
         ],
-    u'x275':[
+    'x275':[
         '','','','','','','','','','','','','','','','',
         '','','','','','','','','','','','','','','','',
         '','','','','','','','','','','','','','','','',
@@ -4114,7 +4114,7 @@ CODEPOINTS = {
         '','','','','','','','','','','','','','','','',
         '','','','','','','','','','','','','','','','',
         ],
-    u'x276':[
+    'x276':[
         '','','Chong ','','','','','','','','','','','','','',
         '','','','','','','','','','','','','','','','',
         '','','','','','','','','','','','','','','','',
@@ -4132,7 +4132,7 @@ CODEPOINTS = {
         '','','','','','','','','','','','','','','','',
         '','','','','','','','','','','','','','','','',
         ],
-    u'x277':[
+    'x277':[
         '','Sha ','','','','','','','','','','','','','','',
         '','','','','','','','','','','','','','','','',
         '','','','','','','','','','','','','','','','',
@@ -4150,7 +4150,7 @@ CODEPOINTS = {
         '','','','','','','','','','','','','','','','',
         '','','','','','','','','','','','','','','','',
         ],
-    u'x278':[
+    'x278':[
         '','','','','','','','','','','','','','','','',
         '','','','','','','','','','','','','','','','',
         '','','','','','','','','','','','','','','','',
@@ -4168,7 +4168,7 @@ CODEPOINTS = {
         '','','','','','','','','','','','','','','','',
         '','','','','','','','','','','','','','','','',
         ],
-    u'x279':[
+    'x279':[
         '','','','','','','','','','','','','','','','',
         '','','','','','','','','','','','','','','','',
         '','','','','','','','','','','','','','','','',
@@ -4186,7 +4186,7 @@ CODEPOINTS = {
         '','','','','','','','','','','','','','','','',
         '','','','','','','','','','','','','','','','',
         ],
-    u'x27a':[
+    'x27a':[
         '','','','','','','','','','','','','','','','',
         '','','','','','','','','','','','','','','','',
         '','','','','','','','','','','','','','','','',
@@ -4204,7 +4204,7 @@ CODEPOINTS = {
         '','','','','','','','','','','','','','','','',
         '','','','','','','','','','','','','','','','',
         ],
-    u'x27b':[
+    'x27b':[
         '','','','','','','','','','','','','','','','',
         '','','','','','','','','','','','','','','','',
         '','','','','','','','','','','','','','','','',
@@ -4222,7 +4222,7 @@ CODEPOINTS = {
         '','','','','','','','','','','','','','','','',
         '','','','','','','','','','','','','','','','',
         ],
-    u'x27c':[
+    'x27c':[
         '','','','','','','','','','','Tian ','','','','','',
         '','','','','','','','','','','','','','','','',
         '','','','','','','','','','','','','','','','',
@@ -4240,7 +4240,7 @@ CODEPOINTS = {
         '','','','','','','','','','','','','','','','',
         '','','','','','','','','','','','','','','','',
         ],
-    u'x27d':[
+    'x27d':[
         '','','','','','','','','','','','','','','','',
         '','','','','','','','','','','','','','','','',
         '','','','','','','','','','','Suo ','','','','','',
@@ -4258,7 +4258,7 @@ CODEPOINTS = {
         '','','','','','','','','','','','','','','','',
         '','','','','','','','','','','','','','','','',
         ],
-    u'x27e':[
+    'x27e':[
         '','','','','','','','','','','','','','','','',
         '','','','','','','Zhuan ','','','','','','','','','',
         '','','','','','','','','','','','','','','','',
@@ -4276,7 +4276,7 @@ CODEPOINTS = {
         '','','','','','','','','','','','','','','','',
         '','','','','','','','','','','','','','','','',
         ],
-    u'x27f':[
+    'x27f':[
         '','','','','','','','','','','','','','','','',
         '','','','','','','','','','','','','','','','',
         '','','','','','','','','','','','','','','Tang ','',
@@ -4294,7 +4294,7 @@ CODEPOINTS = {
         '','','','','','','','','','','','','','','','',
         '','','','','','','','','','','','','','','','',
         ],
-    u'x280':[
+    'x280':[
         '','','','','','','','','','','','','','','','',
         '','','','','','','','','','','','','','','','',
         '','','','','','','','','','','','','','','','',
@@ -4312,7 +4312,7 @@ CODEPOINTS = {
         '','','','','','','','','','','','','','','','',
         '','','','','','','','','','','','','','','','',
         ],
-    u'x281':[
+    'x281':[
         '','','','','','','','','','','','','','','','',
         '','','','','','','','','','','','','','','','',
         '','','','','','','','','','','','','','','','',
@@ -4330,7 +4330,7 @@ CODEPOINTS = {
         '','','','','','','','','','','','','','','','',
         '','','','','','','','','','','','','','','','',
         ],
-    u'x282':[
+    'x282':[
         '','','','','','','','','','','','','','','','',
         '','','','','','','','','','','','','','','','',
         '','','','','','','','','','','','','','','','',
@@ -4348,7 +4348,7 @@ CODEPOINTS = {
         '','','','','','','','','','','','','','','','Zhuai ',
         '','','','','','','','','','','','','','','','',
         ],
-    u'x283':[
+    'x283':[
         '','','','','','','','','','','','','','','','',
         '','','','','','','','','','','','','','','','',
         '','','','','','','','','','Tang ','','','','','','',
@@ -4366,7 +4366,7 @@ CODEPOINTS = {
         '','','','','','','','','','','','','','','','',
         '','','','','','','','','','','','','','','','',
         ],
-    u'x284':[
+    'x284':[
         '','','','','','','','','','','','','','','','',
         '','','','','','','','','','','','','','','','',
         '','','','','','','','','','','','','','','','',
@@ -4384,7 +4384,7 @@ CODEPOINTS = {
         '','','','','','','','','','','','','','','','',
         '','','','','','','','','','','','','','','','',
         ],
-    u'x285':[
+    'x285':[
         '','','','','','','','','','','','','','','','',
         '','','','','','','','','','','','','','','','',
         '','','','','','','','','','','','','','','','',
@@ -4402,7 +4402,7 @@ CODEPOINTS = {
         '','','','','','','','','','','','','','','','',
         '','','','','','','','','','','','','','','','',
         ],
-    u'x286':[
+    'x286':[
         '','','','','','','','','','','','','','','','',
         '','','','','','','','','','','','','','','','',
         '','','','','','','','','','','','','','','','',
@@ -4420,7 +4420,7 @@ CODEPOINTS = {
         '','','','','','','','','','','','','','','','',
         '','','','','','','','','','','','','','','','',
         ],
-    u'x287':[
+    'x287':[
         '','','','','','','','','','','','','','','','',
         '','','','','','','','','','','','','','','','',
         '','','','','','','','','','','','','','','','',
@@ -4438,7 +4438,7 @@ CODEPOINTS = {
         '','','','','','','','','','','','','','','','',
         '','','','','','','','','','','','','','','','',
         ],
-    u'x288':[
+    'x288':[
         '','','','','','','','','','','','','','','','',
         '','','','','','','','','','','','','','','','',
         '','','','','','','','','','','','','','','','',
@@ -4456,7 +4456,7 @@ CODEPOINTS = {
         '','','','','','','','','','','','','','','','',
         '','','','','','','','','','','','','','','','',
         ],
-    u'x289':[
+    'x289':[
         '','','','','','','','','','','','','','','','',
         '','','','','','','','','','','','','','','','',
         '','','','','','','','','','','','','','','','',
@@ -4474,7 +4474,7 @@ CODEPOINTS = {
         '','','','','','','','','','','','','','','','',
         '','','','','','','','','','','','','','','','',
         ],
-    u'x28a':[
+    'x28a':[
         '','','','','','','','','','','','','','','','',
         '','','','','','','','','','','','','','','','',
         '','','','','','','','','','','','','','','','',
@@ -4492,7 +4492,7 @@ CODEPOINTS = {
         '','','','','','','','','','','','','','','','',
         '','','','','','','','','','','','','','','','',
         ],
-    u'x28b':[
+    'x28b':[
         '','','','','','','','','','','','','','','','',
         '','','','','','','','','','','','','','','','',
         '','','','','','','','','','','','','','','','',
@@ -4510,7 +4510,7 @@ CODEPOINTS = {
         '','','','','','','','','','','','','','','','',
         '','','','','','','','','','','','','','','','',
         ],
-    u'x28c':[
+    'x28c':[
         '','','','','','','','','','','','','','','','',
         '','','','','','','','','','','','','','','','',
         '','','','','','','','','','','','','','','','',
@@ -4528,7 +4528,7 @@ CODEPOINTS = {
         '','','','','','','','','','','','','','','','',
         '','','','','','','','','','','','','','','','',
         ],
-    u'x28d':[
+    'x28d':[
         '','','','','','','','','','','','','','','','',
         '','Kuang ','','','','','','','','','','','','','','',
         '','','','','','','','','','','','','','','','',
@@ -4546,7 +4546,7 @@ CODEPOINTS = {
         '','','','','','','','','','','','','','','','',
         '','','','','','','','','','','','','','','','',
         ],
-    u'x28e':[
+    'x28e':[
         '','','','','','','','','','','','','','','','',
         '','','','','','','','','','','Ji ','','','','','',
         '','','','','','','','','','','','','Zhen ','','','',
@@ -4564,7 +4564,7 @@ CODEPOINTS = {
         '','','','','','','','','','','','','','','','',
         '','','Xia ','','','','','','','','','','','','','',
         ],
-    u'x28f':[
+    'x28f':[
         '','','','','','','','','','','','','','','','',
         '','','','','','','','','','','','','','','','',
         '','','','','','','','','','','','','','','','',
@@ -4582,7 +4582,7 @@ CODEPOINTS = {
         '','','','','','','','','','','','','','','','',
         '','','','','','','','','','','','','','','','',
         ],
-    u'x290':[
+    'x290':[
         '','','','','','','','','','','','','','','','',
         '','','','','','','','','','','','','','','','',
         '','','','','','','','','','','','','','','','',
@@ -4600,7 +4600,7 @@ CODEPOINTS = {
         '','','','','','','','','','','','','','','','',
         '','','','','','','','','','','','','','','','',
         ],
-    u'x291':[
+    'x291':[
         '','','','','','','','','','','','','','','','',
         '','','','','','','','','','','','','','','','',
         '','','','','','','','','','','','','','','','',
@@ -4618,7 +4618,7 @@ CODEPOINTS = {
         '','','','','','','','','','','','','','','','',
         '','','','','','','','','','','','','','','','',
         ],
-    u'x292':[
+    'x292':[
         '','','','','','','','','','','','','','','','',
         '','','','','','','','','','','','','','','','',
         '','','','','','','','','','','','','','','','',
@@ -4636,7 +4636,7 @@ CODEPOINTS = {
         '','','','','','','','Xie ','','','','','','','','',
         '','','','','','','','','','','','','','','','',
         ],
-    u'x293':[
+    'x293':[
         '','','','','','','','','','','','','','','','',
         '','','','','','','','','','','','','','','','',
         '','','','','','','','','','','','','','','','',
@@ -4654,7 +4654,7 @@ CODEPOINTS = {
         '','','','','','','','','','','','','','','','',
         '','','','','','','','','','','','','','','','',
         ],
-    u'x294':[
+    'x294':[
         '','','','','','','','','','','','','','','','',
         '','','','','','','','','','','','','','','','',
         '','','','','','','','','','','','','','','','',
@@ -4672,7 +4672,7 @@ CODEPOINTS = {
         '','','','','','','','','','','','','','','','',
         '','','','','','','','','','','','','','','','',
         ],
-    u'x295':[
+    'x295':[
         '','','','','','','','','','','','','','','','',
         '','','','','','','','Lei ','','','','','','','','',
         '','','','','','','','','','','','','','','','',
@@ -4690,7 +4690,7 @@ CODEPOINTS = {
         '','','','','','','','','','','','','','','','',
         '','','','','','','','','','','','','','','','',
         ],
-    u'x296':[
+    'x296':[
         '','','','','','','','','','','','','','','','',
         '','','','','','','','','','','','','','','','',
         '','','','','','','','','','','','','','','','',
@@ -4708,7 +4708,7 @@ CODEPOINTS = {
         '','','','','','','','','','','','','','','','',
         '','','','','','','','','','','','','','','','',
         ],
-    u'x297':[
+    'x297':[
         '','','','','','','','Juan ','','','','','','','','',
         '','','','','','','','','','','','','','','','',
         '','','','','','','','','','','','','','','','',
@@ -4726,7 +4726,7 @@ CODEPOINTS = {
         '','','','','','','','','','','','','','','','',
         '','','','','','','','','','','','','','','','',
         ],
-    u'x298':[
+    'x298':[
         '','','','','','','','','','','','','','','','',
         '','Ding ','','','','','','','','','','','','','','',
         '','','','','','','','','','','','','','','','',
@@ -4744,7 +4744,7 @@ CODEPOINTS = {
         '','','','','','','','','','','','','','','','',
         '','','','','','','','','','','','','','','','',
         ],
-    u'x299':[
+    'x299':[
         '','','','','','','','','','','','','','','','',
         '','','','','','','','','','','','','','','','',
         '','','','','','','','','','','','','','','','',
@@ -4762,7 +4762,7 @@ CODEPOINTS = {
         '','','','','','','','','','','','','','','','',
         '','','','','','','','','','','','','','','','',
         ],
-    u'x29a':[
+    'x29a':[
         '','','','','','','','','','','','','','','','',
         '','','','','','','','','','','','','','','','',
         '','','','','','','','','','','','','','Que ','','',
@@ -4780,7 +4780,7 @@ CODEPOINTS = {
         '','','','','','','','','','','','','','','','',
         '','','','','','','','','','','','','','','','',
         ],
-    u'x29b':[
+    'x29b':[
         '','','','','','','','','','','','','','','','',
         '','','','','','','','','','','','','','','','',
         '','','','','','','','','','','','','','','','',
@@ -4798,7 +4798,7 @@ CODEPOINTS = {
         '','','','','','','','','','','','','','','','',
         '','','','','','','','','','','','','','','','',
         ],
-    u'x29c':[
+    'x29c':[
         '','','','','','','','','','','','','','','','',
         '','','','','','','','','','','','','','','','',
         '','','','','','','','','','','','','','','','',
@@ -4816,7 +4816,7 @@ CODEPOINTS = {
         '','','','','','','','','','','','','','','','',
         '','','','','','','','','','','','','','','','',
         ],
-    u'x29d':[
+    'x29d':[
         '','','','','','','','','','','','','','','','',
         '','','','','','','','','','','','','','','','',
         '','','','','','','','','','','','','','','','',
@@ -4834,7 +4834,7 @@ CODEPOINTS = {
         '','','','','','','','','','','','','','','','',
         '','','','','','','','','','','','','','','','',
         ],
-    u'x29e':[
+    'x29e':[
         '','','','','','','','','','','','','','','','',
         '','','','','','','','','','','','','','','','',
         '','','','','','','','','Yi ','','','','','','','',
@@ -4852,7 +4852,7 @@ CODEPOINTS = {
         '','','','','','','','','','','','','','','','',
         '','','','','','','','','','','','','','','','',
         ],
-    u'x29f':[
+    'x29f':[
         '','','','','','','','','Ao ','','','','','','','',
         '','','','','','','','','','','','','','','','',
         '','','','','','','','','','','','','','','','',
@@ -4870,7 +4870,7 @@ CODEPOINTS = {
         '','','','','','','','','','','','','','','','',
         '','','','','','','','','','','','','','','','',
         ],
-    u'x2a0':[
+    'x2a0':[
         '','','','','','','','','','','','','','','','',
         '','','','','','','','','','','','','','','','',
         '','','','','','','','','','','','','','','','',
@@ -4888,7 +4888,7 @@ CODEPOINTS = {
         '','','','','','','','','','','','','','','','',
         '','','','','','','','','','','','','','','','Ge ',
         ],
-    u'x2a1':[
+    'x2a1':[
         '','','','','','','','','','','','','','','','',
         '','','','','','','','','','','','','','','','',
         '','','','','','','','','','','','','','','','',
@@ -4906,7 +4906,7 @@ CODEPOINTS = {
         '','','','','','','','','','','','','','','','',
         '','','','','','','','','','','','','','','','',
         ],
-    u'x2a2':[
+    'x2a2':[
         '','','','','','','','','','','','','','','','',
         '','','','','','','','','','','','','','','','',
         '','','','','','','','','','','','','','','','',
@@ -4924,7 +4924,7 @@ CODEPOINTS = {
         '','','','','','','','','','','','','','','','',
         '','','','','','','','','','','','','','','','',
         ],
-    u'x2a3':[
+    'x2a3':[
         '','','','','','','','','','','','','','','','',
         '','','','','','','','','','','','','','','','',
         '','','','','','','','','','','','','','','','',
@@ -4942,7 +4942,7 @@ CODEPOINTS = {
         '','','','','','','','','','','','','','','','',
         '','','','','','','','','','','','','','','','',
         ],
-    u'x2a4':[
+    'x2a4':[
         '','','','','','','','','','','','','','','','',
         '','','','','','','','','','','','','','','','',
         '','','','','','','','','','','','','','','','',
@@ -4960,7 +4960,7 @@ CODEPOINTS = {
         '','','','','','','','','','','','','','','','',
         '','','','','','','','','','','','','','','','',
         ],
-    u'x2a5':[
+    'x2a5':[
         '','','Ding ','','','','','','','','','','','','','',
         '','','','','','','','','','','','','','','','',
         '','','','','','','','','','','','','','','','',
@@ -4978,7 +4978,7 @@ CODEPOINTS = {
         '','','','','','','','','','','','','','','','',
         '','','','','','','','','','','','','','','','',
         ],
-    u'x2a6':[
+    'x2a6':[
         '','','','','','','','','','','','','','','','',
         '','','','','','','','','','','','','','','','',
         '','','','','','','','','','','','','','','','',
@@ -4996,7 +4996,7 @@ CODEPOINTS = {
         '','','','','','','','','','','','','','','','',
         '','','','','','','','','','','','','','','','',
         ],
-    u'x2a7':[
+    'x2a7':[
         '','','','','','','','','','','','','','','','',
         '','','','','','','','','','','','','','','','',
         '','','','','','','','','','','','','','','','',
@@ -5014,7 +5014,7 @@ CODEPOINTS = {
         '','','','','','','','','','','','','','','','',
         '','','','','','','','','','','','','','','','',
         ],
-    u'x2a8':[
+    'x2a8':[
         '','','','','','','','','','','','','','','','',
         '','','','','','','','','','','','','','','','',
         '','','','','','','','','','','','','','','','',
@@ -5032,7 +5032,7 @@ CODEPOINTS = {
         '','','','','','','','','','','','','','','','',
         '','','','','','','','','','','','','','','','',
         ],
-    u'x2aa':[
+    'x2aa':[
         '','','','','','','','','','','Song ','','','','','',
         '','','','','','','','Jue ','','','','','','','','',
         '','','','','','','','','','','','','','','','',
@@ -5050,7 +5050,7 @@ CODEPOINTS = {
         '','','','','','','','','','','','','','','','',
         '','','','','','','','','','','','','','','','',
         ],
-    u'x2ae':[
+    'x2ae':[
         '','','','','','','','','','','','','','','','',
         '','','','','','','','','','','','','','','','',
         '','','','','','','','','','','','','','','','',
@@ -5068,7 +5068,7 @@ CODEPOINTS = {
         '','','','','','','','','','','','','','','','',
         '','','','','','','','','','','','','','','','',
         ],
-    u'x2af':[
+    'x2af':[
         '','','','','','','','','','','','','','','','',
         '','','','','','','','','','','','','','','','',
         '','','','','','','','','','','','','','','','',
@@ -5086,7 +5086,7 @@ CODEPOINTS = {
         '','','','','','','','','','','','','','','','',
         '','','','','','','','','','','','','','','','',
         ],
-    u'x2b0':[
+    'x2b0':[
         '','','','','','','','','','','','','','','','',
         '','','','','','','','','','','','','','','','',
         '','','','','','','','','','','','','','','','',
@@ -5104,7 +5104,7 @@ CODEPOINTS = {
         '','','','','','','','','','','','','','','','',
         '','','','','','','','','','','','','','','','',
         ],
-    u'x2b1':[
+    'x2b1':[
         '','','','','','','','','','','','','','','','',
         '','','','','','','','','','','','','','','','',
         '','','','','','','','','Chi ','','','','','','','',
@@ -5122,7 +5122,7 @@ CODEPOINTS = {
         '','','','','','','','','','','','','','','','',
         '','','','','','','','','','','','','','','','',
         ],
-    u'x2b2':[
+    'x2b2':[
         '','','','','','','','','','','','','','','','',
         '','','','','','','','','','','','','','','','',
         '','','','','','','','','','','','','','','','',
@@ -5140,7 +5140,7 @@ CODEPOINTS = {
         '','','','','','','','','','','','','','','','',
         '','','','','','','','','','','','','','','','',
         ],
-    u'x2b3':[
+    'x2b3':[
         'Ji ','','','','','','','','','','','','','','','',
         '','','','','','','','','','','','','','','','',
         '','','','','','','','','Luo ','','','','','','','',
@@ -5158,7 +5158,7 @@ CODEPOINTS = {
         '','','','','','','','','','','','','','','','',
         '','','','','','','','','','','','','','','','',
         ],
-    u'x2b4':[
+    'x2b4':[
         '','','','','Yue ','','Kuai ','','','Ling ','','','','','','',
         'Ni ','','','Bu ','','','','','','','','','','','','',
         '','','','','','','','','','','','','','','','',
@@ -5176,7 +5176,7 @@ CODEPOINTS = {
         '','','','','','','','Fu ','','Cong ','','','','','','',
         '','','','','','','','','','','','','','','','',
         ],
-    u'x2b5':[
+    'x2b5':[
         '','','','','','','','','','','','','','','Jue ','',
         '','','','','','','','','','','','','','','','',
         '','','','','','','','','','','','','','','','',
@@ -5194,7 +5194,7 @@ CODEPOINTS = {
         'Duo ','','','','','','','Su ','','','','','','','Huang ','',
         '','','','','','','','','','','','','','','','',
         ],
-    u'x2b6':[
+    'x2b6':[
         '','','','','','','','','','','','','','','','',
         '','','','','','','','','','','','','','','','',
         '','','','Han ','Ai ','','','','Ti ','','','','','','','',
@@ -5212,7 +5212,7 @@ CODEPOINTS = {
         '','','Ning ','','','','','','','','','','','','','',
         '','','','','','','Chi ','','Ti ','','','','','','','',
         ],
-    u'x2f8':[
+    'x2f8':[
         '','','','','','','','','','','','','','','','',
         '','','','','','','','','','','','','','','','',
         '','','','','','','','','','','','','','','','',
@@ -5230,7 +5230,7 @@ CODEPOINTS = {
         '','','','','','','','','','','','','','','','',
         '','','','','','','','','','','','','','','','',
         ],
-    u'x2f9':[
+    'x2f9':[
         '','','','','','','','','','','','','','','','',
         '','','','','','','','','','','','','','','','',
         '','','','','','','','','','','','','','','','',
