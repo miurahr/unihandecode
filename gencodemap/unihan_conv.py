@@ -13,19 +13,29 @@ except: #python 3
 
 class UnihanConv():
 
-    parse_line = None
     readings = {}
     firsttime = True
+    lang = None
+    priority = {
+        'kr':  [ 'kKorean', 'kMandarin', 'kJapaneseOn', 'kVietnamese', 'kCantonese', 'kHanyuPinyin', 'kJapaneseKun'],
+        'zh': [ 'kMandarin', 'kCantonese', 'kKorean',  'kJapaneseOn', 'kVietnamese', 'kHanyuPinyin', 'kJapaneseKun'],
+        'ja': [ 'kJapaneseOn', 'kJapaneseKun', 'kMandarin', 'kCantonese', 'kKorean',  'kVietnamese', 'kHanyuPinyin'],
+        'vn': [ 'kVietnamese', 'kMandarin', 'kCantonese', 'kJapaneseOn', 'kJapaneseKun', 'kKorean',  'kHanyuPinyin'],
+    }
+    pmap = {
+        ord(u('â')):'a',ord(u('à')):'a',ord(u('ắ')):'a',ord(u('ă')):'a',ord(u('ấ')):'a',
+        ord(u('ü')):'u',ord(u('ụ')):'u',ord(u('ú')):'u',ord(u('ử')):'u',ord(u('ư')):'u',
+        ord(u('ù')):'u',
+        ord(u('é')):'e',
+        ord(u('ọ')):'o',ord(u('ố')):'o',ord(u('ộ')):'o',ord(u('ơ')):'o',ord(u('ớ')):'o',
+        ord(u('ớ')):'o',   
+     }
 
     def __init__(self, lang):
-        if lang is 'kr':
-            self.parse_line = self.k_parse_line
-        elif lang is 'ja':
-            self.parse_line = self.j_parse_line
-        elif lang is 'vn':
-            self.parse_line = self.v_parse_line
+        if lang in self.priority:
+            self.lang = lang
         else:
-            self.parse_line = self.c_parse_line
+            self.lang = 'zh'
 
     def run(self, source, dest):
         fout = open(dest,'w')
@@ -36,89 +46,19 @@ __copyright__ = \'2010 Hiroshi Miura <miurahr@linux.com>\'\n__docformat__ = \'re
         fout.write("]\n}\n")
         fout.close()
 
-    def check_r(self, lcode, n):
-        if lcode in self.readings:
-            if self.readings[lcode][1] > n:
-                return True # low priority reading
+    def check_category(self, lcode, category, pron):
+        try:        
+            p = self.priority[self.lang].index(category)
+        except:
+            return
+
+        if not ((lcode in self.readings) and (self.readings[lcode][1] < p)):
+            if category in ['kMandarin', 'kCantonese']:
+                self.readings[lcode] = (re.sub(r'(\w+)[1-5]',r'\1 ',pron), p)
+            elif category == 'kHanyuPinyin':
+                self.readings[lcode] = (re.sub(r'\w+\.\w+:(\w+)',r'\1 ',pron), p)
             else:
-                return False # high priority reading
-        else:
-            return True # still don't exist 
-
-
-    def c_parse_line(self, lcode, category, pron):
-        # priority is 
-        # Korean     = 1
-        # Mandarin   = 2
-        # JapaneseOn = 3
-        # Vietnamese = 4
-        if category == 'kMandarin':
-            self.readings[lcode] = (re.sub(r'(\w+)[1-5]',r'\1 ',pron), 1)
-        elif category == 'kKorean'     and self.check_r(lcode, 2):
-            self.readings[lcode] = (pron, 2)
-        elif category == 'kJapaneseOn' and self.check_r(lcode, 3):
-            self.readings[lcode] = ("%s "%pron, 3)
-        elif category == 'kVietnamese' and self.check_r(lcode, 4):
-            self.readings[lcode] = (pron, 4)
-        elif category == 'kCantonese' and self.check_r(lcode, 5):
-            self.readings[lcode] = (pron,5)
-        elif category == 'kHanyuPinyin' and self.check_r(lcode, 6):
-            self.readings[lcode] = (re.sub(r'\w+\.\w+:(\w+)',r'\1 ',pron), 6)
-
-    def k_parse_line(self, lcode, category, pron):
-        # priority is 
-        # Korean     = 1
-        # Mandarin   = 2
-        # JapaneseOn = 3
-        # Vietnamese = 4
-        if category == 'kKorean':
-            self.readings[lcode] = (pron, 1)
-        elif category == 'kMandarin'   and self.check_r(lcode, 2):
-            self.readings[lcode] = (re.sub(r'(\w+)[1-5]',r'\1 ',pron), 2)
-        elif category == 'kJapaneseOn' and self.check_r(lcode, 3):
-            self.readings[lcode] = ("%s "%pron, 3)
-        elif category == 'kVietnamese' and self.check_r(lcode, 4):
-            self.readings[lcode] = (pron, 4)
-        elif category == 'kCantonese' and self.check_r(lcode, 5):
-            self.readings[lcode] = (pron,5)
-
-    def j_parse_line(self, lcode, category, pron):
-        # priority is 
-        # Korean     = 4
-        # Mandarin   = 3
-        # JapaneseOn = 1
-        # JapaneseKun = 2
-        # Vietnamese = 5
-        if category == 'kJapaneseOn':
-            self.readings[lcode] = ("%s "%pron, 1)
-        elif category == 'kJapaneseKun' and self.check_r(lcode, 2):
-            self.readings[lcode] = ("%s "%pron, 2)
-        elif category == 'kMandarin'  and self.check_r(lcode, 3):
-            self.readings[lcode] = (re.sub(r'(\w+)[1-5]',r'\1 ',pron), 3)
-        elif category == 'kKorean'    and self.check_r(lcode, 4):
-            self.readings[lcode] = (pron, 4)
-        elif category == 'kVietnamese' and self.check_r(lcode, 5):
-            self.readings[lcode] = (pron, 5)
-        elif category == 'kCantonese' and self.check_r(lcode, 6):
-            self.readings[lcode] = (pron,6)
-
-    def v_parse_line(self, lcode, category, pron):
-        # priority is 
-        # Korean     = 4
-        # Mandarin   = 2
-        # JapaneseOn = 3
-        # Vietnamese = 1
-        if category == 'kVietnamese':
-            self.readings[lcode] = (pron, 1)
-        elif category == 'kMandarin'   and self.check_r(lcode, 2):
-            self.readings[lcode] = (re.sub(r'(\w+)[1-5]',r'\1 ',pron), 2)
-        elif category == 'kJapaneseOn' and self.check_r(lcode, 3):
-            self.readings[lcode] = ("%s "%pron, 3)
-        elif category == 'kKorean'     and self.check_r(lcode, 4):
-            self.readings[lcode] = (pron, 4)
-        elif category == 'kCantonese' and self.check_r(lcode, 5):
-            self.readings[lcode] = (pron,5)
-
+                self.readings[lcode] = ("%s "%pron, p)
 
     def gen_map(self,fout, ucode):
         if ucode is 0:
@@ -145,45 +85,35 @@ __copyright__ = \'2010 Hiroshi Miura <miurahr@linux.com>\'\n__docformat__ = \'re
 
     def process_readings(self, source, fout):
         oucode = 0
-        pmap = {
-            ord(u('â')):'a',ord(u('à')):'a',ord(u('ắ')):'a',ord(u('ă')):'a',ord(u('ấ')):'a',
-
-            ord(u('ü')):'u',ord(u('ụ')):'u',ord(u('ú')):'u',ord(u('ử')):'u',ord(u('ư')):'u',
-            ord(u('ù')):'u',
-
-            ord(u('é')):'e',
-
-            ord(u('ọ')):'o',ord(u('ố')):'o',ord(u('ộ')):'o',ord(u('ơ')):'o',ord(u('ớ')):'o',
-            ord(u('ớ')):'o',   
-         }
 
         r1 = re.compile(r'U\+([0-9A-F]{2,3})([0-9A-F]{2}\b)')
         for line in open(source, 'r'):
             try:
-                uline = unicode(line, "utf-8")
+                uline = unicode(line, "utf-8") # python2
                 items = uline[:-1].split('\t')
                 pass
             except:
-                items = line[:-1].split('\t')
+                items = line[:-1].split('\t') # python3
                 pass
             
             try:
                 code = r1.sub(r'\1\t\2',items[0]).split('\t')
                 category = items[1]
                 ptmp = items[2].split(' ')[0].capitalize()
-                pron = re.sub('[^\00-\x7f]', lambda x: pmap[ord(x.group())], ptmp) 
-
-                if code is not None:
-                    ucode = int(code[0],16)
-                    lcode = int(code[1],16)
-                    if (oucode != ucode):
-                        self.gen_map(fout, oucode)
-                        oucode = ucode 
-                        self.readings={}
-                    self.parse_line(lcode, category, pron)
-    
+                pron = re.sub('[^\00-\x7f]', lambda x: self.pmap[ord(x.group())], ptmp) 
             except:
                 continue
-        self.gen_map(fout, oucode) # output when eof
 
+            if code is None:
+                continue
+
+            ucode = int(code[0],16)
+            lcode = int(code[1],16)
+            if (oucode != ucode):
+                self.gen_map(fout, oucode)
+                oucode = ucode 
+                self.readings={}
+            self.check_category(lcode, category, pron)
+    
+        self.gen_map(fout, oucode) # output when eof
 
