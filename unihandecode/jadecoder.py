@@ -37,6 +37,8 @@ class Jadecoder(Unidecoder):
         try:
             if os.name is "nt":
                 self.kakasi = CDLL("libkakasi")
+            elif os.name is "Darwin":
+                self.kakasi = CDLL("/opt/local/lib/libkakasi.dylib")
             elif os.name is "posix":
                 self.kakasi = CDLL("libkakasi.so")
             else:
