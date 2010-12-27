@@ -50,16 +50,25 @@ DESCRIPTION
 REQUIREMENTS
 
     This depend on KAKASI library for Japanese pronunciation recognition.
-    If it not exist in system, it use JapaneseOn table for it.
+    If it not exist in your system, it use a table of Japanese Kanji to
+    Romaji 1:1 mapping.
 
+    You can download KAKASI from http://kakasi.namazu.org/stable/
+    If you use Fedora Linux or Ubuntu Linux, please launch your 
+    Operating System's package manager and search kakasi package.
+    If you want to use in MS Windows, you can see
+    http://www.namazu.org/win32/kakasi-2.3.4.zip
 
 INSTALLATION
 
-    You install Unidecode, as you would install any Python module,
+    You install Unihandecode, as you would install any Python module,
     by running these commands:
 
 	python setup.py install
 	python setup.py test
+
+    If you got egg package, it is easy to install by
+    $ easy_install Unihandecode-0.10-py2.6.egg
 
 
 SUPPORT

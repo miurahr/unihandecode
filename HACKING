@@ -1,0 +1,40 @@
+You can get development information from 
+http://launchpad.net/unihandecode
+
+If you are interested in this project and try to change source,
+you can get latest development tree as follows:
+
+Get bazaar source code revision control system.
+then
+
+$ bzr branch lp:unihandecode
+
+you may got latest development code at ./unihandecode
+
+If you found a bug, please look at https://bugs.launchpad.net/unihandecode
+for bug tracking system.
+
+You may also need to install python setuptools to build egg package
+from the source.
+
+for unit test,
+$ python setup.py test
+
+for create egg package
+$ python setup.py bdist_egg
+
+for test in your system,
+$ python setup.py development
+It will make symbolic link from python system directory to your  
+working directory.
+
+trial
+
+$ python
+>>> from unihandecode import Unihandecoder
+>>> d = Unihandecoder(lang="ja")
+>>> d.decode(u"Sakura")
+Sakura
+
+
+enjoy!
