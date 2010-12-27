@@ -107,7 +107,8 @@ class TestUnidecode(unittest.TestCase):
 		JATESTS = [
 			(u'\u660e\u65e5\u306f\u660e\u65e5\u306e\u98a8\u304c\u5439\u304f',
 			'Ashita ha Ashita no Kaze ga Fuku'),
-
+			(u"\u660e\u5929\u660e\u5929\u7684\u98ce\u5439",
+            'Mei Ten Mei Ten Teki Feng Sui ')
 			]
 		u = Unihandecoder(lang="ja")
 		for input, output in JATESTS:
@@ -116,7 +117,9 @@ class TestUnidecode(unittest.TestCase):
 	def test_kr(self):
 		KRTESTS = [
 			(u'\ub0b4\uc77c\uc740 \ub0b4\uc77c \ubc14\ub78c\uc774 \ubd84\ub2e4',
-        		'naeileun naeil barami bunda')
+        		'naeileun naeil barami bunda'),
+			(u"\u660e\u5929\u660e\u5929\u7684\u98ce\u5439",
+             'Myeng Chen Myeng Chen Cek Feng Chwi ')
 			]
 		u = Unihandecoder(lang="kr")
 		for input, output in KRTESTS:
@@ -134,7 +137,9 @@ class TestUnidecode(unittest.TestCase):
 	def test_vn(self):
 		VNTESTS = [
 			(u'Ng\xe0y mai gi\xf3 th\u1ed5i v\xe0o ng\xe0y mai',
-			'Ngay mai gio thoi vao ngay mai')
+			'Ngay mai gio thoi vao ngay mai'),
+			(u"\u660e\u5929\u660e\u5929\u7684\u98ce\u5439",
+            'Minh Tian Minh Tian De Feng Xuy ')
 			]
 		u = Unihandecoder(lang="vn")
 		for input, output in VNTESTS:
