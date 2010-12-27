@@ -1,8 +1,7 @@
 #!/usr/bin/python
 # derivered from unidecode setup.py
 
-from distutils.core import Command, setup
-from distutils.command.install import install as DistutilsInstall
+from setuptools import Command,setup
 
 import unittest
 import os,threading
@@ -30,11 +29,6 @@ class TestCommand(Command):
                                 UNITTESTS ) )
 
         result = unittest.TextTestRunner(verbosity=2).run(suite)
-
-class Installer(DistutilsInstall):
-
-    def run(self):
-        DistutilsInstall.run(self)
 
 class GenMap(Command):
     user_options = [ ]
@@ -73,7 +67,7 @@ class genmap_t(threading.Thread):
 
 
 setup(name='Unihandecode',
-      version='0.01',
+      version='0.10',
       description='US-ASCII transliterations of Unicode text',
       url='http://launchpad.net/unihandecode/',
       license='GPLv3/Perl',
@@ -93,8 +87,13 @@ The representation is almost always an attempt at transliteration
 -- i.e., conveying, in Roman letters, the pronunciation expressed by 
 the text in some other writing system.
 
-For example 'decode(u"\u5317\u4EB0")' returns 'Bei Jing'.
-
+For example;
+>>>d = Unidecoder()
+>>>d.decode(u"\u5317\u4EB0")
+'Bei Jing'.
+d = Unidecoder(lang='ja')
+>>>d.decode(u"\u5317\u4EB0")
+'Pe King'
       """,
       author='Hioshi Miura',
       author_email='miurahr@linux.com',
@@ -103,6 +102,6 @@ For example 'decode(u"\u5317\u4EB0")' returns 'Bei Jing'.
 
       provides = [ 'unihandecode' ],
 
-      cmdclass = { 'test': TestCommand, 'install':Installer, 'genmap':GenMap }
+      cmdclass = { 'test': TestCommand,  'genmap':GenMap }
 
 )
