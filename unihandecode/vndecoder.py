@@ -15,10 +15,6 @@ from unihandecode.vncodepoints import CODEPOINTS as HANCODES
 from unihandecode.unicodepoints import CODEPOINTS
 
 class Vndecoder(Unidecoder):
-    '''
-    example 
-    >>> v = Vndecoder()
-    '''
 
     codepoints = {}
 

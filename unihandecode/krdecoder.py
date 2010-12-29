@@ -16,15 +16,6 @@ from unihandecode.krcodepoints import CODEPOINTS as HANCODES
 from unihandecode.unicodepoints import CODEPOINTS
 
 class Krdecoder(Unidecoder):
-    '''
-    example  convert 
-    example convert u"내일은 내일 바람이 분다"
-    >>> h = Krdecoder()
-    >>> print h.decode(u('\ub0b4\uc77c\uc740 \ub0b4\uc77c \ubc14\ub78c\uc774 \ubd84\ub2e4'))
-    naeileun naeil barami bunda
-    >>> print h.decode(u'(\u660e\u65e5\u306f\u660e\u65e5\u306e\u98a8\u304c\u5439\u304f'))
-    MyengIlhaMyengIlnoPhwunggaChwiku
-    '''
 
     codepoints = {}
 
