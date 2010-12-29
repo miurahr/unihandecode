@@ -38,6 +38,7 @@ class Jadecoder(Unidecoder):
             kakasi_location = os.environ['KAKASILIB'] 
                 # May be "C:\\kakasi\\lib\\" in WIndows
                 # "/opt/local/lib/" in Mac OS X
+            kakasi_location = re.sub(r'/$', '', kakasi_location)
         except KeyError:
             if os.name is "nt":
                 kakasi_location = "c:\\kakasi\\lib\\kakasi"
