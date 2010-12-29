@@ -35,14 +35,29 @@ class Jadecoder(Unidecoder):
         self.codepoints.update(JACODES)
 
         try:
+            kakasi_location = os.environ['KAKASILIB'] 
+                # May be "C:\\kakasi\\lib\\" in WIndows
+                # "/opt/local/lib/" in Mac OS X
+        except KeyError:
             if os.name is "nt":
-                self.kakasi = CDLL("\\kakasi\\lib\\kakasi") #doctest: +WINDOWS
+                kakasi_location = "c:\\kakasi\\lib\\kakasi"
             elif os.name is "Darwin":
-                self.kakasi = CDLL("/opt/local/lib/libkakasi.dylib")
-            elif os.name is "posix":
-                self.kakasi = CDLL("libkakasi.so") #doctest: +LINUX
+                kakasi_location = 'opt/local/lib'
             else:
-                self.kakasi = None
+                kakasi_location = ''
+
+        if os.name is "nt":
+            kakasi_libname = "kakasi"
+        elif os.name is "Darwin":
+            kakasi_libname = "libkakasi.dylib"
+        elif os.name is "posix":
+            kakasi_libname = "libkakasi.so.2"
+        else:
+            self.kakasi = None
+            return
+
+        try:
+            self.kakasi = CDLL(os.path.join(kakasi_location, kakasi_libname))
         except:
             self.kakasi = None
 
