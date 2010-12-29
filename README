@@ -56,8 +56,6 @@ REQUIREMENTS
     You can download KAKASI from http://kakasi.namazu.org/stable/
     If you use Fedora Linux or Ubuntu Linux, please launch your 
     Operating System's package manager and search kakasi package.
-    If you want to use in MS Windows, you can see
-    http://www.namazu.org/win32/kakasi-2.3.4.zip
 
 INSTALLATION
 
@@ -70,6 +68,23 @@ INSTALLATION
     If you got egg package, it is easy to install by
     $ easy_install Unihandecode-0.10-py2.6.egg
 
+    You need to install kakasi library for Japanese transliteration.
+
+    For Debian/Ubuntu linux, 'apt-get install libkakasi2'
+    For Fedora linux, 'yum install kakasi-libs'
+    For OpenSUSE, launch YaST and install kakasi-devel and kakasi-dict
+    For Mac OS X, see http://kakasi.darwinports.com/
+    
+    For Windows, 
+    download http://www.namazu.org/win32/kakasi-2.3.4.zip
+    and extract the zip file to c:\ 
+
+    After install kakasi library, set KAKASILIB environment valiable
+    as library directory. ex. 'c:\kakasi\lib\kakasi'
+    A default installation path that unihandecode assume is as follows:
+      Windows: c:\kakasi
+      Mac:     /opt/local/kakasi
+      Linux/UNIX:/usr/lib/libkakasi.so,  or where ld.so can find.
 
 SUPPORT
 
