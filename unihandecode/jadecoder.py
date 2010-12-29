@@ -36,11 +36,11 @@ class Jadecoder(Unidecoder):
 
         try:
             if os.name is "nt":
-                self.kakasi = CDLL("libkakasi")
+                self.kakasi = CDLL("\\kakasi\\lib\\kakasi") #doctest: +WINDOWS
             elif os.name is "Darwin":
                 self.kakasi = CDLL("/opt/local/lib/libkakasi.dylib")
             elif os.name is "posix":
-                self.kakasi = CDLL("libkakasi.so")
+                self.kakasi = CDLL("libkakasi.so") #doctest: +LINUX
             else:
                 self.kakasi = None
         except:
