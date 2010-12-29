@@ -51,3 +51,9 @@ class Unihandecoder(object):
             pass
         return self.decoder.decode(text)
 
+def unidecode(text):
+    '''
+    backword compatibility to unidecode
+    '''
+    decoder = Unihandecoder()
+    return decoder.decode(text)
