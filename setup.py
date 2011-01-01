@@ -60,7 +60,7 @@ class genmap_t(threading.Thread):
         self.l = lang
 
     def run(self):
-        unihan_source = os.path.join('gencodemap','Unihan_Readings.txt')        
+        unihan_source = os.path.join('data','Unihan_Readings.txt')        
         dest = os.path.join('unihandecode',self.l+'codepoints.py')
         u = gencodemap.UnihanConv(self.l)
         u.run(source = unihan_source, dest=dest)
