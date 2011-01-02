@@ -1,28 +1,37 @@
 #!/usr/bin/env python
-import anydbm
-import re, sys
-import marshal
+import anydbm, marshal
 
-records = {}
-for line in open("kakasidict.utf8", "r"):
-    line = line.decode("utf-8").strip()
-    if re.match(r'^;;', line): # skip comment
-        continue
-    (yomi, kanji) = line.strip().split(' ')
-    key = "%04x"%ord(kanji[0])
-    m = re.match('[a-z]',yomi[-1:]) 
-    if m is not None:
-        tail = yomi[-1:]
-        yomi = yomi[:-1]
-    else:
-        tail = ''
-    if records.has_key(key):
-        records[key][kanji]=(yomi, tail)
-    else:
-        records[key] = {}
-        records[key][kanji]=(yomi, tail)
+class mkkanwa(object):
+
+    records = {}
+
+    def run(self, src, dst):
+        for line in open(src, "r"):
+            self.parsekdict(line)
+        self.kanwaout(dst)
+
+    def parsekdict(self, line):
+        line = line.decode("utf-8").strip()
+        if line.startswith(';;'): # skip comment
+            return
+        (yomi, kanji) = line.split(' ')
+        if ord(yomi[-1:]) <= ord('z'): 
+            tail = yomi[-1:]
+            yomi = yomi[:-1]
+        else:
+            tail = ''
+        self.updaterec(kanji, yomi, tail)
+
+    def updaterec(self, kanji, yomi, tail):
+            key = "%04x"%ord(kanji[0])
+            if self.records.has_key(key):
+                self.records[key][kanji]=(yomi, tail)
+            else:
+                self.records[key] = {}
+                self.records[key][kanji]=(yomi, tail)
         
-dic = anydbm.open("kanwadict2.db", 'c')
-for (k, v) in records.iteritems():
-    dic[k] = marshal.dumps(v)
-dic.close()
+    def kanwaout(self, out):
+        dic = anydbm.open(out, 'c')
+        for (k, v) in self.records.iteritems():
+            dic[k] = marshal.dumps(v)
+        dic.close()

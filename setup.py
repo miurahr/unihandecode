@@ -7,6 +7,7 @@ import unittest
 import os,threading
 
 import gencodemap
+import genkanwadict
 
 UNITTESTS = [
         "tests", 
@@ -29,6 +30,21 @@ class TestCommand(Command):
                                 UNITTESTS ) )
 
         result = unittest.TextTestRunner(verbosity=2).run(suite)
+
+class GenKanwa(Command):
+    user_options = [ ]
+
+    def initialize_options(self):
+        pass
+
+    def finalize_options(self):
+        pass
+
+    def run(self):
+        src = os.path.join('data','kakasidict.utf8')        
+        dst = os.path.join('unihandecode','kanwadict2.db')
+        kanwa = genkanwadict.mkkanwa()
+        kanwa.run(src, dst)
 
 class GenMap(Command):
     user_options = [ ]
@@ -102,6 +118,6 @@ d = Unidecoder(lang='ja')
 
       provides = [ 'unihandecode' ],
 
-      cmdclass = { 'test': TestCommand,  'genmap':GenMap }
+      cmdclass = { 'test': TestCommand,  'genmap':GenMap, 'genkanwa':GenKanwa }
 
 )
