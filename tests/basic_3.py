@@ -20,6 +20,10 @@ class TestUnidecode(unittest.TestCase):
 		# 13 consecutive sequences of A-Z, a-z with some codepoints
 		# undefined. We just count the undefined ones and don't check
 		# positions.
+		if sys.maxunicode < 0x1d6a4:
+			print "skip test because of Narrow Python"
+			return
+
 		empty = 0
 		u = Unihandecoder()
 		for n in range(0x1d400, 0x1d6a4):
@@ -38,6 +42,10 @@ class TestUnidecode(unittest.TestCase):
 				
 	def test_mathematical_digits(self):
 		# 5 consecutive sequences of 0-9
+		if sys.maxunicode < 0x1d800:
+			print "skip test because of Narrow Python"
+			return
+
 		u = Unihandecoder()
 		for n in range(0x1d7ce, 0x1d800):
 			a = chr(ord('0') + (n-0x1d7ce) % 10)
@@ -45,7 +53,7 @@ class TestUnidecode(unittest.TestCase):
 			
 			self.failUnlessEqual(b, a)
 
-	def test_specific(self):
+	def test_specific_bmp(self):
 
 		TESTS = [
 				("Hello, World!", 
@@ -85,18 +93,28 @@ class TestUnidecode(unittest.TestCase):
 				# Table that has less than 256 entriees
 				('\u1eff',
 				''),
-
-				# Non-BMP character
-				('\U0001d5a0',
-				'A'),
-				
-				# Mathematical
-				('\U0001d5c4\U0001d5c6/\U0001d5c1',
-				'km/h'),
 			]
 		u = Unihandecoder()
 		for instr, output in TESTS:
 			self.failUnlessEqual(u.decode(instr), output)
+
+	def test_specific_ext(self):
+		if sys.maxunicode < 0x1d6a4:
+			print "skip test because of Narrow Python"
+			return
+
+		TESTS = [
+				# Non-BMP character
+				(u'\U0001d5a0',
+				'A'),
+
+				# Mathematical
+				(u'\U0001d5c4\U0001d5c6/\U0001d5c1',
+				'km/h'),
+		]
+		u = Unihandecoder(lang="zh")
+		for input, output in TESTS:
+			self.failUnlessEqual(u.decode(input), output)
 
 	def test_ja(self):
 		JATESTS = [
