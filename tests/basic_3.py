@@ -3,158 +3,189 @@ import unittest
 from unihandecode import Unihandecoder
 
 class TestUnidecode(unittest.TestCase):
-	def test_ascii(self):
-		u = Unihandecoder()
-		for n in range(0,128):
-			t = chr(n)
-			self.failUnlessEqual(u.decode(t), t)
+    def test_ascii(self):
+        u = Unihandecoder()
+        for n in range(0,128):
+            t = chr(n)
+            self.failUnlessEqual(u.decode(t), t)
 
-	def test_bmp(self):
-		u = Unihandecoder()
-		for n in range(0,0x10000):
-			# Just check that it doesn't throw an exception
-			t = chr(n)
-			u.decode(t)
-			
-	def test_mathematical_latin(self):
-		# 13 consecutive sequences of A-Z, a-z with some codepoints
-		# undefined. We just count the undefined ones and don't check
-		# positions.
-		if sys.maxunicode < 0x1d6a4:
-			print "skip test because of Narrow Python"
-			return
+    def test_combining_chars(self):
+        TESTS = [
+                (u"\u0031\u20de",    "1"),
+                    ]
+        u = Unihandecoder(lang="ja")
+        for input, output in TESTS:
+            self.failUnlessEqual(u.decode(input), output)
 
-		empty = 0
-		u = Unihandecoder()
-		for n in range(0x1d400, 0x1d6a4):
-			if n % 52 < 26:
-				a = chr(ord('A') + n % 26)
-			else:
-				a = chr(ord('a') + n % 26)
-			b = u.decode(chr(n))
-			
-			if not b:
-			    empty += 1
-			else:
-			    self.failUnlessEqual(b, a)
-				
-		self.failUnlessEqual(empty, 24)
-				
-	def test_mathematical_digits(self):
-		# 5 consecutive sequences of 0-9
-		if sys.maxunicode < 0x1d800:
-			print "skip test because of Narrow Python"
-			return
+    def test_decomposed_form(self):
+        TESTS = [
+                (u"\u0041\u0301", "A"),
+                (u"\u0061\u0323\u0302", "a"),
+                (u"\u304B\u3099", "ga"),
+                ]
+        u = Unihandecoder(lang="ja")
+        for input, output in TESTS:
+            self.failUnlessEqual(u.decode(input), output)
 
-		u = Unihandecoder()
-		for n in range(0x1d7ce, 0x1d800):
-			a = chr(ord('0') + (n-0x1d7ce) % 10)
-			b = u.decode(chr(n))
-			
-			self.failUnlessEqual(b, a)
+    def test_mac_japanese_pua(self):
+        TESTS = [
+                (u"\uF862\u6709\u9650\u4F1A\u793E",
+                "Yuugengaisha"),
+                    ]
+        u = Unihandecoder(lang="ja")
+        for input, output in TESTS:
+            self.failUnlessEqual(u.decode(input), output)
 
-	def test_specific_bmp(self):
+    def test_bmp(self):
+        u = Unihandecoder()
+        for n in range(0,0x10000):
+            # Just check that it doesn't throw an exception
+            t = chr(n)
+            u.decode(t)
+            
+    def test_mathematical_latin(self):
+        # 13 consecutive sequences of A-Z, a-z with some codepoints
+        # undefined. We just count the undefined ones and don't check
+        # positions.
+        if sys.maxunicode < 0x1d6a4:
+            print "skip test because of Narrow Python"
+            return
 
-		TESTS = [
-				("Hello, World!", 
-				"Hello, World!"),
+        empty = 0
+        u = Unihandecoder()
+        for n in range(0x1d400, 0x1d6a4):
+            if n % 52 < 26:
+                a = chr(ord('A') + n % 26)
+            else:
+                a = chr(ord('a') + n % 26)
+            b = u.decode(chr(n))
+            
+            if not b:
+                empty += 1
+            else:
+                self.failUnlessEqual(b, a)
+                
+        self.failUnlessEqual(empty, 24)
+                
+    def test_mathematical_digits(self):
+        # 5 consecutive sequences of 0-9
+        if sys.maxunicode < 0x1d800:
+            print "skip test because of Narrow Python"
+            return
 
-				("'\"\r\n",
-				 "'\"\r\n"),
+        u = Unihandecoder()
+        for n in range(0x1d7ce, 0x1d800):
+            a = chr(ord('0') + (n-0x1d7ce) % 10)
+            b = u.decode(chr(n))
+            
+            self.failUnlessEqual(b, a)
 
-				("ČŽŠčžš",
-				 "CZSczs"),
+    def test_specific_bmp(self):
 
-				("ア",
-				 "a"),
+        TESTS = [
+                ("Hello, World!", 
+                "Hello, World!"),
 
-				("α",
-				"a"),
+                ("'\"\r\n",
+                 "'\"\r\n"),
 
-				("а",
-				"a"),
+                ("ČŽŠčžš",
+                 "CZSczs"),
 
-				('ch\xe2teau',
-				"chateau"),
+                ("ア",
+                 "a"),
 
-				('vi\xf1edos',
-				"vinedos"),
-				
-				("\u5317\u4EB0",
-				"Bei Jing "),
+                ("α",
+                "a"),
 
-				("Efﬁcient",
-				"Efficient"),
+                ("а",
+                "a"),
 
-				# Table that doesn't exist
-				('\ua500',
-				''),
-				
-				# Table that has less than 256 entriees
-				('\u1eff',
-				''),
-			]
-		u = Unihandecoder()
-		for instr, output in TESTS:
-			self.failUnlessEqual(u.decode(instr), output)
+                ('ch\xe2teau',
+                "chateau"),
 
-	def test_specific_ext(self):
-		if sys.maxunicode < 0x1d6a4:
-			print "skip test because of Narrow Python"
-			return
+                ('vi\xf1edos',
+                "vinedos"),
+                
+                ("\u5317\u4EB0",
+                "Bei Jing "),
 
-		TESTS = [
-				# Non-BMP character
-				(u'\U0001d5a0',
-				'A'),
+                ("Efﬁcient",
+                "Efficient"),
 
-				# Mathematical
-				(u'\U0001d5c4\U0001d5c6/\U0001d5c1',
-				'km/h'),
-		]
-		u = Unihandecoder(lang="zh")
-		for input, output in TESTS:
-			self.failUnlessEqual(u.decode(input), output)
+                # Table that doesn't exist
+                ('\ua500',
+                ''),
+                
+                # Table that has less than 256 entriees
+                ('\u1eff',
+                ''),
+  
+                # Mark area
+                (u"\u210a",  #gram mark
+                "g"),
+          ]
+        u = Unihandecoder()
+        for instr, output in TESTS:
+            self.failUnlessEqual(u.decode(instr), output)
 
-	def test_ja(self):
-		JATESTS = [
-			('\u660e\u65e5\u306f\u660e\u65e5\u306e\u98a8\u304c\u5439\u304f',
-			'Ashita ha Ashita no Kaze ga Fuku'),
-			("\u660e\u5929\u660e\u5929\u7684\u98ce\u5439",
+    def test_specific_ext(self):
+        if sys.maxunicode < 0x1d6a4:
+            print "skip test because of Narrow Python"
+            return
+
+        TESTS = [
+                # Non-BMP character
+                (u'\U0001d5a0',
+                'A'),
+
+                # Mathematical
+                (u'\U0001d5c4\U0001d5c6/\U0001d5c1',
+                'km/h'),
+        ]
+        u = Unihandecoder(lang="zh")
+        for input, output in TESTS:
+            self.failUnlessEqual(u.decode(input), output)
+
+    def test_ja(self):
+        JATESTS = [
+            ('\u660e\u65e5\u306f\u660e\u65e5\u306e\u98a8\u304c\u5439\u304f',
+            'Ashita ha Ashita no Kaze ga Fuku'),
+            ("\u660e\u5929\u660e\u5929\u7684\u98ce\u5439",
             'Mei Ten Mei Ten Teki Feng Sui ')
-			]
-		u = Unihandecoder(lang="ja")
-		for instr, output in JATESTS:
-			self.failUnlessEqual(u.decode(instr), output)
+            ]
+        u = Unihandecoder(lang="ja")
+        for instr, output in JATESTS:
+            self.failUnlessEqual(u.decode(instr), output)
 
-	def test_kr(self):
-		KRTESTS = [
-			('\ub0b4\uc77c\uc740 \ub0b4\uc77c \ubc14\ub78c\uc774 \ubd84\ub2e4',
-        		'naeileun naeil barami bunda'),
-			("\u660e\u5929\u660e\u5929\u7684\u98ce\u5439",
+    def test_kr(self):
+        KRTESTS = [
+            ('\ub0b4\uc77c\uc740 \ub0b4\uc77c \ubc14\ub78c\uc774 \ubd84\ub2e4',
+                'naeileun naeil barami bunda'),
+            ("\u660e\u5929\u660e\u5929\u7684\u98ce\u5439",
              'Myeng Chen Myeng Chen Cek Feng Chwi ')
-			]
-		u = Unihandecoder(lang="kr")
-		for instr, output in KRTESTS:
-			self.failUnlessEqual(u.decode(instr), output)
+            ]
+        u = Unihandecoder(lang="kr")
+        for instr, output in KRTESTS:
+            self.failUnlessEqual(u.decode(instr), output)
 
-	def test_zh(self):
-		ZHTESTS = [
-			('\u660e\u5929\u660e\u5929\u7684\u98ce\u5439',
-			 'Ming Tian Ming Tian De Feng Chui ')
-			]
-		u = Unihandecoder(lang="zh")
-		for instr, output in ZHTESTS:
-			self.failUnlessEqual(u.decode(instr), output)
+    def test_zh(self):
+        ZHTESTS = [
+            ('\u660e\u5929\u660e\u5929\u7684\u98ce\u5439',
+             'Ming Tian Ming Tian De Feng Chui ')
+            ]
+        u = Unihandecoder(lang="zh")
+        for instr, output in ZHTESTS:
+            self.failUnlessEqual(u.decode(instr), output)
 
-	def test_vn(self):
-		VNTESTS = [
-			('Ng\xe0y mai gi\xf3 th\u1ed5i v\xe0o ng\xe0y mai',
-			'Ngay mai gio thoi vao ngay mai'),
-			("\u660e\u5929\u660e\u5929\u7684\u98ce\u5439",
+    def test_vn(self):
+        VNTESTS = [
+            ('Ng\xe0y mai gi\xf3 th\u1ed5i v\xe0o ng\xe0y mai',
+            'Ngay mai gio thoi vao ngay mai'),
+            ("\u660e\u5929\u660e\u5929\u7684\u98ce\u5439",
             'Minh Tian Minh Tian De Feng Xuy ')
-			]
-		u = Unihandecoder(lang="vn")
-		for input, output in VNTESTS:
-			self.failUnlessEqual(u.decode(input), output)
+            ]
+        u = Unihandecoder(lang="vn")
+        for input, output in VNTESTS:
+            self.failUnlessEqual(u.decode(input), output)
 
