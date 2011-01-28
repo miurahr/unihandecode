@@ -5,6 +5,7 @@
 from cPickle import load
 import anydbm,marshal
 from zlib import decompress
+import os
 
 class jisyo (object):
     kanwadict = None
