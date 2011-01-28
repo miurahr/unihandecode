@@ -5,8 +5,8 @@ from setuptools import Command,setup
 
 import unittest
 import os,threading
-
 import gencodemap
+import genkanwadict
 
 UNITTESTS = [
         "tests", 
@@ -29,6 +29,32 @@ class TestCommand(Command):
                                 UNITTESTS ) )
 
         result = unittest.TextTestRunner(verbosity=2).run(suite)
+
+class GenKanwa(Command):
+    user_options = [ ]
+
+    def initialize_options(self):
+        pass
+
+    def finalize_options(self):
+        pass
+
+    def run(self):
+        src = os.path.join('data','kakasidict.utf8')        
+        dst = os.path.join('unihandecode','pykakasi','kanwadict2.db')
+        try:
+            os.unlink(dst)
+        except:
+            pass
+        kanwa = genkanwadict.mkkanwa()
+        kanwa.run(src, dst)
+        src = os.path.join('data','itaijidict.utf8')
+        dst = os.path.join('unihandecode','pykakasi','itaijidict2.pickle')
+        try:
+            os.unlink(dst)
+        except:
+            pass
+        kanwa.mkitaiji(src, dst)
 
 class GenMap(Command):
     user_options = [ ]
@@ -60,7 +86,7 @@ class genmap_t(threading.Thread):
         self.l = lang
 
     def run(self):
-        unihan_source = os.path.join('gencodemap','Unihan_Readings.txt')        
+        unihan_source = os.path.join('data','Unihan_Readings.txt')        
         dest = os.path.join('unihandecode',self.l+'codepoints.py')
         u = gencodemap.UnihanConv(self.l)
         u.run(source = unihan_source, dest=dest)
@@ -102,6 +128,6 @@ d = Unidecoder(lang='ja')
 
       provides = [ 'unihandecode' ],
 
-      cmdclass = { 'test': TestCommand,  'genmap':GenMap }
+      cmdclass = { 'test': TestCommand,  'genmap':GenMap, 'genkanwa':GenKanwa }
 
 )
