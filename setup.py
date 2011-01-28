@@ -5,7 +5,6 @@ from setuptools import Command,setup
 
 import unittest
 import os,threading
-
 import gencodemap
 import genkanwadict
 
@@ -42,9 +41,20 @@ class GenKanwa(Command):
 
     def run(self):
         src = os.path.join('data','kakasidict.utf8')        
-        dst = os.path.join('unihandecode','kanwadict2.db')
+        dst = os.path.join('unihandecode','pykakasi','kanwadict2.db')
+        try:
+            os.unlink(dst)
+        except:
+            pass
         kanwa = genkanwadict.mkkanwa()
         kanwa.run(src, dst)
+        src = os.path.join('data','itaijidict.utf8')
+        dst = os.path.join('unihandecode','pykakasi','itaijidict2.pickle')
+        try:
+            os.unlink(dst)
+        except:
+            pass
+        kanwa.mkitaiji(src, dst)
 
 class GenMap(Command):
     user_options = [ ]
