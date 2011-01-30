@@ -48,6 +48,7 @@ class GenKanwa(Command):
             pass
         kanwa = genkanwadict.mkkanwa()
         kanwa.run(src, dst)
+
         src = os.path.join('data','itaijidict.utf8')
         dst = os.path.join('unihandecode','pykakasi','itaijidict2.pickle')
         try:
@@ -55,6 +56,16 @@ class GenKanwa(Command):
         except:
             pass
         kanwa.mkitaiji(src, dst)
+
+        src = os.path.join('data','gairaidict.utf8')
+        dst = os.path.join('unihandecode','pykakasi','gairaidict2.pickle')
+        try:
+            os.unlink(dst)
+        except:
+            pass
+        kanwa.mkgairai(src, dst)
+
+
 
 class GenMap(Command):
     user_options = [ ]
@@ -124,7 +135,9 @@ d = Unidecoder(lang='ja')
       author='Hioshi Miura',
       author_email='miurahr@linux.com',
 
-      packages = [ 'unihandecode' ],
+      packages = [ 'unihandecode', 'unihandecode.pykakasi' ],
+
+      package_data = { 'unihandecode.pykakasi': ['kanwadict2.db','itaijidict2.pickle', 'gairaidict2.pickle']},
 
       provides = [ 'unihandecode' ],
 

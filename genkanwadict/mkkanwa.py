@@ -14,6 +14,8 @@ class mkkanwa(object):
             self.parsekdict(line)
         self.kanwaout(dst)
 
+# for itaiji and gairai dict
+
     def mkitaiji(self, src, dst):
         dic = {}
         for line in open(src, "r"):
@@ -22,6 +24,18 @@ class mkkanwa(object):
                 continue
             dic[line[0]] = line[1]
         dump(dic, open(dst, 'w'), protocol=2) #pickle
+
+    def mkgairai(self, src, dst):
+        dic = {}
+        for line in open(src, "r"):
+            line = line.decode("utf-8").strip()
+            if line.startswith(';;'): # skip comment
+                continue
+            (alpha, kana) = line.split(' ')
+            dic[kana] = alpha
+        dump(dic, open(dst, 'w'), protocol=2) #pickle
+
+# for kanwadict
 
     def parsekdict(self, line):
         line = line.decode("utf-8").strip()
