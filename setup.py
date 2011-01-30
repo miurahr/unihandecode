@@ -57,13 +57,13 @@ class GenKanwa(Command):
             pass
         kanwa.mkitaiji(src, dst)
 
-        src = os.path.join('data','gairaidict.utf8')
-        dst = os.path.join('unihandecode','pykakasi','gairaidict2.pickle')
+        src = os.path.join('data','kanadict.utf8')
+        dst = os.path.join('unihandecode','pykakasi','kanadict2.pickle')
         try:
             os.unlink(dst)
         except:
             pass
-        kanwa.mkgairai(src, dst)
+        kanwa.mkkanadict(src, dst)
 
 
 

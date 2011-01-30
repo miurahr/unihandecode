@@ -3,7 +3,8 @@ from marshal import dumps # for kanwadict2
 import anydbm
 from zlib import compress
 
-from cPickle import dump # for itaijidict2
+from cPickle import dump # for itaijidict2,kanadict2
+import re
 
 class mkkanwa(object):
 
@@ -22,14 +23,19 @@ class mkkanwa(object):
             line = line.decode("utf-8").strip()
             if line.startswith(';;'): # skip comment
                 continue
-            dic[line[0]] = line[1]
+            if re.match(r"^$",line):
+                continue
+            pair = re.sub(r'\\u([0-9a-fA-F]{4})', lambda x:unichr(int(x.group(1),16)), line)
+            dic[pair[0]] = pair[1]
         dump(dic, open(dst, 'w'), protocol=2) #pickle
 
-    def mkgairai(self, src, dst):
+    def mkkanadict(self, src, dst):
         dic = {}
         for line in open(src, "r"):
             line = line.decode("utf-8").strip()
             if line.startswith(';;'): # skip comment
+                continue
+            if re.match(r"^$",line):
                 continue
             (alpha, kana) = line.split(' ')
             dic[kana] = alpha

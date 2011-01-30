@@ -15,7 +15,7 @@ Copyright(c) 2009, John Schember
 Tranliterate the string from unicode characters to ASCII in Chinese and others.
 
 '''
-
+import unicodedata
 from unihandecode.unidecoder import Unidecoder
 from unihandecode.jadecoder import Jadecoder
 from unihandecode.krdecoder import Krdecoder
@@ -49,11 +49,15 @@ class Unihandecoder(object):
                         text = text.decode('utf-8', 'replace')
         except: # python3, str is unicode
             pass
-        return self.decoder.decode(text)
+        #at first unicode normalize it. (see Unicode standards)
+        ntext = unicodedata.normalize('NFKC',text)
+        return self.decoder.decode(ntext)
 
 def unidecode(text):
     '''
     backword compatibility to unidecode
     '''
     decoder = Unihandecoder()
-    return decoder.decode(text)
+    #at first unicode normalize it. (see Unicode standards)
+    ntext = unicodedata.normalize('NFKC',text)
+    return decoder.decode(ntext)

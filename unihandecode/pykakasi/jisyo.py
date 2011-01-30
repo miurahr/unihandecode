@@ -10,16 +10,21 @@ import os
 class jisyo (object):
     kanwadict = None
     itaijidict = None
+    kanadict = None
     jisyo_table = {}
 
     def __init__(self):
         if self.kanwadict is None:
             dictpath = os.path.join('unihandecode','pykakasi','kanwadict2.db')
             self.kanwadict = anydbm.open(dictpath,'r')
-        if self.itaijidict is  None:
+        if self.itaijidict is None:
             itaijipath = os.path.join('unihandecode','pykakasi','itaijidict2.pickle')
             itaiji_pkl = open(itaijipath, 'rb')
             self.itaijidict = load(itaiji_pkl)
+        if self.kanadict is None:
+            kanadictpath = os.path.join('unihandecode','pykakasi','kanadict2.pickle')
+            kanadict_pkl = open(kanadictpath, 'rb')
+            self.kanadict = load(kanadict_pkl)
 
     def load_jisyo(self, char):
         try:#python2

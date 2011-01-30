@@ -71,6 +71,7 @@ class TestUnidecode(unittest.TestCase):
         TESTS = [
                 (u"\u0041\u0301", "A"),  # "A" with accent mark 
                 (u"\u0061\u0323\u0302", "a"), #  "a" with accent marks
+                (u"\u30AB\u3099", "ga"), # "ガ" coded by decomposed from as ' カ゛ '
                 (u"\u304B\u3099", "ga"), # "が" coded by decomposed from as ' か゛ '
                 ]
         u = Unihandecoder(lang="ja")
