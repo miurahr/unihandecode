@@ -45,7 +45,7 @@ class J2H (object):
     def __init__(self):
         self.kanwa = jisyo()  
 
-    def isKanji(self, c):
+    def isRegion(self, c):
         return ( 0x3400 <= ord(c) and ord(c) < 0xfa2e)
 
     def isCletter(self, l, c):
@@ -56,10 +56,10 @@ class J2H (object):
     def itaiji_conv(self, text):
         r = []
         for c in text:
-            if c in self.kanwa.itaijidict:
+            if self.kanwa.itaiji_haskey(c):
                 r.append(c)
         for c in r:
-            text = re.sub(c, self.kanwa.itaijidict[c], text)
+            text = re.sub(c, self.kanwa.itaiji_lookup(c), text)
         return text
 
     def convert(self, text):

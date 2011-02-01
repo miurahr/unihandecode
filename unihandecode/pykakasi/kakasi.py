@@ -33,15 +33,14 @@ from k2a import K2a
 
 class kakasi(object):
 
-    j2h = None
-    h2a = None
+    _j2h = None
+    _h2a = None
     k2a = None
 
-    def __init__(self, mode="-J2a -H2a -K2a"):
-        #now we don't allow mode selection
-        self.j2h = J2H()
-        self.h2a = H2a() 
-        self.k2a = K2a()
+    def __init__(self):
+        self._j2h = J2H()
+        self._h2a = H2a() 
+        self._k2a = K2a()
         return
 
     def do(self, text):
@@ -51,8 +50,8 @@ class kakasi(object):
             if i >= len(text):
                 break
 
-            if self.j2h.isKanji(text[i]):
-                (t, l) = self.j2h.convert(text[i:])
+            if self._j2h.isRegion(text[i]):
+                (t, l) = self._j2h.convert(text[i:])
                 if l <= 0:
                     break
                 i = i + l
@@ -61,7 +60,7 @@ class kakasi(object):
                 while True: 
                     if m >= len(t):
                         break
-                    (s, n) = self.h2a.convert(t[m:])
+                    (s, n) = self._h2a.convert(t[m:])
                     if n <= 0:
                         break
                     m = m + n
@@ -70,28 +69,28 @@ class kakasi(object):
                     otext = otext + tmptext.capitalize()
                 else:
                     otext = otext + tmptext.capitalize() +' ' 
-            elif self.h2a.isHiragana(text[i]):
+            elif self._h2a.isRegion(text[i]):
                 tmptext = ''
                 while True:
-                    (t, l) = self.h2a.convert(text[i:])
+                    (t, l) = self._h2a.convert(text[i:])
                     tmptext = tmptext+t
                     i = i + l
                     if i >= len(text):
                         otext = otext + tmptext                    
                         break
-                    elif not self.h2a.isHiragana(text[i]):
+                    elif not self._h2a.isRegion(text[i]):
                         otext = otext + tmptext + ' '
                         break
-            elif self.k2a.isKatakana(text[i]):
+            elif self._k2a.isRegion(text[i]):
                 tmptext = ''
                 while True:
-                    (t, l) = self.k2a.convert(text[i:])
+                    (t, l) = self._k2a.convert(text[i:])
                     tmptext = tmptext+t
                     i = i + l
                     if i >= len(text):
                         otext = otext + tmptext                    
                         break
-                    elif not self.k2a.isKatakana(text[i]):
+                    elif not self._k2a.isRegion(text[i]):
                         otext = otext + tmptext + ' '
                         break
             else:

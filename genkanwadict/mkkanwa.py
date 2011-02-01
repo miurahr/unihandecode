@@ -15,7 +15,7 @@ class mkkanwa(object):
             self.parsekdict(line)
         self.kanwaout(dst)
 
-# for itaiji and gairai dict
+# for itaiji and kana/gairai dict
 
     def mkitaiji(self, src, dst):
         dic = {}

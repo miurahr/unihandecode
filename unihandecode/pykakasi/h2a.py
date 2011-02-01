@@ -29,7 +29,7 @@ from jisyo import jisyo
 
 class H2a (object):
 
-    H2a_table = {
+    _H2a_table = {
         u"\u3041":"a", u"\u3042":"a",
         u"\u3043":"i", u"\u3044":"i",
         u"\u3045":"u", u"\u3046":"u",
@@ -163,7 +163,15 @@ class H2a (object):
         u"\u3093\u304a":"n'o",
     }
 
-    def isHiragana(self, char):
+# this class is Borg/Singleton
+    _shared_state = {}
+
+    def __new__(cls, *p, **k):
+        self = object.__new__(cls, *p, **k)
+        self.__dict__ = cls._shared_state
+        return self
+
+    def isRegion(self, char):
         return ( 0x3040 < ord(char) and ord(char) < 0x3094)
 
     def convert(self, text):
@@ -171,9 +179,9 @@ class H2a (object):
         max_len = -1
         r = min(4, len(text)+1)
         for x in xrange(r):
-            if text[:x] in self.H2a_table:
+            if text[:x] in self._H2a_table:
                 if max_len < x:
                     max_len = x
-                    Hstr = self.H2a_table[text[:x]]
+                    Hstr = self._H2a_table[text[:x]]
         return (Hstr, max_len) 
 
