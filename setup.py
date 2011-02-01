@@ -137,7 +137,7 @@ d = Unidecoder(lang='ja')
 
       packages = [ 'unihandecode', 'unihandecode.pykakasi' ],
 
-      package_data = { 'unihandecode.pykakasi': ['kanwadict2.db','itaijidict2.pickle', 'gairaidict2.pickle']},
+      package_data = { 'unihandecode.pykakasi': ['kanwadict2.db','itaijidict2.pickle', 'gairaidict2.pickle', 'kanadict2.pickle']},
 
       provides = [ 'unihandecode' ],
 
