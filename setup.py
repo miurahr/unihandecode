@@ -30,6 +30,7 @@ class TestCommand(Command):
 
         result = unittest.TextTestRunner(verbosity=2).run(suite)
 
+
 class GenKanwa(Command):
     user_options = [ ]
 
@@ -39,7 +40,27 @@ class GenKanwa(Command):
     def finalize_options(self):
         pass
 
+    def genDict(self, src_f, pkl_f):
+        kanwa = genkanwadict.mkkanwa()
+        src = os.path.join('data',src_f)
+        dst = os.path.join('unihandecode','pykakasi',pkl_f)
+        try:
+            os.unlink(dst)
+        except:
+            pass
+        kanwa.mkdict(src, dst)
+
     def run(self):
+
+        DICTS = [
+            ('itaijidict.utf8', 'itaijidict2.pickle'),
+            ('kanadict.utf8', 'kanadict2.pickle'),
+        ]
+
+        for (s,p) in DICTS:
+            self.genDict(s, p)
+
+# kanwadict 
         src = os.path.join('data','kakasidict.utf8')        
         dst = os.path.join('unihandecode','pykakasi','kanwadict2.db')
         try:
@@ -48,23 +69,6 @@ class GenKanwa(Command):
             pass
         kanwa = genkanwadict.mkkanwa()
         kanwa.run(src, dst)
-
-        src = os.path.join('data','itaijidict.utf8')
-        dst = os.path.join('unihandecode','pykakasi','itaijidict2.pickle')
-        try:
-            os.unlink(dst)
-        except:
-            pass
-        kanwa.mkitaiji(src, dst)
-
-        src = os.path.join('data','kanadict.utf8')
-        dst = os.path.join('unihandecode','pykakasi','kanadict2.pickle')
-        try:
-            os.unlink(dst)
-        except:
-            pass
-        kanwa.mkkanadict(src, dst)
-
 
 
 class GenMap(Command):

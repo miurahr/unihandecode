@@ -17,7 +17,7 @@ class mkkanwa(object):
 
 # for itaiji and kana/gairai dict
 
-    def mkitaiji(self, src, dst):
+    def mkdict(self, src, dst):
         dic = {}
         for line in open(src, "r"):
             line = line.decode("utf-8").strip()
@@ -25,20 +25,8 @@ class mkkanwa(object):
                 continue
             if re.match(r"^$",line):
                 continue
-            pair = re.sub(r'\\u([0-9a-fA-F]{4})', lambda x:unichr(int(x.group(1),16)), line)
-            dic[pair[0]] = pair[1]
-        dump(dic, open(dst, 'w'), protocol=2) #pickle
-
-    def mkkanadict(self, src, dst):
-        dic = {}
-        for line in open(src, "r"):
-            line = line.decode("utf-8").strip()
-            if line.startswith(';;'): # skip comment
-                continue
-            if re.match(r"^$",line):
-                continue
-            (alpha, kana) = line.split(' ')
-            dic[kana] = alpha
+            (v, k) = (re.sub(r'\\u([0-9a-fA-F]{4})', lambda x:unichr(int(x.group(1),16)), line)).split(' ')
+            dic[k] = v
         dump(dic, open(dst, 'w'), protocol=2) #pickle
 
 # for kanwadict
