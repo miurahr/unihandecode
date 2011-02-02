@@ -27,20 +27,18 @@
 
 import re
 import sys, os
-from j2h import J2H
+from j2a import J2a
 from h2a import H2a
 from k2a import K2a
 
 class kakasi(object):
 
-    _j2h = None
-    _h2a = None
-    k2a = None
+    _conv = {}
 
     def __init__(self):
-        self._j2h = J2H()
-        self._h2a = H2a() 
-        self._k2a = K2a()
+        self._conv["j"] = J2a()
+        self._conv["h"] = H2a() 
+        self._conv["k"] = K2a()
         return
 
     def do(self, text):
@@ -50,47 +48,39 @@ class kakasi(object):
             if i >= len(text):
                 break
 
-            if self._j2h.isRegion(text[i]):
-                (t, l) = self._j2h.convert(text[i:])
+            if self._conv["j"].isRegion(text[i]):
+                (t, l) = self._conv["j"].convert(text[i:])
                 if l <= 0:
-                    break
+                    i = i + 1
+                    continue
                 i = i + l
-                m = 0
-                tmptext = ""
-                while True: 
-                    if m >= len(t):
-                        break
-                    (s, n) = self._h2a.convert(t[m:])
-                    if n <= 0:
-                        break
-                    m = m + n
-                    tmptext = tmptext+s
                 if i >= len(text):
-                    otext = otext + tmptext.capitalize()
+                    otext = otext + t.capitalize()
                 else:
-                    otext = otext + tmptext.capitalize() +' ' 
-            elif self._h2a.isRegion(text[i]):
+                    otext = otext + t.capitalize() + ' '
+ 
+            elif self._conv["h"].isRegion(text[i]):
                 tmptext = ''
                 while True:
-                    (t, l) = self._h2a.convert(text[i:])
+                    (t, l) = self._conv["h"].convert(text[i:])
                     tmptext = tmptext+t
                     i = i + l
                     if i >= len(text):
                         otext = otext + tmptext                    
                         break
-                    elif not self._h2a.isRegion(text[i]):
+                    elif not self._conv["h"].isRegion(text[i]):
                         otext = otext + tmptext + ' '
                         break
-            elif self._k2a.isRegion(text[i]):
+            elif self._conv["k"].isRegion(text[i]):
                 tmptext = ''
                 while True:
-                    (t, l) = self._k2a.convert(text[i:])
+                    (t, l) = self._conv["k"].convert(text[i:])
                     tmptext = tmptext+t
                     i = i + l
                     if i >= len(text):
                         otext = otext + tmptext                    
                         break
-                    elif not self._k2a.isRegion(text[i]):
+                    elif not self._conv["k"].isRegion(text[i]):
                         otext = otext + tmptext + ' '
                         break
             else:
