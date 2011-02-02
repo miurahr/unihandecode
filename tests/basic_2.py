@@ -117,9 +117,9 @@ class TestUnidecode(unittest.TestCase):
         TESTS = [
                 (u"\uF862\u6709\u9650\u4F1A\u793E",  #Adobe CID 8321
                 "Yuugengaisha"),
-                (u"\u5927\u20dd", "Dai"),  # "大" with circle
-                (u"\u5c0f\u20dd", "Shou"), # "小" with circle
-                (u"\u63a7\u20dd", "Kuu"),  # "控" with circle
+                (u"\u5927\u20dd", "Dai "),  # "大" with circle
+                (u"\u5c0f\u20dd", "Shou "), # "小" with circle
+                (u"\u63a7\u20dd", "Kuu "),  # "控" with circle
                     ]
         u = Unihandecoder(lang="ja")
         for input, output in TESTS:
@@ -198,7 +198,7 @@ class TestUnidecode(unittest.TestCase):
             (u'\u660e\u65e5\u306f\u660e\u65e5\u306e\u98a8\u304c\u5439\u304f',
             'Ashita ha Ashita no Kaze ga Fuku'),
             (u"\u660e\u5929\u660e\u5929\u7684\u98ce\u5439",
-            'Mei Ten Mei Ten Teki Feng Sui ')
+            'Mei Tenmei Ten Teki Sui ')
             ]
         u = Unihandecoder(lang="ja")
         for input, output in JATESTS:
