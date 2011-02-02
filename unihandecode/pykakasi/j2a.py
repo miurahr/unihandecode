@@ -25,7 +25,7 @@
 # * 02111-1307, USA.
 # */
 
-from jisyo import jisyo
+from .jisyo import jisyo
 import re
 
 class J2a (object):

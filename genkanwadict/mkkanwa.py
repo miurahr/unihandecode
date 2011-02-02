@@ -1,10 +1,14 @@
 #!/usr/bin/env python
 from marshal import dumps # for kanwadict2
-import anydbm
 from zlib import compress
-
-from cPickle import dump # for itaijidict2,kanadict2
 import re
+
+try:
+    import anydbm as dbm
+    from cPickle import dump # for itaijidict2,kanadict2
+except:
+    import dbm
+    from pickle import dump # for itaijidict2,kanadict2
 
 class mkkanwa(object):
 
@@ -57,7 +61,7 @@ class mkkanwa(object):
                 self.records[key][kanji]=[(yomi, tail)]
 
     def kanwaout(self, out):
-        dic = anydbm.open(out, 'c')
+        dic = dbm.open(out, 'c')
         for (k, v) in self.records.iteritems():
             dic[k] = compress(dumps(v))
         dic.close()

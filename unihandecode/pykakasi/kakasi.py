@@ -27,9 +27,9 @@
 
 import re
 import sys, os
-from j2a import J2a
-from h2a import H2a
-from k2a import K2a
+from .j2a import J2a
+from .h2a import H2a
+from .k2a import K2a
 
 class kakasi(object):
 

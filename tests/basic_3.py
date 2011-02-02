@@ -11,7 +11,7 @@ class TestUnidecode(unittest.TestCase):
 
     def test_combining_chars(self):
         TESTS = [
-                (u"\u0031\u20de",    "1"),
+                ("\u0031\u20de",    "1"),
                     ]
         u = Unihandecoder(lang="ja")
         for input, output in TESTS:
@@ -19,9 +19,9 @@ class TestUnidecode(unittest.TestCase):
 
     def test_decomposed_form(self):
         TESTS = [
-                (u"\u0041\u0301", "A"),
-                (u"\u0061\u0323\u0302", "a"),
-                (u"\u304B\u3099", "ga"),
+                ("\u0041\u0301", "A"),
+                ("\u0061\u0323\u0302", "a"),
+                ("\u304B\u3099", "ga"),
                 ]
         u = Unihandecoder(lang="ja")
         for input, output in TESTS:
@@ -29,7 +29,7 @@ class TestUnidecode(unittest.TestCase):
 
     def test_mac_japanese_pua(self):
         TESTS = [
-                (u"\uF862\u6709\u9650\u4F1A\u793E",
+                ("\uF862\u6709\u9650\u4F1A\u793E",
                 "Yuugengaisha"),
                     ]
         u = Unihandecoder(lang="ja")
@@ -47,10 +47,6 @@ class TestUnidecode(unittest.TestCase):
         # 13 consecutive sequences of A-Z, a-z with some codepoints
         # undefined. We just count the undefined ones and don't check
         # positions.
-        if sys.maxunicode < 0x1d6a4:
-            print "skip test because of Narrow Python"
-            return
-
         empty = 0
         u = Unihandecoder()
         for n in range(0x1d400, 0x1d6a4):
@@ -69,10 +65,6 @@ class TestUnidecode(unittest.TestCase):
                 
     def test_mathematical_digits(self):
         # 5 consecutive sequences of 0-9
-        if sys.maxunicode < 0x1d800:
-            print "skip test because of Narrow Python"
-            return
-
         u = Unihandecoder()
         for n in range(0x1d7ce, 0x1d800):
             a = chr(ord('0') + (n-0x1d7ce) % 10)
@@ -122,7 +114,7 @@ class TestUnidecode(unittest.TestCase):
                 ''),
   
                 # Mark area
-                (u"\u210a",  #gram mark
+                ("\u210a",  #gram mark
                 "g"),
           ]
         u = Unihandecoder()
@@ -130,17 +122,14 @@ class TestUnidecode(unittest.TestCase):
             self.failUnlessEqual(u.decode(instr), output)
 
     def test_specific_ext(self):
-        if sys.maxunicode < 0x1d6a4:
-            print "skip test because of Narrow Python"
-            return
 
         TESTS = [
                 # Non-BMP character
-                (u'\U0001d5a0',
+                ('\U0001d5a0',
                 'A'),
 
                 # Mathematical
-                (u'\U0001d5c4\U0001d5c6/\U0001d5c1',
+                ('\U0001d5c4\U0001d5c6/\U0001d5c1',
                 'km/h'),
         ]
         u = Unihandecoder(lang="zh")
@@ -152,7 +141,7 @@ class TestUnidecode(unittest.TestCase):
             ('\u660e\u65e5\u306f\u660e\u65e5\u306e\u98a8\u304c\u5439\u304f',
             'Ashita ha Ashita no Kaze ga Fuku'),
             ("\u660e\u5929\u660e\u5929\u7684\u98ce\u5439",
-            'Mei Ten Mei Ten Teki Feng Sui ')
+            'Mei Tenmei Ten Teki Sui ')
             ]
         u = Unihandecoder(lang="ja")
         for instr, output in JATESTS:

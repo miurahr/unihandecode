@@ -1,4 +1,4 @@
-from kakasi import kakasi
+from .kakasi import kakasi
 
 __all__ = ["pykakasi"]
 

@@ -2,10 +2,14 @@
 #  jisyo.py
 #
 # Copyright 2011 Hiroshi Miura <miurahr@linux.com>
-from cPickle import load
-import anydbm,marshal
 from zlib import decompress
-import os
+import os,marshal
+try: #python2
+    from cPickle import load
+    import anydbm as dbm
+except: #python3
+    from pickle import load
+    import dbm as dbm
 
 class jisyo (object):
 
@@ -25,7 +29,7 @@ class jisyo (object):
     def __init__(self):
         if self._kanwadict is None:
             dictpath = os.path.join('unihandecode','pykakasi','kanwadict2.db')
-            self._kanwadict = anydbm.open(dictpath,'r')
+            self._kanwadict = dbm.open(dictpath,'r')
         if self._itaijidict is None:
             itaijipath = os.path.join('unihandecode','pykakasi','itaijidict2.pickle')
             itaiji_pkl = open(itaijipath, 'rb')
