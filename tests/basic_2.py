@@ -78,32 +78,6 @@ class TestUnidecode(unittest.TestCase):
         for input, output in TESTS:
             self.failUnlessEqual(u.decode(input), output)
 
-    def test_squared_chars(self):
-        TESTS = [
-                (u"\u3301", "alpha"), # combined Alpha in Katakana
-                (u"\u3302", "A"), # combined Ampere in Katakana 
-                (u"\u3304", "inning"),
-                (u"\u3306", "won"), # combined Won in Katakana
-                (u"\u3307", "escudo"), 
-                (u"\u3308", "acre"), # combined Acre in Katakana
-                (u"\u3309", "OZ."), # combined ounce in Katakana
-                (u"\u330a", "ohm"), # combined Ohm in Katakana
-                (u"\u3349", "m"), # milli in Katakana
-                (u"\u3314", "k"), # kilo in Katakana
-                (u"\u3315", "kg"), # kilo gram in Katakana
-                (u"\u3316", "km"), # kilo metre in Katakana
-                (u"\u3322", "c"), # centi in Katakana
-                (u"\u334d", "m"), #metre in Katakana
-                (u"\u3318", "g"), # gram in Katakana
-                (u"\u3327", "t"), # ton in Katakana
-                (u"\u3303", "a"), # are in Katakana
-                (u"\u3336", "ha"), # hect-are in Katakana
-                (u"\u337f", "Kabushiki Kaisha "), 
-               ]
-        u = Unihandecoder(lang="ja")
-        for input, output in TESTS:
-            self.failUnlessEqual(u.decode(input), output)
-
     def test_compatibility_composite(self):
         TESTS = [
                 (u"\ufb01","fi"),
@@ -119,7 +93,7 @@ class TestUnidecode(unittest.TestCase):
                 "Yuugengaisha"),
                 (u"\u5927\u20dd", "Dai "),  # "大" with circle
                 (u"\u5c0f\u20dd", "Shou "), # "小" with circle
-                (u"\u63a7\u20dd", "Kuu "),  # "控" with circle
+                (u"\u63a7\u20dd", "Hikae "),  # "控" with circle
                     ]
         u = Unihandecoder(lang="ja")
         for input, output in TESTS:
@@ -198,7 +172,7 @@ class TestUnidecode(unittest.TestCase):
             (u'\u660e\u65e5\u306f\u660e\u65e5\u306e\u98a8\u304c\u5439\u304f',
             'Ashita ha Ashita no Kaze ga Fuku'),
             (u"\u660e\u5929\u660e\u5929\u7684\u98ce\u5439",
-            'Mei Tenmei Ten Teki Sui ')
+            'Mei Tenmei Ten Teki Sui')
             ]
         u = Unihandecoder(lang="ja")
         for input, output in JATESTS:
@@ -233,15 +207,6 @@ class TestUnidecode(unittest.TestCase):
             ]
         u = Unihandecoder(lang="vn")
         for input, output in VNTESTS:
-            self.failUnlessEqual(u.decode(input), output)
-
-    def test_sinhala(self):
-        TESTS = [
-            (u"\u0d85\u0dab\u0dca\u0da9",'anda'),
-            (u"\u0d85\u0dac",'anda'),
-            ]
-        u = Unihandecoder(lang="si")
-        for input, output in TESTS:
             self.failUnlessEqual(u.decode(input), output)
 
 if __name__ == "__main__":
