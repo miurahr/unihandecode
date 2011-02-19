@@ -1,7 +1,7 @@
 #!/usr/bin/python
 # derivered from unidecode setup.py
 
-from setuptools import Command,setup
+from setuptools import Command,setup, find_packages
 
 import unittest
 import os,threading
@@ -139,12 +139,12 @@ d = Unidecoder(lang='ja')
       author='Hioshi Miura',
       author_email='miurahr@linux.com',
 
-      packages = [ 'unihandecode', 'unihandecode.pykakasi' ],
-
-      package_data = { 'unihandecode.pykakasi': ['kanwadict2.db','itaijidict2.pickle', 'gairaidict2.pickle', 'kanadict2.pickle']},
+      packages = find_packages(),
+      include_package_data = True,   
+      package_data = { 'unihandecode.pykakasi': ['kanwadict2.db','*.pickle']},
 
       provides = [ 'unihandecode' ],
 
-      cmdclass = { 'test': TestCommand,  'genmap':GenMap, 'genkanwa':GenKanwa }
+      cmdclass = { 'test': TestCommand,  'genmap':GenMap, 'gendict':GenKanwa }
 
 )
