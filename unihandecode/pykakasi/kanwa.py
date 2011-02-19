@@ -3,7 +3,7 @@
 #
 # Copyright 2011 Hiroshi Miura <miurahr@linux.com>
 from zlib import decompress
-import os
+from pkg_resources import resource_filename
 from marshal import loads
 try: #python2
     from cPickle import load
@@ -28,10 +28,14 @@ class kanwa (object):
 
     def __init__(self):
         if self._kanwadict is None:
-            dictpath = os.path.join('unihandecode','pykakasi','kanwadict2')
+            try:
+                unicode #python2
+                dictpath = resource_filename(__name__, 'kanwadict2.db')
+            except: #python3
+                dictpath = resource_filename(__name__, 'kanwadict2')
             self._kanwadict = dbm.open(dictpath,'r')
         if self._itaijidict is None:
-            itaijipath = os.path.join('unihandecode','pykakasi','itaijidict2.pickle')
+            itaijipath = resource_filename(__name__, 'itaijidict2.pickle')
             itaiji_pkl = open(itaijipath, 'rb')
             self._itaijidict = load(itaiji_pkl)
 

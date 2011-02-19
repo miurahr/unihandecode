@@ -2,7 +2,7 @@
 #  jisyo.py
 #
 # Copyright 2011 Hiroshi Miura <miurahr@linux.com>
-import os
+from pkg_resources import resource_filename
 try: #python2
     from cPickle import load
 except: #python3
@@ -13,7 +13,7 @@ class jisyo (object):
     _dict = None
 
     def __init__(self, pklname):
-        dict_pkl = open(os.path.join('unihandecode','pykakasi',pklname), 'rb')
+        dict_pkl = open(resource_filename(__name__, pklname), 'rb')
         (self._dict, self._len) = load(dict_pkl)
 
     def haskey(self, key):
