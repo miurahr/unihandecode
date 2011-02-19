@@ -49,13 +49,10 @@ DESCRIPTION
 
 REQUIREMENTS
 
-    This depend on KAKASI library for Japanese pronunciation recognition.
-    If it not exist in your system, it use a table of Japanese Kanji to
-    Romaji 1:1 mapping.
+    There is no required staff other than standard python libraries. 
+    Because it is still under development for python3, you can use it
+    with python2.x.(>2.6)
 
-    You can download KAKASI from http://kakasi.namazu.org/stable/
-    If you use Fedora Linux or Ubuntu Linux, please launch your 
-    Operating System's package manager and search kakasi package.
 
 INSTALLATION
 
@@ -66,25 +63,8 @@ INSTALLATION
 	python setup.py test
 
     If you got egg package, it is easy to install by
-    $ easy_install Unihandecode-0.10-py2.6.egg
+    $ easy_install Unihandecode-0.31-py2.6.egg
 
-    You need to install kakasi library for Japanese transliteration.
-
-    For Debian/Ubuntu linux, 'apt-get install libkakasi2'
-    For Fedora linux, 'yum install kakasi-libs'
-    For OpenSUSE, launch YaST and install kakasi-devel and kakasi-dict
-    For Mac OS X, see http://kakasi.darwinports.com/
-    
-    For Windows, 
-    download http://www.namazu.org/win32/kakasi-2.3.4.zip
-    and extract the zip file to c:\ 
-
-    After install kakasi library, set KAKASILIB environment valiable
-    as library directory. ex. 'c:\kakasi\lib\kakasi'
-    A default installation path that unihandecode assume is as follows:
-      Windows: c:\kakasi
-      Mac:     /opt/local/kakasi
-      Linux/UNIX:/usr/lib/libkakasi.so,  or where ld.so can find.
 
 SUPPORT
 
@@ -116,7 +96,7 @@ Copyright 2001, Sean M. Burke <sburke@cpan.org>, all rights reserved.
 
 Python code:
 
-Copyright 2010, Hiroshi Miura <miurahr@linux.com>
+Copyright 2010,2011, Hiroshi Miura <miurahr@linux.com>
 Copyright 2009, Tomaz Solc <tomaz@zemanta.com>
 
 The programs and documentation in this dist are distributed in the
