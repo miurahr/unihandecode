@@ -28,7 +28,6 @@
 import re
 import sys, os
 from .j2a import J2a
-from .h2a import H2a
 from .k2a import K2a
 
 class kakasi(object):
@@ -37,7 +36,6 @@ class kakasi(object):
 
     def __init__(self):
         self._conv["j"] = J2a()
-        self._conv["h"] = H2a() 
         self._conv["k"] = K2a()
         return
 
@@ -51,7 +49,7 @@ class kakasi(object):
             if self._conv["j"].isRegion(text[i]):
                 (t, l) = self._conv["j"].convert(text[i:])
                 if l <= 0:
-                    i = i + 1
+                    i += 1
                     continue
                 i = i + l
                 if i >= len(text):
@@ -59,30 +57,18 @@ class kakasi(object):
                 else:
                     otext = otext + t.capitalize() + ' '
  
-            elif self._conv["h"].isRegion(text[i]):
-                tmptext = ''
-                while True:
-                    (t, l) = self._conv["h"].convert(text[i:])
-                    tmptext = tmptext+t
-                    i = i + l
-                    if i >= len(text):
-                        otext = otext + tmptext                    
-                        break
-                    elif not self._conv["h"].isRegion(text[i]):
-                        otext = otext + tmptext + ' '
-                        break
             elif self._conv["k"].isRegion(text[i]):
-                tmptext = ''
                 while True:
                     (t, l) = self._conv["k"].convert(text[i:])
-                    tmptext = tmptext+t
+                    otext = otext+t
                     i = i + l
-                    if i >= len(text):
-                        otext = otext + tmptext                    
+                    if i >= len(text):                   
                         break
                     elif not self._conv["k"].isRegion(text[i]):
-                        otext = otext + tmptext + ' '
+                        otext = otext + ' '
                         break
+                    else:
+                        pass
             else:
                 otext  = otext + text[i]
                 i += 1

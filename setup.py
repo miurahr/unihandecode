@@ -62,7 +62,7 @@ class GenKanwa(Command):
 
 # kanwadict 
         src = os.path.join('data','kakasidict.utf8')        
-        dst = os.path.join('unihandecode','pykakasi','kanwadict2.db')
+        dst = os.path.join('unihandecode','pykakasi','kanwadict2')
         try:
             os.unlink(dst)
         except:
@@ -108,7 +108,7 @@ class genmap_t(threading.Thread):
 
 
 setup(name='Unihandecode',
-      version='0.20',
+      version='0.39',
       description='US-ASCII transliterations of Unicode text',
       url='http://launchpad.net/unihandecode/',
       license='GPLv3/Perl',

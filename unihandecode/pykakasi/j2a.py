@@ -31,13 +31,13 @@ import re
 class J2a (object):
 
     _jconv = None
-    _hconv = None
+    _kconv = None
 
     def __init__(self):
-        from j2h import J2H
-        from h2a import H2a
+        from .j2h import J2H
+        from .k2a import K2a
         self._jconv = J2H()
-        self._hconv = H2a()
+        self._kconv = K2a()
 
     def isRegion(self, char):
         return self._jconv.isRegion(char)
@@ -56,7 +56,7 @@ class J2a (object):
         while True: 
             if m >= len(t):
                 break
-            (s, n) = self._hconv.convert(t[m:])
+            (s, n) = self._kconv.convert(t[m:])
             if n <= 0:
                 m = m + 1
             else:

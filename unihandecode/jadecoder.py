@@ -33,9 +33,6 @@ class Jadecoder(Unidecoder):
         self.kakasi = kakasi()
 
     def decode(self, text):
-        try:
             result=self.kakasi.do(text)
             return re.sub('[^\x00-\x7f]', lambda x: self.replace_point(x.group()),result)
-        except:
-            return re.sub('[^\x00-\x7f]', lambda x: self.replace_point(x.group()),text)
 

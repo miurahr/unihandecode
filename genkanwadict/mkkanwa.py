@@ -1,29 +1,28 @@
 #!/usr/bin/env python
-from marshal import dumps # for kanwadict2
 from zlib import compress
 import re
 
 try:
     import anydbm as dbm
-    from cPickle import dump # for itaijidict2,kanadict2
+    from cPickle import dump,dumps
 except:
     import dbm
-    from pickle import dump # for itaijidict2,kanadict2
+    from pickle import dump,dumps
 
 class mkkanwa(object):
 
     records = {}
 
     def run(self, src, dst):
-        for line in open(src, "r"):
-            self.parsekdict(line)
+        for line in open(src, "rb"):
+            self.parsekdict(line.decode("utf-8"))
         self.kanwaout(dst)
 
 # for itaiji and kana/gairai dict
 
     def mkdict(self, src, dst):
         dic = {}
-        for line in open(src, "r"):
+        for line in open(src, "rb"):
             line = line.decode("utf-8").strip()
             if line.startswith(';;'): # skip comment
                 continue
@@ -31,12 +30,12 @@ class mkkanwa(object):
                 continue
             (v, k) = (re.sub(r'\\u([0-9a-fA-F]{4})', lambda x:unichr(int(x.group(1),16)), line)).split(' ')
             dic[k] = v
-        dump(dic, open(dst, 'w'), protocol=2) #pickle
+        dump(dic, open(dst, 'wb'), protocol=2)
 
 # for kanwadict
 
     def parsekdict(self, line):
-        line = line.decode("utf-8").strip()
+        line = line.strip()
         if line.startswith(';;'): # skip comment
             return
         (yomi, kanji) = line.split(' ')
@@ -62,6 +61,6 @@ class mkkanwa(object):
 
     def kanwaout(self, out):
         dic = dbm.open(out, 'c')
-        for (k, v) in self.records.iteritems():
+        for (k, v) in self.records.items():
             dic[k] = compress(dumps(v))
         dic.close()

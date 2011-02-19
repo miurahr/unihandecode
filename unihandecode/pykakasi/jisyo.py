@@ -3,12 +3,12 @@
 #
 # Copyright 2011 Hiroshi Miura <miurahr@linux.com>
 from zlib import decompress
-import os,marshal
+import os
 try: #python2
-    from cPickle import load
+    from cPickle import load, loads
     import anydbm as dbm
 except: #python3
-    from pickle import load
+    from pickle import load, loads
     import dbm as dbm
 
 class jisyo (object):
@@ -28,7 +28,7 @@ class jisyo (object):
 
     def __init__(self):
         if self._kanwadict is None:
-            dictpath = os.path.join('unihandecode','pykakasi','kanwadict2.db')
+            dictpath = os.path.join('unihandecode','pykakasi','kanwadict2')
             self._kanwadict = dbm.open(dictpath,'r')
         if self._itaijidict is None:
             itaijipath = os.path.join('unihandecode','pykakasi','itaijidict2.pickle')
@@ -61,7 +61,7 @@ class jisyo (object):
             table = self._jisyo_table[key]
         except:
             try:
-                table = self._jisyo_table[key]  = marshal.loads(decompress(self._kanwadict[key]))
+                table = self._jisyo_table[key]  = loads(decompress(self._kanwadict[key]))
             except:
                 return None
         return table

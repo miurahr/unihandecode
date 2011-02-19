@@ -35,13 +35,13 @@ class K2a (object):
         self._kanadict = jisyo()
 
     def isRegion(self, char):
-        return ( 0x30a0 < ord(char) and ord(char) < 0x30f7)
+        return ( 0x30a0 < ord(char) and ord(char) < 0x30f7) or( 0x3040 < ord(char) and ord(char) < 0x3094)
 
     def convert(self, text):
         Hstr = ""
         max_len = -1
         r = min(10, len(text)+1)
-        for x in xrange(r):
+        for x in range(r):
             if self._kanadict.kana_haskey(text[:x]):
                 if max_len < x:
                     max_len = x

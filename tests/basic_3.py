@@ -141,7 +141,7 @@ class TestUnidecode(unittest.TestCase):
             ('\u660e\u65e5\u306f\u660e\u65e5\u306e\u98a8\u304c\u5439\u304f',
             'Ashita ha Ashita no Kaze ga Fuku'),
             ("\u660e\u5929\u660e\u5929\u7684\u98ce\u5439",
-            'Mei Tenmei Ten Teki Sui ')
+            'Mei Tenmei Ten Teki Sui')
             ]
         u = Unihandecoder(lang="ja")
         for instr, output in JATESTS:
