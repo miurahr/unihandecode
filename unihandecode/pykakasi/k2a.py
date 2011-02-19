@@ -30,21 +30,30 @@ from .jisyo import jisyo
 class K2a (object):
 
     _kanadict = None
+    
+# this class is Borg/Singleton
+    _shared_state = {}
 
+    def __new__(cls, *p, **k):
+        self = object.__new__(cls, *p, **k)
+        self.__dict__ = cls._shared_state
+        return self
+        
     def __init__(self):
-        self._kanadict = jisyo()
+        if self._kanadict is None:
+            self._kanadict = jisyo('kanadict2.pickle')
 
     def isRegion(self, char):
-        return ( 0x30a0 < ord(char) and ord(char) < 0x30f7) or( 0x3040 < ord(char) and ord(char) < 0x3094)
+        return (0x3040 < ord(char) and ord(char) < 0x30ff) 
 
     def convert(self, text):
         Hstr = ""
         max_len = -1
-        r = min(10, len(text)+1)
-        for x in range(r):
-            if self._kanadict.kana_haskey(text[:x]):
+        r = min(self._kanadict.maxkeylen(), len(text))
+        for x in range(1, r+1):
+            if self._kanadict.haskey(text[:x]):
                 if max_len < x:
                     max_len = x
-                    Hstr = self._kanadict.kana_lookup(text[:x])
+                    Hstr = self._kanadict.lookup(text[:x])
         return (Hstr, max_len) 
 
