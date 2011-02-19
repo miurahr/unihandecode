@@ -81,24 +81,24 @@ class TestUnidecode(unittest.TestCase):
     def test_squared_chars(self):
         TESTS = [
                 (u"\u3301", "alpha"), # combined Alpha in Katakana
-                (u"\u3302", "A"), # combined Ampere in Katakana 
+                (u"\u3302", "ampere"), # combined Ampere in Katakana 
                 (u"\u3304", "inning"),
                 (u"\u3306", "won"), # combined Won in Katakana
                 (u"\u3307", "escudo"), 
                 (u"\u3308", "acre"), # combined Acre in Katakana
-                (u"\u3309", "OZ."), # combined ounce in Katakana
+                (u"\u3309", "ounce"), # combined ounce in Katakana
                 (u"\u330a", "ohm"), # combined Ohm in Katakana
-                (u"\u3349", "m"), # milli in Katakana
-                (u"\u3314", "k"), # kilo in Katakana
-                (u"\u3315", "kg"), # kilo gram in Katakana
-                (u"\u3316", "km"), # kilo metre in Katakana
-                (u"\u3322", "c"), # centi in Katakana
-                (u"\u334d", "m"), #metre in Katakana
-                (u"\u3318", "g"), # gram in Katakana
-                (u"\u3327", "t"), # ton in Katakana
-                (u"\u3303", "a"), # are in Katakana
-                (u"\u3336", "ha"), # hect-are in Katakana
-                (u"\u337f", "Kabushiki Kaisha "), 
+                (u"\u3349", "milli"), # milli in Katakana
+                (u"\u3314", "kilo"), # kilo in Katakana
+                (u"\u3315", "kilogram"), # kilo gram in Katakana
+                (u"\u3316", "kilometer"), # kilo metre in Katakana
+                (u"\u3322", "centi"), # centi in Katakana
+                (u"\u334d", "meter"), #metre in Katakana
+                (u"\u3318", "gram"), # gram in Katakana
+                (u"\u3327", "ton"), # ton in Katakana
+                (u"\u3303", "are"), # are in Katakana
+                (u"\u3336", "hectare"), # hect-are in Katakana
+                (u"\u337f", "Inc."), # kabusiki kaisha in Katakana
                ]
         u = Unihandecoder(lang="ja")
         for input, output in TESTS:
@@ -119,7 +119,7 @@ class TestUnidecode(unittest.TestCase):
                 "Yuugengaisha"),
                 (u"\u5927\u20dd", "Dai "),  # "大" with circle
                 (u"\u5c0f\u20dd", "Shou "), # "小" with circle
-                (u"\u63a7\u20dd", "Kuu "),  # "控" with circle
+                (u"\u63a7\u20dd", "Hikae "),  # "控" with circle
                     ]
         u = Unihandecoder(lang="ja")
         for input, output in TESTS:
@@ -198,7 +198,8 @@ class TestUnidecode(unittest.TestCase):
             (u'\u660e\u65e5\u306f\u660e\u65e5\u306e\u98a8\u304c\u5439\u304f',
             'Ashita ha Ashita no Kaze ga Fuku'),
             (u"\u660e\u5929\u660e\u5929\u7684\u98ce\u5439",
-            'Mei Tenmei Ten Teki Sui ')
+            'Mei Tenmei Ten Teki Sui'),
+            (u"馮", "Fuu"), # Fuu in human's name, Hyou in another case
             ]
         u = Unihandecoder(lang="ja")
         for input, output in JATESTS:
@@ -218,7 +219,8 @@ class TestUnidecode(unittest.TestCase):
     def test_zh(self):
         ZHTESTS = [
             (u"\u660e\u5929\u660e\u5929\u7684\u98ce\u5439",
-             'Ming Tian Ming Tian De Feng Chui ')
+             'Ming Tian Ming Tian De Feng Chui '),
+            (u"馮", "Feng"),
             ]
         u = Unihandecoder(lang="zh")
         for input, output in ZHTESTS:

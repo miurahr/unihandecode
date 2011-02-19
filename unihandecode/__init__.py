@@ -50,7 +50,7 @@ class Unihandecoder(object):
         except: # python3, str is unicode
             pass
         #at first unicode normalize it. (see Unicode standards)
-        ntext = unicodedata.normalize('NFKC',text)
+        ntext = unicodedata.normalize('NFC',text)
         return self.decoder.decode(ntext)
 
 def unidecode(text):
