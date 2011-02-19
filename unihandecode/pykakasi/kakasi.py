@@ -46,7 +46,7 @@ class kakasi(object):
             if i >= len(text):
                 break
 
-            if self._conv["j"].isRegion(text[i]):
+            if self._conv["j"].canConvert(text[i]):
                 (t, l) = self._conv["j"].convert(text[i:])
                 if l <= 0:
                     i += 1
@@ -57,14 +57,14 @@ class kakasi(object):
                 else:
                     otext = otext + t.capitalize() + ' '
  
-            elif self._conv["k"].isRegion(text[i]):
+            elif self._conv["k"].canConvert(text[i]):
                 while True:
                     (t, l) = self._conv["k"].convert(text[i:])
                     otext = otext+t
                     i = i + l
                     if i >= len(text):                   
                         break
-                    elif not self._conv["k"].isRegion(text[i]):
+                    elif not self._conv["k"].canConvert(text[i]):
                         otext = otext + ' '
                         break
                     else:

@@ -39,11 +39,11 @@ class J2a (object):
         self._jconv = J2H()
         self._kconv = K2a()
 
-    def isRegion(self, char):
-        return self._jconv.isRegion(char)
+    def canConvert(self, char):
+        return self._jconv.canConvert(char)
 
     def convert(self, text):
-        if not self._jconv.isRegion(text[0]):
+        if not self._jconv.canConvert(text[0]):
             return ("", 0)
             
         (t, l) = self._jconv.convert(text)
