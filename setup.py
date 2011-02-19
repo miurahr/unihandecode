@@ -61,8 +61,8 @@ class GenKanwa(Command):
             self.genDict(s, p)
 
 # kanwadict 
-        src = os.path.join('data','kakasidict.utf8')        
-        dst = os.path.join('unihandecode','pykakasi','kanwadict2')
+        src = os.path.join('data','kakasidict.utf8')    
+        dst = os.path.join('unihandecode','pykakasi','kanwadict2') # don't add .db ext
         try:
             os.unlink(dst)
         except:

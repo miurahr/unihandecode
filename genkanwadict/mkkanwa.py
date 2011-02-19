@@ -1,13 +1,14 @@
 #!/usr/bin/env python
 from zlib import compress
 import re
+from marshal import dumps
 
 try:
-    import anydbm as dbm
-    from cPickle import dump,dumps
+    import gdbm as dbm
+    from cPickle import dump
 except:
     import dbm
-    from pickle import dump,dumps
+    from pickle import dump
 
 class mkkanwa(object):
 
@@ -21,6 +22,7 @@ class mkkanwa(object):
 # for itaiji and kana/gairai dict
 
     def mkdict(self, src, dst):
+        max_len = 0
         dic = {}
         for line in open(src, "rb"):
             line = line.decode("utf-8").strip()
@@ -30,7 +32,8 @@ class mkkanwa(object):
                 continue
             (v, k) = (re.sub(r'\\u([0-9a-fA-F]{4})', lambda x:unichr(int(x.group(1),16)), line)).split(' ')
             dic[k] = v
-        dump(dic, open(dst, 'wb'), protocol=2)
+            max_len = max(max_len, len(v))
+        dump((dic, max_len), open(dst, 'wb'), protocol=2)
 
 # for kanwadict
 
@@ -60,7 +63,11 @@ class mkkanwa(object):
                 self.records[key][kanji]=[(yomi, tail)]
 
     def kanwaout(self, out):
-        dic = dbm.open(out, 'c')
+        try:
+            unicode #python2 need .db ext
+            dic = dbm.open(out+'.db', 'c')
+        except: #python3 add automatically .db ext
+            dic = dbm.open(out, 'c')
         for (k, v) in self.records.items():
             dic[k] = compress(dumps(v))
         dic.close()
