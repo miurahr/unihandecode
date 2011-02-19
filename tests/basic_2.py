@@ -220,7 +220,7 @@ class TestUnidecode(unittest.TestCase):
         ZHTESTS = [
             (u"\u660e\u5929\u660e\u5929\u7684\u98ce\u5439",
              'Ming Tian Ming Tian De Feng Chui '),
-            (u"馮", "Feng"),
+            (u"馮", "Feng "),
             ]
         u = Unihandecoder(lang="zh")
         for input, output in ZHTESTS:
