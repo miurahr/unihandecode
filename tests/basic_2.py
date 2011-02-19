@@ -237,14 +237,5 @@ class TestUnidecode(unittest.TestCase):
         for input, output in VNTESTS:
             self.failUnlessEqual(u.decode(input), output)
 
-    def test_sinhala(self):
-        TESTS = [
-            (u"\u0d85\u0dab\u0dca\u0da9",'anda'),
-            (u"\u0d85\u0dac",'anda'),
-            ]
-        u = Unihandecoder(lang="si")
-        for input, output in TESTS:
-            self.failUnlessEqual(u.decode(input), output)
-
 if __name__ == "__main__":
     unittest.main()
