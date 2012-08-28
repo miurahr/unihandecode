@@ -27,11 +27,11 @@ class Unihandecoder(object):
 
     def __init__(self, lang="zh", encoding='utf-8'):
         self.preferred_encoding = encoding
-        if lang is "ja":
+        if lang == "ja":
             self.decoder = Jadecoder()
-        elif lang is "kr":
+        elif lang == "kr":
             self.decoder = Krdecoder()
-        elif lang is "vn":
+        elif lang == "vn":
             self.decoder = Vndecoder()
         else: #zh and others
             self.decoder = Unidecoder()
