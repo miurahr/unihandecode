@@ -68,6 +68,8 @@ class kakasi(object):
                         otext = otext + ' '
                         break
                     else:
+                        # XXX: happens something wrong
+                        i = i + 1
                         pass
             else:
                 otext  = otext + text[i]
