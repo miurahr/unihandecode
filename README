@@ -1,27 +1,29 @@
 
-				   Unihandecode
+                                   Unihandecode
 
-		     ASCII transliterations of Unicode text
-		     that recognize CJKV complex charactors
+                     ASCII transliterations of Unicode text
+                     that recognize CJKV complex charactors
 
 
 EXAMPLE USE
+-----------
 
-	from unihandecode import Unihandecoder
-	u = Unihandecoder(lang='ch')
-	print d.decode(u"\u660e\u5929\u660e\u5929\u7684\u98ce\u5439")
+        from unihandecode import Unihandecoder
+        u = Unihandecoder(lang='ch')
+        print d.decode(u"\u660e\u5929\u660e\u5929\u7684\u98ce\u5439")
 
-	# That prints: Ming Tian Ming Tian De Feng Chui 
+        # That prints: Ming Tian Ming Tian De Feng Chui 
 
-	u = Unihandecoder(lang='ja')
-	print d.decode(
-	    u'\u660e\u65e5\u306f\u660e\u65e5\u306e\u98a8\u304c\u5439\u304f')
+        u = Unihandecoder(lang='ja')
+        print d.decode(
+            u'\u660e\u65e5\u306f\u660e\u65e5\u306e\u98a8\u304c\u5439\u304f')
 
-	# That prints: Ashita ha Ashita no Kaze ga Fuku
+        # That prints: Ashita ha Ashita no Kaze ga Fuku
 
 
 
 DESCRIPTION
+-----------
 
     It often happens that you have non-Roman text data in Unicode, but
     you can't display it -- usually because you're trying to show it
@@ -48,6 +50,7 @@ DESCRIPTION
     Sean M. Burke <sburke@cpan.org>.
 
 REQUIREMENTS
+------------
 
     There is no required staff other than standard python libraries. 
     Because it is still under development for python3, you can use it
@@ -55,6 +58,7 @@ REQUIREMENTS
 
 
 INSTALLATION
+------------
 
     You install Unihandecode, as you would install any Python module,
     by running these commands:
@@ -67,6 +71,7 @@ INSTALLATION
     $ easy_install Unihandecode-0.40-py2.7.egg
 
 BUILD
+------
 
     To build egg package, we need additional instruction.
 
@@ -74,6 +79,7 @@ BUILD
         python setup.py bdist_egg
 
 LIMITATION
+----------
 
     This library uses pickler that format is depend on platform
     and python version.
@@ -81,12 +87,14 @@ LIMITATION
 
 
 SUPPORT
+--------
 
     Questions, bug reports, useful code bits, and suggestions for
-    Unihandecode should be sent to miurahr@linux.com
+    Unihandecode are handled on github.com/miurahr/unihandecode
 
 
 AVAILABILITY
+------------
 
     The latest version of Unihandecode is available from
     Git repository in github.com:
@@ -99,6 +107,7 @@ AVAILABILITY
 
 
 COPYRIGHT
+---------
 
 Unicode Character Database:
  Date: 2010-09-23 09:29:58 UDT [JHJ]
@@ -117,8 +126,19 @@ Python code:
 Copyright 2010,2011, Hiroshi Miura <miurahr@linux.com>
 Copyright 2009, Tomaz Solc <tomaz@zemanta.com>
 
-The programs and documentation in this dist are distributed in the
-hope that they will be useful, but without any warranty; without even
-the implied warranty of merchantability or fitness for a particular
-purpose.
 
+LICENSE
+-------
+
+Unihandecode
+     Copyright 2010-2013 Hiroshi Miura
+
+This program is free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
