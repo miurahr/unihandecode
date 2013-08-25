@@ -73,6 +73,13 @@ BUILD
         python setup.py gendict
         python setup.py bdist_egg
 
+LIMITATION
+
+    This library uses pickler that format is depend on platform
+    and python version.
+    You should re-create dictionary for each python version.
+
+
 SUPPORT
 
     Questions, bug reports, useful code bits, and suggestions for
