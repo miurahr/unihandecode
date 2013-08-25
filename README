@@ -59,12 +59,19 @@ INSTALLATION
     You install Unihandecode, as you would install any Python module,
     by running these commands:
 
-	python setup.py install
-	python setup.py test
+        python setup.py gendict
+        python setup.py install
+        python setup.py test
 
     If you got egg package, it is easy to install by
-    $ easy_install Unihandecode-0.31-py2.6.egg
+    $ easy_install Unihandecode-0.40-py2.7.egg
 
+BUILD
+
+    To build egg package, we need additional instruction.
+
+        python setup.py gendict
+        python setup.py bdist_egg
 
 SUPPORT
 
@@ -75,9 +82,13 @@ SUPPORT
 AVAILABILITY
 
     The latest version of Unihandecode is available from
-    Bazaar repository in lanunchpad.net
+    Git repository in github.com:
 
-	https://code.launchpad.net/unihandecode
+	https://github.com/miurahr/unihandecode
+
+    WARNING: There was launchpad.net Bazzar repository named
+             unhandecode.
+             It has NOT been maintained and moved github entirely.
 
 
 COPYRIGHT
@@ -104,5 +115,3 @@ hope that they will be useful, but without any warranty; without even
 the implied warranty of merchantability or fitness for a particular
 purpose.
 
-This library is free software; you can redistribute it and/or modify
-it under the same terms as Perl.
