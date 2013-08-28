@@ -7,6 +7,7 @@ from distutils.command.build import build
 import unittest
 import os,threading
 import sys
+import shutil
 import unihandecode.gencodemap as gencodemap
 import unihandecode.genkanwadict as genkanwadict
 
@@ -27,10 +28,19 @@ def gen_dict(src_f, pkl_f):
         pass
     kanwa.mkdict(src, dst)
 
+def catdict(src_a, dst):
+    outdict    = open(os.path.join('unihandecode','data', dst),'wb')
+    for src_f in src_a:
+      shutil.copyfileobj(open(os.path.join('unihandecode','data',src_f),'rb'), outdict)
+    outdict.close()
+
 def _pre_build():
+    # concatenate kanadict and gairaidict
+    catdict(['kanadict.utf8','gairaidict.utf8','ryakugodict.utf8'],
+                  'kanadict2.utf8')
     DICTS = [
         ('itaijidict.utf8', 'itaijidict2.pickle'),
-        ('kanadict.utf8', 'kanadict2.pickle'),
+        ('kanadict2.utf8', 'kanadict2.pickle'),  # kanadict2.utf8 will be generated above
     ]
 
     for (s,p) in DICTS:
