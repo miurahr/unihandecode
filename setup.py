@@ -5,6 +5,7 @@ from setuptools import Command,setup, find_packages
 
 import unittest
 import os,threading
+import shutil
 import gencodemap
 import genkanwadict
 
@@ -50,11 +51,21 @@ class GenKanwa(Command):
             pass
         kanwa.mkdict(src, dst)
 
+    def catdict(self, src_a, dst):
+        outdict    = open(os.path.join('data',dst),'wb')
+        for src_f in src_a:
+	  shutil.copyfileobj(open(os.path.join('data',src_f),'rb'), outdict)
+        outdict.close()
+
     def run(self):
+
+        # concatenate kanadict and gairaidict
+	self.catdict(['kanadict.utf8','gairaigodtct.utf8','ryakudict.utf8'],
+	    'kanadict2.utf8')
 
         DICTS = [
             ('itaijidict.utf8', 'itaijidict2.pickle'),
-            ('kanadict.utf8', 'kanadict2.pickle'),
+            ('kanadict2.utf8', 'kanadict2.pickle'),
         ]
 
         for (s,p) in DICTS:
