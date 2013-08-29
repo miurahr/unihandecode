@@ -43,7 +43,7 @@ class GenKanwa(Command):
 
     def genDict(self, src_f, pkl_f):
         kanwa = genkanwadict.mkkanwa()
-        src = os.path.join('data',src_f)
+        src = os.path.join('data','pykakasi',src_f)
         dst = os.path.join('unihandecode','pykakasi',pkl_f)
         try:
             os.unlink(dst)
@@ -52,15 +52,16 @@ class GenKanwa(Command):
         kanwa.mkdict(src, dst)
 
     def catdict(self, src_a, dst):
-        outdict    = open(os.path.join('data',dst),'wb')
+        outdict = open(os.path.join('data','pykakasi',dst),'wb')
         for src_f in src_a:
-	  shutil.copyfileobj(open(os.path.join('data',src_f),'rb'), outdict)
+          srcdict = os.path.join('data','pykakasi',src_f)
+          shutil.copyfileobj(open(srcdict,'rb'), outdict)
         outdict.close()
 
     def run(self):
 
         # concatenate kanadict and gairaidict
-	self.catdict(['kanadict.utf8','gairaigodtct.utf8','ryakudict.utf8'],
+        self.catdict(['kanadict.utf8','gairaidict.utf8','ryakugodict.utf8'],
 	    'kanadict2.utf8')
 
         DICTS = [
@@ -71,8 +72,8 @@ class GenKanwa(Command):
         for (s,p) in DICTS:
             self.genDict(s, p)
 
-# kanwadict 
-        src = os.path.join('data','kakasidict.utf8')    
+# kanwadict
+        src = os.path.join('data','pykakasi','kakasidict.utf8')
         dst = os.path.join('unihandecode','pykakasi','kanwadict2') # don't add .db ext
         try:
             os.unlink(dst+'.db')
