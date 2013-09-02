@@ -18,9 +18,14 @@ Copyright (c) 2010 Hiroshi Miura
 '''
 
 import os, re
+try: #python2
+    from cPickle import load
+except: #python3
+    from pickle import load
+
+from pkg_resources import resource_filename
 from unihandecode.unidecoder import Unidecoder
 from unihandecode.unicodepoints import CODEPOINTS
-from unihandecode.jacodepoints import CODEPOINTS as JACODES
 from unihandecode.pykakasi import kakasi
 
 class Jadecoder(Unidecoder):
@@ -29,7 +34,9 @@ class Jadecoder(Unidecoder):
 
     def __init__(self):
         self.codepoints = CODEPOINTS
-        self.codepoints.update(JACODES)
+        dict_pkl = open(resource_filename(__name__, 'jacodepoints.pickle'), 'rb')
+        (dic, dlen) = load(dict_pkl)
+        self.codepoints.update(dic)
         self.kakasi = kakasi()
 
     def decode(self, text):

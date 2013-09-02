@@ -11,8 +11,13 @@ Based on unidecoder.
 '''
 
 import re
+try: #python2
+    from cPickle import load
+except: #python3
+    from pickle import load
+
+from pkg_resources import resource_filename
 from unihandecode.unidecoder import Unidecoder
-from unihandecode.krcodepoints import CODEPOINTS as HANCODES
 from unihandecode.unicodepoints import CODEPOINTS
 
 class Krdecoder(Unidecoder):
@@ -21,5 +26,7 @@ class Krdecoder(Unidecoder):
 
     def __init__(self):
         self.codepoints = CODEPOINTS
-        self.codepoints.update(HANCODES)
+        dict_pkl = open(resource_filename(__name__, 'krcodepoints.pickle'), 'rb')
+        (dic, dlen) = load(dict_pkl)
+        self.codepoints.update(dic)
 
