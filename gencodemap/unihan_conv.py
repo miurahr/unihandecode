@@ -1,6 +1,12 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 import sys, re
+from zlib import compress
+
+try:
+    from cPickle import dump
+except:
+    from pickle import dump
 
 #python 2,3 compatibility
 try:
@@ -38,13 +44,11 @@ class UnihanConv():
             self.lang = 'zh'
 
     def run(self, source, dest):
-        fout = open(dest,'w')
-        fout.write("# -*- coding: utf-8 -*-\n\n__license__ = \'GPL 3\'\n\
-__copyright__ = \'2010 Hiroshi Miura <miurahr@linux.com>\'\n__docformat__ = \'restructuredtext en\'\n\
-\n\'\'\'\nUnicode code point dictionary.\nBased on Unicode.org Unihan database.\n\'\'\'\n\n")
-        self.process_readings(source, fout)
-        fout.write("]\n}\n")
-        fout.close()
+        max_len = 0
+        tbl = {}
+        self.process_readings(source, tbl)
+        max_len = max(max_len, len(tbl))
+        dump((tbl, max_len), open(dest, 'wb'), protocol=2)
 
     def check_category(self, lcode, category, pron):
         try:        
@@ -60,30 +64,23 @@ __copyright__ = \'2010 Hiroshi Miura <miurahr@linux.com>\'\n__docformat__ = \'re
             else:
                 self.readings[lcode] = ("%s "%pron, p)
 
-    def gen_map(self,fout, ucode):
+    def gen_map(self, tbl, ucode):
         if ucode is 0:
             return
 
-        if self.firsttime:
-            self.firsttime = False
-            fout.write("CODEPOINTS = { \n    'x%x':[\n        "%ucode)
-        else:
-            fout.write("],\n    'x%x':[\n        "%ucode)
-
+        tmap = []
         for i in range(0, 256):
             if i in self.readings:
                 reading = self.readings[i][0]
                 if all(ord(c) < 128 for c in reading):
-                    fout.write("'"+reading+"',")
+                    tmap.append(reading)
                 else:
-                    fout.write("'"+reading.encode("utf-8")+"', #XXX\n        ")
-                    # if ??codepoints.py file has XXX, you need fix pmap[x] 
+                    tmap.append(reading.encode("utf-8"))
             else:
-                fout.write("'',")
-            if (i % 16) == 15:
-                fout.write("\n"+" "*8)
+                tmap.append('')
+        tbl['x%x'%ucode] = tmap
 
-    def process_readings(self, source, fout):
+    def process_readings(self, source, tbl):
         oucode = 0
 
         r1 = re.compile(r'U\+([0-9A-F]{2,3})([0-9A-F]{2}\b)')
@@ -110,10 +107,10 @@ __copyright__ = \'2010 Hiroshi Miura <miurahr@linux.com>\'\n__docformat__ = \'re
             ucode = int(code[0],16)
             lcode = int(code[1],16)
             if (oucode != ucode):
-                self.gen_map(fout, oucode)
+                self.gen_map(tbl, oucode)
                 oucode = ucode 
                 self.readings={}
             self.check_category(lcode, category, pron)
-    
-        self.gen_map(fout, oucode) # output when eof
+
+        self.gen_map(tbl, oucode) # output when eof
 
