@@ -47,8 +47,10 @@ class K2a (object):
     #   Iteration marks and Hiragana digraph
     def canConvert(self, c):
         return  ((0x3040 < ord(c[0]) and ord(c[0]) < 0x30ff)
-             and ((ord(c[0]) < 0x3099) or
-                  (ord(c[0]) > 0x309F)
+             and ((ord(c[0]) < 0x3097) or
+                  (ord(c[0]) > 0x309F))
+             and ((ord(c[0]) < 0x30fd) or
+                  (ord(c[0]) > 0x30fe))
                  )
 
     # return -1 as len when no str is found.
