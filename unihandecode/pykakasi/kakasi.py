@@ -49,6 +49,7 @@ class kakasi(object):
             if self._conv["j"].canConvert(text[i]):
                 (t, l) = self._conv["j"].convert(text[i:])
                 if l <= 0:
+                    # XXX: problem happens.
                     i += 1
                     continue
                 i = i + l
@@ -60,16 +61,33 @@ class kakasi(object):
             elif self._conv["k"].canConvert(text[i]):
                 while True:
                     (t, l) = self._conv["k"].convert(text[i:])
-                    otext = otext+t
+                    # when fails to convert it return ("", -1)
+                    # at first detect it.
+                    if l <= 0:
+                        # XXX: problem happens.
+                        #  come here when character text[i] is
+                        #  inside range where claming enable to
+                        #  convert with _conv["k"] converter.
+                        #  but conversion was failed.
+                        #  In order to recover it, skip text[i] and ignored.
+                        i  += 1
+                        continue
                     i = i + l
-                    if i >= len(text):                   
+                    otext = otext + t
+                    if i >= len(text): # finished
                         break
                     elif not self._conv["k"].canConvert(text[i]):
-                        otext = otext + ' '
+                        # Found a place _conv["k"] cannot convert.
+                        # this means we found word boundary.
+                        # Inserting ' ' to indicate word boundary.
+                        # FIXME
+                        if ((ord(text[i]) != 0x3001) and (ord(text[i]) != 0x3002)):
+                            otext = otext + ' '
                         break
                     else:
-                        # XXX: happens something wrong
-                        i = i + 1
+                        # We can process next character with _conv["k"]
+                        # treat it is connected previous convertion
+                        # in means of word boundary.
                         pass
             else:
                 otext  = otext + text[i]
