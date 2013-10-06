@@ -80,7 +80,9 @@ class kakasi(object):
                         # Found a place _conv["k"] cannot convert.
                         # this means we found word boundary.
                         # Inserting ' ' to indicate word boundary.
-                        otext = otext + ' '
+                        # FIXME
+                        if ((ord(text[i]) != 0x3001) and (ord(text[i]) != 0x3002)):
+                            otext = otext + ' '
                         break
                     else:
                         # We can process next character with _conv["k"]
