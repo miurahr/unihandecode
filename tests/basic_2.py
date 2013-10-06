@@ -194,6 +194,16 @@ class TestUnidecode(unittest.TestCase):
         for input, output in TESTS:
             self.failUnlessEqual(u.decode(input), output)
 
+    def test_kana(self):
+        u = Unihandecoder(lang="ja")
+        for n in xrange(0x3000,0x30ff):
+            # Just check that it doesn't throw an exception
+            try:
+                t = unichr(n)
+                u.decode(t)
+            except:
+                print "catch error at %02x"%n
+
     def test_ja(self):
         JATESTS = [
             (u'\u660e\u65e5\u306f\u660e\u65e5\u306e\u98a8\u304c\u5439\u304f',
