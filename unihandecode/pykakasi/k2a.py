@@ -43,9 +43,15 @@ class K2a (object):
         if self._kanadict is None:
             self._kanadict = jisyo('kanadict2.pickle')
 
+    # FIXME: we need to handle Voicing marks,
+    #   Iteration marks and Hiragana digraph
     def canConvert(self, c):
-        return (0x3040 < ord(c[0]) and ord(c[0]) < 0x30ff) 
+        return  ((0x3040 < ord(c[0]) and ord(c[0]) < 0x30ff)
+             and (ord(c[0]) != 0x309D) and (ord(c[0]) != 0x309E)
+             and (ord(c[0]) != 0x309F)
+                )
 
+    # return -1 as len when no str is found.
     def convert(self, text):
         Hstr = ""
         max_len = -1
