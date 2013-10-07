@@ -1,0 +1,6 @@
+*.pyc
+*~
+*.bak
+*.pickle
+*.db
+*.ttbl

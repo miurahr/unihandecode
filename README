@@ -64,6 +64,7 @@ INSTALLATION
     by running these commands:
 
         python setup.py gendict
+        python setup.py genmap
         python setup.py install
         python setup.py test
 
@@ -76,6 +77,7 @@ BUILD
     To build egg package, we need additional instruction.
 
         python setup.py gendict
+        python setup.py genmap
         python setup.py bdist_egg
 
 LIMITATION

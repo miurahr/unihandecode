@@ -59,8 +59,13 @@ it under the same terms as Perl itself.
 '''
 
 import re
+try: #python2
+    from cPickle import load
+except: #python3
+    from pickle import load
+
+from pkg_resources import resource_filename
 from unihandecode.unicodepoints import CODEPOINTS
-from unihandecode.zhcodepoints import CODEPOINTS as HANCODES
 
 class Unidecoder(object):
 
@@ -68,7 +73,9 @@ class Unidecoder(object):
 
     def __init__(self):
         self.codepoints = CODEPOINTS
-        self.codepoints.update(HANCODES)
+        dict_pkl = open(resource_filename(__name__, 'zhcodepoints.pickle'), 'rb')
+        (dic, dlen) = load(dict_pkl)
+        self.codepoints.update(dic)
 
     def decode(self, text):
         # Replace characters larger than 127 with their ASCII equivelent.

@@ -102,7 +102,7 @@ class genmap_t(threading.Thread):
 
     def run(self):
         unihan_source = os.path.join('data','Unihan_Readings.txt')        
-        dest = os.path.join('unihandecode',self.l+'codepoints.py')
+        dest = os.path.join('unihandecode',self.l+'codepoints.pickle')
         u = gencodemap.UnihanConv(self.l)
         u.run(source = unihan_source, dest=dest)
 
@@ -140,9 +140,10 @@ d = Unidecoder(lang='ja')
       author_email='miurahr@linux.com',
 
       packages = find_packages(),
-      include_package_data = True,   
-      package_data = { 'unihandecode.pykakasi': ['kanwadict2.db','*.pickle']},
-
+      include_package_data = True,
+      package_data = {'unihandecode': ['*.pickle',
+                                       'pykakasi/*.pickle',
+                                       'pykakasi/*.db']},
       provides = [ 'unihandecode' ],
 
       cmdclass = { 'test': TestCommand,  'genmap':GenMap, 'gendict':GenKanwa }
