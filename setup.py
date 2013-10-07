@@ -108,7 +108,7 @@ class genmap_t(threading.Thread):
 
 
 setup(name='Unihandecode',
-      version='0.40',
+      version='0.42',
       description='US-ASCII transliterations of Unicode text',
       url='http://launchpad.net/unihandecode/',
       license='GPLv3/Perl',

@@ -69,7 +69,7 @@ INSTALLATION
         python setup.py test
 
     If you got egg package, it is easy to install by
-    $ easy_install Unihandecode-0.40-py2.7.egg
+    $ easy_install Unihandecode-0.42-py2.7.egg
 
 BUILD
 ------
