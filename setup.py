@@ -143,7 +143,8 @@ d = Unidecoder(lang='ja')
       include_package_data = True,
       package_data = {'unihandecode': ['*.pickle',
                                        'pykakasi/*.pickle',
-                                       'pykakasi/*.db']},
+                                       'pykakasi/kanwadict2.*'
+				       ]},
       provides = [ 'unihandecode' ],
 
       cmdclass = { 'test': TestCommand,  'genmap':GenMap, 'gendict':GenKanwa }
