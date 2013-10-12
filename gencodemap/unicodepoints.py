@@ -1,4 +1,12 @@
+#!/usr/bin/env python
 # -*- coding: utf-8 -*-
+import sys
+from zlib import compress
+
+try:
+    from cPickle import dump
+except:
+    from pickle import dump
 
 __license__ = 'GPL 3'
 __copyright__ = '2009, John Schember <john@nachtimwald.com>'
@@ -11,8 +19,21 @@ Based on Text::Unidecode's xAB.pm lists. This combines all xAB.pm files into
 a single dictionary.
 '''
 
+#python 2,3 compatibility
+try:
+    unicode # python2
+    def u(str): return str.decode("utf-8")
+    pass
+except: #python 3
+    def u(str): return str
+    pass
 
-CODEPOINTS = {
+class Unicodepoints():
+
+    def run(self, dest):
+        dump((self.CODEPOINTS, len(self.CODEPOINTS)), open(dest, 'wb'), protocol=2)
+
+    CODEPOINTS = {
 	'x20': [
 		' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', '', '', '', '',
 		'-', '-', '-', '-', '--', '--', '||', '_', '\'', '\'', ',', '\'', '"', '"', ',,', '"',

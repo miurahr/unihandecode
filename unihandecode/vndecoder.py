@@ -17,14 +17,14 @@ except: #python3
 
 from pkg_resources import resource_filename
 from unihandecode.unidecoder import Unidecoder
-from unihandecode.unicodepoints import CODEPOINTS
 
 class Vndecoder(Unidecoder):
 
     codepoints = {}
 
     def __init__(self):
-        self.codepoints = CODEPOINTS
+        unicodepoints_pkl = open(resource_filename(__name__, 'unicodepoints.pickle'), 'rb')
+        (self.codepoints, dlen) = load(unicodepoints_pkl)
         dict_pkl = open(resource_filename(__name__, 'vncodepoints.pickle'), 'rb')
         (dic, dlen) = load(dict_pkl)
         self.codepoints.update(dic)

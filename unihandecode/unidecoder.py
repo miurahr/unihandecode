@@ -65,14 +65,14 @@ except: #python3
     from pickle import load
 
 from pkg_resources import resource_filename
-from unihandecode.unicodepoints import CODEPOINTS
 
 class Unidecoder(object):
 
     codepoints = {}
 
     def __init__(self):
-        self.codepoints = CODEPOINTS
+        unicodepoints_pkl = open(resource_filename(__name__, 'unicodepoints.pickle'), 'rb')
+        (self.codepoints, dlen) = load(unicodepoints_pkl)
         dict_pkl = open(resource_filename(__name__, 'zhcodepoints.pickle'), 'rb')
         (dic, dlen) = load(dict_pkl)
         self.codepoints.update(dic)
