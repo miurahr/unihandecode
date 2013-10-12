@@ -1,16 +1,20 @@
 # -*- coding: utf-8 -*-
 #  kanwa.py
 #
-# Copyright 2011 Hiroshi Miura <miurahr@linux.com>
+# Copyright 2011,2013 Hiroshi Miura <miurahr@linux.com>
 from zlib import decompress
 from pkg_resources import resource_filename
 from marshal import loads
-try: #python2
+
+try:
     from cPickle import load
-    import anydbm as dbm
-except: #python3
+except:
     from pickle import load
-    import dbm as dbm
+
+try:
+    import dumbdbm as dbm
+except:
+    import dbm.dumb as dbm
 
 class kanwa (object):
 
@@ -28,11 +32,7 @@ class kanwa (object):
 
     def __init__(self):
         if self._kanwadict is None:
-            try:
-                unicode #python2
-                dictpath = resource_filename(__name__, 'kanwadict2.db')
-            except: #python3
-                dictpath = resource_filename(__name__, 'kanwadict2')
+            dictpath = resource_filename(__name__, 'kanwadict2')
             self._kanwadict = dbm.open(dictpath,'r')
         if self._itaijidict is None:
             itaijipath = resource_filename(__name__, 'itaijidict2.pickle')
