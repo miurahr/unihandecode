@@ -137,6 +137,11 @@ class TestUnidecode(unittest.TestCase):
                 (u"ČŽŠčžš",
                  "CZSczs"),
 
+                (u"\u00a0\u00a1\u00a2\u00a3\u00a4\u00a5\u00a6\u00a7",
+                  u" !C/PS\u005c$?Y=|SS"),
+                (u"\u00a8\u00a9\u00aa\u00ab\u00ac\u00ad\u00ae\u00af",
+                  u"\u0022(c)a<<!(r)-"),
+
                 (u"ア",
                  "a"),
 
