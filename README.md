@@ -1,8 +1,6 @@
+# Unihandecode [![travis-ci](https://secure.travis-ci.org/miurahr/unihandecode.png)](https://secure.travis-ci.org/miurahr/unihandecode)
 
-                                   Unihandecode
-
-                     ASCII transliterations of Unicode text
-                     that recognize CJKV complex charactors
+ASCII transliterations of Unicode text that recognize CJKV complex charactors
 
 
 EXAMPLE USE
