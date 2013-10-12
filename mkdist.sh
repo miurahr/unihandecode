@@ -1,11 +1,7 @@
 #!/bin/sh
-rm -f unihandecode/*.pickle
-rm -f unihandecode/pykakasi/*.pickle
-rm -f unihandecode/pykakasi/kanwadict2*
-python2 setup.py genmap
-python2 setup.py gendict
-python2 setup.py test
-python2 setup.py bdist_egg sdist
-python3 setup.py gendict
-python3 setup.py test
-python3 setup.py bdist_egg
+make clean
+make sdist
+make PYTHON=/usr/bin/python2 test
+make PYTHON=/usr/bin/python2 bdist
+make PYTHON=/usr/bin/python3 test 
+make PYTHON=/usr/bin/python3 bdist

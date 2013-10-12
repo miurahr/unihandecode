@@ -1,4 +1,8 @@
 include *.txt
+include Makefile
+include mkdist.sh
+include mkdist.bat
+include GPL-3
 recursive-include data *.txt *.utf8
 recursive-include gencodemap *.py
 recursive-include genkanwadict *.py
