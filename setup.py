@@ -81,6 +81,8 @@ class GenMap(Command):
         pass
 
     def run(self):
+        u = gencodemap.Unicodepoints()
+        u.run(os.path.join('unihandecode','unicodepoints.pickle'))
         k= genmap_t('kr')
         j= genmap_t('ja')
         c= genmap_t('zh')
@@ -101,7 +103,7 @@ class genmap_t(threading.Thread):
         self.l = lang
 
     def run(self):
-        unihan_source = os.path.join('data','Unihan_Readings.txt')        
+        unihan_source = os.path.join('data','Unihan_Readings.txt')
         dest = os.path.join('unihandecode',self.l+'codepoints.pickle')
         u = gencodemap.UnihanConv(self.l)
         u.run(source = unihan_source, dest=dest)
