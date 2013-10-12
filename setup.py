@@ -139,11 +139,11 @@ d = Unidecoder(lang='ja')
       author='Hioshi Miura',
       author_email='miurahr@linux.com',
 
-      packages = find_packages(),
-      include_package_data = True,
+      packages = ['unihandecode','unihandecode.pykakasi'],
+      include_package_data = False,
       package_data = {'unihandecode': ['*.pickle',
                                        'pykakasi/*.pickle',
-                                       'pykakasi/*.db']},
+                                       'pykakasi/kanwadict2.*']},
       provides = [ 'unihandecode' ],
 
       cmdclass = { 'test': TestCommand,  'genmap':GenMap, 'gendict':GenKanwa }
