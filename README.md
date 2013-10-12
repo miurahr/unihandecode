@@ -6,6 +6,8 @@ ASCII transliterations of Unicode text that recognize CJKV complex charactors
 EXAMPLE USE
 -----------
 
+ You can run it on python interpreter:
+
         from unihandecode import Unihandecoder
         u = Unihandecoder(lang='ch')
         print d.decode(u"\u660e\u5929\u660e\u5929\u7684\u98ce\u5439")
@@ -18,92 +20,103 @@ EXAMPLE USE
 
         # That prints: Ashita ha Ashita no Kaze ga Fuku
 
+ There are some other examples in tests/basic_2.py.
+
+ You can also learn from actual applications which use unihandecode, such as
+ 
+ * calibre-ebook: https://github.com/kovidgoyal/calibre/tree/master/src/calibre/ebooks/unihandecode
 
 
 DESCRIPTION
 -----------
 
-    It often happens that you have non-Roman text data in Unicode, but
-    you can't display it -- usually because you're trying to show it
-    to a user via an application that doesn't support Unicode, or
-    because the fonts you need aren't accessible. You could represent
-    the Unicode characters as "???????" or "\15BA\15A0\1610...", but
-    that's nearly useless to the user who actually wants to read what
-    the text says.
+ It often happens that you have non-Roman text data in Unicode, but
+ you can't display it -- usually because you're trying to show it
+ to a user via an application that doesn't support Unicode, or
+ because the fonts you need aren't accessible. You could represent
+ the Unicode characters as "???????" or "\15BA\15A0\1610...", but
+ that's nearly useless to the user who actually wants to read what
+ the text says.
 
-    What Unihandecode provides is a function, 'decode(...)' that
-    takes Unicode data and tries to represent it in ASCII characters 
-    (i.e., the universally displayable characters between 0x00 and 0x7F). 
-    The representation is almost always an attempt at *transliteration* 
-    -- i.e., conveying, in Roman letters, the pronunciation expressed by 
-    the text in some other writing system. (See the example above)
+ What Unihandecode provides is a function, 'decode(...)' that
+ takes Unicode data and tries to represent it in ASCII characters 
+ (i.e., the universally displayable characters between 0x00 and 0x7F). 
+ The representation is almost always an attempt at *transliteration* 
+ -- i.e., conveying, in Roman letters, the pronunciation expressed by 
+ the text in some other writing system. (See the example above)
 
-    These are same meaning in both language in example above.
-    "明天明天的风吹" for Chinese and "明日は明日の風が吹く" for Japanese.
-    The character "明" is converted "Ming" in Chinese. "明日" is converted
-    "Ashita" but single charactor "明" will be converted "Mei" in Japanese.
+ These are same meaning in both language in example above.
+ "明天明天的风吹" for Chinese and "明日は明日の風が吹く" for Japanese.
+ The character "明" is converted "Ming" in Chinese. "明日" is converted
+ "Ashita" but single charactor "明" will be converted "Mei" in Japanese.
 
-    This is an improved version of Python unidecode,
-    that is Python port of Text::Unidecode Perl module by 
-    Sean M. Burke <sburke@cpan.org>.
+ This is an improved version of Python unidecode,
+ that is Python port of Text::Unidecode Perl module by 
+ Sean M. Burke <sburke@cpan.org>.
 
 REQUIREMENTS
 ------------
 
-    There is no required staff other than standard python libraries. 
-    Because it is still under development for python3, you can use it
-    with python2.x.(>2.6)
+ It use a setuptools library to build and test.
 
 
 INSTALLATION
 ------------
 
-    You install Unihandecode, as you would install any Python module,
-    by running these commands:
+ You install Unihandecode by running these commands:
 
-        python setup.py gendict
-        python setup.py genmap
-        python setup.py install
-        python setup.py test
+        make clean
+        make
+        make install
 
-    If you got egg package, it is easy to install by
-    $ easy_install Unihandecode-0.42-py2.7.egg
+ If you got egg package, it is easy to install by
+ ```$ easy_install Unihandecode-0.42-py2.7.egg```
 
 BUILD
 ------
 
-    To build egg package, we need additional instruction.
+ To build egg package;
 
-        python setup.py gendict
-        python setup.py genmap
-        python setup.py bdist_egg
+        make dist
+
+TEST
+------
+
+ To do unit test, run
+
+        make test
+
 
 LIMITATION
 ----------
 
-    This library uses pickler that format is depend on platform
-    and python version.
-    You should re-create dictionary for each python version.
-
+ This library uses pickler that format is depend on platform
+ and python version.
+ You should re-create dictionary for each python version.
+ To avoid a dependency problem, always recommend to run ```make clean```
+ before build.
 
 SUPPORT
 --------
 
-    Questions, bug reports, useful code bits, and suggestions for
-    Unihandecode are handled on github.com/miurahr/unihandecode
+ Questions, bug reports, useful code bits, and suggestions for
+ Unihandecode are handled on github.com/miurahr/unihandecode
 
 
 AVAILABILITY
 ------------
 
-    The latest version of Unihandecode is available from
-    Git repository in github.com:
+ The latest version of Unihandecode is available from
+ Git repository in github.com:
 
 	https://github.com/miurahr/unihandecode
 
-    WARNING: There was launchpad.net Bazzar repository named
-             unhandecode.
-             It has NOT been maintained and moved github entirely.
+ and Eggs are on PyPi.python.org:
+ 
+        https://pypi.python.org/pypi/Unihandecode
+
+ WARNING: There was launchpad.net Bazzar repository named unhandecode.
+ It has NOT been maintained and moved github entirely.
 
 
 COPYRIGHT
