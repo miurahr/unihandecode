@@ -4,11 +4,15 @@ import re
 from marshal import dumps
 
 try:
-    import gdbm as dbm
     from cPickle import dump
 except:
-    import dbm
     from pickle import dump
+
+# for compatibility in platforms.
+try:
+    import dumbdbm as dbm
+except:
+    import dbm.dumb as dbm
 
 class mkkanwa(object):
 
@@ -63,11 +67,7 @@ class mkkanwa(object):
                 self.records[key][kanji]=[(yomi, tail)]
 
     def kanwaout(self, out):
-        try:
-            unicode #python2 need .db ext
-            dic = dbm.open(out+'.db', 'c')
-        except: #python3 add automatically .db ext
-            dic = dbm.open(out, 'c')
+        dic = dbm.open(out, 'c')
         for (k, v) in self.records.items():
             dic[k] = compress(dumps(v))
         dic.close()
