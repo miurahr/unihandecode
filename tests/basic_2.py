@@ -14,12 +14,8 @@ class TestUnidecode(unittest.TestCase):
         u = Unihandecoder(lang="zh")
         for n in xrange(0,0x10000):
             # Just check that it doesn't throw an exception
-            try:
-                t = unichr(n)
-                u.decode(t)
-            except:
-                print "catch error at %02x"%n
-
+            t = unichr(n)
+            u.decode(t)
 
     def test_mathematical_latin(self):
         # 13 consecutive sequences of A-Z, a-z with some codepoints
