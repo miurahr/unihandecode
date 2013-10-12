@@ -3,6 +3,17 @@
 ;;  To use this mapping table, 
 ;;    you should unicode normalize NKFC form.
 ;;
+;; Special mapping
+;;
+;; Katakana punctuation
+;;  30A0 ゠KATAKANA-HIRAGANA DOUBLE HYPHEN → 003D = equals sign
+;; Conjunction and length marks
+;;  30FB ・ KATAKANA MIDDLE DOT → 00B7 · middle dot
+;;  30FC ー KATAKANA-HIRAGANA PROLONGED SOUND MARK → 2014 — em dash
+;;
+. ・
+- ー
+= ゠
 ;; basic mapping
 ;;
 a ァ
@@ -202,10 +213,14 @@ tto ット
 ttsu ッツ
 u ゥ
 u ウ
+va ヷ
 va ヴァ
 ve ヴェ
+ve ヹ
 vi ヴィ
+vi ヸ
 vo ヴォ
+vo ヺ
 vu ヴ
 vva ッヴァ
 vve ッヴェ
@@ -549,11 +564,4 @@ zzu っず
 zzu っづ
 ;;
 ;; adhoc fixes
-. ・
-- ー
 page ページ
-= ゠
-va ヷ
-vi ヸ
-ve ヹ
-vo ヺ
