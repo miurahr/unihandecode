@@ -1,21 +1,41 @@
-
+# Makefile for Unihandecode
+# --*-- Makefile --*--
+#
 
 PYTHON=/usr/bin/python
 
+# definitions
+PKLS=unihandecode/jacodepoints.pickle unihandecode/zhcodepoints.pickle \
+     unihandecode/vncodepoints.pickle unihandecode/krcodepoints.pickle \
+     unihandecode/unicodepoints.pickle
+DATASRC=data/UnicodeData.txt gencodemap/unicodepoints.py
+KANWADICT=unihandecode/pykakasi/kanwadict2.dir unihandecode/pykakasi/kanwadict2.bak \
+          unihandecode/pykakasi/kanwadict2.dat
+KANWASRC=data/kakasidict.utf8
+
 all: test bdist sdist
+
+# build targets
+
+install: genmap gendict
+	$(PYTHON) setup.py install
 
 test: genmap gendict
 	$(PYTHON) setup.py test
 
-genmap: unihandecode/*.pickle
-
-gendict: unihandecode/pykakasi/kanwadict2.dir
+dist: bdist sdist
 
 bdist: genmap gendict
 	$(PYTHON) setup.py bdist_egg
 
 sdist:
 	$(PYTHON) setup.py sdist
+
+genmap: $(PKLS)
+
+gendict: $(KANWADICT)
+
+# clean target
 
 clean:
 	rm -f unihandecode/*.pickle
@@ -24,11 +44,10 @@ clean:
 	rm -f unihandecode/pykakasi/kanwadict2.*
 	rm -f unihandecode/pykakasi/*.pyc
 
-stamp-genmap:
-	touch stamp-genmap
+# dictionaries
 
-unihandecode/*.pickle: data/UnicodeData.txt
+$(PKLS): $(DATASRC)
 	$(PYTHON) setup.py genmap
 
-unihandecode/pykakasi/kanwadict2.dir: data/kakasidict.utf8
+$(KANWADICT): $(KANWASRC)
 	$(PYTHON) setup.py gendict
