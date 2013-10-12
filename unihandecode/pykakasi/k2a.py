@@ -46,12 +46,8 @@ class K2a (object):
     # FIXME: we need to handle Voicing marks,
     #   Iteration marks and Hiragana digraph
     def canConvert(self, c):
-        return  ((0x3040 < ord(c[0]) and ord(c[0]) < 0x30ff)
-             and ((ord(c[0]) < 0x3097) or
-                  (ord(c[0]) > 0x309F))
-             and ((ord(c[0]) < 0x30fd) or
-                  (ord(c[0]) > 0x30fe))
-                 )
+        return ((0x3040 < ord(c[0]) and ord(c[0]) < 0x3097)
+             or  (0x30a0 < ord(c[0]) and ord(c[0]) < 0x30fd))
 
     # return -1 as len when no str is found.
     def convert(self, text):
