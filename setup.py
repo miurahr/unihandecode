@@ -114,7 +114,7 @@ class genmap_t(threading.Thread):
 setup(name='Unihandecode',
       version='0.43',
       description='US-ASCII transliterations of Unicode text',
-      url='http://launchpad.net/unihandecode/',
+      url='https://github.com/miurahr/unihandecode/',
       license='GPLv3/Perl',
       long_description="""
 It often happens that you have non-Roman text data in Unicode, but
