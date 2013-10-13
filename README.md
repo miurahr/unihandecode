@@ -1,7 +1,7 @@
 # Unihandecode
 
  [![travis-ci](https://secure.travis-ci.org/miurahr/unihandecode.png)](https://secure.travis-ci.org/miurahr/unihandecode)
- [![Downloads](https://pypip.in/d/Unihandecode/badge.png)](https://crate.io/package/Unihandecode)
+ [![Downloads](https://pypip.in/d/Unihandecode/badge.png)](https://crate.io/packages/Unihandecode)
  [![PyPI version](https://badge.fury.io/py/Unihandecode.png)](http://badge.fury.io/py/Unihandecode)
 
 ASCII transliterations of Unicode text that recognize CJKV complex charactors
