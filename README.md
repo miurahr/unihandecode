@@ -10,10 +10,10 @@ ASCII transliterations of Unicode text that recognize CJKV complex charactors
 EXAMPLE USE
 -----------
 
- You can run it on python interpreter:
+ You can run it on python interpreter(in 2.x):
 
         from unihandecode import Unihandecoder
-        u = Unihandecoder(lang='ch')
+        d = Unihandecoder(lang='zh')
         print d.decode(u"\u660e\u5929\u660e\u5929\u7684\u98ce\u5439")
 
         # That prints: Ming Tian Ming Tian De Feng Chui 
