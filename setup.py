@@ -5,6 +5,7 @@ from setuptools import Command,setup, find_packages
 
 import unittest
 import os,threading
+import sys
 import gencodemap
 import genkanwadict
 
@@ -23,13 +24,14 @@ class TestCommand(Command):
 
     def run(self):
         suite = unittest.TestSuite()
-
         suite.addTests( 
             unittest.defaultTestLoader.loadTestsFromNames( 
                                 UNITTESTS ) )
-
         result = unittest.TextTestRunner(verbosity=2).run(suite)
-
+        if result.wasSuccessful():
+            sys.exit(0)
+        else:
+            sys.exit(1)
 
 class GenKanwa(Command):
     user_options = [ ]
