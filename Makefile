@@ -37,12 +37,15 @@ gendict: $(KANWADICT)
 
 # clean target
 
+dist-clean: clean
+	rm -rf dist
 clean:
 	rm -f unihandecode/*.pickle
 	rm -f unihandecode/*.pyc
 	rm -f unihandecode/pykakasi/*.pickle
 	rm -f unihandecode/pykakasi/kanwadict2.*
 	rm -f unihandecode/pykakasi/*.pyc
+	rm -rf build
 
 # dictionaries
 
