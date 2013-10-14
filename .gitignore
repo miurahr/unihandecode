@@ -4,3 +4,8 @@
 *.pickle
 *.db
 *.ttbl
+*.dir
+*.dat
+dist/
+build/
+Unihandecode.egg-info/
