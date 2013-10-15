@@ -4,16 +4,21 @@
 
 PYTHON=/usr/bin/python
 
+# data directories
+LROOT=unihandecode
+DROOT=$(LROOT)/localedata
+KROOT=$(LROOT)/pykakasi
+
 # definitions
-PKLS=unihandecode/jacodepoints.pickle unihandecode/zhcodepoints.pickle \
-     unihandecode/vncodepoints.pickle unihandecode/krcodepoints.pickle \
-     unihandecode/unicodepoints.pickle
+PKLS=$(DROOT)/jacodepoints.pickle $(DROOT)/zhcodepoints.pickle \
+     $(DROOT)/vncodepoints.pickle $(DROOT)/krcodepoints.pickle \
+     $(DROOT)/unicodepoints.pickle
 DATASRC=data/UnicodeData.txt gencodemap/unicodepoints.py
-KANWADICT=unihandecode/pykakasi/kanwadict2.dir unihandecode/pykakasi/kanwadict2.bak \
-          unihandecode/pykakasi/kanwadict2.dat
+KANWADICT=$(KROOT)/kanwadict2.dir $(KROOT)/kanwadict2.bak \
+          $(KROOT)/kanwadict2.dat
 KANWASRC=data/kakasidict.utf8
 GLCP=gentable/glcp.py
-TTBLS=unihandecode/de_DE.ttbl.bz2
+TTBLS=$(DROOT)/de_DE.ttbl.bz2
 TTBL_SRC_DIR=/usr/share/i18n/locales
 
 all: test bdist sdist
@@ -43,11 +48,12 @@ gendict: $(KANWADICT)
 dist-clean: clean
 	rm -rf dist
 clean:
-	rm -f unihandecode/*.pickle
-	rm -f unihandecode/*.pyc
-	rm -f unihandecode/pykakasi/*.pickle
-	rm -f unihandecode/pykakasi/kanwadict2.*
-	rm -f unihandecode/pykakasi/*.pyc
+	rm -f $(DROOT)/*.pickle
+	rm -f $(DROOT)/*.ttbl.bz2
+	rm -f $(LROOT)/*.pyc
+	rm -f $(KROOT)/*.pickle
+	rm -f $(KROOT)/kanwadict2.*
+	rm -f $(KROOT)/*.pyc
 	rm -rf build
 
 # dictionaries/tables
@@ -58,6 +64,6 @@ $(PKLS): $(DATASRC)
 $(KANWADICT): $(KANWASRC)
 	$(PYTHON) setup.py gendict
 
-unihandecode/%.ttbl.bz2: $(TTBL_SRC_DIR)/%
-	$(GLCP) --output-dir=unihandecode/ $<
+$(DROOT)/%.ttbl.bz2: $(TTBL_SRC_DIR)/%
+	$(GLCP) --output-dir=$(DROOT) $<
 
