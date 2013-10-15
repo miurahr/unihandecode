@@ -40,13 +40,15 @@ gendict: $(KANWADICT)
 dist-clean: clean
 	rm -rf dist
 clean:
+	$(PYTHON) setup.py clean
+	rm -f unihandecode/*.pyc
 	rm -f unihandecode/*.pickle.bz2
 	rm -f unihandecode/*.pickle
-	rm -f unihandecode/*.pyc
 	rm -f unihandecode/pykakasi/*.pickle
-	rm -f unihandecode/pykakasi/kanwadict2.*
 	rm -f unihandecode/pykakasi/*.pyc
+	rm -f unihandecode/pykakasi/kanwadict2.*
 	rm -rf build
+	find . -name '*~' -exec rm -f {} \;
 
 # dictionaries
 
