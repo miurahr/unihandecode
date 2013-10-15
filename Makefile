@@ -12,6 +12,9 @@ DATASRC=data/UnicodeData.txt gencodemap/unicodepoints.py
 KANWADICT=unihandecode/pykakasi/kanwadict2.dir unihandecode/pykakasi/kanwadict2.bak \
           unihandecode/pykakasi/kanwadict2.dat
 KANWASRC=data/kakasidict.utf8
+GLCP=gentable/glcp.py
+TTBLS=unihandecode/de_DE.ttbl.bz2
+TTBL_SRC_DIR=/usr/share/i18n/locales
 
 all: test bdist sdist
 
@@ -31,7 +34,7 @@ bdist: genmap gendict
 sdist:
 	$(PYTHON) setup.py sdist
 
-genmap: $(PKLS)
+genmap: $(PKLS) $(TTBLS)
 
 gendict: $(KANWADICT)
 
@@ -47,10 +50,14 @@ clean:
 	rm -f unihandecode/pykakasi/*.pyc
 	rm -rf build
 
-# dictionaries
+# dictionaries/tables
 
 $(PKLS): $(DATASRC)
 	$(PYTHON) setup.py genmap
 
 $(KANWADICT): $(KANWASRC)
 	$(PYTHON) setup.py gendict
+
+unihandecode/%.ttbl.bz2: $(TTBL_SRC_DIR)/%
+	$(GLCP) --output-dir=unihandecode/ $<
+
