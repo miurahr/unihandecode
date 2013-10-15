@@ -8,6 +8,9 @@ PYTHON=/usr/bin/python
 PKLS=unihandecode/jacodepoints.pickle unihandecode/zhcodepoints.pickle \
      unihandecode/vncodepoints.pickle unihandecode/krcodepoints.pickle \
      unihandecode/unicodepoints.pickle
+PKLBZS=unihandecode/jacodepoints.pickle.bz2 unihandecode/zhcodepoints.pickle.bz2 \
+     unihandecode/vncodepoints.pickle.bz2 unihandecode/krcodepoints.pickle.bz2 \
+     unihandecode/unicodepoints.pickle.bz2
 DATASRC=data/UnicodeData.txt gencodemap/unicodepoints.py
 KANWADICT=unihandecode/pykakasi/kanwadict2.dir unihandecode/pykakasi/kanwadict2.bak \
           unihandecode/pykakasi/kanwadict2.dat
@@ -31,7 +34,7 @@ bdist: genmap gendict
 sdist:
 	$(PYTHON) setup.py sdist
 
-genmap: $(PKLS)
+genmap: $(PKLBZS)
 
 gendict: $(KANWADICT)
 
@@ -40,6 +43,7 @@ gendict: $(KANWADICT)
 dist-clean: clean
 	rm -rf dist
 clean:
+	rm -f unihandecode/*.pickle.bz2
 	rm -f unihandecode/*.pickle
 	rm -f unihandecode/*.pyc
 	rm -f unihandecode/pykakasi/*.pickle
@@ -54,3 +58,6 @@ $(PKLS): $(DATASRC)
 
 $(KANWADICT): $(KANWASRC)
 	$(PYTHON) setup.py gendict
+
+%.pickle.bz2: %.pickle
+	bzip2 -kf $<

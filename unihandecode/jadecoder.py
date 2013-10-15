@@ -17,6 +17,7 @@ This functionality is owned by Kakasi Japanese processing engine.
 Copyright (c) 2010 Hiroshi Miura
 '''
 
+import bz2
 import os, re
 try: #python2
     from cPickle import load
@@ -32,11 +33,7 @@ class Jadecoder(Unidecoder):
     codepoints = {}
 
     def __init__(self):
-        unicodepoints_pkl = open(resource_filename(__name__, 'unicodepoints.pickle'), 'rb')
-        (self.codepoints, dlen) = load(unicodepoints_pkl)
-        dict_pkl = open(resource_filename(__name__, 'jacodepoints.pickle'), 'rb')
-        (dic, dlen) = load(dict_pkl)
-        self.codepoints.update(dic)
+        self._load_codepoints('ja')
         self.kakasi = kakasi()
 
     def decode(self, text):

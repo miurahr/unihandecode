@@ -58,24 +58,21 @@ This library is free software; you can redistribute it and/or modify
 it under the same terms as Perl itself.
 '''
 
+import bz2
 import re
 try: #python2
-    from cPickle import load
+    from cPickle import load, loads
 except: #python3
-    from pickle import load
+    from pickle import load, loads
 
-from pkg_resources import resource_filename
+from pkg_resources import resource_filename, resource_exists, resource_stream
 
 class Unidecoder(object):
 
     codepoints = {}
 
     def __init__(self):
-        unicodepoints_pkl = open(resource_filename(__name__, 'unicodepoints.pickle'), 'rb')
-        (self.codepoints, dlen) = load(unicodepoints_pkl)
-        dict_pkl = open(resource_filename(__name__, 'zhcodepoints.pickle'), 'rb')
-        (dic, dlen) = load(dict_pkl)
-        self.codepoints.update(dic)
+        self._load_codepoints('zh')
 
     def decode(self, text):
         # Replace characters larger than 127 with their ASCII equivelent.
@@ -113,4 +110,14 @@ class Unidecoder(object):
             return ord(unicode(character)) & 255
         except:
             return ord(character) & 255
+
+    def _load_codepoints(self, lang):
+        loc_resource = '%scodepoints.pickle.bz2' % lang
+        for c in ['unicodepoints.pickle.bz2', loc_resource]:
+            with resource_stream(__name__, c) as f:
+                buf = f.read()
+                buf = bz2.decompress(buf)
+                (dic, dlen) = loads(buf)
+                self.codepoints.update(dic)
+        return self.codepoints
 

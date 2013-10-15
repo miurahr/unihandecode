@@ -24,9 +24,5 @@ class Krdecoder(Unidecoder):
     codepoints = {}
 
     def __init__(self):
-        unicodepoints_pkl = open(resource_filename(__name__, 'unicodepoints.pickle'), 'rb')
-        (self.codepoints, dlen) = load(unicodepoints_pkl)
-        dict_pkl = open(resource_filename(__name__, 'krcodepoints.pickle'), 'rb')
-        (dic, dlen) = load(dict_pkl)
-        self.codepoints.update(dic)
+        self._load_codepoints('kr')
 
