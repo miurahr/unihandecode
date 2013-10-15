@@ -2,8 +2,9 @@
 *~
 *.bak
 *.pickle
+*.pickle.bz2
 *.db
-*.ttbl
+*.ttbl.bz2
 *.dir
 *.dat
 dist/
