@@ -5,9 +5,6 @@
 PYTHON=/usr/bin/python
 
 # definitions
-PKLS=unihandecode/jacodepoints.pickle unihandecode/zhcodepoints.pickle \
-     unihandecode/vncodepoints.pickle unihandecode/krcodepoints.pickle \
-     unihandecode/unicodepoints.pickle
 PKLBZS=unihandecode/jacodepoints.pickle.bz2 unihandecode/zhcodepoints.pickle.bz2 \
      unihandecode/vncodepoints.pickle.bz2 unihandecode/krcodepoints.pickle.bz2 \
      unihandecode/unicodepoints.pickle.bz2
@@ -53,11 +50,9 @@ clean:
 
 # dictionaries
 
-$(PKLS): $(DATASRC)
+$(PKLBZS): $(DATASRC)
 	$(PYTHON) setup.py genmap
 
 $(KANWADICT): $(KANWASRC)
 	$(PYTHON) setup.py gendict
 
-%.pickle.bz2: %.pickle
-	bzip2 -kf $<

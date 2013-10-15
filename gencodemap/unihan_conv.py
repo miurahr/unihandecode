@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 import sys, re
-from zlib import compress
+import bz2
 
 try:
     from cPickle import dump
@@ -48,7 +48,12 @@ class UnihanConv():
         tbl = {}
         self.process_readings(source, tbl)
         max_len = max(max_len, len(tbl))
-        dump((tbl, max_len), open(dest, 'wb'), protocol=2)
+        out_fn = dest + '.bz2'
+        outfile = bz2.BZ2File(out_fn, 'w', 1024**2, 9)
+        try:
+            dump((tbl, max_len), outfile, protocol=2)
+        finally:
+            outfile.close()
 
     def check_category(self, lcode, category, pron):
         try:        

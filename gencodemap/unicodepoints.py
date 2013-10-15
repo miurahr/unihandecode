@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 import sys
-from zlib import compress
+import bz2
 
 try:
     from cPickle import dump
@@ -31,7 +31,12 @@ except: #python 3
 class Unicodepoints():
 
     def run(self, dest):
-        dump((self.CODEPOINTS, len(self.CODEPOINTS)), open(dest, 'wb'), protocol=2)
+        out_fn = dest + '.bz2'
+        outfile = bz2.BZ2File(out_fn, 'w', 1024**2, 9)
+        try:
+            dump((self.CODEPOINTS, len(self.CODEPOINTS)), outfile, protocol=2)
+        finally:
+            outfile.close()
 
     CODEPOINTS = {
 	'x20': [
