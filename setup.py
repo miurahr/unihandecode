@@ -112,7 +112,7 @@ class genmap_t(threading.Thread):
 
 
 setup(name='Unihandecode',
-      version='0.43',
+      version='0.44',
       description='US-ASCII transliterations of Unicode text',
       url='https://github.com/miurahr/unihandecode/',
       license='GPLv3/Perl',

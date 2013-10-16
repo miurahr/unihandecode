@@ -74,7 +74,7 @@ INSTALLATION
         make install
 
  If you got egg package, it is easy to install by
- ```$ easy_install Unihandecode-0.42-py2.7.egg```
+ ```$ easy_install Unihandecode-0.44-py2.7.egg```
 
 BUILD
 ------
@@ -140,7 +140,7 @@ Copyright 2001, Sean M. Burke <sburke@cpan.org>, all rights reserved.
 
 Python code:
 
-Copyright 2010-2013, Hiroshi Miura <miurahr@linux.com>
+Copyright 2010-2014, Hiroshi Miura <miurahr@linux.com>
 Copyright 2009, Tomaz Solc <tomaz@zemanta.com>
 
 
@@ -148,7 +148,7 @@ LICENSE
 -------
 
 Unihandecode
-     Copyright 2010-2013 Hiroshi Miura
+     Copyright 2010-2014 Hiroshi Miura
 
 This program is free software: you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by
