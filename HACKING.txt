@@ -20,16 +20,16 @@ You may also need to install python setuptools to build egg package
 from the source.
 
 for unit test,
-$ python setup.py test
+$ make test
 
 for create egg package
-$ python setup.py genmap gendict bdist_egg
+$ make dist
 
 for testing in your virtualenv,
 
-$ mkvirtualenv -p /usr/bin/python2.7 --distribute 2.7
+$ mkvirtualenv -p /usr/bin/python2.7 --setuptools 2.7
 $ workon 2.7
-$ python setup.py genmap gendict bdist_egg
+$ make dist
 $ easy_install dist/Unihandecode-0.43-py2.7.egg
 
 trial

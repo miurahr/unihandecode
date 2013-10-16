@@ -113,7 +113,7 @@ AVAILABILITY
  The latest version of Unihandecode is available from
  Git repository in github.com:
 
-	https://github.com/miurahr/unihandecode
+        https://github.com/miurahr/unihandecode
 
  and Eggs are on PyPi.python.org:
  
@@ -140,7 +140,7 @@ Copyright 2001, Sean M. Burke <sburke@cpan.org>, all rights reserved.
 
 Python code:
 
-Copyright 2010,2011, Hiroshi Miura <miurahr@linux.com>
+Copyright 2010-2013, Hiroshi Miura <miurahr@linux.com>
 Copyright 2009, Tomaz Solc <tomaz@zemanta.com>
 
 
