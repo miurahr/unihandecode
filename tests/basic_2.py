@@ -8,7 +8,7 @@ class TestUnidecode(unittest.TestCase):
         u = Unihandecoder(lang="zh")
         for n in xrange(0,128):
             t = chr(n)
-            self.failUnlessEqual(u.decode(t), t)
+            self.assertEqual(u.decode(t), t)
 
     def test_bmp(self):
         u = Unihandecoder(lang="zh")
@@ -41,9 +41,9 @@ class TestUnidecode(unittest.TestCase):
             if not b:
                 empty += 1
             else:
-                self.failUnlessEqual(b, a)
+                self.assertEqual(b, a)
 
-        self.failUnlessEqual(empty, 24)
+        self.assertEqual(empty, 24)
 
     def test_mathematical_digits(self):
         if sys.maxunicode < 0x1d800:
@@ -56,7 +56,7 @@ class TestUnidecode(unittest.TestCase):
             a = chr(ord('0') + (n-0x1d7ce) % 10)
             b = u.decode(unichr(n))
 
-            self.failUnlessEqual(b, a)
+            self.assertEqual(b, a)
 
     def test_combining_chars(self):
         TESTS = [
@@ -65,7 +65,7 @@ class TestUnidecode(unittest.TestCase):
                 ]
         u = Unihandecoder(lang="ja")
         for input, output in TESTS:
-            self.failUnlessEqual(u.decode(input), output)
+            self.assertEqual(u.decode(input), output)
 
     def test_decomposed_form(self):
         TESTS = [
@@ -76,7 +76,7 @@ class TestUnidecode(unittest.TestCase):
                 ]
         u = Unihandecoder(lang="ja")
         for input, output in TESTS:
-            self.failUnlessEqual(u.decode(input), output)
+            self.assertEqual(u.decode(input), output)
 
     def test_squared_chars(self):
         TESTS = [
@@ -102,7 +102,7 @@ class TestUnidecode(unittest.TestCase):
                ]
         u = Unihandecoder(lang="ja")
         for input, output in TESTS:
-            self.failUnlessEqual(u.decode(input), output)
+            self.assertEqual(u.decode(input), output)
 
     def test_compatibility_composite(self):
         TESTS = [
@@ -111,7 +111,7 @@ class TestUnidecode(unittest.TestCase):
                        ]
         u = Unihandecoder(lang="zh")
         for input, output in TESTS:
-            self.failUnlessEqual(u.decode(input), output)
+            self.assertEqual(u.decode(input), output)
 
     def test_mac_japanese_pua(self):
         TESTS = [
@@ -123,7 +123,7 @@ class TestUnidecode(unittest.TestCase):
                     ]
         u = Unihandecoder(lang="ja")
         for input, output in TESTS:
-            self.failUnlessEqual(u.decode(input), output)
+            self.assertEqual(u.decode(input), output)
 
     def test_specific_bmp(self):
 
@@ -179,7 +179,7 @@ class TestUnidecode(unittest.TestCase):
 
         u = Unihandecoder(lang="zh")
         for input, output in TESTS:
-            self.failUnlessEqual(u.decode(input), output)
+            self.assertEqual(u.decode(input), output)
 
     def test_specific_supplementary(self):
         if sys.maxunicode < 0x1d6a4:
@@ -197,7 +197,7 @@ class TestUnidecode(unittest.TestCase):
         ]
         u = Unihandecoder(lang="zh")
         for input, output in TESTS:
-            self.failUnlessEqual(u.decode(input), output)
+            self.assertEqual(u.decode(input), output)
 
     def test_kana(self):
         u = Unihandecoder(lang="ja")
@@ -227,7 +227,7 @@ class TestUnidecode(unittest.TestCase):
             ]
         u = Unihandecoder(lang="ja")
         for input, output in JATESTS:
-            self.failUnlessEqual(u.decode(input), output)
+            self.assertEqual(u.decode(input), output)
 
     def test_kr(self):
         KRTESTS = [
@@ -238,7 +238,7 @@ class TestUnidecode(unittest.TestCase):
             ]
         u = Unihandecoder(lang="kr")
         for input, output in KRTESTS:
-            self.failUnlessEqual(u.decode(input), output)
+            self.assertEqual(u.decode(input), output)
 
     def test_zh(self):
         ZHTESTS = [
@@ -248,7 +248,7 @@ class TestUnidecode(unittest.TestCase):
             ]
         u = Unihandecoder(lang="zh")
         for input, output in ZHTESTS:
-            self.failUnlessEqual(u.decode(input), output)
+            self.assertEqual(u.decode(input), output)
 
     def test_vn(self):
         VNTESTS = [
@@ -259,7 +259,7 @@ class TestUnidecode(unittest.TestCase):
             ]
         u = Unihandecoder(lang="vn")
         for input, output in VNTESTS:
-            self.failUnlessEqual(u.decode(input), output)
+            self.assertEqual(u.decode(input), output)
 
 if __name__ == "__main__":
     unittest.main()
