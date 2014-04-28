@@ -2,7 +2,7 @@
 # --*-- Makefile --*--
 #
 
-PYTHON=/usr/bin/python
+PYTHON=/usr/bin/env python
 
 # definitions
 PKLBZS=unihandecode/jacodepoints.pickle.bz2 unihandecode/zhcodepoints.pickle.bz2 \
@@ -21,7 +21,7 @@ install: genmap gendict
 	$(PYTHON) setup.py install
 
 test: genmap gendict
-	$(PYTHON) setup.py test
+	tox
 
 dist: bdist sdist
 
