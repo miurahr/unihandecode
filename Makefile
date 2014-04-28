@@ -21,7 +21,7 @@ install: genmap gendict
 	$(PYTHON) setup.py install
 
 test: genmap gendict
-	tox
+	nosetests -v
 
 dist: bdist sdist
 
