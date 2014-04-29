@@ -33,6 +33,8 @@ from .k2a import K2a
 class kakasi(object):
 
     _conv = {}
+    _separator = ' '
+    _endmark = [0x002c, 0x002e, 0x3001, 0x3002]
 
     def __init__(self):
         self._conv["j"] = J2a()
@@ -53,10 +55,10 @@ class kakasi(object):
                     i += 1
                     continue
                 i = i + l
-                if i >= len(text):
-                    otext = otext + t.capitalize()
-                else:
-                    otext = otext + t.capitalize() + ' '
+                otext = otext + t.capitalize()
+                # Not insert space BEFORE end marks and text end.
+                if (i < len(text)) and not (ord(text[i]) in self._endmark):
+                    otext = otext + self._separator
  
             elif self._conv["k"].canConvert(text[i]):
                 while True:
@@ -79,10 +81,10 @@ class kakasi(object):
                     elif not self._conv["k"].canConvert(text[i]):
                         # Found a place _conv["k"] cannot convert.
                         # this means we found word boundary.
-                        # Inserting ' ' to indicate word boundary.
-                        # FIXME
-                        if ((ord(text[i]) != 0x3001) and (ord(text[i]) != 0x3002)):
-                            otext = otext + ' '
+                        # Inserting word separator(space) to indicate word boundary.
+                        # Not inserting space BEFORE comma and full stop
+                        if not ord(text[i]) in self._endmark:
+                            otext = otext + self._separator
                         break
                     else:
                         # We can process next character with _conv["k"]
