@@ -7,7 +7,7 @@ class TestUnidecode(unittest.TestCase):
         u = Unihandecoder()
         for n in range(0,128):
             t = chr(n)
-            self.failUnlessEqual(u.decode(t), t)
+            self.assertEqual(u.decode(t), t)
 
     def test_combining_chars(self):
         TESTS = [
@@ -15,7 +15,7 @@ class TestUnidecode(unittest.TestCase):
                     ]
         u = Unihandecoder(lang="ja")
         for input, output in TESTS:
-            self.failUnlessEqual(u.decode(input), output)
+            self.assertEqual(u.decode(input), output)
 
     def test_decomposed_form(self):
         TESTS = [
@@ -25,7 +25,7 @@ class TestUnidecode(unittest.TestCase):
                 ]
         u = Unihandecoder(lang="ja")
         for input, output in TESTS:
-            self.failUnlessEqual(u.decode(input), output)
+            self.assertEqual(u.decode(input), output)
 
     def test_mac_japanese_pua(self):
         TESTS = [
@@ -34,7 +34,7 @@ class TestUnidecode(unittest.TestCase):
                     ]
         u = Unihandecoder(lang="ja")
         for input, output in TESTS:
-            self.failUnlessEqual(u.decode(input), output)
+            self.assertEqual(u.decode(input), output)
 
     def test_bmp(self):
         u = Unihandecoder()
@@ -59,9 +59,9 @@ class TestUnidecode(unittest.TestCase):
             if not b:
                 empty += 1
             else:
-                self.failUnlessEqual(b, a)
+                self.assertEqual(b, a)
                 
-        self.failUnlessEqual(empty, 24)
+        self.assertEqual(empty, 24)
                 
     def test_mathematical_digits(self):
         # 5 consecutive sequences of 0-9
@@ -70,7 +70,7 @@ class TestUnidecode(unittest.TestCase):
             a = chr(ord('0') + (n-0x1d7ce) % 10)
             b = u.decode(chr(n))
             
-            self.failUnlessEqual(b, a)
+            self.assertEqual(b, a)
 
     def test_specific_bmp(self):
 
@@ -119,7 +119,7 @@ class TestUnidecode(unittest.TestCase):
           ]
         u = Unihandecoder()
         for instr, output in TESTS:
-            self.failUnlessEqual(u.decode(instr), output)
+            self.assertEqual(u.decode(instr), output)
 
     def test_specific_ext(self):
 
@@ -134,18 +134,28 @@ class TestUnidecode(unittest.TestCase):
         ]
         u = Unihandecoder(lang="zh")
         for input, output in TESTS:
-            self.failUnlessEqual(u.decode(input), output)
+            self.assertEqual(u.decode(input), output)
 
     def test_ja(self):
         JATESTS = [
             ('\u660e\u65e5\u306f\u660e\u65e5\u306e\u98a8\u304c\u5439\u304f',
             'Ashita ha Ashita no Kaze ga Fuku'),
             ("\u660e\u5929\u660e\u5929\u7684\u98ce\u5439",
-            'Mei Tenmei Ten Teki Sui')
+            'Mei Tenmei Ten Teki Sui'),
+            ("馮", "Fuu"), # Fuu in human's name, Hyou in another case
+            # regression tests
+            ('\u30d0\u30cb\u30fc\u3061\u3083\u3093\u3061\u306e\u30b7\u30e3\u30ef\u30fc\u30ce\u30ba\u30eb\u306e\u5148\u7aef',
+            "bani-chanchinoshawa-nozuruno Sentan"),  # test for u30fc
+            ('\u3093\u301c\u30fb\u30fb\u30fb\u3002\u30b1\u30c4\u3063!\uff01',
+            "n ~ .... ketsutsu !!"), #Hiragana n Namisen katakana-middle-dot
+                                     #dot dot Touten, katakana KE, katakana
+                                     #TSU, Hiragana small TU, ASCII !, half width !
+            ("ページへようこそ", 'pageheyoukoso'),
+            ("する。",'suru. '), # end mark test
             ]
         u = Unihandecoder(lang="ja")
         for instr, output in JATESTS:
-            self.failUnlessEqual(u.decode(instr), output)
+            self.assertEqual(u.decode(instr), output)
 
     def test_kr(self):
         KRTESTS = [
@@ -156,7 +166,7 @@ class TestUnidecode(unittest.TestCase):
             ]
         u = Unihandecoder(lang="kr")
         for instr, output in KRTESTS:
-            self.failUnlessEqual(u.decode(instr), output)
+            self.assertEqual(u.decode(instr), output)
 
     def test_zh(self):
         ZHTESTS = [
@@ -165,7 +175,7 @@ class TestUnidecode(unittest.TestCase):
             ]
         u = Unihandecoder(lang="zh")
         for instr, output in ZHTESTS:
-            self.failUnlessEqual(u.decode(instr), output)
+            self.assertEqual(u.decode(instr), output)
 
     def test_vn(self):
         VNTESTS = [
@@ -176,5 +186,5 @@ class TestUnidecode(unittest.TestCase):
             ]
         u = Unihandecoder(lang="vn")
         for input, output in VNTESTS:
-            self.failUnlessEqual(u.decode(input), output)
+            self.assertEqual(u.decode(input), output)
 

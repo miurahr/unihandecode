@@ -8,30 +8,7 @@ import os,threading
 import sys
 import gencodemap
 import genkanwadict
-
-UNITTESTS = [
-        "tests", 
-    ]
-
-class TestCommand(Command):
-    user_options = [ ]
-
-    def initialize_options(self):
-        pass
-
-    def finalize_options(self):
-        pass
-
-    def run(self):
-        suite = unittest.TestSuite()
-        suite.addTests( 
-            unittest.defaultTestLoader.loadTestsFromNames( 
-                                UNITTESTS ) )
-        result = unittest.TextTestRunner(verbosity=2).run(suite)
-        if result.wasSuccessful():
-            sys.exit(0)
-        else:
-            sys.exit(1)
+import nose
 
 class GenKanwa(Command):
     user_options = [ ]
@@ -149,7 +126,7 @@ d = Unidecoder(lang='ja')
                                        'pykakasi/*.pickle',
                                        'pykakasi/kanwadict2.*']},
       provides = [ 'unihandecode' ],
-
-      cmdclass = { 'test': TestCommand,  'genmap':GenMap, 'gendict':GenKanwa }
+      test_suite = 'nose.collector',
+      cmdclass = {'genmap':GenMap, 'gendict':GenKanwa }
 
 )
