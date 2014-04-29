@@ -10,6 +10,7 @@ env:
 
 before_install:
   - sudo apt-get update
+  - sudo apt-get install make
   - sudo apt-get install python3.4 python3.4-dev
 
 install:
