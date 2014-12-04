@@ -8,7 +8,6 @@ import os,threading
 import sys
 import gencodemap
 import genkanwadict
-import nose
 
 class GenKanwa(Command):
     user_options = [ ]
