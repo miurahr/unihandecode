@@ -34,9 +34,12 @@ class mkkanwa(object):
                 continue
             if re.match(r"^$",line):
                 continue
-            (v, k) = (re.sub(r'\\u([0-9a-fA-F]{4})', lambda x:unichr(int(x.group(1),16)), line)).split(' ')
-            dic[k] = v
-            max_len = max(max_len, len(v))
+            try:
+                (v, k) = (re.sub(r'\\u([0-9a-fA-F]{4})', lambda x:unichr(int(x.group(1),16)), line)).split(' ')
+                dic[k] = v
+                max_len = max(max_len, len(v))
+            except:
+                pass
         dump((dic, max_len), open(dst, 'wb'), protocol=2)
 
 # for kanwadict

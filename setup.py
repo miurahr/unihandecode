@@ -11,17 +11,17 @@ import shutil
 import unihandecode.gencodemap as gencodemap
 import unihandecode.genkanwadict as genkanwadict
 
+SUPPORTED_LANG=['kr','ja','zh','vn']
 
-def gen_map(lang):
+def gen_map():
     unihan_source = os.path.join('unihandecode','data','Unihan_Readings.txt')
-    dest = os.path.join('unihandecode',lang+'codepoints.pickle')
-    u = gencodemap.UnihanConv(lang)
-    u.run(source = unihan_source, dest=dest)
+    for lang in SUPPORTED_LANG:
+        dest = os.path.join('unihandecode',lang+'codepoints.pickle')
+        u = gencodemap.UnihanConv(lang)
+        u.run(source = unihan_source, dest=dest)
 
-def gen_dict(src_f, pkl_f):
+def gen_dict(src, dst):
     kanwa = genkanwadict.mkkanwa()
-    src = os.path.join('unihandecode','data',src_f)
-    dst = os.path.join('unihandecode','pykakasi',pkl_f)
     try:
         os.unlink(dst)
     except:
@@ -29,25 +29,12 @@ def gen_dict(src_f, pkl_f):
     kanwa.mkdict(src, dst)
 
 def catdict(src_a, dst):
-    outdict    = open(os.path.join('unihandecode','data', dst),'wb')
+    outdict    = open(dst,'wb')
     for src_f in src_a:
       shutil.copyfileobj(open(os.path.join('unihandecode','data',src_f),'rb'), outdict)
     outdict.close()
 
-def _pre_build():
-    # concatenate kanadict and gairaidict
-    catdict(['kanadict.utf8','gairaidict.utf8','ryakugodict.utf8'],
-                  'kanadict2.utf8')
-    DICTS = [
-        ('itaijidict.utf8', 'itaijidict2.pickle'),
-        ('kanadict2.utf8', 'kanadict2.pickle'),  # kanadict2.utf8 will be generated above
-    ]
-
-    for (s,p) in DICTS:
-        gen_dict(s, p)
-
-    src = os.path.join('unihandecode','data','kakasidict.utf8')
-    dst = os.path.join('unihandecode','pykakasi','kanwadict2') # don't add .db ext
+def gen_kanwa(src, dst):
     try:
         os.unlink(dst+'.db')
     except:
@@ -55,10 +42,28 @@ def _pre_build():
     kanwa = genkanwadict.mkkanwa()
     kanwa.run(src, dst)
 
+def _pre_build():
+    # build itaijidict
+    src = os.path.join('unihandecode','data','itaijidict.utf8')
+    dst = os.path.join('unihandecode','pykakasi','itaijidict2.pickle')
+    gen_dict(src, dst)
+
+    # build kanadict
+    catdict(['kanadict.utf8','gairaidict.utf8','ryakugodict.utf8'], os.path.join('/tmp','kanadict2.utf8'))
+    src = os.path.join('/tmp','kanadict2.utf8')
+    dst = os.path.join('unihandecode','pykakasi','kanadict2.pickle')
+    gen_dict(src, dst)
+    os.unlink(os.path.join('/tmp','kanadict2.utf8'))
+
+    # build kakasi dict
+    src = os.path.join('unihandecode','data','kakasidict.utf8')
+    dst = os.path.join('unihandecode','pykakasi','kanwadict2') # don't add .db ext
+    gen_kanwa(src, dst)
+
+    # build unicode maps
     u = gencodemap.Unicodepoints()
     u.run(os.path.join('unihandecode','unicodepoints.pickle'))
-    for l in ['kr','ja','zh','vn']:
-        gen_map(l)
+    gen_map()
 
 class my_build(build):
     def run(self):
