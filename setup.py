@@ -25,7 +25,7 @@ class genmap_t(threading.Thread):
 
 def genDict(src_f, pkl_f):
     kanwa = genkanwadict.mkkanwa()
-    src = os.path.join('data',src_f)
+    src = os.path.join('unihandecode','data',src_f)
     dst = os.path.join('unihandecode','pykakasi',pkl_f)
     try:
         os.unlink(dst)
@@ -42,7 +42,7 @@ def _pre_install(dir):
     for (s,p) in DICTS:
         genDict(s, p)
 
-    src = os.path.join('data','kakasidict.utf8')    
+    src = os.path.join('unihandecode','data','kakasidict.utf8')
     dst = os.path.join('unihandecode','pykakasi','kanwadict2') # don't add .db ext
     try:
         os.unlink(dst+'.db')
@@ -109,9 +109,12 @@ d = Unidecoder(lang='ja')
       author='Hioshi Miura',
       author_email='miurahr@linux.com',
 
-      packages = ['unihandecode','unihandecode.pykakasi'],
+      packages = ['unihandecode',
+                  'unihandecode.pykakasi',
+                  'unihandecode.genkanwadict',
+                  'unihandecode.gencodemap'],
       include_package_data = True,
-      package_data = {'data': ['*.utf8','*.txt']},
+      package_data = {'unihandecode.data': ['*.utf8','*.txt']},
       provides = [ 'unihandecode' ],
       test_suite = 'nose.collector',
       cmdclass = {'install':install}

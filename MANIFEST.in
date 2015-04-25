@@ -3,7 +3,7 @@ include Makefile
 include mkdist.sh
 include mkdist.bat
 include GPL-3
-recursive-include data *.txt *.utf8
-recursive-include gencodemap *.py
-recursive-include genkanwadict *.py
+recursive-include unihandecode/data *.txt *.utf8
+recursive-include unihandecode/gencodemap *.py
+recursive-include unihandecode/genkanwadict *.py
 recursive-include tests *.py
