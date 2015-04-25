@@ -2,7 +2,7 @@
 # derivered from unidecode setup.py
 
 from setuptools import Command, setup, find_packages
-from distutils.command.install import install as _install
+from distutils.command.build import build
 
 import unittest
 import os,threading
@@ -11,19 +11,13 @@ import unihandecode.gencodemap as gencodemap
 import unihandecode.genkanwadict as genkanwadict
 
 
-class genmap_t(threading.Thread):
-    l = None
-    def __init__(self, lang):
-        threading.Thread.__init__(self)
-        self.l = lang
+def gen_map(lang):
+    unihan_source = os.path.join('unihandecode','data','Unihan_Readings.txt')
+    dest = os.path.join('unihandecode',lang+'codepoints.pickle')
+    u = gencodemap.UnihanConv(lang)
+    u.run(source = unihan_source, dest=dest)
 
-    def run(self):
-        unihan_source = os.path.join('data','Unihan_Readings.txt')
-        dest = os.path.join('unihandecode',self.l+'codepoints.pickle')
-        u = gencodemap.UnihanConv(self.l)
-        u.run(source = unihan_source, dest=dest)
-
-def genDict(src_f, pkl_f):
+def gen_dict(src_f, pkl_f):
     kanwa = genkanwadict.mkkanwa()
     src = os.path.join('unihandecode','data',src_f)
     dst = os.path.join('unihandecode','pykakasi',pkl_f)
@@ -33,14 +27,14 @@ def genDict(src_f, pkl_f):
         pass
     kanwa.mkdict(src, dst)
 
-def _pre_install(dir):
+def _pre_build():
     DICTS = [
         ('itaijidict.utf8', 'itaijidict2.pickle'),
         ('kanadict.utf8', 'kanadict2.pickle'),
     ]
 
     for (s,p) in DICTS:
-        genDict(s, p)
+        gen_dict(s, p)
 
     src = os.path.join('unihandecode','data','kakasidict.utf8')
     dst = os.path.join('unihandecode','pykakasi','kanwadict2') # don't add .db ext
@@ -53,29 +47,14 @@ def _pre_install(dir):
 
     u = gencodemap.Unicodepoints()
     u.run(os.path.join('unihandecode','unicodepoints.pickle'))
-    k= genmap_t('kr')
-    j= genmap_t('ja')
-    c= genmap_t('zh')
-    v= genmap_t('vn')
-    k.start()
-    j.start()
-    c.start()
-    v.start()
-    k.join()
-    j.join()
-    c.join()
-    v.join()
+    for l in ['kr','ja','zh','vn']:
+        gen_map(l)
 
-def _post_install(dir):
-    pass
-
-class install(_install):
+class my_build(build):
     def run(self):
-        self.execute(_pre_install,  (self.install_lib,),
-                    msg="Running pre install task")
-        _install.run(self)
-        self.execute(_post_install, (self.install_lib,),
-                    msg="Running post install task")
+        self.execute(_pre_build, (),
+                    msg="Running pre build task")
+        build.run(self)
 
 setup(name='Unihandecode',
       version='0.46',
@@ -108,15 +87,15 @@ d = Unidecoder(lang='ja')
       """,
       author='Hioshi Miura',
       author_email='miurahr@linux.com',
-
       packages = ['unihandecode',
                   'unihandecode.pykakasi',
                   'unihandecode.genkanwadict',
                   'unihandecode.gencodemap'],
       include_package_data = True,
-      package_data = {'unihandecode.data': ['*.utf8','*.txt']},
+      package_data = {'unihandecode':  ['*.pickle.bz2',
+                                        'pykakasi/*.pickle',
+                                        'pykakasi/kanwadict2.*']},
       provides = [ 'unihandecode' ],
       test_suite = 'nose.collector',
-      cmdclass = {'install':install}
-
+      cmdclass = {'build':my_build}
 )

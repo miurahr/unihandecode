@@ -8,53 +8,43 @@ PYTHON=/usr/bin/env python
 PKLBZS=unihandecode/jacodepoints.pickle.bz2 unihandecode/zhcodepoints.pickle.bz2 \
      unihandecode/vncodepoints.pickle.bz2 unihandecode/krcodepoints.pickle.bz2 \
      unihandecode/unicodepoints.pickle.bz2
-DATASRC=data/UnicodeData.txt gencodemap/unicodepoints.py
+DATASRC=unihandecode/data/UnicodeData.txt unihandecode/gencodemap/unicodepoints.py
 KANWADICT=unihandecode/pykakasi/kanwadict2.dir unihandecode/pykakasi/kanwadict2.bak \
           unihandecode/pykakasi/kanwadict2.dat
-KANWASRC=data/kakasidict.utf8
+KANWASRC=unihandecode/data/kakasidict.utf8
 
 all: test bdist sdist
 
 # build targets
 
-install: genmap gendict
+install: build
 	$(PYTHON) setup.py install
 
-test: genmap gendict
+test: build
 	nosetests
 
 dist: bdist sdist
 
-bdist: genmap gendict
-	$(PYTHON) setup.py bdist_egg
+bdist: build
+	$(PYTHON) setup.py bdist_wheel
 
 sdist:
 	$(PYTHON) setup.py sdist
 
-genmap: $(PKLBZS)
-
-gendict: $(KANWADICT)
+build: $(DATASRC) $(KANWASRC)
+	$(PYTHON) setup.py build
 
 # clean target
 
 dist-clean: clean
 	rm -rf dist
+
 clean:
 	$(PYTHON) setup.py clean
-	rm -f unihandecode/*.pyc
-	rm -f unihandecode/*.pickle.bz2
-	rm -f unihandecode/*.pickle
+	rm -f $(PKLBZS)
+	rm -f $(KANWADIT)
 	rm -f unihandecode/pykakasi/*.pickle
 	rm -f unihandecode/pykakasi/*.pyc
-	rm -f unihandecode/pykakasi/kanwadict2.*
+	rm -f unihandecode/*.pyc
 	rm -rf build
 	find . -name '*~' -exec rm -f {} \;
-
-# dictionaries
-
-$(PKLBZS): $(DATASRC)
-	$(PYTHON) setup.py genmap
-
-$(KANWADICT): $(KANWASRC)
-	$(PYTHON) setup.py gendict
-
