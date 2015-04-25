@@ -1,17 +1,14 @@
 language: python
-python: 3.3
+python: 3.4
 env:
   matrix:
-    - TOXENV=py26
     - TOXENV=py27
-    - TOXENV=py32
     - TOXENV=py33
     - TOXENV=py34
 
 before_install:
   - sudo apt-get update
   - sudo apt-get install make
-  - sudo apt-get install python3.4 python3.4-dev
 
 install:
   - pip install tox
