@@ -248,88 +248,6 @@ zza ッザ
 zzo ッゾ
 zzu ッズ
 zzu ッヅ
-;;
-;; extended characters
-;;
-;;
-;; gairai terms
-;;
-all オール
-algrism アルゴリズム
-answer アンサー
-base ベース
-begineer ビギナー
-connection コネクション
-contents コンテンツ
-creator クリエーター
-comic コミック
-comics コミックス
-culture カルチャー
-debug デバッグ
-debugging デバッギング
-design デザイン
-digital デジタル
-dillenma ジレンマ
-directory ディレクトリ
-disk ディスク
-document ドキュメント
-download ダウンロード
-electric エレクトリック
-facebook フェイスブック
-firefox ファイアーフォックス
-folder フォルダ
-format フォーマット
-forum フォーラム
-fox フォックス
-free フリー
-gnome ノーム
-gnu グヌー
-gozilla ゴジラ
-guide ガイド
-harvard ハーバード
-help ヘルプ
-highlight ハイライト
-japan ジャパン
-journal ジャーナル
-library ライブラリ
-line ライン
-love ラヴ
-love ラブ
-mail メール
-main メイン
-mystery ミステリ
-mozilla モジラ
-network ネットワーク
-next ネクスト
-new ニュー
-news ニュース
-native ネイティブ
-online オンライン
-open オープン
-professional プロフェッショナル
-profile プロファイル
-programmer プログラマ
-sample サンプル
-series シリーズ
-share シェア
-social ソーシャル
-society ソサエティ
-software ソフトウエア
-source ソース
-street ストリート
-system システム
-tag タグ
-text テキスト
-thunderbird サンダーバード
-training トレーニング
-twitter ツイッター
-unicode ユニコード
-wall ウオール
-wall ウォール
-welcome ウェルカム
-welcome ウエルカム
-wikinomics ウィキノミクス
-york ヨーク
 ;; basic hiragana mapping
 ;;
 a ぁ
@@ -562,6 +480,3 @@ zza っざ
 zzo っぞ
 zzu っず
 zzu っづ
-;;
-;; adhoc fixes
-page ページ

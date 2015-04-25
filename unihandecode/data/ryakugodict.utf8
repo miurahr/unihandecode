@@ -1,0 +1,19 @@
+;; Kana-Alphabet mapping dictionary
+;;
+;;  To use this mapping table, 
+;;    you should unicode normalize NKFC form.
+;;
+;;
+;; extended characters
+;;
+;; ryakugo terms
+;;
+NHK エヌエイチケイ
+NHK エヌ・エイチ・ケー
+JR ジェイアール
+FBI エフビーアイ
+PC パソコン
+JT ジェイティ
+NTT エヌ・ティ・ティ
+GETRO ジェトロ
+GNP ジー・エヌ・ピー
