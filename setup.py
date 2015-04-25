@@ -75,7 +75,7 @@ class my_build(build):
         build.run(self)
 
 setup(name='Unihandecode',
-      version='0.46',
+      version='0.50',
       description='US-ASCII transliterations of Unicode text',
       url='https://github.com/miurahr/unihandecode/',
       license='GPLv3/Perl',
