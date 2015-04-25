@@ -49,7 +49,10 @@ def _pre_build():
     gen_dict(src, dst)
 
     # build kanadict
-    catdict(['kanadict.utf8','gairaidict.utf8','ryakugodict.utf8'], os.path.join('/tmp','kanadict2.utf8'))
+    #catdict(['kanadict.utf8','gairaidict.utf8','ryakugodict.utf8'], os.path.join('/tmp','kanadict2.utf8'))
+    # ad-hoc fix... igore it; gairai word should treat as same as kanwadict, not as kana dict
+    #  kana dict is basically one by one pronounce mapping, but gairai word is not; need spacing.
+    catdict(['kanadict.utf8','ryakugodict.utf8'], os.path.join('/tmp','kanadict2.utf8'))
     src = os.path.join('/tmp','kanadict2.utf8')
     dst = os.path.join('unihandecode','pykakasi','kanadict2.pickle')
     gen_dict(src, dst)

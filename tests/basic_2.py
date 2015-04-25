@@ -223,7 +223,7 @@ class TestUnidecode(unittest.TestCase):
             "n ~ .... ketsutsu !!"), #Hiragana n Namisen katakana-middle-dot
                                      #dot dot Touten, katakana KE, katakana
                                      #TSU, Hiragana small TU, ASCII !, half width !
-            (u"ページへようこそ", 'pageheyoukoso'),
+            (u"ページへようこそ", 'pe-jiheyoukoso'),
             (u"する。",'suru. '),# end mark test
             ]
         u = Unihandecoder(lang="ja")
