@@ -39,7 +39,7 @@ class mkkanwa(object):
                 dic[k] = v
                 max_len = max(max_len, len(v))
             except:
-                pass
+                raise Exception("Cannot process dictionary line: ", line)
         dump((dic, max_len), open(dst, 'wb'), protocol=2)
 
 # for kanwadict
