@@ -87,10 +87,18 @@ class UnihanConv():
         tbl['x%x'%ucode] = tmap
 
     def process_readings(self, source, tbl):
+        try:
+            with open(source, 'r', encoding='utf8') as f: #python3
+                self.process_file(f, tbl)
+        except:
+            with open(source, 'r') as f: #python2
+                self.process_file(f, tbl)
+
+    def process_file(self, f, tbl):
         oucode = 0
 
         r1 = re.compile(r'U\+([0-9A-F]{2,3})([0-9A-F]{2}\b)')
-        for line in open(source, 'r'):
+        for line in f:
             try:
                 uline = unicode(line, "utf-8") # python2
                 items = uline[:-1].split('\t')

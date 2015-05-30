@@ -4,12 +4,11 @@
 # Copyright 2011,2013 Hiroshi Miura <miurahr@linux.com>
 from zlib import decompress
 from pkg_resources import resource_filename
-from marshal import loads
 
 try:
-    from cPickle import load
+    from cPickle import load, loads
 except:
-    from pickle import load
+    from pickle import load, loads
 
 try:
     import dumbdbm as dbm

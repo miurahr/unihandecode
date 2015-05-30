@@ -1,12 +1,11 @@
 #!/usr/bin/env python
 from zlib import compress
 import re
-from marshal import dumps
 
 try:
-    from cPickle import dump
+    from cPickle import dump, dumps
 except:
-    from pickle import dump
+    from pickle import dump, dumps
 
 # for compatibility in platforms.
 try:
