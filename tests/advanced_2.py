@@ -2,7 +2,7 @@
 import unittest
 from unihandecode import Unihandecoder
 
-class TestUnidecodeAdvanced(unittest.TestCase):
+class TestUnihandecodeAdvanced(unittest.TestCase):
 
     def test_long_japanese_text(self):
 

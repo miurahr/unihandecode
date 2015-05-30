@@ -3,7 +3,7 @@ import unittest
 import sys
 from unihandecode import Unihandecoder
 
-class TestUnidecode(unittest.TestCase):
+class TestUnihandecode(unittest.TestCase):
     def test_ascii(self):
         u = Unihandecoder(lang="zh")
         for n in xrange(0,128):

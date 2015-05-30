@@ -15,4 +15,4 @@ install:
   - pip install tox
   - pip install -r requirements.txt -r requirements-dev.txt
 
-script: tox
+script: make test
