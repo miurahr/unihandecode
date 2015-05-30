@@ -6,9 +6,9 @@ you can get latest development tree as follows:
 
 $ git clone https://github.com/miurahr/unihandecode.git
 
-run ./mkdist.sh to make wheel file
+To make wheel file
 
-$ ./mkdist.sh
+$ make dist
 
 If you found a bug, please look at
 
@@ -16,29 +16,26 @@ https://github.com/miurahr/unihandecode/issues?state=open
 
 for bug tracking system.
 
-You may also need to install python setuptools to build egg package
+You may also need to install python setuptools to build package
 from the source.
+
+Unihandecode use pyenv for test and development environment.
+To install dependency, please run
+
+$ make setup
 
 for unit test,
 $ make test
 
-for create egg package
+for create wheel package
 $ make dist
-
-for testing in your virtualenv,
-
-$ mkvirtualenv -p /usr/bin/python2.7 --setuptools 2.7
-$ workon 2.7
-$ make dist
-$ easy_install dist/Unihandecode-0.43-py2.7.egg
 
 trial
 
 $ python
 >>> from unihandecode import Unihandecoder
 >>> d = Unihandecoder(lang="ja")
->>> d.decode(u"Sakura")
+>>> d.decode(u"桜")
 Sakura
-
 
 enjoy!

@@ -20,8 +20,8 @@ all: test bdist sdist
 install: build
 	$(PYTHON) setup.py install
 
-test: build
-	nosetests
+test: setup build
+	./test.sh
 
 dist: bdist sdist
 
@@ -33,6 +33,9 @@ sdist:
 
 build: $(DATASRC) $(KANWASRC)
 	$(PYTHON) setup.py build
+
+setup:
+	./setup.sh
 
 # clean target
 
