@@ -23,10 +23,11 @@ class UnihanConv():
     firsttime = True
     lang = None
     priority = {
-        'kr':  [ 'kKorean', 'kMandarin', 'kJapaneseOn', 'kVietnamese', 'kCantonese', 'kHanyuPinyin', 'kJapaneseKun'],
-        'zh': [ 'kMandarin', 'kCantonese', 'kKorean',  'kJapaneseOn', 'kVietnamese', 'kHanyuPinyin', 'kJapaneseKun'],
-        'ja': [ 'kJapaneseOn', 'kJapaneseKun', 'kMandarin', 'kCantonese', 'kKorean',  'kVietnamese', 'kHanyuPinyin'],
-        'vn': [ 'kVietnamese', 'kMandarin', 'kCantonese', 'kJapaneseOn', 'kJapaneseKun', 'kKorean',  'kHanyuPinyin'],
+        'kr':  [ 'kKorean', 'kMandarin', 'kJapaneseOn', 'kVietnamese', 'kCantonese', 'kJapaneseKun'],
+        'zh': [ 'kMandarin', 'kCantonese', 'kKorean',  'kJapaneseOn', 'kVietnamese', 'kJapaneseKun'],
+        'yue': [ 'kCantonese', 'kMandarin', 'kKorean',  'kJapaneseOn', 'kVietnamese', 'kJapaneseKun'],
+        'ja': [ 'kJapaneseOn', 'kJapaneseKun', 'kMandarin', 'kCantonese', 'kKorean',  'kVietnamese'],
+        'vn': [ 'kVietnamese', 'kMandarin', 'kCantonese', 'kJapaneseOn', 'kJapaneseKun', 'kKorean'],
     }
     pmap = {
         ord(u('â')):'a',ord(u('à')):'a',ord(u('ắ')):'a',ord(u('ă')):'a',ord(u('ấ')):'a',

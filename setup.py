@@ -11,7 +11,7 @@ import shutil
 import unihandecode.gencodemap as gencodemap
 import unihandecode.genkanwadict as genkanwadict
 
-SUPPORTED_LANG=['kr','ja','zh','vn']
+SUPPORTED_LANG=['kr','ja','zh','vn','yue']
 
 def gen_map():
     unihan_source = os.path.join('unihandecode','data','Unihan_Readings.txt')

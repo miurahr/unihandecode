@@ -7,7 +7,7 @@ PYTHON=/usr/bin/env python
 # definitions
 PKLBZS=unihandecode/jacodepoints.pickle.bz2 unihandecode/zhcodepoints.pickle.bz2 \
      unihandecode/vncodepoints.pickle.bz2 unihandecode/krcodepoints.pickle.bz2 \
-     unihandecode/unicodepoints.pickle.bz2
+     unihandecode/yuecodepoints.pickle.bz2 unihandecode/unicodepoints.pickle.bz2
 DATASRC=unihandecode/data/UnicodeData.txt unihandecode/gencodemap/unicodepoints.py
 KANWADICT=unihandecode/pykakasi/kanwadict2.dir unihandecode/pykakasi/kanwadict2.bak \
           unihandecode/pykakasi/kanwadict2.dat

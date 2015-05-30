@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 __license__ = 'GPL 3'
-__copyright__ = '2010, Hiroshi Miura <miurahr@linux.com>'
+__copyright__ = '2010-2015, Hiroshi Miura <miurahr@linux.com>'
 __docformat__ = 'restructuredtext en'
 
 '''
@@ -71,8 +71,8 @@ class Unidecoder(object):
 
     codepoints = {}
 
-    def __init__(self):
-        self._load_codepoints('zh')
+    def __init__(self,lang):
+        self._load_codepoints(lang)
 
     def decode(self, text):
         # Replace characters larger than 127 with their ASCII equivelent.

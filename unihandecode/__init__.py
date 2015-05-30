@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 __license__ = 'GPL 3'
-__copyright__ = '2010, Hiroshi Miura <miurahr@linux.com>'
+__copyright__ = '2010-2015, Hiroshi Miura <miurahr@linux.com>'
 __docformat__ = 'restructuredtext en'
 __all__ = ["Unihandecoder"]
 
@@ -34,7 +34,7 @@ class Unihandecoder(object):
         elif lang == "vn":
             self.decoder = Vndecoder()
         else: #zh and others
-            self.decoder = Unidecoder()
+            self.decoder = Unidecoder(lang)
 
     def decode(self, text):
         try:
