@@ -36,7 +36,7 @@ class Unihandecoder(object):
         else: #zh and others
             self.decoder = Unidecoder(lang)
 
-    def decode(self, text):
+    def decode(self, text): # pragma: no cover
         try:
             unicode # python2
             if not isinstance(text, unicode):

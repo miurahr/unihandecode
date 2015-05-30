@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 #  kakasi.py
 #
-# Copyright 2011,2014 Hiroshi Miura <miurahr@linux.com>
+# Copyright 2011-2015 Hiroshi Miura <miurahr@linux.com>
 #
 #  Original Copyright:
 # * KAKASI (Kanji Kana Simple inversion program)
@@ -65,7 +65,7 @@ class kakasi(object):
                     (t, l) = self._conv["k"].convert(text[i:])
                     # when fails to convert it return ("", -1)
                     # at first detect it.
-                    if l <= 0:
+                    if l <= 0: # pragma: no cover
                         # XXX: problem happens.
                         #  come here when character text[i] is
                         #  inside range where claming enable to

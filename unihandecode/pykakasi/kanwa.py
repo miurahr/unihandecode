@@ -1,18 +1,18 @@
 # -*- coding: utf-8 -*-
 #  kanwa.py
 #
-# Copyright 2011,2013 Hiroshi Miura <miurahr@linux.com>
+# Copyright 2011-2015 Hiroshi Miura <miurahr@linux.com>
 from zlib import decompress
 from pkg_resources import resource_filename
 
-try:
+try: # pragma: no cover
     from cPickle import load, loads
-except:
+except: # pragma: no cover
     from pickle import load, loads
 
-try:
+try: # pragma: no cover
     import dumbdbm as dbm
-except:
+except: # pragma: no cover
     import dbm.dumb as dbm
 
 class kanwa (object):
