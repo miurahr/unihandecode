@@ -6,7 +6,7 @@ you can get latest development tree as follows:
 
 $ git clone https://github.com/miurahr/unihandecode.git
 
-run ./mkdist.sh to make egg files
+run ./mkdist.sh to make wheel file
 
 $ ./mkdist.sh
 

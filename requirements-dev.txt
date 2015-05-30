@@ -2,3 +2,4 @@ nose
 mock
 pinocchio
 tox
+wheel
