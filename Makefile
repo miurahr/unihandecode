@@ -20,8 +20,8 @@ all: test bdist sdist
 install: build
 	$(PYTHON) setup.py install
 
-test: setup build
-	./test.sh
+test: build
+	nosetests --with-coverage --cover-package=unihandecode
 
 dist: bdist sdist
 
@@ -33,9 +33,6 @@ sdist:
 
 build: $(DATASRC) $(KANWASRC)
 	$(PYTHON) setup.py build
-
-setup:
-	./setup.sh
 
 # clean target
 
