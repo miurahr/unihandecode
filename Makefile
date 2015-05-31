@@ -25,8 +25,13 @@ test: build
 
 dist: bdist sdist
 
-bdist: build
+bdist: build bdist_wheel bdist_egg
+
+bdist_wheel:
 	$(PYTHON) setup.py bdist_wheel
+
+bdist_egg: build
+	$(PYTHON) setup.py bdist_egg
 
 sdist:
 	$(PYTHON) setup.py sdist
