@@ -224,8 +224,19 @@ class TestUnihandecode(unittest.TestCase):
                                      #dot dot Touten, katakana KE, katakana
                                      #TSU, Hiragana small TU, ASCII !, half width !
             (u"ページへようこそ", 'pe-jiheyoukoso'),
+            (u"森鴎外",'Mori Ougai'), # no-itaiji
+          # (u"森鷗外",'Mori Ougai'), # itaiji
             (u"する。",'suru. '),# end mark test
             ]
+        u = Unihandecoder(lang="ja")
+        for input, output in JATESTS:
+            self.assertEqual(u.decode(input), output)
+
+    @unittest.skip("Now implementing")
+    def test_ja_itaiji(self):
+        JATESTS = [
+            (u"森鷗外",'Mori Ougai'), # itaiji
+           ]
         u = Unihandecoder(lang="ja")
         for input, output in JATESTS:
             self.assertEqual(u.decode(input), output)

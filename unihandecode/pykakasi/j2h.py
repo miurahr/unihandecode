@@ -69,6 +69,7 @@ class J2H (object):
         table = self._kanwa.load(text[0])
         if table is None:
             return ("", 0)
+        text = self.itaiji_conv(text)
         for (k,v) in table.items():
             length = len(k)
             if len(text) >= length:

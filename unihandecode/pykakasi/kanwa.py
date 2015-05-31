@@ -19,6 +19,7 @@ class kanwa (object):
 
     _kanwadict = None
     _itaijidict = None
+    _itaijidict_len = 0
     _jisyo_table = {}
 
 # this class is Borg/Singleton
@@ -36,7 +37,7 @@ class kanwa (object):
         if self._itaijidict is None:
             itaijipath = resource_filename(__name__, 'itaijidict2.pickle')
             itaiji_pkl = open(itaijipath, 'rb')
-            self._itaijidict = pickle.load(itaiji_pkl)
+            (self._itaijidict, self._itaijidict_len) = pickle.load(itaiji_pkl)
 
     def haskey(self, key):
         return key in self._itaijidict
