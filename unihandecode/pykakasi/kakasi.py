@@ -25,8 +25,7 @@
 # * 02111-1307, USA.
 # */
 
-import re
-import sys, os
+import os, sys, re
 from .j2a import J2a
 from .k2a import K2a
 

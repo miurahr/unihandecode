@@ -4,9 +4,9 @@
 # Copyright 2011 Hiroshi Miura <miurahr@linux.com>
 from pkg_resources import resource_filename
 try: #python2
-    from cPickle import load
+    import cPickle as pickle
 except: #python3
-    from pickle import load
+    import pickle
 
 class jisyo (object):
     _len = None
@@ -14,7 +14,7 @@ class jisyo (object):
 
     def __init__(self, pklname):
         dict_pkl = open(resource_filename(__name__, pklname), 'rb')
-        (self._dict, self._len) = load(dict_pkl)
+        (self._dict, self._len) = pickle.load(dict_pkl)
 
     def haskey(self, key):
         return key in self._dict

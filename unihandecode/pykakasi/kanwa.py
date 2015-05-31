@@ -6,9 +6,9 @@ from zlib import decompress
 from pkg_resources import resource_filename
 
 try: # pragma: no cover
-    from cPickle import load, loads
+    import cPickle as pickle
 except: # pragma: no cover
-    from pickle import load, loads
+    import pickle
 
 try: # pragma: no cover
     import dumbdbm as dbm
@@ -36,7 +36,7 @@ class kanwa (object):
         if self._itaijidict is None:
             itaijipath = resource_filename(__name__, 'itaijidict2.pickle')
             itaiji_pkl = open(itaijipath, 'rb')
-            self._itaijidict = load(itaiji_pkl)
+            self._itaijidict = pickle.load(itaiji_pkl)
 
     def haskey(self, key):
         return key in self._itaijidict
@@ -54,7 +54,7 @@ class kanwa (object):
             table = self._jisyo_table[key]
         except:
             try:
-                table = self._jisyo_table[key]  = loads(decompress(self._kanwadict[key]))
+                table = self._jisyo_table[key]  = pickle.loads(decompress(self._kanwadict[key]))
             except:
                 return None
         return table

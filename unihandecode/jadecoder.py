@@ -1,6 +1,6 @@
 # coding:utf8
 __license__ = 'GPL 3'
-__copyright__ = '2010, Hiroshi Miura <miurahr@linux.com>'
+__copyright__ = '2010-2015, Hiroshi Miura <miurahr@linux.com>'
 __docformat__ = 'restructuredtext en'
 
 '''
@@ -17,14 +17,8 @@ This functionality is owned by Kakasi Japanese processing engine.
 Copyright (c) 2010 Hiroshi Miura
 '''
 
-import bz2
-import os, re
-try: #python2
-    from cPickle import load
-except: #python3
-    from pickle import load
+import os,re
 
-from pkg_resources import resource_filename
 from unihandecode.unidecoder import Unidecoder
 from unihandecode.pykakasi import kakasi
 
