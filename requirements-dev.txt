@@ -4,3 +4,4 @@ mock
 pinocchio
 tox
 wheel
+unittest2

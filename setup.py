@@ -5,7 +5,6 @@ from setuptools import Command, setup, find_packages
 from setuptools.command.install import install
 from distutils.command.build import build
 
-import unittest
 import os,threading
 import sys
 import shutil
@@ -81,6 +80,10 @@ class my_install(install):
                     msg="Running pre build task")
         install.run(self) # run normal build command
 
+tests_require = ['nose','coverage','mock']
+if sys.version_info < (2, 7):
+    tests_require.append('unittest2')
+
 setup(name='Unihandecode',
       version='0.51',
       description='US-ASCII transliterations of Unicode text',
@@ -122,6 +125,7 @@ d = Unidecoder(lang='ja')
                                         'pykakasi/kanwadict2.*']},
       provides = [ 'unihandecode' ],
       test_suite = 'nose.collector',
+      tests_require = tests_require,
       cmdclass = {
           'build':my_build,
           'install':my_install}
