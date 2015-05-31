@@ -18,8 +18,6 @@ except: # pragma: no cover
 class kanwa (object):
 
     _kanwadict = None
-    _itaijidict = None
-    _itaijidict_len = 0
     _jisyo_table = {}
 
 # this class is Borg/Singleton
@@ -34,22 +32,12 @@ class kanwa (object):
         if self._kanwadict is None:
             dictpath = resource_filename(__name__, 'kanwadict2')
             self._kanwadict = dbm.open(dictpath,'r')
-        if self._itaijidict is None:
-            itaijipath = resource_filename(__name__, 'itaijidict2.pickle')
-            itaiji_pkl = open(itaijipath, 'rb')
-            (self._itaijidict, self._itaijidict_len) = pickle.load(itaiji_pkl)
-
-    def haskey(self, key):
-        return key in self._itaijidict
-
-    def lookup(self, key):
-        return self._itaijidict[key]
 
     def load(self, char):
-        try:#python2
-            key = "%04x"%ord(unicode(char))
-        except:#python3
-            key = "%04x"%ord(char)
+        try:# pragma: no cover
+            key = "%04x"%ord(unicode(char)) # python2
+        except:# pragma: no cover
+            key = "%04x"%ord(char) # python3
 
         try: #already exist?
             table = self._jisyo_table[key]

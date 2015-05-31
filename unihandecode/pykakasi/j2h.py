@@ -53,15 +53,6 @@ class J2H (object):
             return True
         return False
 
-    def itaiji_conv(self, text):
-        r = []
-        for c in text:
-            if self._kanwa.haskey(c):
-                r.append(c)
-        for c in r:
-            text = re.sub(c, self._kanwa.lookup(c), text)
-        return text
-
     def convert(self, text):
         max_len = 0
         match_more = False
@@ -69,7 +60,6 @@ class J2H (object):
         table = self._kanwa.load(text[0])
         if table is None:
             return ("", 0)
-        text = self.itaiji_conv(text)
         for (k,v) in table.items():
             length = len(k)
             if len(text) >= length:
