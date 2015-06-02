@@ -235,7 +235,6 @@ class TestUnihandecode(unittest.TestCase):
         for input, output in JATESTS:
             self.assertEqual(u.decode(input), output)
 
-    @unittest.skip("Now implementing")
     def test_ja_itaiji(self):
         JATESTS = [
             (u"森鷗外",'Mori Ougai'), # itaiji

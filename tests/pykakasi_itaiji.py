@@ -22,4 +22,5 @@ class TestItaiji(unittest.TestCase):
     def test_itaiji_convert(self):
         k = itaiji()
         self.assertEqual(k.convert(u"壱弍"),u"一二")
+        self.assertEqual(k.convert(u"森鷗外"),u"森鴎外")
 
