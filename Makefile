@@ -47,7 +47,7 @@ dist-clean: clean
 clean:
 	$(PYTHON) setup.py clean
 	rm -f $(PKLBZS)
-	rm -f $(KANWADIT)
+	rm -f $(KANWADICT)
 	rm -f unihandecode/pykakasi/*.pickle
 	rm -f unihandecode/pykakasi/*.pyc
 	rm -f unihandecode/*.pyc
