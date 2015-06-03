@@ -4,11 +4,7 @@
 # Copyright 2011-2015 Hiroshi Miura <miurahr@linux.com>
 from zlib import decompress
 from pkg_resources import resource_filename
-
-try: # pragma: no cover
-    import cPickle as pickle
-except: # pragma: no cover
-    import pickle
+import marshal
 
 try: # pragma: no cover
     import dumbdbm as dbm
@@ -43,7 +39,7 @@ class kanwa (object):
             table = self._jisyo_table[key]
         except:
             try:
-                table = self._jisyo_table[key]  = pickle.loads(decompress(self._kanwadict[key]))
+                table = self._jisyo_table[key]  = marshal.loads(decompress(self._kanwadict[key]))
             except:
                 return None
         return table

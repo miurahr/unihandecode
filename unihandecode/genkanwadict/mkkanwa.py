@@ -1,11 +1,12 @@
 #!/usr/bin/env python
 from zlib import compress
 import re
+from marshal import dumps
 
 try:
-    from cPickle import dump, dumps
+    from cPickle import dump
 except:
-    from pickle import dump, dumps
+    from pickle import dump
 
 # for compatibility in platforms.
 try:
@@ -15,6 +16,8 @@ except:
 
 class mkkanwa(object):
 
+    _MARSHAL_VERSION = 2
+    _COMPRESS_LEVEL = 9
     records = {}
 
     def run(self, src, dst):
@@ -71,5 +74,5 @@ class mkkanwa(object):
     def kanwaout(self, out):
         dic = dbm.open(out, 'c')
         for (k, v) in self.records.items():
-            dic[k] = compress(dumps(v))
+            dic[k] = compress(dumps(v, self._MARSHAL_VERSION),self._COMPRESS_LEVEL)
         dic.close()
