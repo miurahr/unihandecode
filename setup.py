@@ -127,6 +127,6 @@ d = Unidecoder(lang='ja')
       test_suite = 'nose.collector',
       tests_require = tests_require,
       cmdclass = {
-          'build':my_build,
-          'install':my_install}
+          #'install':my_install,
+          'build':my_build}
 )
