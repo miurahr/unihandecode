@@ -6,22 +6,28 @@ else:
     import unittest
 from unihandecode import Unihandecoder
 
+try:
+    t = unichr(1)
+except:
+    def unichr(n):
+        return chr(n)
+
 class TestUnihandecode(unittest.TestCase):
     def test_ascii(self):
         u = Unihandecoder(lang="zh")
-        for n in xrange(0,128):
+        for n in range(0,128):
             t = chr(n)
             self.assertEqual(u.decode(t), t)
 
     def test_bmp(self):
         u = Unihandecoder(lang="zh")
-        for n in xrange(0,0x10000):
+        for n in range(0,0x10000):
             # Just check that it doesn't throw an exception
             try:
                 t = unichr(n)
                 u.decode(t)
             except:
-                print "catch error at %02x"%n
+                print("catch error at %02x"%n)
 
 
     def test_mathematical_latin(self):
@@ -29,12 +35,12 @@ class TestUnihandecode(unittest.TestCase):
         # undefined. We just count the undefined ones and don't check
         # positions.
         if sys.maxunicode < 0x1d6a4:
-            print "skip test because of Narrow Python"
+            print("skip test because of Narrow Python")
             return
 
         empty = 0
         u = Unihandecoder(lang="zh")
-        for n in xrange(0x1d400, 0x1d6a4):
+        for n in range(0x1d400, 0x1d6a4):
             if n % 52 < 26:
                 a = chr(ord('A') + n % 26)
             else:
@@ -50,12 +56,12 @@ class TestUnihandecode(unittest.TestCase):
 
     def test_mathematical_digits(self):
         if sys.maxunicode < 0x1d800:
-            print "skip test because of Narrow Python"
+            print("skip test because of Narrow Python")
             return
 
         u = Unihandecoder(lang="zh")
         # 5 consecutive sequences of 0-9
-        for n in xrange(0x1d7ce, 0x1d800):
+        for n in range(0x1d7ce, 0x1d800):
             a = chr(ord('0') + (n-0x1d7ce) % 10)
             b = u.decode(unichr(n))
 
@@ -186,7 +192,7 @@ class TestUnihandecode(unittest.TestCase):
 
     def test_specific_supplementary(self):
         if sys.maxunicode < 0x1d6a4:
-            print "skip test because of Narrow Python"
+            print("skip test because of Narrow Python")
             return
 
         TESTS = [
@@ -204,13 +210,13 @@ class TestUnihandecode(unittest.TestCase):
 
     def test_kana(self):
         u = Unihandecoder(lang="ja")
-        for n in xrange(0x3000,0x30ff):
+        for n in range(0x3000,0x30ff):
             # Just check that it doesn't throw an exception
             try:
                 t = unichr(n)
                 u.decode(t)
             except:
-                print "catch error at %02x"%n
+                print("catch error at %02x"%n)
 
     def test_ja(self):
         JATESTS = [
