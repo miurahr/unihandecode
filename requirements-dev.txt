@@ -1,5 +1,6 @@
 nose
 coverage
+coveralls==1.0a2
 mock
 pinocchio
 tox
