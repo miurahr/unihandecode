@@ -21,7 +21,7 @@ install: build
 	$(PYTHON) setup.py install
 
 test: build
-	nosetests --with-coverage --cover-package=unihandecode
+	nosetests --with-coverage --cover-branches --cover-package=unihandecode
 
 dist: bdist sdist
 
