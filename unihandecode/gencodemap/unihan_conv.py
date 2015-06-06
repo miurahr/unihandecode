@@ -65,8 +65,8 @@ class UnihanConv():
         if not ((lcode in self.readings) and (self.readings[lcode][1] < p)):
             if category in ['kMandarin', 'kCantonese']:
                 self.readings[lcode] = (re.sub(r'(\w+)[1-5]',r'\1 ',pron), p)
-            elif category == 'kHanyuPinyin':
-                self.readings[lcode] = (re.sub(r'\w+\.\w+:(\w+)',r'\1 ',pron), p)
+            elif category == 'kHanyuPinyin': # pragma: no branch
+                self.readings[lcode] = (re.sub(r'\w+\.\w+:(\w+)',r'\1 ',pron), p) # pragma: no cover
             else:
                 self.readings[lcode] = ("%s "%pron, p)
 
@@ -81,12 +81,12 @@ class UnihanConv():
                 if all(ord(c) < 128 for c in reading):
                     tmap.append(reading)
                 else:
-                    tmap.append(reading.encode("utf-8"))
+                    tmap.append(reading.encode("utf-8")) # pragma: no cover
             else:
                 tmap.append('')
         tbl['x%x'%ucode] = tmap
 
-    def process_readings(self, source, tbl):
+    def process_readings(self, source, tbl): # pragma: no cover
         try:
             with open(source, 'r', encoding='utf8') as f: #python3
                 self.process_file(f, tbl)
@@ -99,11 +99,11 @@ class UnihanConv():
 
         r1 = re.compile(r'U\+([0-9A-F]{2,3})([0-9A-F]{2}\b)')
         for line in f:
-            try:
+            try: # pragma: no cover
                 uline = unicode(line, "utf-8") # python2
                 items = uline[:-1].split('\t')
                 pass
-            except:
+            except: # pragma: no cover
                 items = line[:-1].split('\t') # python3
                 pass
             
@@ -116,7 +116,7 @@ class UnihanConv():
                 continue
 
             if code is None:
-                continue
+                continue # pragma: no cover
 
             ucode = int(code[0],16)
             lcode = int(code[1],16)

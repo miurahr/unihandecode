@@ -57,7 +57,7 @@ class J2a (object):
             if m >= len(t):
                 break
             (s, n) = self._kconv.convert(t[m:])
-            if n <= 0:
+            if n <= 0: # pragma: no cover
                 m = m + 1
             else:
                 m = m + n

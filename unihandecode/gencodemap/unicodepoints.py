@@ -3,7 +3,7 @@
 import sys
 import bz2
 
-try:
+try: # pragma: no cover
     from cPickle import dump
 except:
     from pickle import dump
@@ -20,7 +20,7 @@ a single dictionary.
 '''
 
 #python 2,3 compatibility
-try:
+try: # pragma: no cover
     unicode # python2
     def u(str): return str.decode("utf-8")
     pass

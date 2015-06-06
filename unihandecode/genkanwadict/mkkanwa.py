@@ -34,13 +34,13 @@ class mkkanwa(object):
             line = line.decode("utf-8").strip()
             if line.startswith(';;'): # skip comment
                 continue
-            if re.match(r"^$",line):
+            if re.match(r"^$",line): # pragma: no cover
                 continue
             try:
                 (v, k) = (re.sub(r'\\u([0-9a-fA-F]{4})', lambda x:unichr(int(x.group(1),16)), line)).split(' ')
                 dic[k] = v
                 max_len = max(max_len, len(v))
-            except:
+            except: # pragma: no cover
                 raise Exception("Cannot process dictionary line: ", line)
         dump((dic, max_len), open(dst, 'wb'), protocol=2)
 

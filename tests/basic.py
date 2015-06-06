@@ -262,6 +262,7 @@ class TestUnihandecode(unittest.TestCase):
 
     def test_zh(self):
         ZHTESTS = [
+            (u"\u3400", 'Qiu '),
             (u"\u660e\u5929\u660e\u5929\u7684\u98ce\u5439",
              'Ming Tian Ming Tian De Feng Chui '),
             (u"馮", "Feng "),
