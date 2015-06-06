@@ -12,3 +12,4 @@ build/
 Unihandecode.egg-info/
 .tox
 .coverage
+.coveralls.yml
