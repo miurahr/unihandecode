@@ -12,5 +12,5 @@ from .advanced import *
 from .unidecode import *
 
 # dictionary generator test
-from genkanwadict_mkkanwa import *
-from gencodemap import *
+from .genkanwadict_mkkanwa import *
+from .gencodemap import *

@@ -30,4 +30,4 @@ class TestGencodemap(unittest.TestCase):
         buf = f.read()
         buf = bz2.decompress(buf)
         (dic, dlen) = pickle.loads(buf)
-        self.assertEqual(type(dic), DictType)
+        self.assertTrue(isinstance(dic, dict))
