@@ -7,3 +7,6 @@ from .pykakasi_kanwa import *
 # functional test on range of unicode
 from .basic import *
 from .advanced import *
+
+# compatibility test
+from .unidecode import *

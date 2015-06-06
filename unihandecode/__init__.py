@@ -36,13 +36,13 @@ class Unihandecoder(object):
         else: #zh and others
             self.decoder = Unidecoder(lang)
 
-    def decode(self, text): # pragma: no cover
+    def _text_filter(self, text):
         try:
             unicode # python2
             if not isinstance(text, unicode):
                 try:
                     text = unicode(text)
-                except:
+                except: # pragma: no cover
                     try:
                         text = text.decode(self.preferred_encoding)
                     except:
@@ -50,14 +50,18 @@ class Unihandecoder(object):
         except: # python3, str is unicode
             pass
         #at first unicode normalize it. (see Unicode standards)
-        ntext = unicodedata.normalize('NFC',text)
-        return self.decoder.decode(ntext)
+        return unicodedata.normalize('NFC',text)
+
+    def decode(self, text):
+        return self.decoder.decode(self._text_filter(text))
+
+_unidecoder = None
 
 def unidecode(text):
     '''
     backword compatibility to unidecode
     '''
-    decoder = Unihandecoder()
-    #at first unicode normalize it. (see Unicode standards)
-    ntext = unicodedata.normalize('NFKC',text)
-    return decoder.decode(ntext)
+    global _unidecoder
+    if _unidecoder == None:
+        _unidecoder = Unihandecoder()
+    return _unidecoder.decode(text)
