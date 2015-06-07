@@ -29,9 +29,9 @@ class TestGenkanwadict(unittest.TestCase):
         # load test
         mydict = pickle.load(dst)
         os.unlink(dst)
-        self.assertEqual(type(mydict), DictType)
+        self.assertTrue(isinstance(mydict, dict))
 
-    def test_mkdict(self):
+    def test_mkkanwa(self):
         if self.kanwa is None:
             self.kanwa = genkanwadict.mkkanwa()
 
