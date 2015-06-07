@@ -21,10 +21,21 @@ class TestGencodemap(unittest.TestCase):
         u.check_category("key",'kHanyuPinyin', u"10038.080:yǐn")
 
     def test_gencodemap(self):
+        unihan_source = os.path.join('unihandecode','data','Unihan_Readings.txt')
+        dest = os.path.join('/tmp','krcodepoints.pickle')
+        u = gencodemap.UnihanConv('kr')
+        u.run(source = unihan_source, dest=dest)
+
+        f = open(os.path.join('/tmp', 'krcodepoints.pickle.bz2'),'rb')
+        buf = f.read()
+        buf = bz2.decompress(buf)
+        (dic, dlen) = pickle.loads(buf)
+        self.assertTrue(isinstance(dic, dict))
+
+    def test_unicodepoints(self):
          # build unicode maps
         u = gencodemap.Unicodepoints()
         u.run(os.path.join('/tmp','unicodepoints.pickle'))
-        unihan_source = os.path.join('unihandecode','data','Unihan_Readings.txt')
 
         f = open(os.path.join('/tmp', 'unicodepoints.pickle.bz2'),'rb')
         buf = f.read()
