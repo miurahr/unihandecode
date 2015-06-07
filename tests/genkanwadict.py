@@ -27,9 +27,13 @@ class TestGenkanwadict(unittest.TestCase):
         dst = os.path.join('/tmp','test_kanadict.pickle')
         self.kanwa.mkdict(src, dst)
         # load test
-        mydict = pickle.load(dst)
+        with open(dst, 'rb') as f:
+            (mydict, _len) = pickle.load(f)
         os.unlink(dst)
-        self.assertTrue(isinstance(mydict, dict))
+        if sys.version_info < (2, 7):
+            self.assertEqual(type(mydict), DictType)
+        else:
+            self.assertTrue(isinstance(mydict, dict))
 
     def test_mkkanwa(self):
         if self.kanwa is None:
