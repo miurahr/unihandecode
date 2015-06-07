@@ -6,7 +6,7 @@ else:
     import unittest
 from unihandecode.pykakasi.itaiji import itaiji
 
-class TestItaiji(unittest.TestCase):
+class TestPyKakasiItaiji(unittest.TestCase):
     def test_itaiji_haskey(self):
         k = itaiji()
         self.assertTrue(k.haskey(u'壱'))

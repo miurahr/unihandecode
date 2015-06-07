@@ -6,7 +6,7 @@ else:
     import unittest
 from unihandecode.pykakasi.j2a import *
 
-class TestJ2a(unittest.TestCase):
+class TestPyKakasiJ2a(unittest.TestCase):
     def test_j2a_canConvert(self):
         k = J2a()
         self.assertTrue(k.canConvert(u'漢'))
