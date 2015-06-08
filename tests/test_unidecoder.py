@@ -12,7 +12,7 @@ class TestUnidecoder(unittest.TestCase):
         self.decoder = Unidecoder('zh')
 
     def test_code_group(self):
-        self.assertEqual(self.decoder.code_group(u"\u1234"), 0x12)
+        self.assertEqual(self.decoder.code_group(u"\u1234"), 'x12')
 
     def test_grouped_point(self):
         self.assertEqual(self.decoder.grouped_point(u"\u1234"), 0x34)
