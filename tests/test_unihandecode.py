@@ -282,5 +282,14 @@ class TestUnihandecode(unittest.TestCase):
         for input, output in VNTESTS:
             self.assertEqual(u.decode(input), output)
 
+    def test_yue(self):
+        YUETESTS = [
+            (u'香港',
+            'Hoeng Gong '),
+            ]
+        u = Unihandecoder(lang="yue")
+        for input, output in YUETESTS:
+            self.assertEqual(u.decode(input), output)
+
 if __name__ == "__main__":
     unittest.main()
