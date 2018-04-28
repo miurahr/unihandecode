@@ -1,11 +1,10 @@
 language: python
-python: 3.4
+python: 3.6
 env:
   matrix:
-    - TOXENV=py26
     - TOXENV=py27
-    - TOXENV=py33
-    - TOXENV=py34
+    - TOXENV=py35
+    - TOXENV=py36
 
 before_install:
   - sudo apt-get update
