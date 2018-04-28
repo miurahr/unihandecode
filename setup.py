@@ -9,7 +9,6 @@ import os,threading
 import sys
 import shutil
 import unihandecode.gencodemap as gencodemap
-import unihandecode.genkanwadict as genkanwadict
 
 SUPPORTED_LANG=['kr','ja','zh','vn','yue']
 
@@ -20,63 +19,26 @@ def gen_map():
         u = gencodemap.UnihanConv(lang)
         u.run(source = unihan_source, dest=dest)
 
-def gen_dict(src, dst):
-    kanwa = genkanwadict.mkkanwa()
-    try:
-        os.unlink(dst)
-    except:
-        pass
-    kanwa.mkdict(src, dst)
-
 def catdict(src_a, dst):
     outdict    = open(dst,'wb')
     for src_f in src_a:
       shutil.copyfileobj(open(os.path.join('unihandecode','data',src_f),'rb'), outdict)
     outdict.close()
 
-def gen_kanwa(src, dst):
-    try:
-        os.unlink(dst+'.db')
-    except:
-        pass
-    kanwa = genkanwadict.mkkanwa()
-    kanwa.run(src, dst)
-
-def _pre_build():
-    # build itaijidict
-    src = os.path.join('unihandecode','data','itaijidict.utf8')
-    dst = os.path.join('unihandecode','pykakasi','itaijidict2.pickle')
-    gen_dict(src, dst)
-
-    # build kanadict
-    #catdict(['kanadict.utf8','gairaidict.utf8','ryakugodict.utf8'], os.path.join('/tmp','kanadict2.utf8'))
-    # ad-hoc fix... igore it; gairai word should treat as same as kanwadict, not as kana dict
-    #  kana dict is basically one by one pronounce mapping, but gairai word is not; need spacing.
-    catdict(['kanadict.utf8','ryakugodict.utf8'], os.path.join('/tmp','kanadict2.utf8'))
-    src = os.path.join('/tmp','kanadict2.utf8')
-    dst = os.path.join('unihandecode','pykakasi','kanadict2.pickle')
-    gen_dict(src, dst)
-    os.unlink(os.path.join('/tmp','kanadict2.utf8'))
-
-    # build kakasi dict
-    src = os.path.join('unihandecode','data','kakasidict.utf8')
-    dst = os.path.join('unihandecode','pykakasi','kanwadict2') # don't add .db ext
-    gen_kanwa(src, dst)
-
-    # build unicode maps
+def pre_build():
     u = gencodemap.Unicodepoints()
     u.run(os.path.join('unihandecode','unicodepoints.pickle'))
     gen_map()
 
 class my_build(build):
     def run(self):
-        self.execute(_pre_build, (),
+        self.execute(pre_build, (),
                     msg="Running pre build task")
         build.run(self)
 
 class my_install(install):
     def run(self):
-        self.execute(_pre_build, (),
+        self.execute(pre_build, (),
                     msg="Running pre build task")
         install.run(self) # run normal build command
 
@@ -85,7 +47,7 @@ if sys.version_info < (2, 7):
     tests_require.append('unittest2')
 
 setup(name='Unihandecode',
-      version='0.51',
+      version='0.52',
       description='US-ASCII transliterations of Unicode text',
       url='https://github.com/miurahr/unihandecode/',
       license='GPLv3/Perl',
@@ -116,13 +78,9 @@ d = Unidecoder(lang='ja')
       author='Hioshi Miura',
       author_email='miurahr@linux.com',
       packages = ['unihandecode',
-                  'unihandecode.pykakasi',
-                  'unihandecode.genkanwadict',
                   'unihandecode.gencodemap'],
       include_package_data = True,
-      package_data = {'unihandecode':  ['*.pickle.bz2',
-                                        'pykakasi/*.pickle',
-                                        'pykakasi/kanwadict2.*']},
+      package_data = {'unihandecode':  ['*.pickle.bz2']},
       provides = [ 'unihandecode' ],
       test_suite = 'nose.collector',
       tests_require = tests_require,

@@ -1,6 +1,6 @@
 # coding:utf8
 __license__ = 'GPL 3'
-__copyright__ = '2010-2015, Hiroshi Miura <miurahr@linux.com>'
+__copyright__ = '2010-2018, Hiroshi Miura <miurahr@linux.com>'
 __docformat__ = 'restructuredtext en'
 
 '''
@@ -14,13 +14,13 @@ and  perl module Text::Unidecode
 
 This functionality is owned by Kakasi Japanese processing engine.
 
-Copyright (c) 2010 Hiroshi Miura
+Copyright (c) 2010,2015,2018 Hiroshi Miura
 '''
 
 import os,re
 
 from unihandecode.unidecoder import Unidecoder
-from unihandecode.pykakasi import kakasi
+import pykakasi
 
 class Jadecoder(Unidecoder):
     kakasi = None
@@ -28,9 +28,16 @@ class Jadecoder(Unidecoder):
 
     def __init__(self):
         self._load_codepoints('ja')
-        self.kakasi = kakasi()
+        self.kakasi = pykakasi.kakasi()
+        self.kakasi.setMode("J","a")
+        self.kakasi.setMode("E","a")
+        self.kakasi.setMode("H","a")
+        self.kakasi.setMode("K","a")
+        self.kakasi.setMode("s", True)
+        self.kakasi.setMode("C", True)
+        self.conv=self.kakasi.getConverter()
 
     def decode(self, text):
-            result=self.kakasi.do(text)
+            result=self.conv.do(text)
             return re.sub('[^\x00-\x7f]', lambda x: self.replace_point(x.group()),result)
 
