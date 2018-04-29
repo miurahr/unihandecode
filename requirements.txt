@@ -1,2 +1,4 @@
 setuptools
+semidbm
+six
 pykakasi
