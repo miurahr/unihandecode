@@ -25,6 +25,16 @@ Removed
 Security
 --------
 
+`v0.81`_ (1, May, 2018)
+=============================
+
+Fixed
+-------
+
+* Add missing dependency in setup.py
+* Twine upload password environment on AppVeyor.yml
+
+
 `v0.80`_ (30, April, 2018)
 =============================
 
@@ -78,7 +88,9 @@ Removed
 
 * work in progress
 
-.. _Unreleased: https://github.com/miurahr/unihandecode/compare/v0.50...HEAD
+.. _Unreleased: https://github.com/miurahr/unihandecode/compare/v0.81...HEAD
+.. _v0.81: https://github.com/miurahr/unihandecode/compare/v0.80...v0.81
+.. _v0.80: https://github.com/miurahr/unihandecode/compare/v0.50...v0.80
 .. _v0.50: https://github.com/miurahr/unihandecode/compare/v0.45...v0.50
 .. _v0.45: https://github.com/miurahr/unihandecode/compare/v0.43...v0.45
 .. _v0.43: https://github.com/miurahr/unihandecode/compare/v0.42...v0.43

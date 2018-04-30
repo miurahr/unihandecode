@@ -1,6 +1,7 @@
 environment:
-  PYPI_USERNAME: miurahr
-  PYPI_PASSWORD:
+  TWINE_REPOSITORY_URL: https://upload.pypi.org/legacy/
+  TWINE_USERNAME: miurahr
+  TWINE_PASSWORD:
     secure: ibyxU09f3mAdoh5Hv4T27Q==
 
 install:
@@ -18,7 +19,6 @@ after_test:
 
 artifacts:
   - path: dist/*.tar.gz
-  - path: dist/*.whl
 
 deploy_script:
   - ps: |
@@ -32,7 +32,7 @@ deploy_script:
       {
         $artifacts = Get-ChildItem -Path dist -Include '*.tar.gz' -Recurse -Name | %{"$_"}
         cd dist
-        exec { python.exe -m twine upload -u ${env:PYPI_USERNAME} --skip-existing $artifacts }
+        exec { python.exe -m twine upload --skip-existing $artifacts }
       }
       else
       {
