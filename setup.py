@@ -47,7 +47,7 @@ if sys.version_info < (2, 7):
     tests_require.append('unittest2')
 
 setup(name='Unihandecode',
-      version='0.80',
+      version='0.81',
       description='US-ASCII transliterations of Unicode text',
       url='https://github.com/miurahr/unihandecode/',
       license='GPLv3/Perl',
@@ -82,6 +82,7 @@ d = Unidecoder(lang='ja')
       include_package_data = True,
       package_data = {'unihandecode':  ['*.pickle.bz2']},
       provides = [ 'unihandecode' ],
+      install_requires = [ 'pykakasi', 'six' ],
       test_suite = 'nose.collector',
       tests_require = tests_require,
       cmdclass = {
