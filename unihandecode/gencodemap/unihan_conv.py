@@ -2,20 +2,18 @@
 # -*- coding: utf-8 -*-
 import sys, re
 import bz2
+from six import PY2
+from six.moves import cPickle
 
-try:
-    from cPickle import dump
-except:
-    from pickle import dump
+__license__ = 'GPL 3'
+__copyright__ = '2010,2018, Hiroshi Miura <miurahr@linux.com>'
+__docformat__ = 'restructuredtext en'
 
-#python 2,3 compatibility
-try:
-    unicode # python2
-    def u(str): return str.decode("utf-8")
-    pass
-except: #python 3
-    def u(str): return str
-    pass
+def o(str):
+    if PY2:
+      return ord(str.decode("utf-8"))
+    else:
+      return ord(str)
 
 class UnihanConv():
 
@@ -30,12 +28,12 @@ class UnihanConv():
         'vn': [ 'kVietnamese', 'kMandarin', 'kCantonese', 'kJapaneseOn', 'kJapaneseKun', 'kKorean'],
     }
     pmap = {
-        ord(u('â')):'a',ord(u('à')):'a',ord(u('ắ')):'a',ord(u('ă')):'a',ord(u('ấ')):'a',
-        ord(u('ü')):'u',ord(u('ụ')):'u',ord(u('ú')):'u',ord(u('ử')):'u',ord(u('ư')):'u',
-        ord(u('ù')):'u',
-        ord(u('é')):'e',
-        ord(u('ọ')):'o',ord(u('ố')):'o',ord(u('ộ')):'o',ord(u('ơ')):'o',ord(u('ớ')):'o',
-        ord(u('ớ')):'o',   
+        o('â'):'a',o('à'):'a',o('ắ'):'a',o('ă'):'a',o('ấ'):'a',
+        o('ü'):'u',o('ụ'):'u',o('ú'):'u',o('ử'):'u',o('ư'):'u',
+        o('ù'):'u',
+        o('é'):'e',
+        o('ọ'):'o',o('ố'):'o',o('ộ'):'o',o('ơ'):'o',o('ớ'):'o',
+        o('ớ'):'o',
      }
 
     def __init__(self, lang):
@@ -52,7 +50,7 @@ class UnihanConv():
         out_fn = dest + '.bz2'
         outfile = bz2.BZ2File(out_fn, 'w', 1024**2, 9)
         try:
-            dump((tbl, max_len), outfile, protocol=2)
+            cPickle.dump((tbl, max_len), outfile, protocol=2)
         finally:
             outfile.close()
 

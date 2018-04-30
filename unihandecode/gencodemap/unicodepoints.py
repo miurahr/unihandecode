@@ -2,11 +2,7 @@
 # -*- coding: utf-8 -*-
 import sys
 import bz2
-
-try: # pragma: no cover
-    from cPickle import dump
-except:
-    from pickle import dump
+from six.moves import cPickle
 
 __license__ = 'GPL 3'
 __copyright__ = '2009, John Schember <john@nachtimwald.com>'
@@ -19,22 +15,13 @@ Based on Text::Unidecode's xAB.pm lists. This combines all xAB.pm files into
 a single dictionary.
 '''
 
-#python 2,3 compatibility
-try: # pragma: no cover
-    unicode # python2
-    def u(str): return str.decode("utf-8")
-    pass
-except: #python 3
-    def u(str): return str
-    pass
-
 class Unicodepoints():
 
     def run(self, dest):
         out_fn = dest + '.bz2'
         outfile = bz2.BZ2File(out_fn, 'w', 1024**2, 9)
         try:
-            dump((self.CODEPOINTS, len(self.CODEPOINTS)), outfile, protocol=2)
+            cPickle.dump((self.CODEPOINTS, len(self.CODEPOINTS)), outfile, protocol=2)
         finally:
             outfile.close()
 
