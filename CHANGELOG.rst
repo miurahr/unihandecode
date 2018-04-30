@@ -10,6 +10,27 @@ All notable changes to this project will be documented in this file.
 Added
 -----
 
+Changed
+-------
+
+Fixed
+-----
+
+Deprecated
+----------
+
+Removed
+-------
+
+Security
+--------
+
+`v0.80`_ (30, April, 2018)
+=============================
+
+Added
+-----
+
 * Experimental support for Cantonease
 * Coverage instrumentation
 * Instrument coverage on Coveralls.io.
@@ -29,16 +50,11 @@ Fixed
 * Clean up build process
 * Loading Itaiji dictionary correctly.
 
-Deprecated
-----------
-
 Removed
 -------
 
 * Drop bundled PyKakasi and refers as dependency
 
-Security
---------
 
 `v0.50`_ (25, April, 2015)
 =============================
