@@ -1,9 +1,6 @@
 # -*- coding: utf-8 -*-
 import sys
-if sys.version_info < (2, 7):
-    import unittest2 as unittest
-else:
-    import unittest
+import unittest
 from unihandecode import unidecode
 
 try:

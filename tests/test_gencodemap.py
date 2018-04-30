@@ -2,14 +2,8 @@
 import os,sys,bz2
 import unihandecode.gencodemap as gencodemap
 from types import *
-if sys.version_info < (2, 7):
-    import unittest2 as unittest
-else:
-    import unittest
-try: #python2
-    import cPickle as pickle
-except: #python3
-    import pickle
+import unittest
+from six.moves import cPickle
 import tempfile
 import shutil
 
@@ -38,7 +32,7 @@ class TestGencodemap(unittest.TestCase):
         f = open(os.path.join(self.workspace, 'krcodepoints.pickle.bz2'),'rb')
         buf = f.read()
         buf = bz2.decompress(buf)
-        (dic, dlen) = pickle.loads(buf)
+        (dic, dlen) = cPickle.loads(buf)
         self.assertTrue(isinstance(dic, dict))
 
     def test_unicodepoints(self):
@@ -49,5 +43,5 @@ class TestGencodemap(unittest.TestCase):
         f = open(os.path.join(self.workspace, 'unicodepoints.pickle.bz2'),'rb')
         buf = f.read()
         buf = bz2.decompress(buf)
-        (dic, dlen) = pickle.loads(buf)
+        (dic, dlen) = cPickle.loads(buf)
         self.assertTrue(isinstance(dic, dict))

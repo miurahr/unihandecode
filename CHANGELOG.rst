@@ -28,11 +28,22 @@ Security
 `v0.81`_ (1, May, 2018)
 =============================
 
+Changed
+-------
+
+* Use six for Python2 compatibility in unit test.
+
 Fixed
 -------
 
 * Add missing dependency in setup.py
 * Twine upload password environment on AppVeyor.yml
+
+Deprecated
+----------
+
+* Drop support for python 2.6 and before.
+* Use unittest instead of unittest2.
 
 
 `v0.80`_ (30, April, 2018)
