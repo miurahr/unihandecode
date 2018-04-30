@@ -21,7 +21,7 @@ deploy:
   - provider: pypi
     user: miurahr
     password:
-      secure: CUY3E7DJMMyC9ARkkC5plAWTAnwmp+wyS+GbRgjOPDL8H4AwzCSCD03D4z/5BHHpGFilF+sAsaNte/9dDjtzEXtvmMCfJwovShnr9GdAm+PU4+TyhEWqVYbeYHiJMiSnLPcsyJMkYZ8JtNMXyp0onPQr6P28OsEq+ohG6Ha9P1Y=
+      secure: Cnx2TnF4OdTQbdcNFbf3YUqpthSoXIgdiAJFqtUhBvKzr3PR+bAqifynQk1Nk66veyiWyYTojVJM3Mmysl+IozsM5mVGjVkxOh91oi/fqIL4Pr/YEHlcs1/av6yKOp/YxPvg1fH3zhaM7B6lJc+9ofHh0Paohy5z7AO3yXtHaEY=
     distributions: bdist_wheel
     skip_existing: true
     on:
