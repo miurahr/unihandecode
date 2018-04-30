@@ -1,8 +1,8 @@
 # Unihandecode
 
  [![travis-ci](https://secure.travis-ci.org/miurahr/unihandecode.png)](https://secure.travis-ci.org/miurahr/unihandecode)
+ [![appveyor](https://ci.appveyor.com/api/projects/status/pcguwvtvwc23g20v?svg=true)](https://ci.appveyor.com/project/miurahr/unihandecode)
  [![Coverage Status](https://coveralls.io/repos/miurahr/unihandecode/badge.svg?branch=master)](https://coveralls.io/r/miurahr/unihandecode?branch=master)
- [![Downloads](https://pypip.in/d/Unihandecode/badge.png)](https://crate.io/packages/Unihandecode)
  [![PyPI version](https://badge.fury.io/py/Unihandecode.png)](http://badge.fury.io/py/Unihandecode)
  [![Flattr this git repo](http://api.flattr.com/button/flattr-badge-large.png)](https://flattr.com/submit/auto?user_id=miurahr&url=https://github.com/miurahr/unihandecode&title=Unihandecode&language=&tags=github&category=software) 
 
