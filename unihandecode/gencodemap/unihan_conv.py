@@ -1,5 +1,6 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
+from __future__ import unicode_literals
 import sys, re
 import bz2
 from six import PY2
@@ -8,12 +9,6 @@ from six.moves import cPickle
 __license__ = 'GPL 3'
 __copyright__ = '2010,2018, Hiroshi Miura <miurahr@linux.com>'
 __docformat__ = 'restructuredtext en'
-
-def o(str):
-    if PY2:
-      return ord(str.decode("utf-8"))
-    else:
-      return ord(str)
 
 class UnihanConv():
 
@@ -27,13 +22,12 @@ class UnihanConv():
         'ja': [ 'kJapaneseOn', 'kJapaneseKun', 'kMandarin', 'kCantonese', 'kKorean',  'kVietnamese'],
         'vn': [ 'kVietnamese', 'kMandarin', 'kCantonese', 'kJapaneseOn', 'kJapaneseKun', 'kKorean'],
     }
-    pmap = {
-        o('â'):'a',o('à'):'a',o('ắ'):'a',o('ă'):'a',o('ấ'):'a',
-        o('ü'):'u',o('ụ'):'u',o('ú'):'u',o('ử'):'u',o('ư'):'u',
-        o('ù'):'u',
-        o('é'):'e',
-        o('ọ'):'o',o('ố'):'o',o('ộ'):'o',o('ơ'):'o',o('ớ'):'o',
-        o('ớ'):'o',
+    pronounce_char_map = {
+        'â':'a','à':'a','ắ':'a','ă':'a','ấ':'a',
+        'ü':'u','ụ':'u','ú':'u','ử':'u','ư':'u',
+        'ù':'u',
+        'é':'e',
+        'ọ':'o','ố':'o','ộ':'o','ơ':'o','ớ':'o',
      }
 
     def __init__(self, lang):
@@ -85,31 +79,37 @@ class UnihanConv():
         tbl['x%x'%ucode] = tmap
 
     def process_readings(self, source, tbl): # pragma: no cover
-        try:
-            with open(source, 'r', encoding='utf8') as f: #python3
+        if PY2:
+            with open(source, 'r') as f:
                 self.process_file(f, tbl)
-        except:
-            with open(source, 'r') as f: #python2
+        else:
+            with open(source, 'r', encoding='utf8') as f:
                 self.process_file(f, tbl)
 
     def process_file(self, f, tbl):
         oucode = 0
 
+        # Retrive U+XXXX from a first of line in a definition
+        # for example;
+        # U+3432	kMandarin	DAI4
+        # r1 is a expression to separate upper byte and lower byte.
         r1 = re.compile(r'U\+([0-9A-F]{2,3})([0-9A-F]{2}\b)')
         for line in f:
-            try: # pragma: no cover
-                uline = unicode(line, "utf-8") # python2
-                items = uline[:-1].split('\t')
-                pass
-            except: # pragma: no cover
-                items = line[:-1].split('\t') # python3
-                pass
+            if PY2:
+                line = unicode(line, "utf-8")
+            items = line[:-1].split('\t')
             
             try:
+                # code[0] is upper byte and code[1] is lower byte
+                # for example; U+3432 become code[0]='34', code[1]='32'
+                # then ucode=0x34, lcode=0x32
                 code = r1.sub(r'\1\t\2',items[0]).split('\t')
                 category = items[1]
-                ptmp = items[2].split(' ')[0].capitalize()
-                pron = re.sub('[^\00-\x7f]', lambda x: self.pmap[ord(x.group())], ptmp) 
+                # Remove Diacritical mark from pronounciation description
+                # to generate transiliteration words and then capitalize
+                pron = re.sub('[^\00-\x7f]',
+                              lambda x: self.pronounce_char_map[x.group()],
+                                        items[2].split(' ')[0]).capitalize()
             except:
                 continue
 
@@ -118,6 +118,8 @@ class UnihanConv():
 
             ucode = int(code[0],16)
             lcode = int(code[1],16)
+
+            # produce map for each upper byte ucode
             if (oucode != ucode):
                 self.gen_map(tbl, oucode)
                 oucode = ucode 
