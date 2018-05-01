@@ -1,7 +1,6 @@
 # -*- coding: utf-8 -*-
 import os,sys,bz2
 import unihandecode.gencodemap as gencodemap
-from types import *
 import unittest
 from six.moves import cPickle
 import tempfile
