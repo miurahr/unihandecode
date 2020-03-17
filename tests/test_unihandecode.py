@@ -21,7 +21,7 @@ def test_bmp():
 
 
 @pytest.mark.skipif(sys.maxunicode < 0x1d6a4, reason = "skip test because of Narrow Python")
-def test_mathematical_latin(self):
+def test_mathematical_latin():
     # 13 consecutive sequences of A-Z, a-z with some codepoints
     # undefined. We just count the undefined ones and don't check
     # positions.

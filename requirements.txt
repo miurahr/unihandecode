@@ -2,6 +2,7 @@ coverage
 pep517
 pykakasi
 pytest
+pytest-cov
 setuptools>=42
 setuptools_scm[toml]>=3.5.0
 tox
