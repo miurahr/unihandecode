@@ -1,17 +1,19 @@
 language: python
-python:
-  - '3.5'
-  - '3.6'
-  - '3.7'
-  - '3.8'
+dist: xenial
+sudo: false
+cache: pip
+matrix:
+  include:
+    - python: 3.6
+      env: TOXENV=py36
+    - python: 3.7
+      env: TOXENV=py37
 
 install:
-  - pip install -r requirements.txt
+  - pip install tox tox-travis coveralls
 
 script:
-  - python setup.py clean
-  - python setup.py build
-  - coverage run --source=unihandecode setup.py test
+  - tox
 
 after_success:
   - coveralls
