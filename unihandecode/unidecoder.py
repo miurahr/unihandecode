@@ -59,10 +59,11 @@ it under the same terms as Perl itself.
 '''
 
 import bz2
+import pickle
 import re
-from six.moves import cPickle
 
 from pkg_resources import resource_stream
+
 
 class Unidecoder(object):
 
@@ -108,6 +109,6 @@ class Unidecoder(object):
             with resource_stream(__name__, c) as f:
                 buf = f.read()
                 buf = bz2.decompress(buf)
-                (dic, dlen) = cPickle.loads(buf)
+                (dic, dlen) = pickle.loads(buf)
                 self.codepoints.update(dic)
         return self.codepoints
