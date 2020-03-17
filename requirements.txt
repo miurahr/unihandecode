@@ -1,4 +1,10 @@
-setuptools
-semidbm
-six
+coverage
+nose
+pep517
 pykakasi
+setuptools>=42
+setuptools_scm[toml]>=3.5.0
+six
+tox
+twine
+wheel

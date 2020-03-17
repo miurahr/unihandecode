@@ -6,7 +6,7 @@ environment:
 
 install:
   - "python.exe -m pip install twine wheel"
-  - "python.exe -m pip install -U -r requirements-dev.txt -r requirements.txt"
+  - "python.exe -m pip install -r requirements.txt"
 
 build_script: 
   - "python.exe setup.py build"
@@ -38,8 +38,3 @@ deploy_script:
       {
         Write-Host "Skip uploading artifacts to PyPi when non tag commit"
       }
-
-notifications:
-  - provider: Webhook
-    url: https://webhooks.gitter.im/e/335feeedabe90640262d
-    method: POST

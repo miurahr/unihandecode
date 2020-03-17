@@ -1,9 +1,7 @@
 include *.txt
-include Makefile
-include mkdist.sh
-include mkdist.bat
+include *.rst
 include GPL-3
-recursive-include unihandecode/data *.txt *.utf8
+recursive-include unihandecode/data *.txt
 recursive-include unihandecode/gencodemap *.py
 recursive-include unihandecode/genkanwadict *.py
 recursive-include tests *.py

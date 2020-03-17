@@ -1,13 +1,12 @@
 language: python
 python:
-  - '2.7'
-  - '3.3'
-  - '3.4'
   - '3.5'
   - '3.6'
+  - '3.7'
+  - '3.8'
 
 install:
-  - pip install -r requirements.txt -r requirements-dev.txt
+  - pip install -r requirements.txt
 
 script:
   - python setup.py clean
@@ -28,11 +27,3 @@ deploy:
       repo: miurahr/unihandecode
       python: '3.6'
       tags: true
-
-notifications:
-  webhooks:
-    urls:
-      - https://webhooks.gitter.im/e/54e31f6a06c65d0620ca
-    on_success: change
-    on_failure: always
-    on_start: neve

@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 from __future__ import unicode_literals
-import sys, re
+import re
 import bz2
 from six import PY2
 from six.moves import cPickle
