@@ -11,21 +11,21 @@ import unihandecode.gencodemap as gencodemap
 
 class MyBuild(build_py):
 
-    SUPPORTED_LANG = ['kr', 'ja', 'zh', 'vn', 'yue']
-
-    def gen_map(self):
-        unihan_source = os.path.join('unihandecode','data','Unihan_Readings.txt')
-        for lang in self.SUPPORTED_LANG:
-            dest = os.path.join('unihandecode',lang+'codepoints.pickle')
+    def pre_build(self):
+        os.makedirs(os.path.join(self.build_lib, 'unihandecode'), exist_ok=True)
+        dest = os.path.join(self.build_lib, 'unihandecode', 'unicodepoints.pickle')
+        u = gencodemap.Unicodepoints()
+        u.run(dest)
+        unihan_source = os.path.join('unihandecode', 'data', 'Unihan_Readings.txt')
+        SUPPORTED_LANG = ['kr', 'ja', 'zh', 'vn', 'yue']
+        for lang in SUPPORTED_LANG:
+            dest = os.path.join(self.build_lib, 'unihandecode', lang + 'codepoints.pickle')
             u = gencodemap.UnihanConv(lang)
-            u.run(source = unihan_source, dest=dest)
+            u.run(source=unihan_source, dest=dest)
 
     def run(self):
-        u = gencodemap.Unicodepoints()
-        u.run(os.path.join('unihandecode','unicodepoints.pickle'))
-        self.gen_map()
+        self.execute(self.pre_build, (), msg="Running pre build task")
         build_py.run(self)
-
 
 setup(cmdclass = {'build_py': MyBuild},
       use_scm_version={"local_scheme": "no-local-version"},
