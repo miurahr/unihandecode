@@ -6,7 +6,7 @@ environment:
       TOXENV: py37
 
 install:
-  - "%PYTHON%\\python.exe -m pip install wheel tox"
+  - "%PYTHON%\\python.exe -m pip install wheel tox pykakasi"
 
 build: off
 

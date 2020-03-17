@@ -10,7 +10,7 @@ matrix:
       env: TOXENV=py37
 
 install:
-  - pip install tox tox-travis coveralls
+  - pip install tox tox-travis coveralls pykakasi
 
 script:
   - tox
