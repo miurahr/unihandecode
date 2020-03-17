@@ -2,3 +2,4 @@ setuptools
 semidbm
 six
 pykakasi
+pytest

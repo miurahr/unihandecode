@@ -183,20 +183,18 @@ def test_unidecode_specific_supplementary():
     for input, output in TESTS:
         assert unidecode(input) == output
 
-def test_unidecode_kana(self):
+def test_unidecode_kana():
     for n in range(0x3000,0x30ff):
         # Just check that it doesn't throw an exception
-        try:
-            t = six.unichr(n)
-            unidecode(t)
-        except:
-            print("catch error at %02x"%n)
+        t = chr(n)
+        unidecode(t)
 
-def test_unidecode_zh(self):
+
+def test_unidecode_zh():
     ZHTESTS = [
         ("\u660e\u5929\u660e\u5929\u7684\u98ce\u5439",
          'Ming Tian Ming Tian De Feng Chui '),
         ("馮", "Feng "),
         ]
     for input, output in ZHTESTS:
-        self.assertEqual(unidecode(input), output)
+        assert unidecode(input) == output
