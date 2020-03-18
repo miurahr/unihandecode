@@ -1,5 +1,4 @@
 # -*- coding: utf-8 -*-
-import bz2
 import os
 import pickle
 
@@ -22,11 +21,9 @@ def test_gencodemap(tmp_path):
     dest = os.path.join(tmp_path, 'krcodepoints.pickle')
     u = gencodemap.UnihanConv('kr')
     u.run(source=unihan_source, dest=dest)
-    f = open(os.path.join(tmp_path, 'krcodepoints.pickle.bz2'), 'rb')
-    buf = f.read()
-    buf = bz2.decompress(buf)
-    (dic, dlen) = pickle.loads(buf)
-    assert isinstance(dic, dict)
+    with open(os.path.join(tmp_path, 'krcodepoints.pickle'), 'rb') as f:
+        (dic, dlen) = pickle.load(f)
+        assert isinstance(dic, dict)
 
 
 def test_unicodepoints(tmp_path):
@@ -34,8 +31,6 @@ def test_unicodepoints(tmp_path):
     u = gencodemap.Unicodepoints()
     u.run(os.path.join(tmp_path, 'unicodepoints.pickle'))
 
-    f = open(os.path.join(tmp_path, 'unicodepoints.pickle.bz2'), 'rb')
-    buf = f.read()
-    buf = bz2.decompress(buf)
-    (dic, dlen) = pickle.loads(buf)
-    assert isinstance(dic, dict)
+    with open(os.path.join(tmp_path, 'unicodepoints.pickle'), 'rb') as f:
+        (dic, dlen) = pickle.load(f)
+        assert isinstance(dic, dict)

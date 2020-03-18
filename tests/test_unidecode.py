@@ -2,20 +2,20 @@
 import sys
 
 import pytest
-from unihandecode import unidecode
+import unihandecode
 
 
 def test_unidecode_ascii():
     for n in range(0, 128):
         t = chr(n)
-        assert unidecode(t) == t
+        assert unihandecode.unidecode(t) == t
 
 
 def test_unidecode_bmp():
     # Just check that it doesn't throw an exception
     for n in range(0, 0x10000):
         t = chr(n)
-        unidecode(t)
+        unihandecode.unidecode(t)
 
 
 @pytest.mark.skipif(sys.maxunicode < 0x1d6a4, reason="skip test because of Narrow Python")
@@ -29,8 +29,7 @@ def test_unidecode_mathematical_latin():
             a = chr(ord('A') + n % 26)
         else:
             a = chr(ord('a') + n % 26)
-        b = unidecode(chr(n))
-
+        b = unihandecode.unidecode(chr(n))
         if not b:
             empty += 1
         else:
@@ -43,14 +42,14 @@ def test_unidecode_mathematical_digits():
     # 5 consecutive sequences of 0-9
     for n in range(0x1d7ce, 0x1d800):
         a = chr(ord('0') + (n - 0x1d7ce) % 10)
-        b = unidecode(chr(n))
+        b = unihandecode.unidecode(chr(n))
         assert b == a
 
 
 def test_unidecode_combining_chars():
     TESTS = [("\u0031\u20de", "1")]  # roman number "1" wrapped with solid square
     for input, output in TESTS:
-        assert unidecode(input) == output
+        assert unihandecode.unidecode(input) == output
 
 
 def test_unidecode_decomposed_form():
@@ -61,7 +60,7 @@ def test_unidecode_decomposed_form():
         ("\u304B\u3099", "ga"),  # "が" coded by decomposed from as ' か゛ '
     ]
     for input, output in TESTS:
-        assert unidecode(input) == output
+        assert unihandecode.unidecode(input) == output
 
 
 def test_unidecode_squared_chars():
@@ -87,7 +86,7 @@ def test_unidecode_squared_chars():
         ("\u337f", "Inc."),  # kabusiki kaisha in Katakana
     ]
     for input, output in TESTS:
-        assert unidecode(input) == output
+        assert unihandecode.unidecode(input) == output
 
 
 def test_unidecode_compatibility_composite():
@@ -96,7 +95,7 @@ def test_unidecode_compatibility_composite():
         ("\u0032\u2075", "25"),
     ]
     for input, output in TESTS:
-        assert unidecode(input) == output
+        assert unihandecode.unidecode(input) == output
 
 
 def test_unidecode_mac_japanese_pua():
@@ -108,7 +107,7 @@ def test_unidecode_mac_japanese_pua():
         ("\u63a7\u20dd", "Kong "),  # "控" with circle "Hikae " in unihandecode(ja)
     ]
     for input, output in TESTS:
-        assert unidecode(input) == output
+        assert unihandecode.unidecode(input) == output
 
 
 def test_unidecode_specific_bmp():
@@ -133,7 +132,7 @@ def test_unidecode_specific_bmp():
         ("\u210a", "g"),  # gram mark
     ]
     for input, output in TESTS:
-        assert unidecode(input) == output
+        assert unihandecode.unidecode(input) == output
 
 
 @pytest.mark.skipif(sys.maxunicode < 0x1d6a4, reason="skip test because of Narrow Python")
@@ -143,14 +142,14 @@ def test_unidecode_specific_supplementary():
         ('\U0001d5c4\U0001d5c6/\U0001d5c1', 'km/h'),  # Mathematical
     ]
     for input, output in TESTS:
-        assert unidecode(input) == output
+        assert unihandecode.unidecode(input) == output
 
 
 def test_unidecode_kana():
     for n in range(0x3000, 0x30ff):
         # Just check that it doesn't throw an exception
         t = chr(n)
-        unidecode(t)
+        unihandecode.unidecode(t)
 
 
 def test_unidecode_zh():
@@ -159,4 +158,4 @@ def test_unidecode_zh():
         ("馮", "Feng "),
     ]
     for input, output in ZHTESTS:
-        assert unidecode(input) == output
+        assert unihandecode.unidecode(input) == output

@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-from unihandecode.unidecoder import Unidecoder
+from unihandecode import Unidecoder
 
 
 def test_code_group():
