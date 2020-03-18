@@ -4,6 +4,7 @@
 *.pickle
 *.pickle.bz2
 *.db
+.eggs
 *.ttbl.bz2
 *.dir
 *.dat

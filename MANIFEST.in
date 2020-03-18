@@ -2,7 +2,7 @@ include *.toml
 include *.txt
 include *.rst
 include *.yml
-include GPL-3
+include COPYING
 include tox.ini
 include .coveragerc
 exclude .coveralls.yml
