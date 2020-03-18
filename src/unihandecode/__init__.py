@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 __license__ = 'GPL 3'
-__copyright__ = '2010-2018, Hiroshi Miura <miurahr@linux.com>'
+__copyright__ = '2010-2020 Hiroshi Miura <miurahr@linux.com>'
 __docformat__ = 'restructuredtext en'
 __all__ = ["Unihandecoder"]
 
@@ -12,16 +12,25 @@ Translate unicode characters to ASCII.
 inspired from John's unidecode library.
 Copyright(c) 2009, John Schember
 
-Tranliterate the string from unicode characters to ASCII in Chinese and others.
+Transiliterate the string from unicode characters to ASCII in Chinese and others.
+Decode unicode text to an ASCII representation of the text for Japanese.
 
+API is based on the python unidecode,
+which is based on Ruby gem (http://rubyforge.org/projects/unidecode/) 
+and  perl module Text::Unidecode
+(http://search.cpan.org/~sburke/Text-Unidecode-0.04/). 
+
+Copyright (c) 2010,2015,2018,2020 Hiroshi Miura
 '''
-import unicodedata
-from unihandecode.unidecoder import Unidecoder
-from unihandecode.jadecoder import Jadecoder
-from unihandecode.krdecoder import Krdecoder
-from unihandecode.vndecoder import Vndecoder
+import pickle
+import pkgutil
+import re
 
-class Unihandecoder(object):
+import unicodedata
+import pykakasi
+
+
+class Unihandecoder:
     preferred_encoding = None
     decoder = None
 
@@ -42,13 +51,94 @@ class Unihandecoder(object):
     def decode(self, text):
         return self.decoder.decode(self._text_filter(text))
 
+
+class Unidecoder:
+
+    codepoints = {}
+
+    def __init__(self, lang):
+        self._load_codepoints(lang)
+
+    def decode(self, text):
+        # Replace characters larger than 127 with their ASCII equivelent.
+        return re.sub('[^\x00-\x7f]',lambda x: self.replace_point(x.group()), text)
+
+    def replace_point(self, codepoint):
+        '''
+        Returns the replacement character or ? if none can be found.
+        '''
+        try:
+            # Split the unicode character xABCD into parts 0xAB and 0xCD.
+            # 0xAB represents the group within CODEPOINTS to query and 0xCD
+            # represents the position in the list of characters for the group.
+            return self.codepoints[self.code_group(codepoint)][self.grouped_point(
+                codepoint)]
+        except:
+            return ''
+
+    def code_group(self, character):
+        '''
+        Find what group character is a part of.
+        '''
+        # Code groups withing CODEPOINTS take the form 'xAB'
+        return 'x%02x' % (ord(character) >> 8)
+
+    def grouped_point(self, character):
+        '''
+        Return the location the replacement character is in the list for a
+        the group character is a part of.
+        '''
+        return ord(character) & 255
+
+    def _load_codepoints(self, lang):
+        loc_resource = '%scodepoints.pickle' % lang
+        for c in ['unicodepoints.pickle', loc_resource]:
+            data = pkgutil.get_data('unihandecode', c)
+            (dic, dlen) = pickle.loads(data)
+            self.codepoints.update(dic)
+        return self.codepoints
+
+
 _unidecoder = None
 
 def unidecode(text):
-    '''
-    backword compatibility to unidecode
-    '''
     global _unidecoder
     if _unidecoder == None:
         _unidecoder = Unihandecoder()
     return _unidecoder.decode(text)
+
+
+class Jadecoder(Unidecoder):
+
+    codepoints = {}
+
+    def __init__(self):
+        super(Jadecoder, self).__init__('ja')
+        self.kakasi = pykakasi.kakasi()
+        self.kakasi.setMode("J","a")
+        self.kakasi.setMode("E","a")
+        self.kakasi.setMode("H","a")
+        self.kakasi.setMode("K","a")
+        self.kakasi.setMode("s", True)
+        self.kakasi.setMode("C", True)
+        self.conv=self.kakasi.getConverter()
+
+    def decode(self, text):
+            result=self.conv.do(text)
+            return re.sub('[^\x00-\x7f]', lambda x: self.replace_point(x.group()),result)
+
+
+class Krdecoder(Unidecoder):
+
+    codepoints = {}
+
+    def __init__(self):
+        super(Krdecoder, self).__init__('kr')
+
+
+class Vndecoder(Unidecoder):
+
+    codepoints = {}
+
+    def __init__(self):
+        super(Vndecoder, self).__init__('vn')

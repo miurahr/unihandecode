@@ -1,7 +1,5 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-import sys
-import bz2
 import pickle
 
 __license__ = 'GPL 3'
@@ -18,12 +16,8 @@ a single dictionary.
 class Unicodepoints():
 
     def run(self, dest):
-        out_fn = dest + '.bz2'
-        outfile = bz2.BZ2File(out_fn, 'w', 1024**2, 9)
-        try:
-            pickle.dump((self.CODEPOINTS, len(self.CODEPOINTS)), outfile, protocol=2)
-        finally:
-            outfile.close()
+        with open(dest, 'wb') as outfile:
+            pickle.dump((self.CODEPOINTS, len(self.CODEPOINTS)), outfile)
 
     CODEPOINTS = {
 	'x20': [

@@ -2,7 +2,6 @@
 # -*- coding: utf-8 -*-
 from __future__ import unicode_literals
 import re
-import bz2
 import pickle
 
 __license__ = 'GPL 3'
@@ -40,12 +39,8 @@ class UnihanConv():
         tbl = {}
         self.process_readings(source, tbl)
         max_len = max(max_len, len(tbl))
-        out_fn = dest + '.bz2'
-        outfile = bz2.BZ2File(out_fn, 'w', 1024**2, 9)
-        try:
-            pickle.dump((tbl, max_len), outfile, protocol=2)
-        finally:
-            outfile.close()
+        with open(dest, 'wb') as outfile:
+            pickle.dump((tbl, max_len), outfile)
 
     def check_category(self, lcode, category, pron):
         try:        
