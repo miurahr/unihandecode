@@ -50,7 +50,7 @@ def test_mathematical_digits():
         assert b == a
 
 
-@pytest.mark.xfails(reason="It seems a bug.")
+@pytest.mark.xfail(reason="It seems a bug.")
 def test_combining_chars():
     TESTS = [
         #  roman number "1"  wrapped with solid square
