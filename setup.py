@@ -15,7 +15,7 @@ class MyBuild(build_py):
         dest = os.path.join(self.build_lib, 'unihandecode', 'unicodepoints.pickle')
         u = gencodemap.Unicodepoints()
         u.run(dest)
-        unihan_source = os.path.join('unihandecode', 'data', 'Unihan_Readings.txt')
+        unihan_source = os.path.join('src', 'unihandecode', 'data', 'Unihan_Readings.txt')
         SUPPORTED_LANG = ['kr', 'ja', 'zh', 'vn', 'yue']
         for lang in SUPPORTED_LANG:
             dest = os.path.join(self.build_lib, 'unihandecode', lang + 'codepoints.pickle')
