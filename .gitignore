@@ -10,7 +10,7 @@
 *.dat
 dist/
 build/
-Unihandecode.egg-info/
+unihandecode.egg-info
 .tox
 .coverage
 .coveralls.yml
