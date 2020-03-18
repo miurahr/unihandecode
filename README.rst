@@ -4,6 +4,7 @@ Unihandecode
 
 Overview
 ========
+
 .. image:: https://github.com/miurahr/unihandecode/workflows/Run%20Tox%20tests/badge.svg
    :alt: GH-A: Tox tests
 .. image:: https://secure.travis-ci.org/miurahr/unihandecode.png
@@ -19,12 +20,13 @@ Overview
    :target: http://badge.fury.io/py/Unihandecode
    :alt: PyPI version
 
-ASCII transliterations of Unicode text that recognize CJKV complex charactors
+ASCII transliterations of Unicode text that recognize CJKV complex characters.
+
 
 Usage
 =====
 
-You can run it on python interpreter:
+You can run it on python3 interpreter:
 
 .. code-block:: pycon
 
@@ -37,35 +39,33 @@ You can run it on python interpreter:
         print d.decode('\u660e\u65e5\u306f\u660e\u65e5\u306e\u98a8\u304c\u5439\u304f')
         # That prints: Ashita ha Ashita no Kaze ga Fuku
 
- There are some other examples in tests/basic_2.py.
-
 
 Description
 ===========
 
- It often happens that you have non-Roman text data in Unicode, but
- you can't display it -- usually because you're trying to show it
- to a user via an application that doesn't support Unicode, or
- because the fonts you need aren't accessible. You could represent
- the Unicode characters as "???????" or "\15BA\15A0\1610...", but
- that's nearly useless to the user who actually wants to read what
- the text says.
+It often happens that you have non-Roman text data in Unicode, but
+you can't display it -- usually because you're trying to show it
+to a user via an application that doesn't support Unicode, or
+because the fonts you need aren't accessible. You could represent
+the Unicode characters as "???????" or "\15BA\15A0\1610...", but
+that's nearly useless to the user who actually wants to read what
+the text says.
 
- What Unihandecode provides is a function, 'decode(...)' that
- takes Unicode data and tries to represent it in ASCII characters 
- (i.e., the universally displayable characters between 0x00 and 0x7F). 
- The representation is almost always an attempt at *transliteration* 
- -- i.e., conveying, in Roman letters, the pronunciation expressed by 
- the text in some other writing system. (See the example above)
+What Unihandecode provides is a function, 'decode(...)' that
+takes Unicode data and tries to represent it in ASCII characters
+(i.e., the universally displayable characters between 0x00 and 0x7F).
+The representation is almost always an attempt at *transliteration*
+-- i.e., conveying, in Roman letters, the pronunciation expressed by
+the text in some other writing system. (See the example above)
 
- These are same meaning in both language in example above.
- "明天明天的风吹" for Chinese and "明日は明日の風が吹く" for Japanese.
- The character "明" is converted "Ming" in Chinese. "明日" is converted
- "Ashita" but single charactor "明" will be converted "Mei" in Japanese.
+These are same meaning in both language in example above.
+"明天明天的风吹" for Chinese and "明日は明日の風が吹く" for Japanese.
+The character "明" is converted "Ming" in Chinese. "明日" is converted
+"Ashita" but single charactor "明" will be converted "Mei" in Japanese.
 
- This is an improved version of Python unidecode,
- that is Python port of Text::Unidecode Perl module by 
- Sean M. Burke <sburke@cpan.org>.
+This can be considered as an improved version of Python unidecode.
+unidecode is Python port of Text::Unidecode Perl module by
+Sean M. Burke <sburke@cpan.org>.
 
 Requirements
 ============
