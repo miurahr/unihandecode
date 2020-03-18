@@ -4,7 +4,8 @@ Unihandecode
 
 Overview
 ========
-
+.. image:: https://github.com/miurahr/unihandecode/workflows/Run%20Tox%20tests/badge.svg
+   :alt: GH-A: Tox tests
 .. image:: https://secure.travis-ci.org/miurahr/unihandecode.png
    :target: https://secure.travis-ci.org/miurahr/unihandecode
    :alt: Travis-CI
