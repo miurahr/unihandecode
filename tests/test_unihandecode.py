@@ -53,7 +53,7 @@ def test_mathematical_digits():
 def test_combining_chars():
     TESTS = [
         #  roman number "1"  wrapped with solid square
-        (u"\u0031\u20de",    "1"),
+        (u"\u0031\u20de", "1"),
     ]
     u = Unihandecoder(lang="ja")
     for input, output in TESTS:
@@ -175,7 +175,8 @@ def test_ja():
         ("\u660e\u5929\u660e\u5929\u7684\u98ce\u5439", 'Mei Tenmei Ten Teki Sui'),
         # (u"馮", "Fuu"), # Fuu in human's name, Hyou in another case
         # regression tests
-        ('\u30d0\u30cb\u30fc\u3061\u3083\u3093\u3061\u306e\u30b7\u30e3\u30ef\u30fc\u30ce\u30ba\u30eb\u306e\u5148\u7aef', "bani- chanchino shawa-nozuru no Sentan"),  # test for u30fc
+        ('\u30d0\u30cb\u30fc\u3061\u3083\u3093\u3061\u306e\u30b7\u30e3\u30ef\u30fc\u30ce\u30ba\u30eb\u306e\u5148\u7aef',
+         "bani- chanchino shawa-nozuru no Sentan"),  # test for u30fc
         ('\u3093\u301c\u30fb\u30fb\u30fb\u3002\u30b1\u30c4\u3063!\uff01', "n ~.... ketsu tsu !!"),
         # Hiragana n Namisen katakana-middle-dot
         # dot dot Touten, katakana KE, katakana
