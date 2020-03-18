@@ -5,13 +5,12 @@ import sys
 from setuptools import setup
 from setuptools.command.build_py import build_py
 
-sys.path.insert(1, os.path.abspath(os.path.dirname(__file__)))
-import unihandecode.gencodemap as gencodemap
-
 
 class MyBuild(build_py):
 
     def pre_build(self):
+        sys.path.insert(1, os.path.join(os.path.abspath(os.path.dirname(__file__)), 'src'))
+        import unihandecode.gencodemap as gencodemap
         os.makedirs(os.path.join(self.build_lib, 'unihandecode'), exist_ok=True)
         dest = os.path.join(self.build_lib, 'unihandecode', 'unicodepoints.pickle')
         u = gencodemap.Unicodepoints()
@@ -27,6 +26,7 @@ class MyBuild(build_py):
         self.execute(self.pre_build, (), msg="Running pre build task")
         build_py.run(self)
 
-setup(cmdclass = {'build_py': MyBuild},
+
+setup(cmdclass={'build_py': MyBuild},
       use_scm_version={"local_scheme": "no-local-version"},
-      setup_requires=['setuptools-scm>=3.5.0', 'setuptools>=42'])
+      setup_requires=['setuptools-scm>=3.5.0', 'setuptools>=42', 'wheel', 'pykakasi'])

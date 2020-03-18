@@ -1,25 +1,28 @@
 # -*- coding: utf-8 -*-
 import bz2
 import os
-import unihandecode.gencodemap as gencodemap
 import pickle
+
+import unihandecode.gencodemap as gencodemap
+
 
 def test_default_lang():
     u = gencodemap.UnihanConv('ru')
-    assert isinstance(u ,gencodemap.UnihanConv)
+    assert isinstance(u, gencodemap.UnihanConv)
 
 
 def test_checkcategory():
     u = gencodemap.UnihanConv('zh')
-    u.check_category("key",'kHanyuPinyin', u"10038.080:yǐn")
+    u.check_category("key", 'kHanyuPinyin', u"10038.080:yǐn")
 
 
 def test_gencodemap(tmp_path):
-    unihan_source = os.path.join('unihandecode','data','Unihan_Readings.txt')
-    dest = os.path.join(tmp_path,'krcodepoints.pickle')
+    rootdir = os.path.abspath(os.path.dirname(os.path.dirname(__file__)))
+    unihan_source = os.path.join(rootdir, 'src', 'unihandecode', 'data', 'Unihan_Readings.txt')
+    dest = os.path.join(tmp_path, 'krcodepoints.pickle')
     u = gencodemap.UnihanConv('kr')
-    u.run(source = unihan_source, dest=dest)
-    f = open(os.path.join(tmp_path, 'krcodepoints.pickle.bz2'),'rb')
+    u.run(source=unihan_source, dest=dest)
+    f = open(os.path.join(tmp_path, 'krcodepoints.pickle.bz2'), 'rb')
     buf = f.read()
     buf = bz2.decompress(buf)
     (dic, dlen) = pickle.loads(buf)
@@ -27,11 +30,11 @@ def test_gencodemap(tmp_path):
 
 
 def test_unicodepoints(tmp_path):
-     # build unicode maps
+    # build unicode maps
     u = gencodemap.Unicodepoints()
-    u.run(os.path.join(tmp_path,'unicodepoints.pickle'))
+    u.run(os.path.join(tmp_path, 'unicodepoints.pickle'))
 
-    f = open(os.path.join(tmp_path, 'unicodepoints.pickle.bz2'),'rb')
+    f = open(os.path.join(tmp_path, 'unicodepoints.pickle.bz2'), 'rb')
     buf = f.read()
     buf = bz2.decompress(buf)
     (dic, dlen) = pickle.loads(buf)

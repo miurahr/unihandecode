@@ -1,26 +1,25 @@
 import sys
 
 import pytest
-
 from unihandecode import Unihandecoder
 
 
 def test_ascii():
     u = Unihandecoder(lang="zh")
-    for n in range(0,128):
+    for n in range(0, 128):
         t = chr(n)
         assert u.decode(t) == t
 
 
 def test_bmp():
     u = Unihandecoder(lang="zh")
-    for n in range(0,0x10000):
+    for n in range(0, 0x10000):
         # Just check that it doesn't throw an exception
         t = chr(n)
         u.decode(t)
 
 
-@pytest.mark.skipif(sys.maxunicode < 0x1d6a4, reason = "skip test because of Narrow Python")
+@pytest.mark.skipif(sys.maxunicode < 0x1d6a4, reason="skip test because of Narrow Python")
 def test_mathematical_latin():
     # 13 consecutive sequences of A-Z, a-z with some codepoints
     # undefined. We just count the undefined ones and don't check
@@ -41,21 +40,21 @@ def test_mathematical_latin():
     assert empty == 24
 
 
-@pytest.mark.skipif(sys.maxunicode < 0x1d800, reason = "skip test because of Narrow Python")
+@pytest.mark.skipif(sys.maxunicode < 0x1d800, reason="skip test because of Narrow Python")
 def test_mathematical_digits():
     u = Unihandecoder(lang="zh")
     # 5 consecutive sequences of 0-9
     for n in range(0x1d7ce, 0x1d800):
-        a = chr(ord('0') + (n-0x1d7ce) % 10)
+        a = chr(ord('0') + (n - 0x1d7ce) % 10)
         b = u.decode(chr(n))
         assert b == a
 
 
 def test_combining_chars():
     TESTS = [
-            #  roman number "1"  wrapped with solid square
-            (u"\u0031\u20de",    "1"),
-            ]
+        #  roman number "1"  wrapped with solid square
+        (u"\u0031\u20de",    "1"),
+    ]
     u = Unihandecoder(lang="ja")
     for input, output in TESTS:
         assert u.decode(input) == output
@@ -63,11 +62,11 @@ def test_combining_chars():
 
 def test_decomposed_form():
     TESTS = [
-            ("\u0041\u0301", "A"),  # "A" with accent mark
-            ("\u0061\u0323\u0302", "a"), #  "a" with accent marks
-            ("\u30AB\u3099", "ga"), # "ガ" coded by decomposed from as ' カ゛ '
-            ("\u304B\u3099", "ga"), # "が" coded by decomposed from as ' か゛ '
-            ]
+        ("\u0041\u0301", "A"),  # "A" with accent mark
+        ("\u0061\u0323\u0302", "a"),  # "a" with accent marks
+        ("\u30AB\u3099", "ga"),  # "ガ" coded by decomposed from as ' カ゛ '
+        ("\u304B\u3099", "ga"),  # "が" coded by decomposed from as ' か゛ '
+    ]
     u = Unihandecoder(lang="ja")
     for input, output in TESTS:
         assert u.decode(input) == output
@@ -75,23 +74,23 @@ def test_decomposed_form():
 
 def test_squared_chars():
     TESTS = [
-        ("\u3301", "alpha"), # combined Alpha in Katakana
-        ("\u3302", "ampere"), # combined Ampere in Katakana
+        ("\u3301", "alpha"),  # combined Alpha in Katakana
+        ("\u3302", "ampere"),  # combined Ampere in Katakana
         ("\u3304", "inning"),
-        ("\u3306", "won"), # combined Won in Katakana
+        ("\u3306", "won"),  # combined Won in Katakana
         ("\u3307", "escudo"),
-        ("\u3308", "acre"), # combined Acre in Katakana
-        ("\u3309", "ounce"), # combined ounce in Katakana
-        ("\u330a", "ohm"), # combined Ohm in Katakana
-        ("\u3349", "milli"), # milli in Katakana
-        ("\u3314", "kilo"), # kilo in Katakana
-        ("\u3315", "kilogram"), # kilo gram in Katakana
-        ("\u3316", "kilometer"), # kilo metre in Katakana
-        ("\u3322", "centi"), # centi in Katakana
-        ("\u334d", "meter"), #metre in Katakana
-        ("\u3318", "gram"), # gram in Katakana
-        ("\u3327", "ton"), # ton in Katakana
-        ("\u3303", "are"), # are in Katakana
+        ("\u3308", "acre"),  # combined Acre in Katakana
+        ("\u3309", "ounce"),  # combined ounce in Katakana
+        ("\u330a", "ohm"),  # combined Ohm in Katakana
+        ("\u3349", "milli"),  # milli in Katakana
+        ("\u3314", "kilo"),  # kilo in Katakana
+        ("\u3315", "kilogram"),  # kilo gram in Katakana
+        ("\u3316", "kilometer"),  # kilo metre in Katakana
+        ("\u3322", "centi"),  # centi in Katakana
+        ("\u334d", "meter"),  # metre in Katakana
+        ("\u3318", "gram"),  # gram in Katakana
+        ("\u3327", "ton"),  # ton in Katakana
+        ("\u3303", "are"),  # are in Katakana
         ("\u3336", "hectare"),  # hect-are in Katakana
         ("\u337f", "Inc."),  # kabusiki kaisha in Katakana
     ]
@@ -102,7 +101,7 @@ def test_squared_chars():
 
 def test_compatibility_composite():
     TESTS = [
-        ("\ufb01","fi"),
+        ("\ufb01", "fi"),
         ("\u0032\u2075", "25"),
     ]
     u = Unihandecoder(lang="zh")
@@ -143,8 +142,7 @@ def test_specific_bmp():
         # Table that has less than 256 entriees
         ('\u1eff', ''),
         # Mark area
-        ("\u210a",  #gram mark
-         "g"),
+        ("\u210a", "g"),  # gram mark
     ]
 
     u = Unihandecoder(lang="zh")
@@ -152,17 +150,11 @@ def test_specific_bmp():
         assert u.decode(input) == output
 
 
-@pytest.mark.skipif(sys.maxunicode < 0x1d6a4, reason = "skip test because of Narrow Python")
+@pytest.mark.skipif(sys.maxunicode < 0x1d6a4, reason="skip test because of Narrow Python")
 def test_specific_supplementary():
-
     TESTS = [
-            # Non-BMP character
-            ('\U0001d5a0',
-            'A'),
-
-            # Mathematical
-            ('\U0001d5c4\U0001d5c6/\U0001d5c1',
-            'km/h'),
+        ('\U0001d5a0', 'A'),  # Non-BMP character
+        ('\U0001d5c4\U0001d5c6/\U0001d5c1', 'km/h'),  # Mathematical
     ]
     u = Unihandecoder(lang="zh")
     for input, output in TESTS:
@@ -171,7 +163,7 @@ def test_specific_supplementary():
 
 def test_kana():
     u = Unihandecoder(lang="ja")
-    for n in range(0x3000,0x30ff):
+    for n in range(0x3000, 0x30ff):
         # Just check that it doesn't throw an exception
         t = chr(n)
         u.decode(t)
@@ -179,23 +171,20 @@ def test_kana():
 
 def test_ja():
     JATESTS = [
-        ('\u660e\u65e5\u306f\u660e\u65e5\u306e\u98a8\u304c\u5439\u304f',
-        'Ashita ha Ashita no Kaze ga Fuku'),
-        ("\u660e\u5929\u660e\u5929\u7684\u98ce\u5439",
-        'Mei Tenmei Ten Teki Sui'),
+        ('\u660e\u65e5\u306f\u660e\u65e5\u306e\u98a8\u304c\u5439\u304f', 'Ashita ha Ashita no Kaze ga Fuku'),
+        ("\u660e\u5929\u660e\u5929\u7684\u98ce\u5439", 'Mei Tenmei Ten Teki Sui'),
         # (u"馮", "Fuu"), # Fuu in human's name, Hyou in another case
         # regression tests
-        ('\u30d0\u30cb\u30fc\u3061\u3083\u3093\u3061\u306e\u30b7\u30e3\u30ef\u30fc\u30ce\u30ba\u30eb\u306e\u5148\u7aef',
-        "bani- chanchino shawa-nozuru no Sentan"),   # test for u30fc
-        ('\u3093\u301c\u30fb\u30fb\u30fb\u3002\u30b1\u30c4\u3063!\uff01',
-        "n ~.... ketsu tsu !!"), #Hiragana n Namisen katakana-middle-dot
-                                 #dot dot Touten, katakana KE, katakana
-                                 #TSU, Hiragana small TU, ASCII !, half width !
+        ('\u30d0\u30cb\u30fc\u3061\u3083\u3093\u3061\u306e\u30b7\u30e3\u30ef\u30fc\u30ce\u30ba\u30eb\u306e\u5148\u7aef', "bani- chanchino shawa-nozuru no Sentan"),  # test for u30fc
+        ('\u3093\u301c\u30fb\u30fb\u30fb\u3002\u30b1\u30c4\u3063!\uff01', "n ~.... ketsu tsu !!"),
+        # Hiragana n Namisen katakana-middle-dot
+        # dot dot Touten, katakana KE, katakana
+        # TSU, Hiragana small TU, ASCII !, half width !
         ("ページへようこそ", 'pe-ji heyoukoso'),
-        ("森鴎外",'Mori Ougai'), # no-itaiji
-        ("森鷗外",'Mori Ougai'), # itaiji
-        ("する。",'suru.'),# end mark test
-        ]
+        ("森鴎外", 'Mori Ougai'),  # no-itaiji
+        ("森鷗外", 'Mori Ougai'),   # itaiji
+        ("する。", 'suru.'),  # end mark test
+    ]
     u = Unihandecoder(lang="ja")
     for input, output in JATESTS:
         assert u.decode(input) == output
@@ -204,15 +193,17 @@ def test_ja():
 def test_ja_itaiji():
     JATESTS = [
         ("森鷗外", 'Mori Ougai'),  # itaiji
-       ]
+    ]
     u = Unihandecoder(lang="ja")
     for input, output in JATESTS:
         assert u.decode(input) == output
 
 
 def test_kr():
-    KRTESTS = [ ('\ub0b4\uc77c\uc740 \ub0b4\uc77c \ubc14\ub78c\uc774 \ubd84\ub2e4', 'naeileun naeil barami bunda'),
-                ("\u660e\u5929\u660e\u5929\u7684\u98ce\u5439", 'Myeng Chen Myeng Chen Cek Feng Chwi ')]
+    KRTESTS = [
+        ('\ub0b4\uc77c\uc740 \ub0b4\uc77c \ubc14\ub78c\uc774 \ubd84\ub2e4', 'naeileun naeil barami bunda'),
+        ("\u660e\u5929\u660e\u5929\u7684\u98ce\u5439", 'Myeng Chen Myeng Chen Cek Feng Chwi ')
+    ]
     u = Unihandecoder(lang="kr")
     for input, output in KRTESTS:
         assert u.decode(input) == output
@@ -223,7 +214,7 @@ def test_zh():
         ("\u3400", 'Qiu '),
         ("\u660e\u5929\u660e\u5929\u7684\u98ce\u5439", 'Ming Tian Ming Tian De Feng Chui '),
         ("馮", "Feng "),
-        ]
+    ]
     u = Unihandecoder(lang="zh")
     for input, output in ZHTESTS:
         assert u.decode(input) == output
@@ -231,11 +222,9 @@ def test_zh():
 
 def test_vn():
     VNTESTS = [
-        ('Ng\xe0y mai gi\xf3 th\u1ed5i v\xe0o ng\xe0y mai',
-        'Ngay mai gio thoi vao ngay mai'),
-        ("\u660e\u5929\u660e\u5929\u7684\u98ce\u5439",
-        'Minh Tian Minh Tian De Feng Xuy ')
-        ]
+        ('Ng\xe0y mai gi\xf3 th\u1ed5i v\xe0o ng\xe0y mai', 'Ngay mai gio thoi vao ngay mai'),
+        ("\u660e\u5929\u660e\u5929\u7684\u98ce\u5439", 'Minh Tian Minh Tian De Feng Xuy ')
+    ]
     u = Unihandecoder(lang="vn")
     for input, output in VNTESTS:
         assert u.decode(input) == output

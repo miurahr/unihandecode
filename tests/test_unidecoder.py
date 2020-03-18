@@ -1,12 +1,13 @@
 # -*- coding: utf-8 -*-
 from unihandecode.unidecoder import Unidecoder
 
+
 def test_code_group():
     assert Unidecoder('zh').code_group("\u1234") == 'x12'
 
 
 def test_grouped_point():
-   assert Unidecoder('zh').grouped_point("\u1234") == 0x34
+    assert Unidecoder('zh').grouped_point("\u1234") == 0x34
 
 
 def test_decode():

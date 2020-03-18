@@ -41,7 +41,7 @@ master_doc = 'index'
 
 # General information about the project.
 project = u'Unihandecode'
-copyright = u'2010-2014, Hiroshi Miura'
+copyright = u'2010-2015,2020 Hiroshi Miura'
 
 # The version info for the project you're documenting, acts as replacement for
 # |version| and |release|, also used in various other places throughout the
