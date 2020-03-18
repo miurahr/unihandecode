@@ -25,8 +25,20 @@ Removed
 Security
 --------
 
+`v0.9a1`_ (18, May, 2020)
+=========================
+
+Changed
+-------
+
+* Refactoring module consolidated into __init__.py
+* Do not compress pickle database.
+* Upgrade build workflow and build system.
+* Add github-actions workflows
+
+
 `v0.81`_ (1, May, 2018)
-=============================
+=======================
 
 Changed
 -------
@@ -47,7 +59,7 @@ Deprecated
 
 
 `v0.80`_ (30, April, 2018)
-=============================
+==========================
 
 Added
 -----
@@ -78,28 +90,29 @@ Removed
 
 
 `v0.50`_ (25, April, 2015)
-=============================
+==========================
 
 * fix some bugs
 * Update dictionary
 
 `v0.45`_ (26, September, 2014)
-=============================
+==============================
 
 * compress codepoints
 * nose and tox test
 
 `v0.43`_ (13, October, 2013)
-=============================
+============================
 
 * pickle unicode_point
 
 `v0.42`_ (7, October, 2013)
-==============================
+===========================
 
 * work in progress
 
-.. _Unreleased: https://github.com/miurahr/unihandecode/compare/v0.81...HEAD
+.. _Unreleased: https://github.com/miurahr/unihandecode/compare/v0.9a1...HEAD
+.. _v0.9a1: https://github.com/miurahr/unihandecode/compare/v0.81...v0.9a1
 .. _v0.81: https://github.com/miurahr/unihandecode/compare/v0.80...v0.81
 .. _v0.80: https://github.com/miurahr/unihandecode/compare/v0.50...v0.80
 .. _v0.50: https://github.com/miurahr/unihandecode/compare/v0.45...v0.50
