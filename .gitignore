@@ -4,12 +4,13 @@
 *.pickle
 *.pickle.bz2
 *.db
+.eggs
 *.ttbl.bz2
 *.dir
 *.dat
 dist/
 build/
-Unihandecode.egg-info/
+unihandecode.egg-info
 .tox
 .coverage
 .coveralls.yml

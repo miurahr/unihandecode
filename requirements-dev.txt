@@ -1,8 +1,0 @@
-nose
-coverage
-coveralls
-mock
-pinocchio
-tox
-wheel
-unittest2

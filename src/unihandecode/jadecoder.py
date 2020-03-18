@@ -17,7 +17,7 @@ This functionality is owned by Kakasi Japanese processing engine.
 Copyright (c) 2010,2015,2018 Hiroshi Miura
 '''
 
-import os,re
+import re
 
 from unihandecode.unidecoder import Unidecoder
 import pykakasi

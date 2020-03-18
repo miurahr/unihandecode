@@ -1,9 +1,15 @@
+include *.toml
 include *.txt
-include Makefile
-include mkdist.sh
-include mkdist.bat
-include GPL-3
-recursive-include unihandecode/data *.txt *.utf8
-recursive-include unihandecode/gencodemap *.py
-recursive-include unihandecode/genkanwadict *.py
+include *.rst
+include *.yml
+include COPYING
+include tox.ini
+include .coveragerc
+exclude .coveralls.yml
+recursive-include docs *.bat
+recursive-include docs *.py
+recursive-include docs *.rst
+recursive-include docs Makefile
+recursive-include src *.py
+recursive-include src *.txt
 recursive-include tests *.py

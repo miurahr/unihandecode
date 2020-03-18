@@ -16,7 +16,6 @@ Tranliterate the string from unicode characters to ASCII in Chinese and others.
 
 '''
 import unicodedata
-from six import PY2
 from unihandecode.unidecoder import Unidecoder
 from unihandecode.jadecoder import Jadecoder
 from unihandecode.krdecoder import Krdecoder
@@ -38,16 +37,6 @@ class Unihandecoder(object):
             self.decoder = Unidecoder(lang)
 
     def _text_filter(self, text):
-        if PY2:
-            if not isinstance(text, unicode):
-                try:
-                    text = unicode(text)
-                except: # pragma: no cover
-                    try:
-                        text = text.decode(self.preferred_encoding)
-                    except:
-                        text = text.decode('utf-8', 'replace')
-        #at first unicode normalize it. (see Unicode standards)
         return unicodedata.normalize('NFC',text)
 
     def decode(self, text):

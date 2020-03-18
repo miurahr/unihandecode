@@ -1,10 +1,9 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 from __future__ import unicode_literals
-import sys, re
+import re
 import bz2
-from six import PY2
-from six.moves import cPickle
+import pickle
 
 __license__ = 'GPL 3'
 __copyright__ = '2010,2018, Hiroshi Miura <miurahr@linux.com>'
@@ -44,7 +43,7 @@ class UnihanConv():
         out_fn = dest + '.bz2'
         outfile = bz2.BZ2File(out_fn, 'w', 1024**2, 9)
         try:
-            cPickle.dump((tbl, max_len), outfile, protocol=2)
+            pickle.dump((tbl, max_len), outfile, protocol=2)
         finally:
             outfile.close()
 
@@ -79,12 +78,8 @@ class UnihanConv():
         tbl['x%x'%ucode] = tmap
 
     def process_readings(self, source, tbl): # pragma: no cover
-        if PY2:
-            with open(source, 'r') as f:
-                self.process_file(f, tbl)
-        else:
-            with open(source, 'r', encoding='utf8') as f:
-                self.process_file(f, tbl)
+        with open(source, 'r', encoding='utf8') as f:
+            self.process_file(f, tbl)
 
     def process_file(self, f, tbl):
         oucode = 0
@@ -95,8 +90,6 @@ class UnihanConv():
         # r1 is a expression to separate upper byte and lower byte.
         r1 = re.compile(r'U\+([0-9A-F]{2,3})([0-9A-F]{2}\b)')
         for line in f:
-            if PY2:
-                line = unicode(line, "utf-8")
             items = line[:-1].split('\t')
             
             try:
