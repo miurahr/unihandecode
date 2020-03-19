@@ -94,17 +94,35 @@ You can build Unihandecode in recent way
 Test
 ====
 
-You can run test with tox
+You can run unit, lint, integration and regression tests with tox
 
 .. code-block:: pycon
 
         $ tox
 
+
+You can also run tests with launch pytest. To run pytest on project root,
+please set PYTHONPATH to '<project_root>/src/'. It helps debugger to diagnose
+problems.
+
+.. code-block:: pycon
+
+        $ pytest -vv
+
+To launch lint test such as flake8;
+
+.. code-block:: pycon
+
+        $ tox -e check
+
+
 SUPPORT
 =======
 
  Questions, bug reports, useful code bits, and suggestions for
- Unihandecode are handled on github.com/miurahr/unihandecode
+ Unihandecode are handled on `github project`_ page.
+
+.. _`github project`: https://github.com/miurahr/unihandecode
 
 
 AVAILABILITY

@@ -22,9 +22,11 @@ and  perl module Text::Unidecode
 
 Copyright (c) 2010,2015,2018,2020 Hiroshi Miura
 '''
+import os
 import pickle
-import pkgutil
+import pkg_resources
 import re
+from typing import Dict
 
 import unicodedata
 import pykakasi
@@ -57,6 +59,7 @@ class Unidecoder:
     codepoints = {}
 
     def __init__(self, lang):
+        self.config = Configurations()
         self._load_codepoints(lang)
 
     def decode(self, text):
@@ -93,9 +96,9 @@ class Unidecoder:
     def _load_codepoints(self, lang):
         loc_resource = '%scodepoints.pickle' % lang
         for c in ['unicodepoints.pickle', loc_resource]:
-            data = pkgutil.get_data('unihandecode', c)
-            (dic, dlen) = pickle.loads(data)
-            self.codepoints.update(dic)
+            with open(self.config.datapath(c), 'rb') as data:
+                (dic, dlen) = pickle.load(data)
+                self.codepoints.update(dic)
         return self.codepoints
 
 
@@ -142,3 +145,19 @@ class Vndecoder(Unidecoder):
 
     def __init__(self):
         super(Vndecoder, self).__init__('vn')
+
+
+# This class is Borg
+class Configurations(object):
+
+    _shared_state = {}  # type: Dict[str, object]
+
+    _data_path = pkg_resources.resource_filename(__name__, 'data')
+
+    def __new__(cls, *p, **k):
+        self = object.__new__(cls, *p, **k)
+        self.__dict__ = cls._shared_state
+        return self
+
+    def datapath(self, c: str):
+        return os.path.join(self._data_path, c)

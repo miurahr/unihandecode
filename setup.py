@@ -11,14 +11,14 @@ class MyBuild(build_py):
     def pre_build(self):
         sys.path.insert(1, os.path.join(os.path.abspath(os.path.dirname(__file__)), 'src'))
         import unihandecode.gencodemap as gencodemap
-        os.makedirs(os.path.join(self.build_lib, 'unihandecode'), exist_ok=True)
-        dest = os.path.join(self.build_lib, 'unihandecode', 'unicodepoints.pickle')
+        os.makedirs(os.path.join(self.build_lib, 'unihandecode', 'data'), exist_ok=True)
+        dest = os.path.join(self.build_lib, 'unihandecode', 'data', 'unicodepoints.pickle')
         u = gencodemap.Unicodepoints()
         u.run(dest)
         unihan_source = os.path.join('src', 'unihandecode', 'data', 'Unihan_Readings.txt')
         SUPPORTED_LANG = ['kr', 'ja', 'zh', 'vn', 'yue']
         for lang in SUPPORTED_LANG:
-            dest = os.path.join(self.build_lib, 'unihandecode', lang + 'codepoints.pickle')
+            dest = os.path.join(self.build_lib, 'unihandecode', 'data', lang + 'codepoints.pickle')
             u = gencodemap.UnihanConv(lang)
             u.run(source=unihan_source, dest=dest)
 
