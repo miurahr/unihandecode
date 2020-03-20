@@ -4,8 +4,8 @@ Unihandecode ChangeLog
 
 All notable changes to this project will be documented in this file.
 
-`Unreleased`_
-=============
+Unreleased_
+===========
 
 Added
 -----

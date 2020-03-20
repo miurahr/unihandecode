@@ -86,6 +86,12 @@ pygments_style = 'sphinx'
 # A list of ignored prefixes for module index sorting.
 #modindex_common_prefix = []
 
+linkcheck_ignore = [
+    'https://github.com/miurahr/unihandecode/compare/.*...HEAD'
+]
+
+linkcheck_anchors_ignore = ["^!"]
+
 
 # -- Options for HTML output ---------------------------------------------------
 

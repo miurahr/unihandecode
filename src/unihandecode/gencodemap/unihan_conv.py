@@ -1,16 +1,17 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-from __future__ import unicode_literals
 import re
 import pickle
+from typing import Dict
 
 __license__ = 'GPL 3'
 __copyright__ = '2010,2018, Hiroshi Miura <miurahr@linux.com>'
 __docformat__ = 'restructuredtext en'
 
+
 class UnihanConv():
 
-    readings = {}
+    readings = {}  # type: Dict[str, str]
     firsttime = True
     lang = None
     priority = {
