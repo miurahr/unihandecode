@@ -29,14 +29,14 @@ import re
 from typing import Dict
 
 import unicodedata
-import pykakasi
+import pykakasi  # type: ignore
 
 
 class Unihandecoder:
     preferred_encoding = None
     decoder = None
 
-    def __init__(self, lang="zh", encoding='utf-8'):
+    def __init__(self, lang='zh', encoding='utf-8'):
         self.preferred_encoding = encoding
         if lang == "ja":
             self.decoder = Jadecoder()
@@ -44,23 +44,26 @@ class Unihandecoder:
             self.decoder = Krdecoder()
         elif lang == "vn":
             self.decoder = Vndecoder()
-        else: #zh and others
+        elif lang == "zh":
+            self.decoder = Unidecoder('zh')
+        else:
             self.decoder = Unidecoder(lang)
 
-    def _text_filter(self, text):
-        return unicodedata.normalize('NFC',text)
-
     def decode(self, text):
-        return self.decoder.decode(self._text_filter(text))
+        return self.decoder.decode(unicodedata.normalize('NFC', text))
 
 
 class Unidecoder:
 
-    codepoints = {}
+    codepoints = {}  # type: Dict[str, Dict[int, str]]
 
-    def __init__(self, lang):
+    def __init__(self, lang=None):
         self.config = Configurations()
-        self._load_codepoints(lang)
+        if lang is not None:
+            self._load_codepoints(lang)
+        else:
+            self._load_codepoints('zh')
+
 
     def decode(self, text):
         # Replace characters larger than 127 with their ASCII equivelent.
@@ -113,8 +116,6 @@ def unidecode(text):
 
 class Jadecoder(Unidecoder):
 
-    codepoints = {}
-
     def __init__(self):
         super(Jadecoder, self).__init__('ja')
         self.kakasi = pykakasi.kakasi()
@@ -133,15 +134,11 @@ class Jadecoder(Unidecoder):
 
 class Krdecoder(Unidecoder):
 
-    codepoints = {}
-
     def __init__(self):
         super(Krdecoder, self).__init__('kr')
 
 
 class Vndecoder(Unidecoder):
-
-    codepoints = {}
 
     def __init__(self):
         super(Vndecoder, self).__init__('vn')
