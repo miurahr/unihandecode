@@ -239,3 +239,12 @@ def test_yue():
     u = Unihandecoder(lang="yue")
     for input, output in YUETESTS:
         assert u.decode(input) == output
+
+
+@pytest.mark.parametrize("source, expected", [
+    ('\N{LATIN SMALL LETTER E}\N{COMBINING CIRCUMFLEX ACCENT}', 'e'),
+    ('\U0000304B\U00003099', 'ga')
+])
+def test_composition(source, expected):
+    u = Unihandecoder()
+    assert u.decode(source) == expected
