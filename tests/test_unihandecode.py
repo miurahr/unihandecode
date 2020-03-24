@@ -57,8 +57,8 @@ def test_combining_chars():
         (u"\u0031\u20de", "1"),
     ]
     u = Unihandecoder(lang="ja")
-    for input, output in TESTS:
-        assert u.decode(input) == output
+    for case, expected in TESTS:
+        assert u.decode(case) == expected
 
 
 @pytest.mark.xfail(reason="It seems a bug.")
@@ -70,8 +70,8 @@ def test_decomposed_form():
         ("\u304B\u3099", "ga"),  # "が" coded by decomposed from as ' か゛ '
     ]
     u = Unihandecoder(lang="ja")
-    for input, output in TESTS:
-        assert u.decode(input) == output
+    for case, expected in TESTS:
+        assert u.decode(case) == expected
 
 
 def test_squared_chars():
@@ -97,8 +97,8 @@ def test_squared_chars():
         ("\u337f", "Inc."),  # kabusiki kaisha in Katakana
     ]
     u = Unihandecoder(lang="ja")
-    for input, output in TESTS:
-        assert u.decode(input) == output
+    for case, expected in TESTS:
+        assert u.decode(case) == expected
 
 
 def test_compatibility_composite():
@@ -107,8 +107,8 @@ def test_compatibility_composite():
         ("\u0032\u2075", "25"),
     ]
     u = Unihandecoder(lang="zh")
-    for input, output in TESTS:
-        assert u.decode(input) == output
+    for case, expected in TESTS:
+        assert u.decode(case) == expected
 
 
 def test_mac_japanese_pua():
@@ -120,8 +120,8 @@ def test_mac_japanese_pua():
         ("\u63a7\u20dd", "Hikae "),  # "控" with circle
     ]
     u = Unihandecoder(lang="ja")
-    for input, output in TESTS:
-        assert u.decode(input) == output
+    for case, expected in TESTS:
+        assert u.decode(case) == expected
 
 
 def test_specific_bmp():
@@ -148,8 +148,8 @@ def test_specific_bmp():
     ]
 
     u = Unihandecoder(lang="zh")
-    for input, output in TESTS:
-        assert u.decode(input) == output
+    for case, expected in TESTS:
+        assert u.decode(case) == expected
 
 
 @pytest.mark.skipif(sys.maxunicode < 0x1d6a4, reason="skip test because of Narrow Python")
@@ -159,8 +159,8 @@ def test_specific_supplementary():
         ('\U0001d5c4\U0001d5c6/\U0001d5c1', 'km/h'),  # Mathematical
     ]
     u = Unihandecoder(lang="zh")
-    for input, output in TESTS:
-        assert u.decode(input) == output
+    for case, expected in TESTS:
+        assert u.decode(case) == expected
 
 
 def test_kana():
@@ -190,8 +190,8 @@ def test_ja():
         ("する。", 'suru.'),  # end mark test
     ]
     u = Unihandecoder(lang="ja")
-    for input, output in JATESTS:
-        assert u.decode(input) == output
+    for case, expected in JATESTS:
+        assert u.decode(case) == expected
 
 
 def test_ja_itaiji():
@@ -199,8 +199,8 @@ def test_ja_itaiji():
         ("森鷗外", 'Mori Ougai'),  # itaiji
     ]
     u = Unihandecoder(lang="ja")
-    for input, output in JATESTS:
-        assert u.decode(input) == output
+    for case, expected in JATESTS:
+        assert u.decode(case) == expected
 
 
 def test_kr():
@@ -209,8 +209,8 @@ def test_kr():
         ("\u660e\u5929\u660e\u5929\u7684\u98ce\u5439", 'Myeng Chen Myeng Chen Cek Feng Chwi ')
     ]
     u = Unihandecoder(lang="kr")
-    for input, output in KRTESTS:
-        assert u.decode(input) == output
+    for case, expected in KRTESTS:
+        assert u.decode(case) == expected
 
 
 def test_zh():
@@ -220,8 +220,8 @@ def test_zh():
         ("馮", "Feng "),
     ]
     u = Unihandecoder(lang="zh")
-    for input, output in ZHTESTS:
-        assert u.decode(input) == output
+    for case, expected in ZHTESTS:
+        assert u.decode(case) == expected
 
 
 def test_vn():
@@ -230,15 +230,15 @@ def test_vn():
         ("\u660e\u5929\u660e\u5929\u7684\u98ce\u5439", 'Minh Tian Minh Tian De Feng Xuy ')
     ]
     u = Unihandecoder(lang="vn")
-    for input, output in VNTESTS:
-        assert u.decode(input) == output
+    for case, expected in VNTESTS:
+        assert u.decode(case) == expected
 
 
 def test_yue():
     YUETESTS = [('香港', 'Hoeng Gong ')]
     u = Unihandecoder(lang="yue")
-    for input, output in YUETESTS:
-        assert u.decode(input) == output
+    for case, expected in YUETESTS:
+        assert u.decode(case) == expected
 
 
 @pytest.mark.parametrize("source, expected", [
