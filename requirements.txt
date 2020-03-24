@@ -1,6 +1,6 @@
 coverage
 pep517
-pykakasi>=2.0.0a3
+pykakasi>=2.0.0a5
 pytest
 pytest-cov
 setuptools>=42
