@@ -134,7 +134,7 @@ def test_mac_japanese_pua():
     ("\u210a", "g"),  # gram mark
 ])
 def test_specific_bmp(case, expected):
-     assert Unihandecoder(lang="zh").decode(case) == expected
+    assert Unihandecoder(lang="zh").decode(case) == expected
 
 
 @pytest.mark.skipif(sys.maxunicode < 0x1d6a4, reason="skip test because of Narrow Python")
