@@ -25,6 +25,18 @@ Removed
 Security
 --------
 
+
+`v0.9a2`_ (26, May, 2020)
+=========================
+
+Changed
+-------
+
+* Bump dependency pykakasi to v2.0.0a5
+* test: move to pytest
+* Add composition tests
+
+
 `v0.9a1`_ (18, May, 2020)
 =========================
 
