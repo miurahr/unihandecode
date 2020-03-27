@@ -51,27 +51,16 @@ def test_mathematical_digits():
 
 
 @pytest.mark.xfail(reason="It seems a bug.")
-def test_combining_chars():
-    TESTS = [
-        #  roman number "1"  wrapped with solid square
-        (u"\u0031\u20de", "1"),
-    ]
+@pytest.mark.parametrize("case, expected", [
+    ("\u0041\u0301", "A"),  # "A" with accent mark
+    ("\u0061\u0323\u0302", "a"),  # "a" with accent marks
+    ("\u30AB\u3099", "ga"),  # "ガ" coded by decomposed from as ' カ゛ '
+    ("\u304B\u3099", "ga"),  # "が" coded by decomposed from as ' か゛ '
+    (u"\u0031\u20de", "1"),  # roman number "1"  wrapped with solid square
+])
+def test_decomposed_form(case, expected):
     u = Unihandecoder(lang="ja")
-    for case, expected in TESTS:
-        assert u.decode(case) == expected
-
-
-@pytest.mark.xfail(reason="It seems a bug.")
-def test_decomposed_form():
-    TESTS = [
-        ("\u0041\u0301", "A"),  # "A" with accent mark
-        ("\u0061\u0323\u0302", "a"),  # "a" with accent marks
-        ("\u30AB\u3099", "ga"),  # "ガ" coded by decomposed from as ' カ゛ '
-        ("\u304B\u3099", "ga"),  # "が" coded by decomposed from as ' か゛ '
-    ]
-    u = Unihandecoder(lang="ja")
-    for case, expected in TESTS:
-        assert u.decode(case) == expected
+    assert u.decode(case) == expected
 
 
 def test_squared_chars():
@@ -124,43 +113,38 @@ def test_mac_japanese_pua():
         assert u.decode(case) == expected
 
 
-def test_specific_bmp():
-
-    TESTS = [
-        ("Hello, World!", "Hello, World!"),
-        ("'\"\r\n", "'\"\r\n"),
-        ("ČŽŠčžš", "CZSczs"),
-        ("\u00a0\u00a1\u00a2\u00a3\u00a4\u00a5\u00a6\u00a7", " !C/PS\u005c$?Y=|SS"),
-        ("\u00a8\u00a9\u00aa\u00ab\u00ac\u00ad\u00ae\u00af", "\u0022(c)a<<!(r)-"),
-        ("ア", "a"),
-        ("α", "a"),
-        ("а", "a"),
-        ('ch\xe2teau', "chateau"),
-        ('vi\xf1edos', "vinedos"),
-        ("\u5317\u4EB0", "Bei Jing "),
-        ("Efﬁcient", "Efficient"),
-        # Table that doesn't exist
-        ('\ua500', ''),
-        # Table that has less than 256 entriees
-        ('\u1eff', ''),
-        # Mark area
-        ("\u210a", "g"),  # gram mark
-    ]
-
-    u = Unihandecoder(lang="zh")
-    for case, expected in TESTS:
-        assert u.decode(case) == expected
+@pytest.mark.parametrize("case, expected", [
+    ("Hello, World!", "Hello, World!"),
+    ("'\"\r\n", "'\"\r\n"),
+    ("ČŽŠčžš", "CZSczs"),
+    ("\u00a0\u00a1\u00a2\u00a3\u00a4\u00a5\u00a6\u00a7", " !C/PS\u005c$?Y=|SS"),
+    ("\u00a8\u00a9\u00aa\u00ab\u00ac\u00ad\u00ae\u00af", "\u0022(c)a<<!(r)-"),
+    ("ア", "a"),
+    ("α", "a"),
+    ("а", "a"),
+    ('ch\xe2teau', "chateau"),
+    ('vi\xf1edos', "vinedos"),
+    ("\u5317\u4EB0", "Bei Jing "),
+    ("Efﬁcient", "Efficient"),
+    # Table that doesn't exist
+    ('\ua500', ''),
+    # Table that has less than 256 entriees
+    ('\u1eff', ''),
+    # Mark area
+    ("\u210a", "g"),  # gram mark
+])
+def test_specific_bmp(case, expected):
+     assert Unihandecoder(lang="zh").decode(case) == expected
 
 
 @pytest.mark.skipif(sys.maxunicode < 0x1d6a4, reason="skip test because of Narrow Python")
-def test_specific_supplementary():
-    TESTS = [
-        ('\U0001d5a0', 'A'),  # Non-BMP character
-        ('\U0001d5c4\U0001d5c6/\U0001d5c1', 'km/h'),  # Mathematical
-    ]
+@pytest.mark.parametrize("case, expected", [
+    ('\U0001d5a0', 'A'),  # Non-BMP character
+    ('\U0001d5c4\U0001d5c6/\U0001d5c1', 'km/h'),  # Mathematical
+])
+def test_specific_supplementary(case, expected):
     u = Unihandecoder(lang="zh")
-    for case, expected in TESTS:
-        assert u.decode(case) == expected
+    assert u.decode(case) == expected
 
 
 def test_kana():
@@ -172,66 +156,51 @@ def test_kana():
 
 
 @pytest.mark.xfail(reason="Chinese handling in preference to ja is not unexpected.")
-def test_ja():
-    JATESTS = [
-        ('\u660e\u65e5\u306f\u660e\u65e5\u306e\u98a8\u304c\u5439\u304f', 'Ashita ha Ashita no Kaze ga Fuku'),
-        ("\u660e\u5929\u660e\u5929\u7684\u98ce\u5439", 'Mei Tenmei Ten Teki Sui'),
-        # (u"馮", "Fuu"), # Fuu in human's name, Hyou in another case
-        # regression tests
-        ('\u30d0\u30cb\u30fc\u3061\u3083\u3093\u3061\u306e\u30b7\u30e3\u30ef\u30fc\u30ce\u30ba\u30eb\u306e\u5148\u7aef',
-         "bani- chanchino shawa-nozuru no Sentan"),  # test for u30fc
-        ('\u3093\u301c\u30fb\u30fb\u30fb\u3002\u30b1\u30c4\u3063!\uff01', "n ~.... ketsu tsu !!"),
-        # Hiragana n Namisen katakana-middle-dot
-        # dot dot Touten, katakana KE, katakana
-        # TSU, Hiragana small TU, ASCII !, half width !
-        ("ページへようこそ", 'pe-ji heyoukoso'),
-        ("森鴎外", 'Mori Ougai'),  # no-itaiji
-        ("森鷗外", 'Mori Ougai'),   # itaiji
-        ("する。", 'suru.'),  # end mark test
-    ]
+@pytest.mark.parametrize("case, expected", [
+    ('\u660e\u65e5\u306f\u660e\u65e5\u306e\u98a8\u304c\u5439\u304f', 'Ashita ha Ashita no Kaze ga Fuku'),
+    ("\u660e\u5929\u660e\u5929\u7684\u98ce\u5439", 'Mei Tenmei Ten Teki Sui'),
+    # (u"馮", "Fuu"), # Fuu in human's name, Hyou in another case
+    # regression tests
+    ('\u30d0\u30cb\u30fc\u3061\u3083\u3093\u3061\u306e\u30b7\u30e3\u30ef\u30fc\u30ce\u30ba\u30eb\u306e\u5148\u7aef',
+     "bani- chanchino shawa-nozuru no Sentan"),  # test for u30fc
+    ('\u3093\u301c\u30fb\u30fb\u30fb\u3002\u30b1\u30c4\u3063!\uff01', "n ~.... ketsu tsu !!"),
+    # Hiragana n Namisen katakana-middle-dot
+    # dot dot Touten, katakana KE, katakana
+    # TSU, Hiragana small TU, ASCII !, half width !
+    ("ページへようこそ", 'pe-ji heyoukoso'),
+    ("森鴎外", 'Mori Ougai'),  # no-itaiji
+    ("森鷗外", 'Mori Ougai'),   # itaiji
+    ("する。", 'suru.'),  # end mark test
+    ("森鷗外", 'Mori Ougai'),  # itaiji
+])
+def test_ja(case, expected):
     u = Unihandecoder(lang="ja")
-    for case, expected in JATESTS:
-        assert u.decode(case) == expected
+    assert u.decode(case) == expected
 
 
-def test_ja_itaiji():
-    JATESTS = [
-        ("森鷗外", 'Mori Ougai'),  # itaiji
-    ]
-    u = Unihandecoder(lang="ja")
-    for case, expected in JATESTS:
-        assert u.decode(case) == expected
+@pytest.mark.parametrize("case, expected", [
+    ('\ub0b4\uc77c\uc740 \ub0b4\uc77c \ubc14\ub78c\uc774 \ubd84\ub2e4', 'naeileun naeil barami bunda'),
+    ("\u660e\u5929\u660e\u5929\u7684\u98ce\u5439", 'Myeng Chen Myeng Chen Cek Feng Chwi ')
+])
+def test_kr(case, expected):
+    assert Unihandecoder(lang="kr").decode(case) == expected
 
 
-def test_kr():
-    KRTESTS = [
-        ('\ub0b4\uc77c\uc740 \ub0b4\uc77c \ubc14\ub78c\uc774 \ubd84\ub2e4', 'naeileun naeil barami bunda'),
-        ("\u660e\u5929\u660e\u5929\u7684\u98ce\u5439", 'Myeng Chen Myeng Chen Cek Feng Chwi ')
-    ]
-    u = Unihandecoder(lang="kr")
-    for case, expected in KRTESTS:
-        assert u.decode(case) == expected
+@pytest.mark.parametrize("case, expected", [
+    ("\u3400", 'Qiu '),
+    ("\u660e\u5929\u660e\u5929\u7684\u98ce\u5439", 'Ming Tian Ming Tian De Feng Chui '),
+    ("馮", "Feng "),
+])
+def test_zh(case, expected):
+    assert Unihandecoder(lang="zh").decode(case) == expected
 
 
-def test_zh():
-    ZHTESTS = [
-        ("\u3400", 'Qiu '),
-        ("\u660e\u5929\u660e\u5929\u7684\u98ce\u5439", 'Ming Tian Ming Tian De Feng Chui '),
-        ("馮", "Feng "),
-    ]
-    u = Unihandecoder(lang="zh")
-    for case, expected in ZHTESTS:
-        assert u.decode(case) == expected
-
-
-def test_vn():
-    VNTESTS = [
-        ('Ng\xe0y mai gi\xf3 th\u1ed5i v\xe0o ng\xe0y mai', 'Ngay mai gio thoi vao ngay mai'),
-        ("\u660e\u5929\u660e\u5929\u7684\u98ce\u5439", 'Minh Tian Minh Tian De Feng Xuy ')
-    ]
-    u = Unihandecoder(lang="vn")
-    for case, expected in VNTESTS:
-        assert u.decode(case) == expected
+@pytest.mark.parametrize("case, expected", [
+    ('Ng\xe0y mai gi\xf3 th\u1ed5i v\xe0o ng\xe0y mai', 'Ngay mai gio thoi vao ngay mai'),
+    ("\u660e\u5929\u660e\u5929\u7684\u98ce\u5439", 'Minh Tian Minh Tian De Feng Xuy ')
+])
+def test_vn(case, expected):
+    assert Unihandecoder(lang="vn").decode(case) == expected
 
 
 def test_yue():
@@ -246,5 +215,4 @@ def test_yue():
     ('\U0000304B\U00003099', 'ga')
 ])
 def test_composition(source, expected):
-    u = Unihandecoder()
-    assert u.decode(source) == expected
+    assert Unihandecoder().decode(source) == expected
