@@ -12,7 +12,8 @@ recursive-include docs *.rst
 recursive-include docs *.txt
 recursive-include docs Makefile
 recursive-include src *.py
-recursive-include src *.txt
 recursive-include src *.dtd
+recursive-include src *.json
+recursive-include src *.txt
 recursive-include src *.xml
 recursive-include tests *.py
