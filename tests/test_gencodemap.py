@@ -1,5 +1,4 @@
 # -*- coding: utf-8 -*-
-import lzma
 import os
 import pickle
 

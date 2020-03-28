@@ -57,6 +57,8 @@ class UnihanConv:
         # U+3432	kMandarin	DAI4
         # r1 is a expression to get U+<char code>
         r1 = re.compile(r"U\+([0-9A-F]{4,5})\b")
+        r2 = re.compile(r"(\w+)[1-5]")
+        r3 = re.compile(r"\w+\.\w+:(\w+)")
         for line in f:
             items = line[:-1].split("\t")
             try:
@@ -70,9 +72,9 @@ class UnihanConv:
                     self.prio[code] = p
                     pron = re.sub("[^\00-\x7f]", lambda x: self.pronounce_char_map[x.group()], items[2].split(" ")[0]).capitalize()
                     if category in ["kMandarin", "kCantonese"]:
-                        self.tbl[code] = re.sub(r"(\w+)[1-5]", r"\1 ", pron)
+                        self.tbl[code] = r2.sub(r"\1 ", pron)
                     elif category == "kHanyuPinyin":  # pragma: no branch
-                        self.tbl[code] = re.sub(r"\w+\.\w+:(\w+)", r"\1 ", pron)  # pragma: no cover
+                        self.tbl[code] = r3.sub(r"\1 ", pron)  # pragma: no cover
                     else:
                         self.tbl[code] = "%s " % pron
             except:
