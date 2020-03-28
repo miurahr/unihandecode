@@ -8,7 +8,7 @@ import unihandecode
 def test_unidecode_ascii():
     for n in range(0, 128):
         t = chr(n)
-        assert unihandecode.unidecode(t) == t
+        assert (n, unihandecode.unidecode(t)) == (n, t)
 
 
 def test_unidecode_bmp():
@@ -109,7 +109,7 @@ def test_unidecode_mac_japanese_pua(case, expected):
     ("Hello, World!", "Hello, World!"),
     ("'\"\r\n", "'\"\r\n"),
     ("ČŽŠčžš", "CZSczs"),
-    ("\u00a0\u00a1\u00a2\u00a3\u00a4\u00a5\u00a6\u00a7", " !C/PS\u005c$?Y=|SS"),
+    ("\u00a0\u00a1\u00a2\u00a3\u00a4\u00a5\u00a6\u00a7", " !C/PS$?Y=|SS"),
     ("\u00a8\u00a9\u00aa\u00ab\u00ac\u00ad\u00ae\u00af", "\u0022(c)a<<!(r)-"),
     ("ア", "a"),
     ("α", "a"),

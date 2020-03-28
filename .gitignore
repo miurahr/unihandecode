@@ -16,3 +16,4 @@ unihandecode.egg-info
 .coveralls.yml
 .idea
 .python-version
+.mypy_cache

@@ -50,74 +50,69 @@ def test_mathematical_digits():
         assert b == a
 
 
-@pytest.mark.xfail(reason="It seems a bug.")
 @pytest.mark.parametrize("case, expected", [
-    ("\u0041\u0301", "A"),  # "A" with accent mark
-    ("\u0061\u0323\u0302", "a"),  # "a" with accent marks
     ("\u30AB\u3099", "ga"),  # "ガ" coded by decomposed from as ' カ゛ '
     ("\u304B\u3099", "ga"),  # "が" coded by decomposed from as ' か゛ '
-    (u"\u0031\u20de", "1"),  # roman number "1"  wrapped with solid square
 ])
 def test_decomposed_form(case, expected):
     u = Unihandecoder(lang="ja")
     assert u.decode(case) == expected
 
 
-def test_squared_chars():
-    TESTS = [
-        ("\u3301", "alpha"),  # combined Alpha in Katakana
-        ("\u3302", "ampere"),  # combined Ampere in Katakana
-        ("\u3304", "inning"),
-        ("\u3306", "won"),  # combined Won in Katakana
-        ("\u3307", "escudo"),
-        ("\u3308", "acre"),  # combined Acre in Katakana
-        ("\u3309", "ounce"),  # combined ounce in Katakana
-        ("\u330a", "ohm"),  # combined Ohm in Katakana
-        ("\u3349", "milli"),  # milli in Katakana
-        ("\u3314", "kilo"),  # kilo in Katakana
-        ("\u3315", "kilogram"),  # kilo gram in Katakana
-        ("\u3316", "kilometer"),  # kilo metre in Katakana
-        ("\u3322", "centi"),  # centi in Katakana
-        ("\u334d", "meter"),  # metre in Katakana
-        ("\u3318", "gram"),  # gram in Katakana
-        ("\u3327", "ton"),  # ton in Katakana
-        ("\u3303", "are"),  # are in Katakana
-        ("\u3336", "hectare"),  # hect-are in Katakana
-        ("\u337f", "Inc."),  # kabusiki kaisha in Katakana
-    ]
+@pytest.mark.parametrize("case, expected", [
+    ("\u3301", "alpha"),  # combined Alpha in Katakana
+    ("\u3302", "ampere"),  # combined Ampere in Katakana
+    ("\u3304", "inning"),
+    ("\u3306", "won"),  # combined Won in Katakana
+    ("\u3307", "escudo"),
+    ("\u3308", "acre"),  # combined Acre in Katakana
+    ("\u3309", "ounce"),  # combined ounce in Katakana
+    ("\u330a", "ohm"),  # combined Ohm in Katakana
+    ("\u3349", "milli"),  # milli in Katakana
+    ("\u3314", "kilo"),  # kilo in Katakana
+    ("\u3315", "kilogram"),  # kilo gram in Katakana
+    ("\u3316", "kilometer"),  # kilo metre in Katakana
+    ("\u3322", "centi"),  # centi in Katakana
+    ("\u334d", "meter"),  # metre in Katakana
+    ("\u3318", "gram"),  # gram in Katakana
+    ("\u3327", "ton"),  # ton in Katakana
+    ("\u3303", "are"),  # are in Katakana
+    ("\u3336", "hectare"),  # hect-are in Katakana
+    ("\u337f", "Inc."),  # kabusiki kaisha in Katakana
+])
+def test_squared_chars(case, expected):
     u = Unihandecoder(lang="ja")
-    for case, expected in TESTS:
-        assert u.decode(case) == expected
+    assert u.decode(case) == expected
 
 
-def test_compatibility_composite():
-    TESTS = [
-        ("\ufb01", "fi"),
-        ("\u0032\u2075", "25"),
-    ]
+@pytest.mark.parametrize("case, expected", [
+    ("\ufb01", "fi"),
+    ("\u0032\u2075", "25"),
+    ("\u0041\u0301", "A"),  # "A" with accent mark
+    ("\u0061\u0323\u0302", "a"),  # "a" with accent marks
+    ("\u0031\u20de", "1"),  # roman number "1"  wrapped with solid square
+])
+def test_compatibility_composite(case, expected):
     u = Unihandecoder(lang="zh")
-    for case, expected in TESTS:
-        assert u.decode(case) == expected
+    assert u.decode(case) == expected
 
 
-def test_mac_japanese_pua():
-    TESTS = [
-        ("\uF862\u6709\u9650\u4F1A\u793E",  # Adobe CID 8321
-         "Yuugengaisha"),
-        ("\u5927\u20dd", "Dai "),  # "大" with circle
-        ("\u5c0f\u20dd", "Shou "),  # "小" with circle
-        ("\u63a7\u20dd", "Hikae "),  # "控" with circle
-    ]
-    u = Unihandecoder(lang="ja")
-    for case, expected in TESTS:
-        assert u.decode(case) == expected
+@pytest.mark.parametrize("case, expected", [
+    ("\uF862\u6709\u9650\u4F1A\u793E",  # Adobe CID 8321
+     "Yuugengaisha"),
+    ("\u5927\u20dd", "Dai "),  # "大" with circle
+    ("\u5c0f\u20dd", "Shou "),  # "小" with circle
+    ("\u63a7\u20dd", "Hikae "),  # "控" with circle
+])
+def test_mac_japanese_pua(case, expected):
+    assert Unihandecoder(lang="ja").decode(case) == expected
 
 
 @pytest.mark.parametrize("case, expected", [
     ("Hello, World!", "Hello, World!"),
     ("'\"\r\n", "'\"\r\n"),
     ("ČŽŠčžš", "CZSczs"),
-    ("\u00a0\u00a1\u00a2\u00a3\u00a4\u00a5\u00a6\u00a7", " !C/PS\u005c$?Y=|SS"),
+    ("\u00a0\u00a1\u00a2\u00a3\u00a4\u00a5\u00a6\u00a7", " !C/PS$?Y=|SS"),
     ("\u00a8\u00a9\u00aa\u00ab\u00ac\u00ad\u00ae\u00af", "\u0022(c)a<<!(r)-"),
     ("ア", "a"),
     ("α", "a"),
@@ -174,8 +169,7 @@ def test_kana():
     ("森鷗外", 'Mori Ougai'),  # itaiji
 ])
 def test_ja(case, expected):
-    u = Unihandecoder(lang="ja")
-    assert u.decode(case) == expected
+    assert Unihandecoder(lang="ja").decode(case) == expected
 
 
 @pytest.mark.parametrize("case, expected", [
