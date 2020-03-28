@@ -27,6 +27,6 @@ def test_unicodepoints(tmp_path):
     u = gencodemap.Unicodepoints()
     u.run(os.path.join(tmp_path, 'unicodepoints.pickle'))
 
-    with lzma.LZMAFile(os.path.join(tmp_path, 'unicodepoints.pickle.lzma'), 'r') as f:
+    with open(os.path.join(tmp_path, 'unicodepoints.pickle'), 'rb') as f:
         dic = pickle.load(f)
         assert isinstance(dic, dict)

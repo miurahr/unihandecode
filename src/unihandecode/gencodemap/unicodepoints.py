@@ -1,6 +1,5 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-import lzma
 import pickle
 
 from typing import Dict, Optional
@@ -16,19 +15,13 @@ a single dictionary.
 class Unicodepoints:
     def __init__(self):
         self.tbl = {}  # type: Dict[int, Optional[str]]
-
-        for i in range(0xFFFF):
-            self.tbl[i] = None
-        for i in range(0x010000, 0x10FFFF, 1):
-            self.tbl[i] = None
-
         for high_byte in sorted(self.CODEPOINTS.keys()):
             for i, s in enumerate(self.CODEPOINTS[high_byte]):
                 assert i < 256
                 self.tbl[high_byte * 256 + i] = s
 
     def run(self, dest):
-        with lzma.LZMAFile(filename=dest + '.lzma', mode='w') as outfile:
+        with open(dest, 'wb') as outfile:
             pickle.dump(self.tbl, outfile)
 
     CODEPOINTS = {

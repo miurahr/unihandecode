@@ -22,7 +22,6 @@ and  perl module Text::Unidecode
 
 Copyright (c) 2010,2015,2018,2020 Hiroshi Miura
 '''
-import lzma
 import os
 import pickle
 import pkg_resources
@@ -53,23 +52,31 @@ class Unihandecoder:
         return self.decoder.decode(unicodedata.normalize('NFC', text))
 
 
-class Unidecoder:
+class CodePoints:
 
     def __init__(self, lang='zh'):
         self.config = Configurations()
         self.codepoints = {}  # type: Dict[int, Optional[str]]
-        for c in ['unicodepoints.pickle.lzma', '%scodepoints.pickle' % lang]:
-            if c.endswith('.lzma'):
-                with lzma.LZMAFile(self.config.datapath(c), 'r') as data:
-                    dic = pickle.load(data)
-                    self.codepoints.update(dic)
-            else:
-                with open(self.config.datapath(c), 'rb') as data:
-                    dic = pickle.load(data)
-                    self.codepoints.update(dic)
+        for c in ['unicodepoints.pickle', '%scodepoints.pickle' % lang]:
+            with open(self.config.datapath(c), 'rb') as data:
+                dic = pickle.load(data)
+                self.codepoints.update(dic)
+
+    def __getitem__(self, item):
+        try:
+            return self.codepoints[item]
+        except LookupError:
+            return None
+
+
+class Unidecoder:
+
+    def __init__(self, lang='zh'):
+        self.codepoints = CodePoints(lang)
 
     def decode(self, text):
         return text.translate(self.codepoints)
+
 
 _unidecoder = None
 
