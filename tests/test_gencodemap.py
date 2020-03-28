@@ -22,7 +22,7 @@ def test_gencodemap(tmp_path):
     u = gencodemap.UnihanConv('kr')
     u.run(source=unihan_source, dest=dest)
     with open(os.path.join(tmp_path, 'krcodepoints.pickle'), 'rb') as f:
-        (dic, dlen) = pickle.load(f)
+        dic = pickle.load(f)
         assert isinstance(dic, dict)
 
 
@@ -32,5 +32,5 @@ def test_unicodepoints(tmp_path):
     u.run(os.path.join(tmp_path, 'unicodepoints.pickle'))
 
     with open(os.path.join(tmp_path, 'unicodepoints.pickle'), 'rb') as f:
-        (dic, dlen) = pickle.load(f)
+        dic = pickle.load(f)
         assert isinstance(dic, dict)

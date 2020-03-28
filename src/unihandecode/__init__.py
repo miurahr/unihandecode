@@ -26,7 +26,7 @@ import os
 import pickle
 import pkg_resources
 import re
-from typing import Dict
+from typing import Dict, Optional
 
 import unicodedata
 import pykakasi  # type: ignore
@@ -55,57 +55,19 @@ class Unihandecoder:
 
 class Unidecoder:
 
-    codepoints = {}  # type: Dict[str, Dict[int, str]]
-
-    def __init__(self, lang=None):
+    def __init__(self, lang='zh'):
         self.config = Configurations()
-        if lang is not None:
-            self._load_codepoints(lang)
-        else:
-            self._load_codepoints('zh')
-
+        self.codepoints = {}  # type: Dict[int, Optional[str]]
+        for c in ['unicodepoints.pickle', '%scodepoints.pickle' % lang]:
+            with open(self.config.datapath(c), 'rb') as data:
+                dic = pickle.load(data)
+                self.codepoints.update(dic)
 
     def decode(self, text):
-        # Replace characters larger than 127 with their ASCII equivelent.
-        return re.sub('[^\x00-\x7f]',lambda x: self.replace_point(x.group()), text)
-
-    def replace_point(self, codepoint):
-        '''
-        Returns the replacement character or ? if none can be found.
-        '''
-        try:
-            # Split the unicode character xABCD into parts 0xAB and 0xCD.
-            # 0xAB represents the group within CODEPOINTS to query and 0xCD
-            # represents the position in the list of characters for the group.
-            return self.codepoints[self.code_group(codepoint)][self.grouped_point(
-                codepoint)]
-        except:
-            return ''
-
-    def code_group(self, character):
-        '''
-        Find what group character is a part of.
-        '''
-        # Code groups withing CODEPOINTS take the form 'xAB'
-        return 'x%02x' % (ord(character) >> 8)
-
-    def grouped_point(self, character):
-        '''
-        Return the location the replacement character is in the list for a
-        the group character is a part of.
-        '''
-        return ord(character) & 255
-
-    def _load_codepoints(self, lang):
-        loc_resource = '%scodepoints.pickle' % lang
-        for c in ['unicodepoints.pickle', loc_resource]:
-            with open(self.config.datapath(c), 'rb') as data:
-                (dic, dlen) = pickle.load(data)
-                self.codepoints.update(dic)
-        return self.codepoints
-
+        return text.translate(self.codepoints)
 
 _unidecoder = None
+
 
 def unidecode(text):
     global _unidecoder
@@ -129,7 +91,7 @@ class Jadecoder(Unidecoder):
 
     def decode(self, text):
             result=self.conv.do(text)
-            return re.sub('[^\x00-\x7f]', lambda x: self.replace_point(x.group()),result)
+            return result.translate(self.codepoints)
 
 
 class Krdecoder(Unidecoder):

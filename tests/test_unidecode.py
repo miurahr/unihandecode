@@ -8,7 +8,7 @@ import unihandecode
 def test_unidecode_ascii():
     for n in range(0, 128):
         t = chr(n)
-        assert unihandecode.unidecode(t) == t
+        assert (n, unihandecode.unidecode(t)) == (n, t)
 
 
 def test_unidecode_bmp():
