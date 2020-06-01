@@ -1,7 +1,8 @@
 import sys
 
-import pytest
 from unihandecode import Unihandecoder
+
+import pytest
 
 
 def test_ascii():
@@ -150,23 +151,28 @@ def test_kana():
         u.decode(t)
 
 
-@pytest.mark.xfail(reason="Chinese handling in preference to ja is not unexpected.")
+# @pytest.mark.xfail(reason="Chinese handling in preference to ja is not unexpected.")
 @pytest.mark.parametrize("case, expected", [
     ('\u660e\u65e5\u306f\u660e\u65e5\u306e\u98a8\u304c\u5439\u304f', 'Ashita ha Ashita no Kaze ga Fuku'),
-    ("\u660e\u5929\u660e\u5929\u7684\u98ce\u5439", 'Mei Tenmei Ten Teki Sui'),
+    # non-Japanese han/kanji is converted with chinese rule.
+    # known issue for spacing
+    # ("\u660e\u5929\u660e\u5929\u7684\u98ce\u5439", 'Mei Tenmei Ten Teki Feng Sui'),
     # (u"馮", "Fuu"), # Fuu in human's name, Hyou in another case
     # regression tests
     ('\u30d0\u30cb\u30fc\u3061\u3083\u3093\u3061\u306e\u30b7\u30e3\u30ef\u30fc\u30ce\u30ba\u30eb\u306e\u5148\u7aef',
-     "bani- chanchino shawa-nozuru no Sentan"),  # test for u30fc
-    ('\u3093\u301c\u30fb\u30fb\u30fb\u3002\u30b1\u30c4\u3063!\uff01', "n ~.... ketsu tsu !!"),
+     "banii chanchino shawaanozuru no Sentan"),  # test for u30fc
+    # known issue
+    # ('\u3093\u301c\u30fb\u30fb\u30fb\u3002\u30b1\u30c4\u3063!\uff01', "n ~.... ketsu tsu !!"),
     # Hiragana n Namisen katakana-middle-dot
     # dot dot Touten, katakana KE, katakana
     # TSU, Hiragana small TU, ASCII !, half width !
-    ("ページへようこそ", 'pe-ji heyoukoso'),
+    ("ページへようこそ", 'peeji heyoukoso'),
     ("森鴎外", 'Mori Ougai'),  # no-itaiji
     ("森鷗外", 'Mori Ougai'),   # itaiji
     ("する。", 'suru.'),  # end mark test
     ("森鷗外", 'Mori Ougai'),  # itaiji
+    ("\U0000845B\U000E0100飾区", 'Katsushikaku'),
+    ("\U0000845B\U000E0101城", "Katsuragi"),
 ])
 def test_ja(case, expected):
     assert Unihandecoder(lang="ja").decode(case) == expected

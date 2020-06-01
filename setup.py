@@ -29,4 +29,4 @@ class MyBuild(build_py):
 
 setup(cmdclass={'build_py': MyBuild},
       use_scm_version={"local_scheme": "no-local-version"},
-      setup_requires=['setuptools-scm>=3.5.0', 'setuptools>=42', 'wheel', 'pykakasi>=2.0.0a5'])
+      setup_requires=['setuptools-scm>=3.5.0', 'setuptools>=42'])

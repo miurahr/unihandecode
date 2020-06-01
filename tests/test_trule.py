@@ -1,8 +1,8 @@
 import os
 
-import pytest
-
 import unihandecode.gencodemap as gencodemap
+
+import pytest
 
 datadir = os.path.join(os.path.dirname(os.path.dirname(__file__)), 'src', 'unihandecode', 'data', 'transforms')
 
