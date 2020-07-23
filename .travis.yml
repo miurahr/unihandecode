@@ -1,7 +1,6 @@
 language: python
 dist: xenial
 sudo: false
-cache: pip
 matrix:
   include:
     - python: 3.7
@@ -10,22 +9,8 @@ matrix:
       env: TOXENV=docs
 
 install:
-  - pip install tox tox-travis coveralls pykakasi
+  - pip install tox tox-travis
 
 script:
   - tox
 
-after_success:
-  - coveralls
-
-deploy:
-  - provider: pypi
-    user: miurahr
-    password:
-      secure: Cnx2TnF4OdTQbdcNFbf3YUqpthSoXIgdiAJFqtUhBvKzr3PR+bAqifynQk1Nk66veyiWyYTojVJM3Mmysl+IozsM5mVGjVkxOh91oi/fqIL4Pr/YEHlcs1/av6yKOp/YxPvg1fH3zhaM7B6lJc+9ofHh0Paohy5z7AO3yXtHaEY=
-    distributions: bdist_wheel
-    skip_existing: true
-    on:
-      repo: miurahr/unihandecode
-      python: '3.6'
-      tags: true
