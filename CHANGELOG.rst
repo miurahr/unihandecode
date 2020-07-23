@@ -25,6 +25,17 @@ Removed
 Security
 --------
 
+`v0.9.0b1`_ (23, Jul, 2020)
+===========================
+
+Changed
+-------
+
+* Version muber to semantic
+* Update Tox configuration
+* Dependency for pykakasi to v2.0.1
+
+
 `v0.9a3`_ (28, May, 2020)
 =========================
 
@@ -134,7 +145,8 @@ Removed
 
 * work in progress
 
-.. _Unreleased: https://github.com/miurahr/unihandecode/compare/v0.9a3...HEAD
+.. _Unreleased: https://github.com/miurahr/unihandecode/compare/v0.9.0b1...HEAD
+.. _v0.9.0b1: https://github.com/miurahr/unihandecode/compare/v0.9a3...v0.9.0b1
 .. _v0.9a3: https://github.com/miurahr/unihandecode/compare/v0.9a2...v0.9a3
 .. _v0.9a2: https://github.com/miurahr/unihandecode/compare/v0.9a1...v0.9a2
 .. _v0.9a1: https://github.com/miurahr/unihandecode/compare/v0.81...v0.9a1
