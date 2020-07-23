@@ -35,6 +35,11 @@ Changed
 * Update Tox configuration
 * Dependency for pykakasi to v2.0.1
 
+Fixed
+-----
+
+* make flake8 check working.
+
 
 `v0.9a3`_ (28, May, 2020)
 =========================
