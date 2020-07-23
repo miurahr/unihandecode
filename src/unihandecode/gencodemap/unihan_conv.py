@@ -61,21 +61,29 @@ class UnihanConv:
         r3 = re.compile(r"\w+\.\w+:(\w+)")
         for line in f:
             items = line[:-1].split("\t")
+            if items[0].startswith('#'):  # Skip comment lines
+                continue
             try:
                 code = int(r1.sub(r"\1", items[0]), 16)
-                category = items[1]
-                try:
-                    p = self.priority[self.lang].index(category)
-                except:
-                    continue
-                if (code not in self.prio) or ( p < self.prio[code]):
-                    self.prio[code] = p
-                    pron = re.sub("[^\00-\x7f]", lambda x: self.pronounce_char_map[x.group()], items[2].split(" ")[0]).capitalize()
-                    if category in ["kMandarin", "kCantonese"]:
-                        self.tbl[code] = r2.sub(r"\1 ", pron)
-                    elif category == "kHanyuPinyin":  # pragma: no branch
-                        self.tbl[code] = r3.sub(r"\1 ", pron)  # pragma: no cover
-                    else:
-                        self.tbl[code] = "%s " % pron
-            except:
+            except ValueError:  # FIXME: show warning
                 continue
+            category = items[1]
+            try:
+                p = self.priority[self.lang].index(category)
+            except ValueError:
+                # When there is no definition for category, just ignore.
+                continue
+            if (code not in self.prio) or (p < self.prio[code]):
+                self.prio[code] = p
+                try:
+                    pron = re.sub("[^\00-\x7f]",
+                                  lambda x: self.pronounce_char_map[x.group()], items[2].split(" ")[0]).capitalize()
+                except KeyError:
+                    # FIXME: now skip non-ascii values
+                    continue
+                if category in ["kMandarin", "kCantonese"]:
+                    self.tbl[code] = r2.sub(r"\1 ", pron)
+                elif category == "kHanyuPinyin":  # pragma: no branch
+                    self.tbl[code] = r3.sub(r"\1 ", pron)  # pragma: no cover
+                else:
+                    self.tbl[code] = "%s " % pron

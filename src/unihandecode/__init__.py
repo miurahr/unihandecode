@@ -6,7 +6,7 @@ __docformat__ = 'restructuredtext en'
 __all__ = ["Unihandecoder"]
 
 '''
-Decode unicode text to an ASCII representation of the text. 
+Decode unicode text to an ASCII representation of the text.
 Translate unicode characters to ASCII.
 
 inspired from John's unidecode library.
@@ -16,9 +16,9 @@ Transiliterate the string from unicode characters to ASCII in Chinese and others
 Decode unicode text to an ASCII representation of the text for Japanese.
 
 API is based on the python unidecode,
-which is based on Ruby gem (http://rubyforge.org/projects/unidecode/) 
+which is based on Ruby gem (http://rubyforge.org/projects/unidecode/)
 and  perl module Text::Unidecode
-(http://search.cpan.org/~sburke/Text-Unidecode-0.04/). 
+(http://search.cpan.org/~sburke/Text-Unidecode-0.04/).
 
 Copyright (c) 2010,2015,2018,2020 Hiroshi Miura
 '''
@@ -83,7 +83,7 @@ _unidecoder = None
 
 def unidecode(text):
     global _unidecoder
-    if _unidecoder == None:
+    if _unidecoder is None:
         _unidecoder = Unihandecoder()
     return _unidecoder.decode(text)
 
@@ -93,17 +93,17 @@ class Jadecoder(Unidecoder):
     def __init__(self):
         super(Jadecoder, self).__init__('ja')
         self.kakasi = pykakasi.kakasi()
-        self.kakasi.setMode("J","a")
-        self.kakasi.setMode("E","a")
-        self.kakasi.setMode("H","a")
-        self.kakasi.setMode("K","a")
+        self.kakasi.setMode("J", "a")
+        self.kakasi.setMode("E", "a")
+        self.kakasi.setMode("H", "a")
+        self.kakasi.setMode("K", "a")
         self.kakasi.setMode("s", True)
         self.kakasi.setMode("C", True)
-        self.conv=self.kakasi.getConverter()
+        self.conv = self.kakasi.getConverter()
 
     def decode(self, text):
-            result=self.conv.do(text)
-            return result.translate(self.codepoints)
+        result = self.conv.do(text)
+        return result.translate(self.codepoints)
 
 
 class Krdecoder(Unidecoder):

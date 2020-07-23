@@ -1,4 +1,3 @@
-import os
 import re
 import xml.etree.ElementTree as ET
 from typing import Dict, Optional
@@ -37,4 +36,3 @@ class TransformRule:
 
     def as_dictionary(self):
         return self.tbl
-
