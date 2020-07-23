@@ -1,6 +1,18 @@
 [build-system]
-requires = ["setuptools>=42", "wheel", "setuptools_scm[toml]>=3.5.0", "pykakasi>=2.0.0"]
+requires = ["setuptools>=42", "wheel", "setuptools_scm[toml]>=3.5.0", "pykakasi>=2.0.1"]
 build-backend = "setuptools.build_meta"
 
 [tools.setuptools_scm]
 local_scheme = "no-local-version"
+
+[tool.coverage.paths]
+source = ["src", "*/site-packages"]
+
+[tool.coverage.run]
+branch = true
+parallel = true
+source = ["unihandecode"]
+
+[tool.coverage.report]
+show_missing = true
+exclude_lines = ["if __name__ == .__main__.:", "pragma: no-cover", "@abstract", "def __repr__"]
