@@ -13,8 +13,8 @@ Overview
 .. image:: https://ci.appveyor.com/api/projects/status/pcguwvtvwc23g20v?svg=true
    :target: https://ci.appveyor.com/project/miurahr/unihandecode
    :alt: AppVeyor
-.. image:: https://coveralls.io/repos/miurahr/unihandecode/badge.svg?branch=master
-   :target: https://coveralls.io/r/miurahr/unihandecode?branch=master
+.. image:: https://coveralls.io/repos/github/miurahr/unihandecode/badge.svg?branch=master
+   :target: https://coveralls.io/github/miurahr/unihandecode?branch=master
    :alt: Coverage Status
 .. image:: https://badge.fury.io/py/Unihandecode.png
    :target: http://badge.fury.io/py/Unihandecode
