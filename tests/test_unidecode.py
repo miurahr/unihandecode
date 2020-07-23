@@ -1,9 +1,9 @@
 # -*- coding: utf-8 -*-
 import sys
 
-import unihandecode
-
 import pytest
+
+import unihandecode
 
 
 def test_unidecode_ascii():

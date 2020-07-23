@@ -1,8 +1,8 @@
 import sys
 
-from unihandecode import Unihandecoder
-
 import pytest
+
+from unihandecode import Unihandecoder
 
 
 def test_ascii():
