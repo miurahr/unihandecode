@@ -23,3 +23,26 @@ jobs:
           pip install tox tox-gh-actions
       - name: Test project with tox
         run: tox
+      - name: Upload coverage to Coveralls
+        run: |
+          coveralls
+        env:
+          COVERALLS_REPO_TOKEN: ${{ secrets.COVERALLS_REPO_TOKEN }}
+          COVERALLS_PARALLEL: true
+          COVERALLS_FLAG_NAME: ${{ matrix.python-version }}-${{ matrix.os }}
+  finish:
+    runs-on: ubuntu-latest
+    name: finish parallel build
+    needs: build
+    steps:
+      - name: Setup python
+        uses: actions/setup-python@v1
+        with:
+          python-version: 3.8
+          architecture: x64
+      - name: Tell Coveralls that the parallel build is finished
+        run: |
+          pip install -U coveralls
+          coveralls --finish
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
