@@ -20,7 +20,7 @@ jobs:
       - name: Install dependencies
         run: |
           pip install -U pip
-          pip install tox tox-gh-actions
+          pip install tox tox-gh-actions coveralls
       - name: Test project with tox
         run: tox
       - name: Upload coverage to Coveralls
