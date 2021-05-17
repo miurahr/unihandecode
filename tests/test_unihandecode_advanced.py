@@ -9,16 +9,16 @@ def test_long_japanese_text():
            "この憲法を確定する。そもそも国政は、国民の厳粛な信託によるものであつて、その権威は国民に由来し、" \
            "その権力は国民の代表者がこれを行使し、その福利は国民がこれを享受する。これは人類普遍の原理であり、" \
            "この憲法は、かかる原理に基くものである。われらは、これに反する一切の憲法、法令及び詔勅を排除する。"
-    expected = "Nihonkokumin ha, Seitou ni Senkyo sareta Kokkai niokeru Daihyousha wo Tsuuji te Koudou shi, " \
-               "wareratowarerano Shison notameni, Shokokumin tono Kyouwa niyoru Seika to, " \
-               "waga Kuni Zendo niwatatsute Jiyuu nomotarasu Keitaku wo Kakuho shi, " \
-               "Seifu no Koui niyotsute Futatabi Sensou no Sanka ga Okoru kotononaiyaunisurukotowo Ketsui shi, " \
-               "kokoni Shuken ga Kokumin ni Sonsu rukotowo Sengen shi, kono Kenpou wo Kakuteisu ru. " \
-               "somosomo Kokusei ha, Kokumin no Genshuku na Shintaku niyorumonodeatsute, " \
-               "sono Ken'i ha Kokumin ni Yurai shi, sono Kenryoku ha Kokumin no Daihyousha gakorewo Koushi shi, " \
-               "sono Fukuri ha Kokumin gakorewo Kyouju suru. koreha Jinruifuhen no Genri deari, " \
-               "kono Kenpou ha, kakaru Genri ni Motozuku monodearu. wareraha, " \
-               "koreni Hansu ru Issai no Kenpou, Hourei Oyobi Shouchoku wo Haijo suru."
+    expected = "nihonkokumin ha, seitou ni senkyo sareta kokkai niokeru daihyousha wo tsuuji te koudou shi, " \
+               "wareratowarerano shison notameni, shokokumin tono kyouwa niyoru seika to, " \
+               "waga kuni zendo niwatatsute jiyuu nomotarasu keitaku wo kakuho shi, " \
+               "seifu no koui niyotsute futatabi sensou no sanka ga okoru kotononaiyaunisurukotowo ketsui shi, " \
+               "kokoni shuken ga kokumin ni sonsu rukotowo sengen shi, kono kenpou wo kakuteisu ru. " \
+               "somosomo kokusei ha, kokumin no genshuku na shintaku niyorumonodeatsute, " \
+               "sono ken'i ha kokumin ni yurai shi, sono kenryoku ha kokumin no daihyousha gakorewo koushi shi, " \
+               "sono fukuri ha kokumin gakorewo kyouju suru. koreha jinruifuhen no genri deari, " \
+               "kono kenpou ha, kakaru genri ni motozuku monodearu. wareraha, " \
+               "koreni hansu ru issai no kenpou, hourei oyobi shouchoku wo haijo suru."
 
     u = Unihandecoder(lang="ja")
     assert u.decode(case) == expected

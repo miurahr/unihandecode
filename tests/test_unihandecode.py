@@ -100,10 +100,10 @@ def test_compatibility_composite(case, expected):
 
 @pytest.mark.parametrize("case, expected", [
     ("\uF862\u6709\u9650\u4F1A\u793E",  # Adobe CID 8321
-     "Yuugengaisha"),
-    ("\u5927\u20dd", "Dai "),  # "大" with circle
-    ("\u5c0f\u20dd", "Shou "),  # "小" with circle
-    ("\u63a7\u20dd", "Hikae "),  # "控" with circle
+     "yuugengaisha"),
+    ("\u5927\u20dd", "dai "),  # "大" with circle
+    ("\u5c0f\u20dd", "shou "),  # "小" with circle
+    ("\u63a7\u20dd", "hikae "),  # "控" with circle
 ])
 def test_mac_japanese_pua(case, expected):
     assert Unihandecoder(lang="ja").decode(case) == expected
@@ -153,26 +153,26 @@ def test_kana():
 
 # @pytest.mark.xfail(reason="Chinese handling in preference to ja is not unexpected.")
 @pytest.mark.parametrize("case, expected", [
-    ('\u660e\u65e5\u306f\u660e\u65e5\u306e\u98a8\u304c\u5439\u304f', 'Ashita ha Ashita no Kaze ga Fuku'),
+    ('\u660e\u65e5\u306f\u660e\u65e5\u306e\u98a8\u304c\u5439\u304f', 'ashita ha ashita no kaze ga fuku'),
     # non-Japanese han/kanji is converted with chinese rule.
     # known issue for spacing
     # ("\u660e\u5929\u660e\u5929\u7684\u98ce\u5439", 'Mei Tenmei Ten Teki Feng Sui'),
     # (u"馮", "Fuu"), # Fuu in human's name, Hyou in another case
     # regression tests
     ('\u30d0\u30cb\u30fc\u3061\u3083\u3093\u3061\u306e\u30b7\u30e3\u30ef\u30fc\u30ce\u30ba\u30eb\u306e\u5148\u7aef',
-     "banii chanchino shawaanozuru no Sentan"),  # test for u30fc
+     "banii chanchino shawaanozuru no sentan"),  # test for u30fc
     # known issue
     # ('\u3093\u301c\u30fb\u30fb\u30fb\u3002\u30b1\u30c4\u3063!\uff01', "n ~.... ketsu tsu !!"),
     # Hiragana n Namisen katakana-middle-dot
     # dot dot Touten, katakana KE, katakana
     # TSU, Hiragana small TU, ASCII !, half width !
     ("ページへようこそ", 'peeji heyoukoso'),
-    ("森鴎外", 'Mori Ougai'),  # no-itaiji
-    ("森鷗外", 'Mori Ougai'),   # itaiji
+    ("森鴎外", 'mori ougai'),  # no-itaiji
+    ("森鷗外", 'mori ougai'),   # itaiji
     ("する。", 'suru.'),  # end mark test
-    ("森鷗外", 'Mori Ougai'),  # itaiji
-    ("\U0000845B\U000E0100飾区", 'Katsushikaku'),
-    ("\U0000845B\U000E0101城", "Katsuragi"),
+    ("森鷗外", 'mori ougai'),  # itaiji
+    ("\U0000845B\U000E0100飾区", 'katsushikaku'),
+    ("\U0000845B\U000E0101城", "katsuragi"),
 ])
 def test_ja(case, expected):
     assert Unihandecoder(lang="ja").decode(case) == expected

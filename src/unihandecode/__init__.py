@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 __license__ = 'GPL 3'
-__copyright__ = '2010-2020 Hiroshi Miura <miurahr@linux.com>'
+__copyright__ = '2010-2021 Hiroshi Miura <miurahr@linux.com>'
 __docformat__ = 'restructuredtext en'
 __all__ = ["Unihandecoder"]
 
@@ -20,7 +20,7 @@ which is based on Ruby gem (http://rubyforge.org/projects/unidecode/)
 and  perl module Text::Unidecode
 (http://search.cpan.org/~sburke/Text-Unidecode-0.04/).
 
-Copyright (c) 2010,2015,2018,2020 Hiroshi Miura
+Copyright (c) 2010,2015,2018,2020,2021 Hiroshi Miura
 '''
 import os
 import pickle
@@ -93,17 +93,10 @@ class Jadecoder(Unidecoder):
     def __init__(self):
         super(Jadecoder, self).__init__('ja')
         self.kakasi = pykakasi.kakasi()
-        self.kakasi.setMode("J", "a")
-        self.kakasi.setMode("E", "a")
-        self.kakasi.setMode("H", "a")
-        self.kakasi.setMode("K", "a")
-        self.kakasi.setMode("s", True)
-        self.kakasi.setMode("C", True)
-        self.conv = self.kakasi.getConverter()
 
     def decode(self, text):
-        result = self.conv.do(text)
-        return result.translate(self.codepoints)
+        result = self.kakasi.convert(text)
+        return " ".join([term["hepburn"] for term in result]).translate(self.codepoints)
 
 
 class Krdecoder(Unidecoder):
