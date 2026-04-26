@@ -50,7 +50,7 @@ jobs:
       - name: twine check
         run: python -m twine check dist/*
       - name: upload dist artifacts
-        uses: actions/upload-artifact@v6
+        uses: actions/upload-artifact@v7
         with:
           name: dists
           path: dist/

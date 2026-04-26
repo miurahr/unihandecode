@@ -11,9 +11,9 @@ jobs:
         python-version: [3.12, 3.13, 3.14]
     name: Test on Python ${{ matrix.python-version }}
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v6
       - name: Setup python
-        uses: actions/setup-python@v1
+        uses: actions/setup-python@v6
         with:
           python-version: ${{ matrix.python-version }}
       - name: Install dependencies
